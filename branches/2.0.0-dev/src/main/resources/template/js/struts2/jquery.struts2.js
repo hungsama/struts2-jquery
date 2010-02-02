@@ -21,6 +21,8 @@
 	 */
 	jQuery.struts2_jquery = {
 		
+		ajaxhistory: false,
+
 		historyelements: {},
 		
 		forms: {},
@@ -93,14 +95,14 @@
 					var params = {};
 					params.topic = topic;
 					$elem.bind('click', params, function(event){
-						$target = $(this);
+						var target = $(this);
 						
-						if(!$target.disabled || $target.disabled != true) {
+						if(!target.disabled || target.disabled != true) {
 
 							var publishOptions = event.data || {};
 							publishOptions.disabled = false;
 							
-							$target.publish(event.data.topic, publishOptions, event);
+							target.publish(event.data.topic, publishOptions, event);
 						}
     	    		    return false;
 					});
@@ -142,7 +144,7 @@
 								tarelem.subscribe(topics[i], '_s2j_effects', effect);
 							}
 						}
-		    	    	if(ajaxhistory) {
+		    	    	if($.struts2_jquery.ajaxhistory) {
 							var params = {};
 							params.target = target;
 							params.topic = actionTopic;
@@ -478,7 +480,7 @@
 					var target = targets[i];
 					
 					if(options.effect) { $('#' + target).subscribe(topic, '_s2j_effects', options); }
-	    	    	if(ajaxhistory) {
+	    	    	if($.struts2_jquery.ajaxhistory) {
 						var params = {};
 						params.target = target;
 						params.topic = topic;
@@ -605,7 +607,7 @@
 	    	$elem.tabs(para);
 
 	    	// History and Bookmarking for Tabs
-    		if(ajaxhistory) {
+    		if($.struts2_jquery.ajaxhistory) {
 				var params = {};
 				params.id = options.id;
 		    	$elem.find('ul.ui-tabs-nav a').bind('click', params, function(event){
@@ -1390,7 +1392,7 @@
 				}
 			}
 			//Use BBQ for Ajaxhistory
-	    	if(ajaxhistory) {
+	    	if($.struts2_jquery.ajaxhistory) {
 	    		var ahparams = {};
 	    		ahparams.cid = cid;
 	    		ahparams.options = options;

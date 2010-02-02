@@ -89,9 +89,7 @@
   <script type="text/javascript" src="${base}/struts/js/struts2/${jqueryStrutsFile}"></script>
 <script type="text/javascript">
 <#if parameters.ajaxhistory?default(false)>
-	var ajaxhistory=true;
-<#else>
-	var ajaxhistory=false;
+	$.struts2_jquery.ajaxhistory = true;
 </#if>
 $(document).ready(function () {
 	<#if parameters.defaultIndicator?if_exists != "">
