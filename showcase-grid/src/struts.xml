@@ -33,10 +33,8 @@
     
     <package name="showcase" extends="hibernate-default,json-default">
         <interceptors>
-			<!--<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/>
-            --><interceptor-stack name="showcaseStack"><!-- 
-                <interceptor-ref name="json"/>
-                --><interceptor-ref name="defaultStackHibernate"/>
+			<interceptor-stack name="showcaseStack">
+				<interceptor-ref name="defaultStackHibernate"/>
             </interceptor-stack>
         </interceptors>
     	<default-interceptor-ref name="showcaseStack"/>
