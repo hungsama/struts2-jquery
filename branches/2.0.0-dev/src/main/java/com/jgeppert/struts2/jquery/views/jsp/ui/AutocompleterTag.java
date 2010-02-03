@@ -25,44 +25,39 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.components.Component;
 
 import com.jgeppert.struts2.jquery.components.Autocompleter;
-import com.jgeppert.struts2.jquery.components.Select;
 import com.opensymphony.xwork2.util.ValueStack;
 
-public class AutocompleterTag extends AbstractFormElementTag {
+public class AutocompleterTag extends AbstractFormElementTag
+{
 
-  private static final long serialVersionUID = 4675729906623010236L;
+	private static final long	serialVersionUID	= 4675729906623010236L;
 
-  protected String          delay;
-  protected String          loadMinimumCount;
-  protected String          list;
+	protected String			delay;
+	protected String			loadMinimumCount;
+	protected String			list;
 
-  public Component getBean(ValueStack stack, HttpServletRequest req, HttpServletResponse res)
-  {
-    return new Select(stack, req, res);
-  }
+	public Component getBean(ValueStack stack, HttpServletRequest req, HttpServletResponse res) {
+		return new Autocompleter(stack, req, res);
+	}
 
-  protected void populateParams()
-  {
-    super.populateParams();
+	protected void populateParams() {
+		super.populateParams();
 
-    Autocompleter completer = (Autocompleter) component;
-    completer.setDelay(delay);
-    completer.setLoadMinimumCount(loadMinimumCount);
-    completer.setList(list);
-  }
+		Autocompleter completer = (Autocompleter) component;
+		completer.setDelay(delay);
+		completer.setLoadMinimumCount(loadMinimumCount);
+		completer.setList(list);
+	}
 
-  public void setDelay(String delay)
-  {
-    this.delay = delay;
-  }
+	public void setDelay(String delay) {
+		this.delay = delay;
+	}
 
-  public void setLoadMinimumCount(String loadMinimumCount)
-  {
-    this.loadMinimumCount = loadMinimumCount;
-  }
+	public void setLoadMinimumCount(String loadMinimumCount) {
+		this.loadMinimumCount = loadMinimumCount;
+	}
 
-  public void setList(String list)
-  {
-    this.list = list;
-  }
+	public void setList(String list) {
+		this.list = list;
+	}
 }

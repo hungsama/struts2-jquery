@@ -1,4 +1,3 @@
-<#--
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,15 +16,31 @@
  * specific language governing permissions and limitations
  * under the License.
  */
--->
-<#if parameters.parentTheme == 'xhtml' || parameters.parentTheme == 'simple'>
-<#if parameters.parentTheme == 'xhtml'>
-<#include "/${parameters.templateDir}/xhtml/controlheader.ftl" />
-</#if>
-<#include "/${parameters.templateDir}/simple/text.ftl" />
-<#if parameters.parentTheme == 'xhtml'>
-<#include "/${parameters.templateDir}/xhtml/controlfooter.ftl" />
-</#if>
-<#else>
-<#include "/${parameters.templateDir}/${parameters.parentTheme}/text.ftl" />
-</#if>
+
+package com.jgeppert.struts2.jquery.views.velocity.components;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.components.Component;
+
+import com.jgeppert.struts2.jquery.components.Autocompleter;
+import com.opensymphony.xwork2.util.ValueStack;
+
+/**
+ * @see Autocompleter
+ */
+public class AutocompleterDirective extends JqueryAbstractDirective
+{
+	public String getBeanName() {
+		return "autocompleter";
+	}
+
+	protected Component getBean(ValueStack stack, HttpServletRequest req, HttpServletResponse res) {
+		return new Autocompleter(stack, req, res);
+	}
+
+	public int getType() {
+		return BLOCK;
+	}
+}
