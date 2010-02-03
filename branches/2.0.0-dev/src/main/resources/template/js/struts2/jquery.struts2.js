@@ -1083,6 +1083,26 @@
 				if(options.filteroptions) fpara = options.filteroptions;
 				$elem.jqGrid('filterToolbar', fpara);
 			}
+		},
+		autocompleter: function($elem, options) {
+			
+			var source;
+			if(options.href) {
+				source = options.href;
+				if(options.hrefparameter) {	source = source+'?'+options.hrefparameter; }
+			}
+			else if(options.list) {
+				source = options.list;
+			}
+			var params = {};
+			params.source = source;
+			if(options.delay) {	params.delay = options.delay; }
+			if(options.minimum) {	params.minLength = options.minimum; }
+			
+			if(options.oncompletetopics) params.open = pubTops($elem, options.onalwaystopics, options.oncompletetopics);
+			if(options.onchangetopics) params.change = pubTops($elem, options.onalwaystopics, options.onchangetopics);
+
+			$elem.autocomplete(params);
 		}
 	};		
 		

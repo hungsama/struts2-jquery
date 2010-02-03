@@ -26,6 +26,9 @@ public abstract class AbstractFormElementTag extends AbstractContainerTag {
   private static final long serialVersionUID = -4125616438928920288L;
 
   protected String          parentTheme;
+  protected String          maxlength;
+  protected String          readonly;
+  protected String          size;
 
   protected void populateParams()
   {
@@ -33,6 +36,9 @@ public abstract class AbstractFormElementTag extends AbstractContainerTag {
 
     AbstractFormElement formElement = (AbstractFormElement) component;
     formElement.setParentTheme(parentTheme);
+    formElement.setMaxlength(maxlength);
+    formElement.setSize(size);
+    formElement.setReadonly(readonly);
   }
 
   public void setParentTheme(String parentTheme)
@@ -40,4 +46,18 @@ public abstract class AbstractFormElementTag extends AbstractContainerTag {
     this.parentTheme = parentTheme;
   }
 
+  public void setMaxlength(String maxlength)
+  {
+    this.maxlength = maxlength;
+  }
+
+  public void setReadonly(String readonly)
+  {
+    this.readonly = readonly;
+  }
+
+  public void setSize(String size)
+  {
+    this.size = size;
+  }
 }
