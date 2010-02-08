@@ -431,19 +431,19 @@
 				this.formsubmit($elem, options, formTopic);
 			}
 			else {
-				var $closestform = $elem.parents('form:first')[0];
-				if($closestform != undefined) {
-					var formid = $closestform.attr("id");
+				var cform = $elem.parents('form:first')[0];
+				if(cform != undefined) {
+					var cf = $(cform);
+					var formid = cf.attr("id");
 					if(formid != undefined) {
 						options.formids = formid;
-						this.formsubmit($elem, options, formTopic);
 					}
 					else {
 						var randomid = 's2jqform'+Math.floor(Math.random()*10000);
-						$closestform.attr('id', randomid);
+						cf.attr('id', randomid);
 						options.formids = randomid;
-						this.formsubmit($elem, options, formTopic);
 					}
+					this.formsubmit($elem, options, formTopic);
 				}
 				else {
 					this.action($elem, options, '_s2j_container_load', 'a');
