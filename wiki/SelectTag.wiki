@@ -1232,6 +1232,14 @@ public class JsonSample extends ActionSupport{
 					<td align="left" valign="top">Possible values: 'touch', 'fit'. Default: 'touch'</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">size</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Integer</td>
+					<td align="left" valign="top">HTML size attribute</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">sortable</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
