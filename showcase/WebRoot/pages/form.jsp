@@ -33,10 +33,21 @@
 	            <label for="echo">Echo: </label>
 	            <s:textfield id="echo" name="echo" value="Hello World!!!"/>
 	        </div>
-	        <div class="type-button">
-	            <sj:submit targets="formResult" value="AJAX Submit" indicator="indicator"/>
+	        <div>
+	            <sj:submit 
+	            	targets="formResult" 
+	            	value="AJAX Submit" 
+	            	indicator="indicator"
+	            	button="true"
+	            	/>
 				<s:url id="simpleecho" value="/simpleecho.action"/>
-	            <sj:submit href="%{simpleecho}" targets="formResult" value="AJAX Submit 2" indicator="indicator"/>
+	            <sj:submit 
+	            	href="%{simpleecho}" 
+	            	targets="formResult" 
+	            	value="AJAX Submit 2" 
+	            	indicator="indicator"
+	            	button="true"
+	            	/>
 	        </div>
         </fieldset>
     </s:form>
