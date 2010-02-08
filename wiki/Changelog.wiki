@@ -1,6 +1,15 @@
 #summary Changelog
 #labels Featured
 
+= 1.8.3 =
+
+  * New supported Attributes for [GridTag Grid Tag] _(filterOptions, surl, defval)_
+  * New Example for onChangeTopics for Tabs in Showcase
+  * Fix Issue 67: Confirm dialog before Ajax submit
+  * Fix Issue 69: Dialog with Buttons is not working
+  * Fix Issue 75: sortable sj:div / sj:textarea / sj:textfield inside s:form force the page to reload / endless loading
+  * Fix Issue 82: DatePicker breaks when there are 2 DatePicker tags using dot notation
+
 = 1.8.2 =
 
   * Enable Subgrid Feature for [GridTag Grid Tag]
