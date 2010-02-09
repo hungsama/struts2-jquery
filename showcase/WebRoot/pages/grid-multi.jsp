@@ -44,7 +44,6 @@
     	rowNum="15"
     	editurl="%{editurl}"
     	multiselect="true"
-    	onSelectRowTopics="rowselect"
     >
     	<sj:gridColumn name="id" index="id" title="ID" width="30" formatter="integer" editable="false" sortable="false" search="true" searchoptions="{sopt:['eq','ne','lt','gt']}"/>
     	<sj:gridColumn name="name" index="name" title="Name" width="250" editable="true" edittype="text" sortable="true" search="false"/>
