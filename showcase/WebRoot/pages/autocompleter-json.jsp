@@ -10,17 +10,29 @@
 </div>
 <div id="col3">
   <div id="col3_content" class="clearfix">
-    <h2>Autocompleter</h2>
+    <h2>Autocompleter with JSON Result</h2>
     <p>
-        A simple Autocompleter that handle a String Array from Action.
+        A Autocompleter that handle a JSON Result.
     </p>
-    <sj:autocompleter id="languages" list="%{languages}"/>
+	<s:url id="remoteurl" action="jsonlanguages"/> 
+    <sj:autocompleter 
+    	id="languages" 
+    	href="%{remoteurl}" 
+    	delay="50" 
+    	loadMinimumCount="2"
+    />
   </div>
   
   <div class="code ui-widget-content ui-corner-all">
     <strong>Code in JSP:</strong>
     <pre>
-&lt;sj:autocompleter id=&quot;languages&quot; list=&quot;%{languages}&quot;/&gt;
+	&lt;s:url id=&quot;remoteurl&quot; action=&quot;jsonlanguages&quot;/&gt; 
+    &lt;sj:autocompleter 
+    	id=&quot;languages&quot; 
+    	href=&quot;%{remoteurl}&quot; 
+    	delay=&quot;50&quot; 
+    	loadMinimumCount=&quot;2&quot;
+    /&gt;
     </pre>
   </div>
   <!-- IE Column Clearing -->

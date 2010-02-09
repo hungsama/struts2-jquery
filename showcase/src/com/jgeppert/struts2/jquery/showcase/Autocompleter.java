@@ -19,6 +19,9 @@
 
 package com.jgeppert.struts2.jquery.showcase;
 
+import java.util.ArrayList;
+
+import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Actions;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -30,7 +33,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class Autocompleter extends ActionSupport {
 
   private static final long serialVersionUID = -3066791113091431706L;
-  private static String[]   languages        = {
+  private static String[]   staticLanguages  = {
       "Actionscript (Flash)",
       "ABAP Objects",
       "Ada",
@@ -94,18 +97,42 @@ public class Autocompleter extends ActionSupport {
       "Zonnon"
                                              };
 
+  private String            term;
+  private String[]          languages        = Autocompleter.staticLanguages;
+
   @Actions( {
-    @Action(value = "/autocompleter", results = {
-      @Result(location = "autocompleter.jsp", name = "success")
-    })
+      @Action(value = "/autocompleter", results = {
+        @Result(location = "autocompleter.jsp", name = "success")
+      }), @Action(value = "/jsonlanguages", results = {
+        @Result(type = "json", name = "success", params = {
+            "root", "languages"
+        })
+      })
   })
   public String execute() throws Exception
   {
+    if (term != null && term.length() > 1)
+    {
+      ArrayList<String> tmp = new ArrayList<String>();
+      for (int i = 0; i < staticLanguages.length; i++)
+      {
+        if (StringUtils.contains(staticLanguages[i].toLowerCase(), term.toLowerCase()))
+        {
+          tmp.add(staticLanguages[i]);
+        }
+      }
+      languages = tmp.toArray(new String[tmp.size()]);
+    }
     return SUCCESS;
   }
 
   public String[] getLanguages()
   {
-    return Autocompleter.languages;
+    return languages;
+  }
+
+  public void setTerm(String term)
+  {
+    this.term = term;
   }
 }
