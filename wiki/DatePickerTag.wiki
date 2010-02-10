@@ -236,6 +236,30 @@ For custom locals use the [HeadTag Head Tag]
 					<td align="left" valign="top">Define label position of form element (top/left)</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">maxDate</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Set a maximum selectable date via a number of days from today (e.g. +7) or a string of values and periods ('y' for years, 'm' for months, 'w' for weeks, 'd' for days, e.g. '+1m +1w').</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">maxlength</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Integer</td>
+					<td align="left" valign="top">HTML maxlength attribute</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">minDate</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Set a minimum selectable date via a number of days from today (e.g. +7) or a string of values and periods ('y' for years, 'm' for months, 'w' for weeks, 'd' for days, e.g. '-1y -1m').</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">name</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -468,6 +492,22 @@ For custom locals use the [HeadTag Head Tag]
 					<td align="left" valign="top">Set template to use for opening the rendered html.</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">parentTheme</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The parent theme. Default: value of parent form tag or simple if no parent form tag is available</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">readonly</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Whether the input is readonly</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">required</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
@@ -514,6 +554,14 @@ For custom locals use the [HeadTag Head Tag]
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">If using one of the jQuery UI effects for showAnim, you can provide additional settings for that animation via this option. e.g. {direction: 'up' }. Default: '-10:+10'</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">size</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Integer</td>
+					<td align="left" valign="top">HTML size attribute</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">tabindex</td>
