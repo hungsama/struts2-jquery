@@ -42,13 +42,14 @@ public class JsonTable extends ActionSupport implements SessionAware {
   private static final long   serialVersionUID = 5078264277068533593L;
   private static final Log    log              = LogFactory.getLog(JsonTable.class);
 
-  //Your result List
+  // Your result List
   private List<Customer>      gridModel;
-  
-  //get how many rows we want to have into the grid - rowNum attribute in the grid
+
+  // get how many rows we want to have into the grid - rowNum attribute in the
+  // grid
   private Integer             rows             = 0;
 
-  //Get the requested page. By default grid sets this to 1.
+  // Get the requested page. By default grid sets this to 1.
   private Integer             page             = 0;
 
   // sorting order - asc or desc
@@ -63,15 +64,15 @@ public class JsonTable extends ActionSupport implements SessionAware {
   // The Search String
   private String              searchString;
 
-  // he Search Operation ['eq','ne','lt','le','gt','ge','bw','bn','in','ni','ew','en','cn','nc'] 
+  // he Search Operation
+  // ['eq','ne','lt','le','gt','ge','bw','bn','in','ni','ew','en','cn','nc']
   private String              searchOper;
 
   // Your Total Pages
   private Integer             total            = 0;
 
   // All Records
-  private Integer             records           = 0;
-
+  private Integer             records          = 0;
 
   private boolean             loadonce         = false;
   private Map<String, Object> session;
@@ -84,7 +85,7 @@ public class JsonTable extends ActionSupport implements SessionAware {
   })
   public String execute()
   {
-    log.debug("Page " + getPage()+" Rows " + getRows() +" Sorting Order "+ getSord()+" Index Row :" + getSidx());
+    log.debug("Page " + getPage() + " Rows " + getRows() + " Sorting Order " + getSord() + " Index Row :" + getSidx());
     log.debug("Search :" + searchField + " " + searchOper + " " + searchString);
 
     Object list = session.get("mylist");
@@ -108,13 +109,13 @@ public class JsonTable extends ActionSupport implements SessionAware {
       Collections.reverse(myCustomers);
     }
 
-    //Count all record (select count(*) from your_custumers)
+    // Count all record (select count(*) from your_custumers)
     records = CustomerDAO.getCustomersCount(myCustomers);
 
-    //Calucalate until rows ware selected
+    // Calucalate until rows ware selected
     int to = (rows * page);
-    
-    //Calculate the first row to read
+
+    // Calculate the first row to read
     int from = to - rows;
 
     // Set to = max rows
@@ -122,12 +123,12 @@ public class JsonTable extends ActionSupport implements SessionAware {
 
     if (loadonce)
     {
-      //All Custumer
+      // All Custumer
       setGridModel(myCustomers);
     }
     else
     {
-      //Search Custumers
+      // Search Custumers
       if (searchString != null && searchOper != null)
       {
         int id = Integer.parseInt(searchString);
@@ -160,10 +161,10 @@ public class JsonTable extends ActionSupport implements SessionAware {
       }
     }
 
-    //Calculate total Pages
-    total = (int) Math.ceil((double) records / (double)rows);
+    // Calculate total Pages
+    total = (int) Math.ceil((double) records / (double) rows);
 
-    //only for showcase functionality, don't do this in production 
+    // only for showcase functionality, don't do this in production
     session.put("mylist", myCustomers);
 
     return SUCCESS;

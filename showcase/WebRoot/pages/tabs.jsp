@@ -36,8 +36,8 @@
     <div id="changepanel"></div>
     <div id="infopanel"></div>
     
-    <s:url id="remoteurl1" action="ajax1"/>
-    <s:url id="remoteurl2" action="ajax2"/>
+    <s:url id="remoteurl1" action="grid-edit"/>
+    <s:url id="remoteurl2" action="grid-multi"/>
     <s:url id="remoteurl3" action="ajax3"/>
     <s:url id="remoteurl4" action="ajax4"/>
     <sj:tabbedpanel 

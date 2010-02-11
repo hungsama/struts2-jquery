@@ -17,6 +17,10 @@
 	<link href="styles/patch_layout.css" rel="stylesheet" type="text/css" />
 	<![endif]-->
 
+	<!-- This files are needed for AJAX Validation of XHTML Forms -->
+	<script language="JavaScript" src="${pageContext.request.contextPath}/struts/utils.js" type="text/javascript"></script>
+	<script language="JavaScript" src="${pageContext.request.contextPath}/struts/xhtml/validation.js" type="text/javascript"></script>
+	
   <s:if test="%{theme == 'showcase' || theme == null}">
       <sj:head compressed="false" useJqGridPlugin="true" jqueryui="true" jquerytheme="showcase" customBasepath="themes" loadFromGoogle="%{google}" ajaxhistory="%{ajaxhistory}" defaultIndicator="myDefaultIndicator"/>
   </s:if>

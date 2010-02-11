@@ -116,3 +116,12 @@ pre {
 font-family:Courier;
 margin-top:10px;
 }
+
+.errorLabel {
+	color: red;
+}
+
+.actionMessage, .errorMessage {
+	font-weight: bold;
+	color: red;
+}

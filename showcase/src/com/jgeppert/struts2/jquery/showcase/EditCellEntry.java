@@ -19,11 +19,8 @@
 
 package com.jgeppert.struts2.jquery.showcase;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
-import java.util.StringTokenizer;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -43,8 +40,8 @@ public class EditCellEntry extends ActionSupport implements SessionAware {
   private static final long   serialVersionUID = -3454448309088641394L;
   private static final Log    log              = LogFactory.getLog(EditCellEntry.class);
 
-  private int              id;
-  private double           creditLimit;
+  private int                 id;
+  private double              creditLimit;
   private Map<String, Object> session;
   private List<Customer>      myCustomers;
 
@@ -55,7 +52,7 @@ public class EditCellEntry extends ActionSupport implements SessionAware {
   })
   public String execute() throws Exception
   {
-    log.debug("id :" + id+" creditLimit :" + creditLimit);
+    log.debug("id :" + id + " creditLimit :" + creditLimit);
 
     Object list = session.get("mylist");
     if (list != null)
@@ -68,9 +65,7 @@ public class EditCellEntry extends ActionSupport implements SessionAware {
     }
 
     Customer customer = CustomerDAO.findById(myCustomers, id);
-    if(customer != null)
-      customer.setCreditLimit(creditLimit);
-
+    if (customer != null) customer.setCreditLimit(creditLimit);
 
     session.put("mylist", myCustomers);
 
