@@ -61,7 +61,7 @@ Built in themes from Plugin
 </html>
 }}}
 
-==Custume Themes==
+==Custome Themes==
 Create and Download your own Theme with [http://jqueryui.com/themeroller/ jQuery ThemeRoller]
 
   # Create a folder in your WebRoot path *template/themes/mytheme*
