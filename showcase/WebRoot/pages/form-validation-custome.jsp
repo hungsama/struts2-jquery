@@ -21,34 +21,42 @@
 </div>
 <div id="col3">
   <div id="col3_content" class="clearfix">
-	<h2>Form submission with AJAX Validation</h2>
+	<h2>Form submission with Custome AJAX Validation</h2>
 	<p>
-	   A Form submission with AJAX Validation for Forms with XHTML Theme.
+	   A Form submission with Custome AJAX Validation.
 	</p>
     <strong>Result Div :</strong>
 	<div id="result" class="result ui-widget-content ui-corner-all">Submit form bellow.</div>
     
-    <s:form id="formValidate" action="login" theme="xhtml">
-     	<s:textfield 
-     		id="loginuser" 
-     		name="loginuser" 
-     		label="User" 
-     		required="true"
-     	/>
-     	<s:textfield 
-     		id="loginpassword" 
-     		name="loginpassword" 
-     		label="Password" 
-     		required="true"
-     	/>
-    	<sj:submit 
-    		targets="result" 
-    		button="true" 
-    		validate="true" 
-    		effect="pulsate" 
-    		value="Submit" 
-    		indicator="indicator"
-    		/>
+    <s:form id="formValidateCustom" action="login" theme="simple" cssClass="yform">
+        <fieldset>
+            <legend>AJAX Form with Validation</legend>
+	        <div class="type-text">
+	            <label for="echo">User: <span id="loginuserError"></span></label>
+			   	<s:textfield 
+		     		id="loginuser" 
+		     		name="loginuser" 
+		     	/>
+	        </div>
+	        <div class="type-text">
+	            <label for="echo">Password: <span id="loginpasswordError"></span></label>
+		     	<s:textfield 
+		     		id="loginpassword" 
+		     		name="loginpassword" 
+		     	/>
+	        </div>
+	        <div class="type-button">
+		    	<sj:submit 
+		    		targets="result" 
+		    		button="true" 
+		    		validate="true" 
+		    		validateFunction="customeValidation"
+		    		effect="pulsate" 
+		    		value="Submit" 
+		    		indicator="indicator"
+		    	/>
+	        </div>
+        </fieldset>
     </s:form>
     <img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>    
     
@@ -60,27 +68,35 @@
       <sj:tab id="tab2" target="javascript" label="Required JavaScript"/>
       <div id="jsp">
 	  <pre>
-    &lt;s:form id=&quot;formValidate&quot; action=&quot;login&quot; theme=&quot;xhtml&quot;&gt;
-     	&lt;s:textfield 
-     		id=&quot;loginuser&quot; 
-     		name=&quot;loginuser&quot; 
-     		label=&quot;User&quot; 
-     		required=&quot;true&quot;
-     	/&gt;
-     	&lt;s:textfield 
-     		id=&quot;loginpassword&quot; 
-     		name=&quot;loginpassword&quot; 
-     		label=&quot;Password&quot; 
-     		required=&quot;true&quot;
-     	/&gt;
-    	&lt;sj:submit 
-    		targets=&quot;result&quot; 
-    		button=&quot;true&quot; 
-    		validate=&quot;true&quot; 
-    		effect=&quot;pulsate&quot; 
-    		value=&quot;Submit&quot; 
-    		indicator=&quot;indicator&quot;
-    		/&gt;
+    &lt;s:form id=&quot;formValidateCustom&quot; action=&quot;login&quot; theme=&quot;simple&quot; cssClass=&quot;yform&quot;&gt;
+        &lt;fieldset&gt;
+            &lt;legend&gt;AJAX Form with Validation&lt;/legend&gt;
+	        &lt;div class=&quot;type-text&quot;&gt;
+	            &lt;label for=&quot;echo&quot;&gt;User: &lt;span id=&quot;loginuserError&quot;&gt;&lt;/span&gt;&lt;/label&gt;
+			   	&lt;s:textfield 
+		     		id=&quot;loginuser&quot; 
+		     		name=&quot;loginuser&quot; 
+		     	/&gt;
+	        &lt;/div&gt;
+	        &lt;div class=&quot;type-text&quot;&gt;
+	            &lt;label for=&quot;echo&quot;&gt;Password: &lt;span id=&quot;loginpasswordError&quot;&gt;&lt;/span&gt;&lt;/label&gt;
+		     	&lt;s:textfield 
+		     		id=&quot;loginpassword&quot; 
+		     		name=&quot;loginpassword&quot; 
+		     	/&gt;
+	        &lt;/div&gt;
+	        &lt;div class=&quot;type-button&quot;&gt;
+		    	&lt;sj:submit 
+		    		targets=&quot;result&quot; 
+		    		button=&quot;true&quot; 
+		    		validate=&quot;true&quot; 
+		    		validateFunction=&quot;customeValidation&quot;
+		    		effect=&quot;pulsate&quot; 
+		    		value=&quot;Submit&quot; 
+		    		indicator=&quot;indicator&quot;
+		    	/&gt;
+	        &lt;/div&gt;
+        &lt;/fieldset&gt;
     &lt;/s:form&gt;
 	  </pre>
 	  </div>
@@ -141,16 +157,20 @@ public class Login extends ActionSupport {
 	  </div>
       <div id="javascript">
 	  <pre>
-	&lt;script 
-		language=&quot;JavaScript&quot; 
-		src=&quot;${pageContext.request.contextPath}/struts/utils.js&quot; 
-		type=&quot;text/javascript&quot;&gt;
-	&lt;/script&gt;
-	&lt;script 
-		language=&quot;JavaScript&quot; 
-		src=&quot;${pageContext.request.contextPath}/struts/xhtml/validation.js&quot; 
-		type=&quot;text/javascript&quot;&gt;
-	&lt;/script&gt;
+function customeValidation(form, errors) {
+	$('.errorLabel').html('').removeClass('errorLabel');
+	
+	if (errors.fieldErrors) {
+		$.each(errors.fieldErrors, function(index, value) { 
+			var elem = $('#'+index+'Error');
+			if(elem)
+			{
+				elem.html(value[0]);
+				elem.addClass('errorLabel');
+			}
+		});
+	}
+}
 	  </pre>
 	  </div>
     </sj:tabbedpanel>

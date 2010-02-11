@@ -8,6 +8,7 @@
       <li><@s.url id="urlformvel" action="form-velocity"/><@sj.a id="remoteformvellink" href="%{urlformvel}" targets="main">AJAX Forms with Velocity</@sj.a></li>
       <li><@s.url id="urlformevent" action="form-event"/><@sj.a id="remoteformeventlink" href="%{urlformevent}" targets="main">AJAX Forms with Events</@sj.a></li>
       <li><@s.url id="urlformvalidation" action="form-validation"/><@sj.a id="remoteformvalidationlink" href="%{urlformvalidation}" targets="main">AJAX Forms with Validation</@sj.a></li>
+      <li><@s.url id="urlformvalidationcust" action="form-validation-custome"/><@sj.a id="remoteformvalidationcustlink" href="%{urlformvalidationcust}" targets="main">AJAX Forms with Custome Validation</@sj.a></li>
       <li><@s.url id="urlformtextarea" action="form-textarea"/><@sj.a id="remoteformtextarealink" href="%{urlformtextarea}" targets="main">AJAX Textarea</@sj.a></li>
       <li><@s.url id="urlformtextarearesize" action="form-textarea-resizeable"/><@sj.a id="remoteformtextarearesizelink" href="%{urlformtextarearesize}" targets="main">AJAX Textarea / Resizable</@sj.a></li>
       <li><@s.url id="urlformtextfieldresize" action="form-textfield-resizeable"/><@sj.a id="remoteformtextfieldresizelink" href="%{urlformtextfieldresize}" targets="main">AJAX Textfield / Resizable</@sj.a></li>
