@@ -31,15 +31,46 @@
 	        <div class="type-text">
 	            <label for="language">Language: </label>
 				<s:url id="remoteurl" action="jsonsample"/> 
-				<sj:select href="%{remoteurl}" id="language" onChangeTopics="reloadsecondlist" name="language" list="languageObjList" listKey="myKey" listValue="myValue" emptyOption="true" headerKey="-1" headerValue="Please Select a Language"/>
+				<sj:select 
+					href="%{remoteurl}" 
+					id="language" 
+					onChangeTopics="reloadsecondlist" 
+					name="language" 
+					list="languageObjList" 
+					listKey="myKey" 
+					listValue="myValue" 
+					emptyOption="true" 
+					headerKey="-1" 
+					headerValue="Please Select a Language"
+				/>
 	        </div>
 	        <div class="type-text">
 	            <label for="echo">Framework: </label>
 				<s:url id="remoteurl" action="jsonsample"/> 
-				<sj:select href="%{remoteurl}" id="selectWithReloadTopic" formIds="formSelectReload" reloadTopics="reloadsecondlist" name="echo" list="reloadList" emptyOption="true" headerKey="-1" headerValue="Please Select a Framework"/>
+				<sj:select 
+					href="%{remoteurl}" 
+					id="selectWithReloadTopic" 
+					formIds="formSelectReload" 
+					reloadTopics="reloadsecondlist" 
+					name="echo" 
+					list="reloadList" 
+					emptyOption="true" 
+					headerKey="-1" 
+					headerValue="Please Select a Framework"
+				/>
 	        </div>
 	        <div class="type-button">
-				<sj:submit targets="result" value="AJAX Submit" indicator="indicator"/><img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>
+				<sj:submit 
+					targets="result" 
+					value="AJAX Submit" 
+					indicator="indicator" 
+					button="true"
+					/>
+					<img id="indicator" 
+						src="images/indicator.gif" 
+						alt="Loading..." 
+						style="display:none"
+					/>
 	        </div>
         </fieldset>
     </s:form>
@@ -60,15 +91,46 @@
 	        &lt;div class=&quot;type-text&quot;&gt;
 	            &lt;label for=&quot;language&quot;&gt;Language: &lt;/label&gt;
 				&lt;s:url id=&quot;remoteurl&quot; action=&quot;jsonsample&quot;/&gt; 
-				&lt;sj:select href=&quot;%{remoteurl}&quot; id=&quot;language&quot; onChangeTopics=&quot;reloadsecondlist&quot; name=&quot;language&quot; list=&quot;languageObjList&quot; listKey=&quot;myKey&quot; listValue=&quot;myValue&quot; emptyOption=&quot;true&quot; headerKey=&quot;-1&quot; headerValue=&quot;Please Select a Language&quot;/&gt;
+				&lt;sj:select 
+					href=&quot;%{remoteurl}&quot; 
+					id=&quot;language&quot; 
+					onChangeTopics=&quot;reloadsecondlist&quot; 
+					name=&quot;language&quot; 
+					list=&quot;languageObjList&quot; 
+					listKey=&quot;myKey&quot; 
+					listValue=&quot;myValue&quot; 
+					emptyOption=&quot;true&quot; 
+					headerKey=&quot;-1&quot; 
+					headerValue=&quot;Please Select a Language&quot;
+				/&gt;
 	        &lt;/div&gt;
 	        &lt;div class=&quot;type-text&quot;&gt;
 	            &lt;label for=&quot;echo&quot;&gt;Framework: &lt;/label&gt;
 				&lt;s:url id=&quot;remoteurl&quot; action=&quot;jsonsample&quot;/&gt; 
-				&lt;sj:select href=&quot;%{remoteurl}&quot; id=&quot;selectWithReloadTopic&quot; formIds=&quot;formSelectReload&quot; reloadTopics=&quot;reloadsecondlist&quot; name=&quot;echo&quot; list=&quot;reloadList&quot; emptyOption=&quot;true&quot; headerKey=&quot;-1&quot; headerValue=&quot;Please Select a Framework&quot;/&gt;
+				&lt;sj:select 
+					href=&quot;%{remoteurl}&quot; 
+					id=&quot;selectWithReloadTopic&quot; 
+					formIds=&quot;formSelectReload&quot; 
+					reloadTopics=&quot;reloadsecondlist&quot; 
+					name=&quot;echo&quot; 
+					list=&quot;reloadList&quot; 
+					emptyOption=&quot;true&quot; 
+					headerKey=&quot;-1&quot; 
+					headerValue=&quot;Please Select a Framework&quot;
+				/&gt;
 	        &lt;/div&gt;
 	        &lt;div class=&quot;type-button&quot;&gt;
-				&lt;sj:submit targets=&quot;result&quot; value=&quot;AJAX Submit&quot; indicator=&quot;indicator&quot;/&gt;&lt;img id=&quot;indicator&quot; src=&quot;images/indicator.gif&quot; alt=&quot;Loading...&quot; style=&quot;display:none&quot;/&gt;
+				&lt;sj:submit 
+					targets=&quot;result&quot; 
+					value=&quot;AJAX Submit&quot; 
+					indicator=&quot;indicator&quot; 
+					button=&quot;true&quot;
+					/&gt;
+					&lt;img id=&quot;indicator&quot; 
+						src=&quot;images/indicator.gif&quot; 
+						alt=&quot;Loading...&quot; 
+						style=&quot;display:none&quot;
+					/&gt;
 	        &lt;/div&gt;
         &lt;/fieldset&gt;
     &lt;/s:form&gt;

@@ -54,7 +54,16 @@
 	            <s:textfield id="echo" name="echo" value="Hello World!!!"/>
 	        </div>
 	        <div class="type-button">
-	            <sj:submit targets="result" value="AJAX Submit" timeout="2500" indicator="indicator" onBeforeTopics="before" onCompleteTopics="complete" onErrorTopics="errorState"/>
+	            <sj:submit 
+	            	targets="result" 
+	            	value="AJAX Submit" 
+	            	timeout="2500" 
+	            	indicator="indicator" 
+	            	onBeforeTopics="before" 
+	            	onCompleteTopics="complete" 
+	            	onErrorTopics="errorState" 
+	            	button="true"
+	            />
 	        </div>
         </fieldset>
     </s:form>
@@ -69,7 +78,16 @@
                 <s:textfield id="echo" name="echo" value="Hello World!!!"/>
             </div>
             <div class="type-button">
-                <sj:submit targets="result" value="AJAX Submit with Error" timeout="2500" indicator="indicator" onBeforeTopics="before" onCompleteTopics="complete" onErrorTopics="errorState"/>
+                <sj:submit 
+                	targets="result" 
+                	value="AJAX Submit with Error" 
+                	timeout="2500" 
+                	indicator="indicator" 
+                	onBeforeTopics="before" 
+                	onCompleteTopics="complete" 
+                	onErrorTopics="errorState"
+	            	button="true"
+                />
             </div>
         </fieldset>
     </s:form>
@@ -104,7 +122,16 @@
 	            &lt;s:textfield id=&quot;echo&quot; name=&quot;echo&quot; value=&quot;Hello World!!!&quot;/&gt;
 	        &lt;/div&gt;
 	        &lt;div class=&quot;type-button&quot;&gt;
-	            &lt;sj:submit targets=&quot;result&quot; value=&quot;AJAX Submit&quot; timeout=&quot;2500&quot; indicator=&quot;indicator&quot; <strong>onBeforeTopics=&quot;before&quot; onCompleteTopics=&quot;complete&quot; onErrorTopics=&quot;errorState&quot;</strong>/&gt;
+	            &lt;sj:submit 
+	            	targets=&quot;result&quot; 
+	            	value=&quot;AJAX Submit&quot; 
+	            	timeout=&quot;2500&quot; 
+	            	indicator=&quot;indicator&quot; 
+	            	onBeforeTopics=&quot;before&quot; 
+	            	onCompleteTopics=&quot;complete&quot; 
+	            	onErrorTopics=&quot;errorState&quot; 
+	            	button=&quot;true&quot;
+	            /&gt;
 	        &lt;/div&gt;
         &lt;/fieldset&gt;
     &lt;/s:form&gt;
@@ -119,7 +146,16 @@
                 &lt;s:textfield id=&quot;echo&quot; name=&quot;echo&quot; value=&quot;Hello World!!!&quot;/&gt;
             &lt;/div&gt;
             &lt;div class=&quot;type-button&quot;&gt;
-                &lt;sj:submit targets=&quot;result&quot; value=&quot;AJAX Submit with Error&quot; timeout=&quot;2500&quot; indicator=&quot;indicator&quot; <strong>onBeforeTopics=&quot;before&quot; onCompleteTopics=&quot;complete&quot; onErrorTopics=&quot;errorState&quot;</strong>/&gt;
+                &lt;sj:submit 
+                	targets=&quot;result&quot; 
+                	value=&quot;AJAX Submit with Error&quot; 
+                	timeout=&quot;2500&quot; 
+                	indicator=&quot;indicator&quot; 
+                	onBeforeTopics=&quot;before&quot; 
+                	onCompleteTopics=&quot;complete&quot; 
+                	onErrorTopics=&quot;errorState&quot;
+	            	button=&quot;true&quot;
+                /&gt;
             &lt;/div&gt;
         &lt;/fieldset&gt;
     &lt;/s:form&gt;

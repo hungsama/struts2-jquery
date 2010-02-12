@@ -34,7 +34,7 @@
 	            #stextfield("id=echo" "name=echo" "value=Hello World!!!")
 	        </div>
 	        <div class="type-button">
-                #sjsubmit( "id=formvelocity_submit" "targets=formVelocityResult" "value=AJAX Submit" "formIds=formvelocity" "indicator=indicator") #end
+                #sjsubmit( "id=formvelocity_submit" "targets=formVelocityResult" "value=AJAX Submit" "formIds=formvelocity" "indicator=indicator" "button=true") #end
 	        </div>
         </fieldset>
     #end

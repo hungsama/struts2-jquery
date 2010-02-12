@@ -40,7 +40,11 @@
     >
      Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
     </sj:dialog>
-    <sj:submit openDialog="mybuttondialog" value="Open modal dialog with Buttons" cssClass="buttonlink ui-state-default ui-corner-all"/>
+    <sj:submit 
+    	openDialog="mybuttondialog" 
+    	value="Open modal dialog with Buttons" 
+    	button="true"
+    />
   </div>
   
   <div class="code ui-widget-content ui-corner-all">
@@ -66,16 +70,15 @@
     	modal=&quot;true&quot; 
     	title=&quot;Dialog with Buttons&quot;
     &gt;
+     Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+    &lt;/sj:dialog&gt;
+    &lt;sj:submit 
+    	openDialog=&quot;mybuttondialog&quot; 
+    	value=&quot;Open modal dialog with Buttons&quot; 
+    	button=&quot;true&quot;
+    /&gt;
     </pre>
   </div>
   <!-- IE Column Clearing -->
   <div id="ie_clearing"> &#160; </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('.buttonlink').hover(
-            function() { $(this).addClass('ui-state-hover'); }, 
-            function() { $(this).removeClass('ui-state-hover'); }
-    );
-});
-</script>

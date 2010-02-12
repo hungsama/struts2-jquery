@@ -55,7 +55,7 @@
     	<sj:gridColumn name="creditLimit" index="creditLimit" title="Credit Limit" align="right" formatter="currency" editable="true" edittype="text" sortable="false" search="false"/>
     </sj:grid>
 	<br/>
-    <sj:submit id="grid_multi_getselectedbutton" value="Get Selected Rows" onClickTopics="getselectedids" cssClass="buttonlink ui-state-default ui-corner-all"/>
+    <sj:submit id="grid_multi_getselectedbutton" value="Get Selected Rows" onClickTopics="getselectedids" button="true"/>
   </div>
   
 	<br/>
@@ -107,7 +107,7 @@
     	&lt;sj:gridColumn name=&quot;creditLimit&quot; index=&quot;creditLimit&quot; title=&quot;Credit Limit&quot; formatter=&quot;currency&quot; editable=&quot;true&quot; edittype=&quot;text&quot; sortable=&quot;false&quot; search=&quot;false&quot;/&gt;
     &lt;/sj:grid&gt;
 	&lt;br/&gt;
-    &lt;sj:submit id=&quot;grid_multi_getselectedbutton&quot; value=&quot;Get Selected Rows&quot; onClickTopics=&quot;getselectedids&quot; cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;/&gt;
+    &lt;sj:submit id=&quot;grid_multi_getselectedbutton&quot; value=&quot;Get Selected Rows&quot; onClickTopics=&quot;getselectedids&quot; button=&quot;true&quot;/&gt;
 	  </pre>
 	  </div>
       <div id="java">
@@ -403,11 +403,3 @@ public class JsonTable extends ActionSupport implements SessionAware {
   <!-- IE Column Clearing -->
   <div id="ie_clearing"> &#160; </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('.buttonlink').hover(
-            function() { $(this).addClass('ui-state-hover'); }, 
-            function() { $(this).removeClass('ui-state-hover'); }
-    );
-});
-</script>

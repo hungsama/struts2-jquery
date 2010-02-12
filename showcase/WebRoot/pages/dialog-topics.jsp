@@ -44,8 +44,11 @@
     </sj:dialog>
     <sj:a id="opentopicdialoglink"
     	openDialog="mytopicdialog" 
-    	cssClass="buttonlink ui-state-default ui-corner-all">
-    	<span class="ui-icon ui-icon-newwin"></span>Open modal dialog
+    	cssClass="buttonlink ui-state-default ui-corner-all"
+    	button="true"
+    	buttonIcon="ui-icon-newwin"
+    >
+    	Open modal dialog
     </sj:a>
   </div>
   
@@ -66,8 +69,11 @@
     &lt;/sj:dialog&gt;
     &lt;sj:a id=&quot;opentopicdialoglink&quot;
     	openDialog=&quot;mytopicdialog&quot; 
-    	cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;&gt;
-    	&lt;span class=&quot;ui-icon ui-icon-newwin&quot;&gt;&lt;/span&gt;Open modal dialog
+    	cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;
+    	button=&quot;true&quot;
+    	buttonIcon=&quot;ui-icon-newwin&quot;
+    &gt;
+    	Open modal dialog
     &lt;/sj:a&gt;
 	  </pre>
 	  </div>
@@ -92,11 +98,3 @@
   <!-- IE Column Clearing -->
   <div id="ie_clearing"> &#160; </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('.buttonlink').hover(
-            function() { $(this).addClass('ui-state-hover'); }, 
-            function() { $(this).removeClass('ui-state-hover'); }
-    );
-});
-</script>

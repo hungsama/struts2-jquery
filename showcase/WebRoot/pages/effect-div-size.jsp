@@ -22,29 +22,51 @@
 	    A Div with Size Effect bind on a link.
 	</p>
     <strong>Div :</strong>
-    <sj:div bindOn="startlink" events="click" effect="size" effectOptions="{ to: {width: 400,height: 300} }" effectDuration="1000" cssClass="result ui-widget-content ui-corner-all" cssStyle="width: 200px; height: 200px; background: blue; color: yellow;">
+    <sj:div 
+    	bindOn="startlink" 
+    	events="click" 
+    	effect="size" 
+    	effectOptions="{ to: {width: 400,height: 300} }" 
+    	effectDuration="1000" 
+    	cssClass="result ui-widget-content ui-corner-all" 
+    	cssStyle="width: 200px; height: 200px; background: blue; color: yellow;"
+    >
         Do you love Struts2 with jQuery?
     </sj:div>
-    <a id="startlink" href="#" class="buttonlink ui-state-default ui-corner-all"><span class="ui-icon ui-icon-arrow-4-diag"></span>Size Div</a>
+    <sj:a 
+    	id="startlink" 
+    	href="#" 
+    	button="true" 
+    	buttonIconSecondary="ui-icon-arrow-2-se-nw"
+    >
+    	Size Div
+    </sj:a>
     
 	<div class="code ui-widget-content ui-corner-all">
 	  <strong>Code:</strong>
 	  <pre>
-    &lt;sj:div <strong>bindOn=&quot;startlink&quot; events=&quot;click&quot; effect=&quot;size&quot; effectOptions=&quot;{ to: {width: 400,height: 300} }&quot; effectDuration=&quot;1000&quot;</strong> cssClass=&quot;result ui-widget-content ui-corner-all&quot; cssStyle=&quot;width: 200px; height: 200px; background: blue; color: yellow;&quot;&gt;
+    &lt;sj:div 
+    	bindOn=&quot;startlink&quot; 
+    	events=&quot;click&quot; 
+    	effect=&quot;size&quot; 
+    	effectOptions=&quot;{ to: {width: 400,height: 300} }&quot; 
+    	effectDuration=&quot;1000&quot; 
+    	cssClass=&quot;result ui-widget-content ui-corner-all&quot; 
+    	cssStyle=&quot;width: 200px; height: 200px; background: blue; color: yellow;&quot;
+    &gt;
         Do you love Struts2 with jQuery?
     &lt;/sj:div&gt;
-    &lt;a id=&quot;startlink&quot; href=&quot;#&quot; class=&quot;buttonlink ui-state-default ui-corner-all&quot;&gt;&lt;span class=&quot;ui-icon ui-icon-arrow-4-diag&quot;&gt;&lt;/span&gt;Size Div&lt;/a&gt;
+    &lt;sj:a 
+    	id=&quot;startlink&quot; 
+    	href=&quot;#&quot; 
+    	button=&quot;true&quot; 
+    	buttonIconSecondary=&quot;ui-icon-arrow-2-se-nw&quot;
+    &gt;
+    	Size Div
+    &lt;/sj:a&gt;
 	  </pre>
 	</div>
   </div>
   <!-- IE Column Clearing -->
   <div id="ie_clearing"> &#160; </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('.buttonlink').hover(
-            function() { $(this).addClass('ui-state-hover'); }, 
-            function() { $(this).removeClass('ui-state-hover'); }
-    );
-});
-</script>

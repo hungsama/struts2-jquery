@@ -31,10 +31,24 @@
 	        <div class="type-text">
 	            <label for="echo">Echo: </label>
 				<s:url id="remoteurl" action="jsonsample"/> 
-				<sj:select href="%{remoteurl}" id="echo" name="echo" list="languageList" emptyOption="true" headerKey="-1" headerValue="Please Select a Language"/>
+				<sj:select 
+					href="%{remoteurl}" 
+					id="echo" 
+					name="echo" 
+					list="languageList" 
+					emptyOption="true" 
+					headerKey="-1" 
+					headerValue="Please Select a Language"
+				/>
 	        </div>
 	        <div class="type-button">
-				<sj:submit targets="result" value="AJAX Submit" indicator="indicator"/><img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>
+				<sj:submit 
+					targets="result" 
+					value="AJAX Submit" 
+					indicator="indicator" 
+					button="true"
+				/>
+				<img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>
 	        </div>
         </fieldset>
     </s:form>
@@ -44,10 +58,27 @@
 	        <div class="type-text">
 	            <label for="echo">Echo: </label>
 				<s:url id="remoteurl" action="jsonsample"/> 
-				<sj:select href="%{remoteurl}" id="echo2" name="echo" list="languageMap" emptyOption="true" headerKey="-1" headerValue="Please Select a Language"/>
+				<sj:select 
+					href="%{remoteurl}" 
+					id="echo2" 
+					name="echo" 
+					list="languageMap" 
+					emptyOption="true" 
+					headerKey="-1" 
+					headerValue="Please Select a Language"
+				/>
 	        </div>
 	        <div class="type-button">
-				<sj:submit targets="result" value="AJAX Submit" indicator="indicator"/><img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>
+				<sj:submit 
+					targets="result" 
+					value="AJAX Submit" 
+					indicator="indicator"
+					button="true"
+				/>
+				<img id="indicator" 
+					src="images/indicator.gif" 
+					alt="Loading..." style="display:none"
+				/>
 	        </div>
         </fieldset>
     </s:form>
@@ -57,10 +88,29 @@
 	        <div class="type-text">
 	            <label for="echo">Echo: </label>
 				<s:url id="remoteurl" action="jsonsample"/> 
-				<sj:select href="%{remoteurl}" id="echo3" name="echo" list="languageObjList" listKey="myKey" listValue="myValue" emptyOption="true" headerKey="-1" headerValue="Please Select a Language"/>
+				<sj:select 
+					href="%{remoteurl}" 
+					id="echo3" 
+					name="echo" 
+					list="languageObjList" 
+					listKey="myKey" 
+					listValue="myValue" 
+					emptyOption="true" 
+					headerKey="-1" 
+					headerValue="Please Select a Language"
+				/>
 	        </div>
 	        <div class="type-button">
-				<sj:submit targets="result" value="AJAX Submit" indicator="indicator"/><img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>
+				<sj:submit 
+					targets="result" 
+					value="AJAX Submit" 
+					indicator="indicator"
+					button="true"
+				/>
+				<img id="indicator" 
+					src="images/indicator.gif" 
+					alt="Loading..." 
+					style="display:none"/>
 	        </div>
         </fieldset>
     </s:form>
@@ -85,20 +135,20 @@
 					href=&quot;%{remoteurl}&quot; 
 					id=&quot;echo&quot; 
 					name=&quot;echo&quot; 
-					<strong>list=&quot;languageList&quot;</strong>
+					list=&quot;languageList&quot; 
 					emptyOption=&quot;true&quot; 
 					headerKey=&quot;-1&quot; 
-					headerValue=&quot;Please Select a Language&quot;/&gt;
+					headerValue=&quot;Please Select a Language&quot;
+				/&gt;
 	        &lt;/div&gt;
 	        &lt;div class=&quot;type-button&quot;&gt;
 				&lt;sj:submit 
 					targets=&quot;result&quot; 
 					value=&quot;AJAX Submit&quot; 
-					indicator=&quot;indicator&quot;/&gt;&lt;img 
-					id=&quot;indicator&quot; 
-					src=&quot;images/indicator.gif&quot; 
-					alt=&quot;Loading...&quot; 
-					style=&quot;display:none&quot;/&gt;
+					indicator=&quot;indicator&quot; 
+					button=&quot;true&quot;
+				/&gt;
+				&lt;img id=&quot;indicator&quot; src=&quot;images/indicator.gif&quot; alt=&quot;Loading...&quot; style=&quot;display:none&quot;/&gt;
 	        &lt;/div&gt;
         &lt;/fieldset&gt;
     &lt;/s:form&gt;
@@ -112,20 +162,23 @@
 					href=&quot;%{remoteurl}&quot; 
 					id=&quot;echo2&quot; 
 					name=&quot;echo&quot; 
-					<strong>list=&quot;languageMap&quot;</strong>
+					list=&quot;languageMap&quot; 
 					emptyOption=&quot;true&quot; 
 					headerKey=&quot;-1&quot; 
-					headerValue=&quot;Please Select a Language&quot;/&gt;
+					headerValue=&quot;Please Select a Language&quot;
+				/&gt;
 	        &lt;/div&gt;
 	        &lt;div class=&quot;type-button&quot;&gt;
 				&lt;sj:submit 
 					targets=&quot;result&quot; 
 					value=&quot;AJAX Submit&quot; 
-					indicator=&quot;indicator&quot;/&gt;&lt;img 
-					id=&quot;indicator&quot; 
+					indicator=&quot;indicator&quot;
+					button=&quot;true&quot;
+				/&gt;
+				&lt;img id=&quot;indicator&quot; 
 					src=&quot;images/indicator.gif&quot; 
-					alt=&quot;Loading...&quot; 
-					style=&quot;display:none&quot;/&gt;
+					alt=&quot;Loading...&quot; style=&quot;display:none&quot;
+				/&gt;
 	        &lt;/div&gt;
         &lt;/fieldset&gt;
     &lt;/s:form&gt;
@@ -139,19 +192,22 @@
 					href=&quot;%{remoteurl}&quot; 
 					id=&quot;echo3&quot; 
 					name=&quot;echo&quot; 
-					<strong>list=&quot;languageObjList&quot; 
+					list=&quot;languageObjList&quot; 
 					listKey=&quot;myKey&quot; 
-					listValue=&quot;myValue&quot;</strong>
+					listValue=&quot;myValue&quot; 
 					emptyOption=&quot;true&quot; 
 					headerKey=&quot;-1&quot; 
-					headerValue=&quot;Please Select a Language&quot;/&gt;
+					headerValue=&quot;Please Select a Language&quot;
+				/&gt;
 	        &lt;/div&gt;
 	        &lt;div class=&quot;type-button&quot;&gt;
 				&lt;sj:submit 
 					targets=&quot;result&quot; 
 					value=&quot;AJAX Submit&quot; 
-					indicator=&quot;indicator&quot;/&gt;&lt;img 
-					id=&quot;indicator&quot; 
+					indicator=&quot;indicator&quot;
+					button=&quot;true&quot;
+				/&gt;
+				&lt;img id=&quot;indicator&quot; 
 					src=&quot;images/indicator.gif&quot; 
 					alt=&quot;Loading...&quot; 
 					style=&quot;display:none&quot;/&gt;

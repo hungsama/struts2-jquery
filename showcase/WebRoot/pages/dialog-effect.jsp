@@ -19,30 +19,48 @@
     <p>
         A modal Dialog with Effect.
     </p>
-    <sj:dialog id="myeffectdialog" showEffect="slide" hideEffect="explode" autoOpen="false" modal="true" title="Dialog with Effect">
+    <sj:dialog 
+    	id="myeffectdialog" 
+    	showEffect="slide" 
+    	hideEffect="explode" 
+    	autoOpen="false" 
+    	modal="true" 
+    	title="Dialog with Effect"
+    >
      Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
     </sj:dialog>
-    <sj:a openDialog="myeffectdialog" cssClass="buttonlink ui-state-default ui-corner-all"><span class="ui-icon ui-icon-newwin"></span>Open effect dialog</sj:a>
+    <sj:a 
+    	openDialog="myeffectdialog" 
+    	button="true"
+    	buttonIcon="ui-icon-newwin"
+    >
+    	Open effect dialog
+    </sj:a>
     
   </div>
   
   <div class="code ui-widget-content ui-corner-all">
     <strong>Code:</strong>
     <pre>
-    &lt;sj:dialog id="myeffectdialog" <strong>showEffect="slide" hideEffect="explode"</strong> autoOpen="false" modal="true" title="Dialog with Effect"&gt;
+    &lt;sj:dialog 
+    	id=&quot;myeffectdialog&quot; 
+    	showEffect=&quot;slide&quot; 
+    	hideEffect=&quot;explode&quot; 
+    	autoOpen=&quot;false&quot; 
+    	modal=&quot;true&quot; 
+    	title=&quot;Dialog with Effect&quot;
+    &gt;
      Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
     &lt;/sj:dialog&gt;
-    &lt;sj:a <strong>openDialog="myeffectdialog"</strong> cssClass="buttonlink ui-state-default ui-corner-all"&gt;&lt;span class="ui-icon ui-icon-newwin"&gt;&lt;/span&gt;Open effect dialog&lt;/sj:a&gt;
+    &lt;sj:a 
+    	openDialog=&quot;myeffectdialog&quot; 
+    	button=&quot;true&quot;
+    	buttonIcon=&quot;ui-icon-newwin&quot;
+    &gt;
+    	Open effect dialog
+    &lt;/sj:a&gt;
     </pre>
   </div>
   <!-- IE Column Clearing -->
   <div id="ie_clearing"> &#160; </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('.buttonlink').hover(
-            function() { $(this).addClass('ui-state-hover'); }, 
-            function() { $(this).removeClass('ui-state-hover'); }
-    );
-});
-</script>

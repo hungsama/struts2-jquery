@@ -62,7 +62,7 @@
     <sj:submit id="grid_load_colsbutton" 
     		value="Show/Hide Columns" 
     		onClickTopics="showloadcolumns" 
-    		cssClass="buttonlink ui-state-default ui-corner-all"/>
+    		button="true"/>
 	<br/>
   </div>
   
@@ -112,7 +112,7 @@
     &lt;sj:submit id=&quot;grid_load_colsbutton&quot; 
     		value=&quot;Show/Hide Columns&quot; 
     		onClickTopics=&quot;showloadcolumns&quot; 
-    		cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;/&gt;
+    		button=&quot;true&quot;/&gt;
 	  </pre>
 	  </div>
       <div id="java">

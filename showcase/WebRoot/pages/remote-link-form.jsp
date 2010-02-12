@@ -25,7 +25,14 @@
      Echo: <s:textfield id="echo" name="echo" value="Hello World!!!"/><br/>
     </s:form>
 
-    <sj:a id="ajaxformlink" formIds="form" targets="formResult" indicator="indicator" cssClass="buttonlink ui-state-default ui-corner-all"><span class="ui-icon ui-icon-refresh"></span>
+    <sj:a 
+    	id="ajaxformlink" 
+    	formIds="form" 
+    	targets="formResult" 
+    	indicator="indicator" 
+    	button="true" 
+		buttonIcon="ui-icon-gear"
+    >
       Submit form here
     </sj:a>
     <img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>    
@@ -37,7 +44,14 @@
      Echo: &lt;s:textfield id=&quot;echo&quot; name=&quot;echo&quot; value=&quot;Hello World!!!&quot;/&gt;&lt;br/&gt;
     &lt;/s:form&gt;
 
-    &lt;sj:a id=&quot;ajaxformlink&quot; formId=&quot;form&quot; targets=&quot;formResult&quot; indicator=&quot;indicator&quot; cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;&gt;&lt;span class=&quot;ui-icon ui-icon-refresh&quot;&gt;&lt;/span&gt;
+    &lt;sj:a 
+    	id=&quot;ajaxformlink&quot; 
+    	formIds=&quot;form&quot; 
+    	targets=&quot;formResult&quot; 
+    	indicator=&quot;indicator&quot; 
+    	button=&quot;true&quot; 
+		buttonIcon=&quot;ui-icon-gear&quot;
+    &gt;
       Submit form here
     &lt;/sj:a&gt;
     &lt;img id=&quot;indicator&quot; src=&quot;images/indicator.gif&quot; alt=&quot;Loading...&quot; style=&quot;display:none&quot;/&gt;    

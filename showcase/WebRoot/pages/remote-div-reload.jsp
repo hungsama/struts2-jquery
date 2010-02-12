@@ -77,10 +77,13 @@
         	alt="Loading..." 
         	style="display:none"/>
     </sj:div>
-    <sj:a 	id="refreshlink" 
-    		onClickTopics="refreshdiv" 
-    		cssClass="buttonlink ui-state-default ui-corner-all">
-    	<span class="ui-icon ui-icon-refresh"></span>Refresh Div
+    <sj:a 	
+    	id="refreshlink" 
+    	onClickTopics="refreshdiv" 
+		button="true" 
+		buttonIcon="ui-icon-refresh"
+    >
+    	Refresh Div
     </sj:a>
     
     <br/><br/>
@@ -117,10 +120,13 @@
 	        </div>
         </fieldset>
     </s:form>
-    <sj:a 	id="refreshlink2" 
-    		onClickTopics="refreshlist" 
-    		cssClass="buttonlink ui-state-default ui-corner-all">
-    	<span class="ui-icon ui-icon-refresh"></span>Refresh List
+    <sj:a 	
+    	id="refreshlink2" 
+    	onClickTopics="refreshlist" 
+		button="true" 
+		buttonIcon="ui-icon-refresh"
+    >
+    	Refresh List
     </sj:a>
 
     <br/><br/>
@@ -189,7 +195,6 @@
 	  </div>
       <div id="jsp">
 	  <pre>
-    &lt;strong&gt;Div Reloads : &lt;span id=&quot;counter1&quot;&gt;&lt;/span&gt;&lt;/strong&gt;
     &lt;s:url id=&quot;ajax1&quot; value=&quot;/ajax1.action&quot;/&gt;
     &lt;sj:div id=&quot;div1&quot; 
     		href=&quot;%{ajax1}&quot; 
@@ -203,10 +208,13 @@
         	alt=&quot;Loading...&quot; 
         	style=&quot;display:none&quot;/&gt;
     &lt;/sj:div&gt;
-    &lt;sj:a 	id=&quot;refreshlink&quot; 
-    		onClickTopics=&quot;refreshdiv&quot; 
-    		cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;&gt;
-    	&lt;span class=&quot;ui-icon ui-icon-refresh&quot;&gt;&lt;/span&gt;Refresh Div
+    &lt;sj:a 	
+    	id=&quot;refreshlink&quot; 
+    	onClickTopics=&quot;refreshdiv&quot; 
+		button=&quot;true&quot; 
+		buttonIcon=&quot;ui-icon-refresh&quot;
+    &gt;
+    	Refresh Div
     &lt;/sj:a&gt;
     
     &lt;br/&gt;&lt;br/&gt;
@@ -231,7 +239,7 @@
     &lt;s:form id=&quot;formSelectOne&quot; action=&quot;echo&quot; theme=&quot;simple&quot; cssClass=&quot;yform&quot;&gt;
         &lt;fieldset&gt;
             &lt;legend&gt;AJAX Form&lt;/legend&gt;
-	        &lt;div class=&quot;type-text&quot;&gt;
+	        &lt;div class=&quot;type-select&quot;&gt;
 	            &lt;label for=&quot;echo&quot;&gt;List: &lt;/label&gt;
 				&lt;s:url id=&quot;remoteurl&quot; action=&quot;jsonsample&quot;/&gt; 
 				&lt;sj:select 
@@ -243,10 +251,13 @@
 	        &lt;/div&gt;
         &lt;/fieldset&gt;
     &lt;/s:form&gt;
-    &lt;sj:a 	id=&quot;refreshlink2&quot; 
-    		onClickTopics=&quot;refreshlist&quot; 
-    		cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;&gt;
-    	&lt;span class=&quot;ui-icon ui-icon-refresh&quot;&gt;&lt;/span&gt;Refresh List
+    &lt;sj:a 	
+    	id=&quot;refreshlink2&quot; 
+    	onClickTopics=&quot;refreshlist&quot; 
+		button=&quot;true&quot; 
+		buttonIcon=&quot;ui-icon-refresh&quot;
+    &gt;
+    	Refresh List
     &lt;/sj:a&gt;
 
     &lt;br/&gt;&lt;br/&gt;

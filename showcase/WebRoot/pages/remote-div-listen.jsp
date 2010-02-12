@@ -40,7 +40,9 @@
 	    listenTopics="loaddiv2" 
 	    effect="highlight" 
 	    effectDuration="1000" 
-	    cssClass="buttonlink ui-state-default ui-corner-all">
+    	button="true" 
+		buttonIcon="ui-icon-gear"
+	>
     	Ajax Link
     </sj:a>
     <div id="resultdiv2" class="result ui-widget-content ui-corner-all">
@@ -52,7 +54,9 @@
     	id="publishanchor" 
     	href="#" 
     	onClickTopics="loaddiv1,loaddiv2" 
-    	cssClass="buttonlink ui-state-default ui-corner-all">
+    	button="true" 
+		buttonIcon="ui-icon-gear"
+    	>
     	This Link publishs the Topics
     </sj:a>
         
@@ -79,7 +83,9 @@
 	    listenTopics=&quot;loaddiv2&quot; 
 	    effect=&quot;highlight&quot; 
 	    effectDuration=&quot;1000&quot; 
-	    cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;&gt;
+    	button=&quot;true&quot; 
+		buttonIcon=&quot;ui-icon-gear&quot;
+	&gt;
     	Ajax Link
     &lt;/sj:a&gt;
     &lt;div id=&quot;resultdiv2&quot; class=&quot;result ui-widget-content ui-corner-all&quot;&gt;
@@ -91,7 +97,9 @@
     	id=&quot;publishanchor&quot; 
     	href=&quot;#&quot; 
     	onClickTopics=&quot;loaddiv1,loaddiv2&quot; 
-    	cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;&gt;
+    	button=&quot;true&quot; 
+		buttonIcon=&quot;ui-icon-gear&quot;
+    	&gt;
     	This Link publishs the Topics
     &lt;/sj:a&gt;
 	  </pre>
@@ -100,11 +108,3 @@
   <!-- IE Column Clearing -->
   <div id="ie_clearing"> &#160; </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('.buttonlink').hover(
-            function() { $(this).addClass('ui-state-hover'); }, 
-            function() { $(this).removeClass('ui-state-hover'); }
-    );
-});
-</script>

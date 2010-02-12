@@ -69,9 +69,9 @@
     	<sj:gridColumn name="creditLimit" index="creditLimit" title="Credit Limit" align="right" formatter="currency" editable="true" edittype="text" sortable="false" search="false"/>
     </sj:grid>
 	<br/>
-    <sj:submit id="grid_edit_addbutton" value="Add Row" onClickTopics="rowadd" cssClass="buttonlink ui-state-default ui-corner-all"/>
-    <sj:submit id="grid_edit_searchbutton" value="Search" onClickTopics="searchgrid" cssClass="buttonlink ui-state-default ui-corner-all"/>
-    <sj:submit id="grid_edit_colsbutton" value="Show/Hide Columns" onClickTopics="showcolumns" cssClass="buttonlink ui-state-default ui-corner-all"/>
+    <sj:submit id="grid_edit_addbutton" value="Add Row" onClickTopics="rowadd" button="true"/>
+    <sj:submit id="grid_edit_searchbutton" value="Search" onClickTopics="searchgrid" button="true"/>
+    <sj:submit id="grid_edit_colsbutton" value="Show/Hide Columns" onClickTopics="showcolumns" button="true"/>
 	<br/>
 	<br/>
     <div id="gridinfo" class="ui-widget-content ui-corner-all"><p>Edit Mode for Row :</p></div>
@@ -133,9 +133,9 @@
     	&lt;sj:gridColumn name=&quot;creditLimit&quot; index=&quot;creditLimit&quot; title=&quot;Credit Limit&quot; formatter=&quot;currency&quot; editable=&quot;true&quot; edittype=&quot;text&quot; sortable=&quot;false&quot; search=&quot;false&quot;/&gt;
     &lt;/sj:grid&gt;
 	&lt;br/&gt;
-    &lt;sj:submit id=&quot;grid_edit_addbutton&quot; value=&quot;Add Row&quot; onClickTopics=&quot;rowadd&quot; cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;/&gt;
-    &lt;sj:submit id=&quot;grid_edit_searchbutton&quot; value=&quot;Search&quot; onClickTopics=&quot;searchgrid&quot; cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;/&gt;
-    &lt;sj:submit id=&quot;grid_edit_colsbutton&quot; value=&quot;Show/Hide Columns&quot; onClickTopics=&quot;showcolumns&quot; cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;/&gt;
+    &lt;sj:submit id=&quot;grid_edit_addbutton&quot; value=&quot;Add Row&quot; onClickTopics=&quot;rowadd&quot; button=&quot;true&quot;/&gt;
+    &lt;sj:submit id=&quot;grid_edit_searchbutton&quot; value=&quot;Search&quot; onClickTopics=&quot;searchgrid&quot; button=&quot;true&quot;/&gt;
+    &lt;sj:submit id=&quot;grid_edit_colsbutton&quot; value=&quot;Show/Hide Columns&quot; onClickTopics=&quot;showcolumns&quot; button=&quot;true&quot;/&gt;
 	&lt;br/&gt;
 	&lt;br/&gt;
     &lt;div id=&quot;gridinfo&quot; class=&quot;ui-widget-content ui-corner-all&quot;&gt;&lt;p&gt;Edit Mode for Row :&lt;/p&gt;&lt;/div&gt;
@@ -434,11 +434,3 @@ public class JsonTable extends ActionSupport implements SessionAware {
   <!-- IE Column Clearing -->
   <div id="ie_clearing"> &#160; </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('.buttonlink').hover(
-            function() { $(this).addClass('ui-state-hover'); }, 
-            function() { $(this).removeClass('ui-state-hover'); }
-    );
-});
-</script>

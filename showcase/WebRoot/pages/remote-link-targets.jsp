@@ -24,7 +24,13 @@
     <div id="result2" class="result ui-widget-content ui-corner-all">Click on the link bellow.</div>
     
 	<s:url id="ajax" value="/ajax3.action"/>
-    <sj:a id="ajaxlink" href="%{ajax}" targets="result1,result2" cssClass="buttonlink ui-state-default ui-corner-all"><span class="ui-icon ui-icon-refresh"></span>
+    <sj:a 
+    	id="ajaxlink" 
+    	href="%{ajax}" 
+    	targets="result1,result2" 
+    	button="true" 
+		buttonIcon="ui-icon-gear"
+    >
       Run AJAX Action
     </sj:a>
     
@@ -37,7 +43,13 @@
     &lt;div id=&quot;result2&quot; class=&quot;result ui-widget-content ui-corner-all&quot;&gt;Click on the link bellow.&lt;/div&gt;
     
 	&lt;s:url id=&quot;ajax&quot; value=&quot;/ajax3.action&quot;/&gt;
-    &lt;sj:a id=&quot;ajaxlink&quot; href=&quot;%{ajax}&quot; targets=&quot;result1,result2&quot; cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;&gt;&lt;span class=&quot;ui-icon ui-icon-refresh&quot;&gt;&lt;/span&gt;
+    &lt;sj:a 
+    	id=&quot;ajaxlink&quot; 
+    	href=&quot;%{ajax}&quot; 
+    	targets=&quot;result1,result2&quot; 
+    	button=&quot;true&quot; 
+		buttonIcon=&quot;ui-icon-gear&quot;
+    &gt;
       Run AJAX Action
     &lt;/sj:a&gt;
 	  </pre>
@@ -46,11 +58,3 @@
   <!-- IE Column Clearing -->
   <div id="ie_clearing"> &#160; </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('.buttonlink').hover(
-            function() { $(this).addClass('ui-state-hover'); }, 
-            function() { $(this).removeClass('ui-state-hover'); }
-    );
-});
-</script>

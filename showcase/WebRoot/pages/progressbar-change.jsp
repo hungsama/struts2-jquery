@@ -25,7 +25,14 @@
     </p>
     <sj:progressbar id="progressbarchange" value="21" onChangeTopics="mychangetopic"/>
     <br />
-    <sj:a href="#" onClickTopics="myclicktopic" cssClass="buttonlink ui-state-default ui-corner-all"><span class="ui-icon ui-icon-refresh"></span>change value</sj:a>
+    <sj:a 
+    	href="#" 
+    	onClickTopics="myclicktopic" 
+    	button="true" 
+		buttonIcon="ui-icon-gear"
+    >
+    	change value
+    </sj:a>
   </div>
   
   <div class="code ui-widget-content ui-corner-all">
@@ -42,17 +49,16 @@
     <pre>
     &lt;sj:progressbar id=&quot;progressbarchange&quot; value=&quot;21&quot; onChangeTopics=&quot;mychangetopic&quot;/&gt;
     &lt;br /&gt;
-    &lt;sj:a href=&quot;#&quot; onClickTopics=&quot;myclicktopic&quot; cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;&gt;&lt;span class=&quot;ui-icon ui-icon-refresh&quot;&gt;&lt;/span&gt;change value&lt;/sj:a&gt;
+    &lt;sj:a 
+    	href=&quot;#&quot; 
+    	onClickTopics=&quot;myclicktopic&quot; 
+    	button=&quot;true&quot; 
+		buttonIcon=&quot;ui-icon-gear&quot;
+    &gt;
+    	change value
+    &lt;/sj:a&gt;
     </pre>
   </div>
   <!-- IE Column Clearing -->
   <div id="ie_clearing"> &#160; </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('.buttonlink').hover(
-            function() { $(this).addClass('ui-state-hover'); }, 
-            function() { $(this).removeClass('ui-state-hover'); }
-    );
-});
-</script>

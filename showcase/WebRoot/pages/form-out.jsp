@@ -38,18 +38,38 @@
         </fieldset>
     </s:form>
 
-    <sj:submit formIds="formOutside" targets="result" effect="pulsate" value="Submit outside the Form" indicator="indicator"/>
+    <sj:submit 
+    	formIds="formOutside" 
+    	targets="result" 
+    	effect="pulsate" 
+    	value="Submit outside the Form" 
+    	indicator="indicator" 
+    	button="true"
+    />
 
     <img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>    
     
 	<div class="code ui-widget-content ui-corner-all">
 	  <strong>Code:</strong>
 	  <pre>
-    &lt;s:form id="form" action="echo" theme="simple"&gt;
-     Echo: &lt;s:textfield id="echo" name="echo" value="Hello World!!!"/>&lt;br/&gt;
+    &lt;s:form id=&quot;formOutside&quot; action=&quot;echo&quot; theme=&quot;simple&quot; cssClass=&quot;yform&quot;&gt;
+        &lt;fieldset&gt;
+            &lt;legend&gt;AJAX Form with Button outside&lt;/legend&gt;
+            &lt;div class=&quot;type-text&quot;&gt;
+                &lt;label for=&quot;echo&quot;&gt;Echo: &lt;/label&gt;
+                &lt;s:textfield id=&quot;echo&quot; name=&quot;echo&quot; value=&quot;Hello World!!!&quot;/&gt;&lt;br/&gt;
+            &lt;/div&gt;
+        &lt;/fieldset&gt;
     &lt;/s:form&gt;
 
-    &lt;sj:submit <strong>formIds="form"</strong> targets="result" effect="pulsate" value="AJAX Submit" indicator="indicator"/&gt;
+    &lt;sj:submit 
+    	formIds=&quot;formOutside&quot; 
+    	targets=&quot;result&quot; 
+    	effect=&quot;pulsate&quot; 
+    	value=&quot;Submit outside the Form&quot; 
+    	indicator=&quot;indicator&quot; 
+    	button=&quot;true&quot;
+    /&gt;
 	  </pre>
 	</div>
   </div>

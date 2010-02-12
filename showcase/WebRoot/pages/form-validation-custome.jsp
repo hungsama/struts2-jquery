@@ -51,7 +51,7 @@
 		    		button="true" 
 		    		validate="true" 
 		    		validateFunction="customeValidation"
-		    		effect="pulsate" 
+		    		onSuccessTopics="removeErrorLabels"
 		    		value="Submit" 
 		    		indicator="indicator"
 		    	/>

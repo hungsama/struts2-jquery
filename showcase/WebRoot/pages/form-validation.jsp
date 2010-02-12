@@ -45,7 +45,6 @@
     		targets="result" 
     		button="true" 
     		validate="true" 
-    		effect="pulsate" 
     		value="Submit" 
     		indicator="indicator"
     		/>

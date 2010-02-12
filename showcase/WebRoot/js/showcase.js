@@ -1,3 +1,7 @@
+/*
+ * Function for Custome Validation Example
+ * 
+ */
 function customeValidation(form, errors) {
 	$('.errorLabel').html('').removeClass('errorLabel');
 	
@@ -13,12 +17,21 @@ function customeValidation(form, errors) {
 	}
 }
 
+
 $(document).ready( function() {
-	$('.buttonlink').hover( function() {
-		$(this).addClass('ui-state-hover');
-	}, function() {
-		$(this).removeClass('ui-state-hover');
+
+	/*
+	 * Remove Error Labels when Validation Forms are successfully
+	 * 
+	 */
+	$.subscribe('removeErrorLabels', function(event,data) {
+		$('.errorLabel').html('').removeClass('errorLabel');
 	});
+
+	/*
+	 * Menu Highlight
+	 * 
+	 */
 	$('div.ui-widget-header > ul > li').click( function() {
 		$('div.ui-widget-header > ul > li').removeClass('ui-state-active');
 		$(this).addClass('ui-state-active');

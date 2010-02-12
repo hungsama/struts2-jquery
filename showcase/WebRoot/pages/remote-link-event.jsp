@@ -35,13 +35,35 @@
     
 	<s:url id="ajax" value="/ajax1.action"/>
 	
-	<sj:a id="ajaxlink" href="%{ajax}" indicator="indicator" targets="result" onClickTopics="before" onCompleteTopics="complete" effect="pulsate" cssClass="buttonlink ui-state-default ui-corner-all"><span class="ui-icon ui-icon-refresh"></span>
+	<sj:a 
+		id="ajaxlink" 
+		href="%{ajax}" 
+		indicator="indicator" 
+		targets="result" 
+		onClickTopics="before" 
+		onCompleteTopics="complete" 
+		effect="pulsate" 
+    	button="true" 
+		buttonIcon="ui-icon-gear"
+	>
 	  Run AJAX Action
 	</sj:a>
     <img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>    
     <br/>
     <br/>
-    <sj:a id="ajaxlink2" href="file-does-not-exist.html" indicator="indicator2" targets="result" onClickTopics="before" onCompleteTopics="complete" onErrorTopics="errorState" effect="pulsate" effectDuration="1500" cssClass="buttonlink ui-state-default ui-corner-all"><span class="ui-icon ui-icon-refresh"></span>
+    <sj:a 
+    	id="ajaxlink2" 
+    	href="file-does-not-exist.html" 
+    	indicator="indicator2" 
+    	targets="result" 
+    	onClickTopics="before" 
+    	onCompleteTopics="complete" 
+    	onErrorTopics="errorState" 
+    	effect="pulsate" 
+    	effectDuration="1500" 
+    	button="true" 
+		buttonIcon="ui-icon-gear"
+    >
       Run AJAX Error Action
     </sj:a>
     <img id="indicator2" src="images/indicator.gif" alt="Loading..." style="display:none"/>    
@@ -64,13 +86,35 @@
 	  <pre>
 	&lt;s:url id=&quot;ajax&quot; value=&quot;/ajax1.action&quot;/&gt;
 	
-	&lt;sj:a id=&quot;ajaxlink&quot; href=&quot;%{ajax}&quot; indicator=&quot;indicator&quot; targets=&quot;result&quot; <strong>onClickTopics=&quot;before&quot; onCompleteTopics=&quot;complete&quot;</strong> effect=&quot;pulsate&quot; cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;&gt;&lt;span class=&quot;ui-icon ui-icon-refresh&quot;&gt;&lt;/span&gt;
+	&lt;sj:a 
+		id=&quot;ajaxlink&quot; 
+		href=&quot;%{ajax}&quot; 
+		indicator=&quot;indicator&quot; 
+		targets=&quot;result&quot; 
+		onClickTopics=&quot;before&quot; 
+		onCompleteTopics=&quot;complete&quot; 
+		effect=&quot;pulsate&quot; 
+    	button=&quot;true&quot; 
+		buttonIcon=&quot;ui-icon-gear&quot;
+	&gt;
 	  Run AJAX Action
 	&lt;/sj:a&gt;
     &lt;img id=&quot;indicator&quot; src=&quot;images/indicator.gif&quot; alt=&quot;Loading...&quot; style=&quot;display:none&quot;/&gt;    
     &lt;br/&gt;
     &lt;br/&gt;
-    &lt;sj:a id=&quot;ajaxlink2&quot; href=&quot;file-does-not-exist.html&quot; indicator=&quot;indicator2&quot; targets=&quot;result&quot; <strong>onClickTopics=&quot;before&quot; onCompleteTopics=&quot;complete&quot; onErrorTopics=&quot;errorState&quot;</strong> effect=&quot;pulsate&quot; effectDuration=&quot;1500&quot; cssClass=&quot;buttonlink ui-state-default ui-corner-all&quot;&gt;&lt;span class=&quot;ui-icon ui-icon-refresh&quot;&gt;&lt;/span&gt;
+    &lt;sj:a 
+    	id=&quot;ajaxlink2&quot; 
+    	href=&quot;file-does-not-exist.html&quot; 
+    	indicator=&quot;indicator2&quot; 
+    	targets=&quot;result&quot; 
+    	onClickTopics=&quot;before&quot; 
+    	onCompleteTopics=&quot;complete&quot; 
+    	onErrorTopics=&quot;errorState&quot; 
+    	effect=&quot;pulsate&quot; 
+    	effectDuration=&quot;1500&quot; 
+    	button=&quot;true&quot; 
+		buttonIcon=&quot;ui-icon-gear&quot;
+    &gt;
       Run AJAX Error Action
     &lt;/sj:a&gt;
     &lt;img id=&quot;indicator2&quot; src=&quot;images/indicator.gif&quot; alt=&quot;Loading...&quot; style=&quot;display:none&quot;/&gt;    
@@ -80,11 +124,3 @@
   <!-- IE Column Clearing -->
   <div id="ie_clearing"> &#160; </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('.buttonlink').hover(
-            function() { $(this).addClass('ui-state-hover'); }, 
-            function() { $(this).removeClass('ui-state-hover'); }
-    );
-});
-</script>

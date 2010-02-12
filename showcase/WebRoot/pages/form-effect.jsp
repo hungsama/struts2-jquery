@@ -27,7 +27,13 @@
 	</p>
     <s:form id="formEffect" action="echo" theme="xhtml">
                 <s:textfield id="echo" name="echo" label="Echo" value="Hello World!!!"/><br/>
-                <sj:submit targets="result" effect="slide" value="AJAX Submit" indicator="indicator"/>
+                <sj:submit 
+                	targets="result" 
+                	effect="slide" 
+                	value="AJAX Submit" 
+                	indicator="indicator" 
+                	button="true"
+                />
     </s:form>
     <img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>    
 
@@ -39,10 +45,17 @@
 	<div class="code ui-widget-content ui-corner-all">
 	  <strong>Code:</strong>
 	  <pre>
-    &lt;s:form id="form" action="echo" theme="xhtml"&gt;
-     &lt;s:textfield id="echo" name="echo" label="Echo" value="Hello World!!!"/>&lt;br/&gt;
-     &lt;sj:submit targets="result" <strong>effect="slide"</strong> value="AJAX Submit" indicator="indicator"/&gt;
+    &lt;s:form id=&quot;formEffect&quot; action=&quot;echo&quot; theme=&quot;xhtml&quot;&gt;
+                &lt;s:textfield id=&quot;echo&quot; name=&quot;echo&quot; label=&quot;Echo&quot; value=&quot;Hello World!!!&quot;/&gt;&lt;br/&gt;
+                &lt;sj:submit 
+                	targets=&quot;result&quot; 
+                	effect=&quot;slide&quot; 
+                	value=&quot;AJAX Submit&quot; 
+                	indicator=&quot;indicator&quot; 
+                	button=&quot;true&quot;
+                /&gt;
     &lt;/s:form&gt;
+    &lt;img id=&quot;indicator&quot; src=&quot;images/indicator.gif&quot; alt=&quot;Loading...&quot; style=&quot;display:none&quot;/&gt;    
 	  </pre>
 	</div>
   </div>
