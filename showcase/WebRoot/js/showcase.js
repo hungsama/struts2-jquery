@@ -3,8 +3,24 @@
  * 
  */
 function customeValidation(form, errors) {
+	
+	//List for errors
+	var list = $('#formerrors');
+	
+	//Remove previous field errors 
 	$('.errorLabel').html('').removeClass('errorLabel');
 	
+	//Remove previous errors 
+	list.html('');
+
+	//Handle non field errors 
+	if (errors.errors) {
+		$.each(errors.errors, function(index, value) { 
+			list.append('<li>'+value+'</li>\n');
+		});
+	}
+	
+	//Handle field errors 
 	if (errors.fieldErrors) {
 		$.each(errors.fieldErrors, function(index, value) { 
 			var elem = $('#'+index+'Error');
@@ -24,8 +40,9 @@ $(document).ready( function() {
 	 * Remove Error Labels when Validation Forms are successfully
 	 * 
 	 */
-	$.subscribe('removeErrorLabels', function(event,data) {
+	$.subscribe('removeErrors', function(event,data) {
 		$('.errorLabel').html('').removeClass('errorLabel');
+		$('#formerrors').html('');
 	});
 
 	/*

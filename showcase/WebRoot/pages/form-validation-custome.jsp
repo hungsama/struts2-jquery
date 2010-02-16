@@ -28,6 +28,7 @@
     <strong>Result Div :</strong>
 	<div id="result" class="result ui-widget-content ui-corner-all">Submit form bellow.</div>
     
+    <ul id="formerrors" class="errorMessage"></ul>
     <s:form id="formValidateCustom" action="login" theme="simple" cssClass="yform">
         <fieldset>
             <legend>AJAX Form with Validation</legend>
@@ -51,7 +52,7 @@
 		    		button="true" 
 		    		validate="true" 
 		    		validateFunction="customeValidation"
-		    		onSuccessTopics="removeErrorLabels"
+		    		onSuccessTopics="removeErrors"
 		    		value="Submit" 
 		    		indicator="indicator"
 		    	/>
