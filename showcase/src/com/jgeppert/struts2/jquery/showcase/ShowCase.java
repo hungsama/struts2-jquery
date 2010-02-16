@@ -45,10 +45,30 @@ public class ShowCase extends ActionSupport {
 
     themes = new HashMap<String, String>();
     themes.put("cupertino", "The cupertino Theme");
-    themes.put("darkness", "The darkness Theme");
-    themes.put("lightness", "The lightness Theme");
+    themes.put("ui-darkness", "The darkness Theme");
+    themes.put("ui-lightness", "The lightness Theme");
     themes.put("redmond", "The redmond Theme");
     themes.put("smoothness", "The smoothness Theme");
+    themes.put("black-tie", "The black-tie Theme");
+    themes.put("blitzer", "The blitzer Theme");
+    themes.put("dark-hive", "The dark-hive Theme");
+    themes.put("dot-luv", "The dot-luv Theme");
+    themes.put("eggplant", "The eggplant Theme");
+    themes.put("excite-bike", "The excite-bike Theme");
+    themes.put("flick", "The flick Theme");
+    themes.put("hot-sneaks", "The hot-sneaks Theme");
+    themes.put("humanity", "The humanity Theme");
+    themes.put("le-frog", "The le-frog Theme");
+    themes.put("mint-choc", "The mint-choc Theme");
+    themes.put("overcast", "The overcast Theme");
+    themes.put("pepper-grinder", "The pepper-grinder Theme");
+    themes.put("south-street", "The south-street Theme");
+    themes.put("start", "The start Theme");
+    themes.put("sunny", "The sunny Theme");
+    themes.put("swanky-purse", "The swanky-purse Theme");
+    themes.put("trontastic", "The trontastic Theme");
+    themes.put("vader", "The vader Theme");
+
     themes.put("showcase", "The custom Showcase Theme");
 
     return SUCCESS;

@@ -15,38 +15,61 @@
 </div>
 <div id="col3">
   <div id="col3_content" class="clearfix">
-	<h2>Remote Link</h2>
+    <script type="text/javascript">
+    $.subscribe('success', function(event,data) {
+        $('#result').html("<ul id='languagesList'></ul>");
+        var list = $('#languagesList');
+		$.each(event.originalEvent.data, function(index, value) { 
+			list.append('<li>'+value+'</li>\n');
+		});
+    });
+    </script>        
+	<h2>Remote Link with JSON Result</h2>
 	<p>
-	    A simple Remote Link with indicator.
+	    A Remote Link that handle an JSON Result with an onSuccessTopic.
 	</p>
     <strong>Result Div :</strong>
 	<div id="result" class="result ui-widget-content ui-corner-all">Click on the link bellow.</div>
-	<s:url id="ajax" value="/ajax1.action"/>
+	<s:url id="jsonurl" action="jsonlanguages"/> 
 	
-	<sj:a id="ajaxlink" 
-		href="%{ajax}" 
-		targets="result" 
+	<sj:a id="ajaxjsonlink" 
+		href="%{jsonurl}" 
+		dataType="json"
+		onSuccessTopics="success"
 		indicator="indicator" 
 		button="true" 
-		buttonIcon="ui-icon-refresh"
+		buttonIcon="ui-icon-gear"
 	>
-	  	Run AJAX Action
+	  	Run AJAX Action with JSON Result
 	</sj:a>
     <img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>    
 	<div class="code ui-widget-content ui-corner-all">
-	  <strong>Code:</strong>
+	  <strong>JavaScript:</strong>
 	  <pre>
-    &lt;s:url id="ajax" value="ajax1.action"/&gt;
-    
-	&lt;sj:a id=&quot;ajaxlink&quot; 
-		href=&quot;%{ajax}&quot; 
-		targets=&quot;result&quot; 
+    $.subscribe('success', function(event,data) {
+        $('#result').html(&quot;&lt;ul id='languagesList'&gt;&lt;/ul&gt;&quot;);
+        var list = $('#languagesList');
+		$.each(event.originalEvent.data, function(index, value) { 
+			list.append('&lt;li&gt;'+value+'&lt;/li&gt;\n');
+		});
+    });
+	  </pre>
+	  <strong>JSP Code:</strong>
+	  <pre>
+	&lt;div id=&quot;result&quot; class=&quot;result ui-widget-content ui-corner-all&quot;&gt;Click on the link bellow.&lt;/div&gt;
+	&lt;s:url id=&quot;jsonurl&quot; action=&quot;jsonlanguages&quot;/&gt; 
+	
+	&lt;sj:a id=&quot;ajaxjsonlink&quot; 
+		href=&quot;%{jsonurl}&quot; 
+		dataType=&quot;json&quot;
+		onSuccessTopics=&quot;success&quot;
 		indicator=&quot;indicator&quot; 
 		button=&quot;true&quot; 
-		buttonIcon=&quot;ui-icon-refresh&quot;
+		buttonIcon=&quot;ui-icon-gear&quot;
 	&gt;
-	  	Run AJAX Action
+	  	Run AJAX Action with JSON Rsult
 	&lt;/sj:a&gt;
+    &lt;img id=&quot;indicator&quot; src=&quot;images/indicator.gif&quot; alt=&quot;Loading...&quot; style=&quot;display:none&quot;/&gt;    
 	  </pre>
 	</div>
   </div>

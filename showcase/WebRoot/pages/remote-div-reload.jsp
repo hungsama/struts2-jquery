@@ -128,6 +128,12 @@
     >
     	Refresh List
     </sj:a>
+    <sj:submit 	
+    	id="refreshsubmit2" 
+    	onClickTopics="refreshlist" 
+		button="true" 
+		buttonIcon="ui-icon-refresh"
+    />
 
     <br/><br/>
 

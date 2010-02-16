@@ -45,6 +45,15 @@
 	>
     	Ajax Link
     </sj:a>
+    <sj:submit id="listensubmit" 
+	    indicator="indicator2" 
+	    href="%{ajax1}" 
+	    targets="resultdiv2" 
+	    listenTopics="loaddiv2" 
+	    effect="highlight" 
+	    effectDuration="1000" 
+    	button="true" 
+	/>
     <div id="resultdiv2" class="result ui-widget-content ui-corner-all">
     	Result of Ajax Link.
         <img id="indicator2" src="images/indicator.gif" alt="Loading..." style="display:none"/>
