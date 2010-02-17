@@ -15,7 +15,27 @@
     <p>
         A simple Autocompleter that handle a String Array from Action.
     </p>
-    <sj:autocompleter id="languages" list="%{languages}"/>
+    <strong>Result Div :</strong>
+	<div id="formResult" class="result ui-widget-content ui-corner-all">Submit form bellow.</div>
+    
+    <s:form id="form" action="echo" theme="simple" cssClass="yform">
+        <fieldset>
+            <legend>Form with Autocompleter</legend>
+	        <div class="type-select">
+	            <label for="echo">Echo: </label>
+    			<sj:autocompleter id="customers" name="echo" list="%{customers}" listValue="name" listKey="id" selectBox="true"/>
+	        </div>
+	        <div>
+	            <sj:submit 
+	            	targets="formResult" 
+	            	value="AJAX Submit" 
+	            	indicator="indicator"
+	            	button="true"
+	            	/>
+   				<img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>    
+	        </div>
+        </fieldset>
+    </s:form>
   </div>
   
   <div class="code ui-widget-content ui-corner-all">
