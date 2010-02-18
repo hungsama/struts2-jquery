@@ -29,6 +29,9 @@
 	<div id="result" class="result ui-widget-content ui-corner-all">Submit form bellow.</div>
     
     <s:form id="formValidate" action="login" theme="xhtml">
+    <s:actionerror />
+    <s:actionmessage/>
+    <s:fielderror/>
      	<s:textfield 
      		id="loginuser" 
      		name="loginuser" 

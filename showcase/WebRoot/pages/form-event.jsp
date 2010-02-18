@@ -21,24 +21,6 @@
 </div>
 <div id="col3">
   <div id="col3_content" class="clearfix">
-    <script type="text/javascript">
-    $.subscribe('before', function(event,data) {
-     var fData = event.originalEvent.formData;
-	 alert('About to submit: \n\n' + fData[0].value + ' to target '+event.originalEvent.options.target+' with timeout '+event.originalEvent.options.timeout );
-     var form = event.originalEvent.form[0]; 
-     if (form.echo.value.length < 2) { 
-         alert('Please enter a value with min 2 characters'); 
-         event.originalEvent.options.submit = false; 
-     } 
-    });
-    $.subscribe('complete', function(event,data) {
-   	 alert('status: ' + event.originalEvent.status + '\n\nresponseText: \n' + event.originalEvent.request.responseText + 
-     '\n\nThe output div should have already been updated with the responseText.');
-    });
-    $.subscribe('errorState', function(event,data) {
-        alert('status: ' + event.originalEvent.status + '\n\nrequest status: ' +event.originalEvent.request.status);
-    });
-    </script>        
 	<h2>Form submission with AJAX</h2>
 	<p>
 	    Submit a form with AJAX.
@@ -59,9 +41,9 @@
 	            	value="AJAX Submit" 
 	            	timeout="2500" 
 	            	indicator="indicator" 
-	            	onBeforeTopics="before" 
-	            	onCompleteTopics="complete" 
-	            	onErrorTopics="errorState" 
+	            	onBeforeTopics="beforeForm" 
+	            	onCompleteTopics="completeForm" 
+	            	onErrorTopics="errorStateForm" 
 	            	button="true"
 	            />
 	        </div>
@@ -83,9 +65,9 @@
                 	value="AJAX Submit with Error" 
                 	timeout="2500" 
                 	indicator="indicator" 
-                	onBeforeTopics="before" 
-                	onCompleteTopics="complete" 
-                	onErrorTopics="errorState"
+                	onBeforeTopics="beforeForm" 
+                	onCompleteTopics="completeForm" 
+                	onErrorTopics="errorStateForm"
 	            	button="true"
                 />
             </div>
@@ -95,7 +77,7 @@
 	<div class="code ui-widget-content ui-corner-all">
       <strong>JavaScript functions:</strong>
       <pre>
-    $.subscribe('before', function(event,data) {
+    $.subscribe('beforeForm', function(event,data) {
      var fData = event.originalEvent.formData;
 	 alert('About to submit: \n\n' + fData[0].value + ' to target '+event.originalEvent.options.target+' with timeout '+event.originalEvent.options.timeout );
      var form = event.originalEvent.form[0]; 
@@ -104,11 +86,11 @@
          event.originalEvent.options.submit = false; 
      } 
     });
-    $.subscribe('complete', function(event,data) {
+    $.subscribe('completeForm', function(event,data) {
    	 alert('status: ' + event.originalEvent.status + '\n\nresponseText: \n' + event.originalEvent.request.responseText + 
      '\n\nThe output div should have already been updated with the responseText.');
     });
-    $.subscribe('errorState', function(event,data) {
+    $.subscribe('errorStateForm', function(event,data) {
         alert('status: ' + event.originalEvent.status + '\n\nrequest status: ' +event.originalEvent.request.status);
     });
       </pre>

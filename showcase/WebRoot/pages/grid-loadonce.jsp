@@ -12,11 +12,6 @@
 </div>
 <div id="col3">
   <div id="col3_content" class="clearfix">
-    <script type="text/javascript">
-    $.subscribe('showloadcolumns', function(event,data) {
-        $("#gridloadtable").jqGrid('setColumns',{});
-  	});
-    </script>
     <h2>Grid (Local Data)</h2>
     <p>
         A Grid that loads data only once on initialization. The column Credit Limit is editable.

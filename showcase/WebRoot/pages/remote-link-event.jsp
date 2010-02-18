@@ -15,18 +15,6 @@
 </div>
 <div id="col3">
   <div id="col3_content" class="clearfix">
-    <script type="text/javascript">
-    $.subscribe('before', function(event,data) {
-        alert('Before request ');
-        $('#result').html('Loading ...');
-    });
-    $.subscribe('complete', function(event,data) {
-        $('#result').append('<br/><br/><strong>Completed request '+event.originalEvent.request.statusText+' completed with '+event.originalEvent.status+ '.</strong><br/>Status: '+event.originalEvent.request.status);
-    });
-    $.subscribe('errorState', function(event,data) {
-        $('#result').html('<br/><br/><strong>Error request '+event.originalEvent.request.statusText+' completed with '+event.originalEvent.status+ '.</strong><br/>Status: '+event.originalEvent.request.status);
-    });
-    </script>        
 	<h2>Remote Link with Events</h2>
 	<p>
 	    A Remote Link that raise Events befor and after request.
@@ -41,8 +29,8 @@
 		href="%{ajax}" 
 		indicator="indicator" 
 		targets="result" 
-		onClickTopics="before" 
-		onCompleteTopics="complete" 
+		onClickTopics="beforeLink" 
+		onCompleteTopics="completeLink" 
 		effect="pulsate" 
     	button="true" 
 		buttonIcon="ui-icon-gear"
@@ -57,9 +45,9 @@
     	href="file-does-not-exist.html" 
     	indicator="indicator2" 
     	targets="result" 
-    	onClickTopics="before" 
-    	onCompleteTopics="complete" 
-    	onErrorTopics="errorState" 
+    	onClickTopics="beforeLink" 
+    	onCompleteTopics="completeLink" 
+    	onErrorTopics="errorStateLink" 
     	effect="pulsate" 
     	effectDuration="1500" 
     	button="true" 
@@ -72,14 +60,14 @@
 	<div class="code ui-widget-content ui-corner-all">
       <strong>JavaScript functions:</strong>
       <pre>
-       $.subscribe('before', function(event,data) {
+       $.subscribe('beforeLink', function(event,data) {
            alert('Before request ');
            $('#result').html('Loading ...');
        });
-       $.subscribe('complete', function(event,data) {
+       $.subscribe('completeLink', function(event,data) {
            $('#result').append('&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Completed request '+event.originalEvent.request.statusText+' completed with '+event.originalEvent.status+ '.&lt;/strong&gt;&lt;br/&gt;Status: '+event.originalEvent.request.status);
        });
-       $.subscribe('errorState', function(event,data) {
+       $.subscribe('errorStateLink', function(event,data) {
            $('#result').html('&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Error request '+event.originalEvent.request.statusText+' completed with '+event.originalEvent.status+ '.&lt;/strong&gt;&lt;br/&gt;Status: '+event.originalEvent.request.status);
        });
       </pre>

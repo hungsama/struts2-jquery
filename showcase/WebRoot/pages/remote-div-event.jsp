@@ -15,20 +15,6 @@
 </div>
 <div id="col3">
   <div id="col3_content" class="clearfix">
-    <script type="text/javascript">
-    $.subscribe('beforeDiv', function(event,data) {
-        alert('Before request ');
-    });
-    $.subscribe('completeDiv', function(event,data) {
-        if(event.originalEvent.status == "success")
-        {
-            $('#resultnormal').append('<br/><br/><strong>Completed request '+event.originalEvent.request.statusText+' completed with '+event.originalEvent.status+ '.</strong><br/>Status: '+event.originalEvent.request.status);
-        }
-    });
-    $.subscribe('errorDiv', function(event,data) {
-        $('#resulterror').html('<br/><br/><strong>Error request '+event.originalEvent.request.statusText+' completed with '+event.originalEvent.status+ '.</strong><br/>Status: '+event.originalEvent.request.status);
-    });
-    </script>        
 	<h2>Remote Div</h2>
 	<p>
 	    A simple Remote Div that load AJAX content.
@@ -54,9 +40,7 @@
     });
     $.subscribe('completeDiv', function(event,data) {
         if(event.originalEvent.status == &quot;success&quot;)
-        {
             $('#resultnormal').append('&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Completed request '+event.originalEvent.request.statusText+' completed with '+event.originalEvent.status+ '.&lt;/strong&gt;&lt;br/&gt;Status: '+event.originalEvent.request.status);
-        }
     });
     $.subscribe('errorDiv', function(event,data) {
         $('#resulterror').html('&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Error request '+event.originalEvent.request.statusText+' completed with '+event.originalEvent.status+ '.&lt;/strong&gt;&lt;br/&gt;Status: '+event.originalEvent.request.status);

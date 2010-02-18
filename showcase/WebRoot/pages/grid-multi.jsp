@@ -12,13 +12,6 @@
 </div>
 <div id="col3">
   <div id="col3_content" class="clearfix">
-    <script type="text/javascript">
-    $.subscribe('getselectedids', function(event,data) {
-    	var s; 
-    	s = $("#gridmultitable").jqGrid('getGridParam','selarrrow');
-    	alert('Selected Rows : '+s); 
-  	});
-    </script>
     <h2>Grid (Editable/Multiselect)</h2>
     <p>
         A editable Grid with pager and navigator. This Grid is sortable by name column and multiple rows can be selected.

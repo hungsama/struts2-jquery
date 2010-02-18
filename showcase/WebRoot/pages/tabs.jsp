@@ -11,23 +11,6 @@
 </div>
 <div id="col3">
   <div id="col3_content" class="clearfix">
-    <script type="text/javascript">
-    $.subscribe('tabchange', function(event,data) {
-
-        var tab = event.originalEvent.ui.index;
-        $('#changepanel').html('Change to Tab <strong>'+tab+'.</strong>');
-        $('#infopanel').html('');
-        if(tab == 2) {
-        	$('#remotetabs').tabs( 'enable' , 3 );
-        }
-        else if(tab == 3) {
-        	$('#remotetabs').tabs( 'enable' , 4 );
-        }
-    });
-    $.subscribe('tabcomplete', function(event,ui) {
-        $('#infopanel').html('<strong>Completed request with Status '+event.originalEvent.status+ '.</strong><br/>Status: '+event.originalEvent.request.status);
-    });
-    </script>        
     <h2>Remote Tabs</h2>
     <p>
         A simple TabbedPanel with AJAX Content with two disabled Tabs and Topics.

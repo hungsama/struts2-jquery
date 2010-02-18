@@ -12,20 +12,6 @@
 </div>
 <div id="col3">
   <div id="col3_content" class="clearfix">
-    <script type="text/javascript">
-    $.subscribe('rowselect', function(event,data) {
-        $("#gridinfo").html('<p>Edit Mode for Row : '+event.originalEvent.id+'</p>');
-    });
-    $.subscribe('rowadd', function(event,data) {
-        $("#gridedittable").jqGrid('editGridRow',"new",{height:280,reloadAfterSubmit:false}); 
-  	});
-    $.subscribe('searchgrid', function(event,data) {
-        $("#gridedittable").jqGrid('searchGrid', {sopt:['cn','bw','eq','ne','lt','gt','ew']} );
-  	});
-    $.subscribe('showcolumns', function(event,data) {
-        $("#gridedittable").jqGrid('setColumns',{});
-  	});
-    </script>
     <h2>Grid (Editable)</h2>
     <p>
         A editable Grid with pager and navigator. Entries are editable when a cell is selected. This Grid is sortable by name column and searchable by id.

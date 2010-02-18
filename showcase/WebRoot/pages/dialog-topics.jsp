@@ -19,19 +19,6 @@
     <p>
         A modal Dialog with different topics.
     </p>
-    <script type="text/javascript">
-    $(document).ready(function() {
-		$.subscribe('dialogopentopic', function(event,ui) {
-	        alert('run topic on dialog open');
-		});
-		$.subscribe('dialogclosetopic', function(event,ui) {
-	        alert('run topic on dialog close');
-		});
-		$.subscribe('dialogbeforeclosetopic', function(event,ui) {
-	        alert('run topic befor dialog close');
-		});
-    });
-    </script>        
     <sj:dialog 
     	id="mytopicdialog" 
     	onOpenTopics="dialogopentopic" 

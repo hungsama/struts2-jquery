@@ -11,23 +11,15 @@
 </div>
 <div id="col3">
   <div id="col3_content" class="clearfix">
-    <script type="text/javascript">
-    $.subscribe('mychangetopic', function(event,data) {
-        alert('value changed to : '+$("#progressbarchange").progressbar('option', 'value'));
-    });
-    $.subscribe('myclicktopic', function(event,data) {
-         $("#progressbarchange").progressbar( 'value' , parseInt( Math.random() * ( 90 ) ) );
-    });
-    </script>        
     <h2>Progressbar with change event</h2>
     <p>
         A Progressbar that raise an event when change value.
     </p>
-    <sj:progressbar id="progressbarchange" value="21" onChangeTopics="mychangetopic"/>
+    <sj:progressbar id="progressbarchange" value="21" onChangeTopics="progressbarchangetopic"/>
     <br />
     <sj:a 
     	href="#" 
-    	onClickTopics="myclicktopic" 
+    	onClickTopics="progressbarclicktopic" 
     	button="true" 
 		buttonIcon="ui-icon-gear"
     >
@@ -38,20 +30,20 @@
   <div class="code ui-widget-content ui-corner-all">
     <strong>JavaScript functions:</strong>
     <pre>
-    $.subscribe('mychangetopic', function(event,data) {
+    $.subscribe('progressbarchangetopic', function(event,data) {
         alert('value changed to : '+$(&quot;#progressbarchange&quot;).progressbar('option', 'value'));
     });
-    $.subscribe('myclicktopic', function(event,data) {
+    $.subscribe('progressbarclicktopic', function(event,data) {
          $(&quot;#progressbarchange&quot;).progressbar( 'value' , parseInt( Math.random() * ( 90 ) ) );
     });
     </pre>
     <strong>Code:</strong>
     <pre>
-    &lt;sj:progressbar id=&quot;progressbarchange&quot; value=&quot;21&quot; onChangeTopics=&quot;mychangetopic&quot;/&gt;
+    &lt;sj:progressbar id=&quot;progressbarchange&quot; value=&quot;21&quot; onChangeTopics=&quot;progressbarchangetopic&quot;/&gt;
     &lt;br /&gt;
     &lt;sj:a 
     	href=&quot;#&quot; 
-    	onClickTopics=&quot;myclicktopic&quot; 
+    	onClickTopics=&quot;progressbarclicktopic&quot; 
     	button=&quot;true&quot; 
 		buttonIcon=&quot;ui-icon-gear&quot;
     &gt;

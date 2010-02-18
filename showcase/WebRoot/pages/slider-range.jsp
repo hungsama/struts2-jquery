@@ -11,11 +11,6 @@
 </div>
 <div id="col3">
   <div id="col3_content" class="clearfix">
-    <script type="text/javascript">
-    $.subscribe('sliderStop', function(event,data) {
-        alert('Slider stop with value : '+event.originalEvent.ui.value);
-    });
-    </script>        
 	<h2>Sliders with min and max Range and Events</h2>
 	<p>
 	    Slider with min and max Range in a form with AJAX submit.<br/>
