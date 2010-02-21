@@ -12,29 +12,17 @@
 </div>
 <div id="col3">
   <div id="col3_content" class="clearfix">
-    <h2>Accordion</h2>
+    <h2>Accordion from List</h2>
     <p>
-        A Accordion that opens on mouse over and is collabsible.
+        A Accordion build from a List.
     </p>
-    <sj:accordion 
-    	id="accordionmouseover" 
-    	list="accordion" 
-    	active="false" 
-    	openOnMouseover="true" 
-    	collapsible="true"
-    />
+    <sj:accordion id="accordionlist" list="accordion"/>
   </div>
   
   <div class="code ui-widget-content ui-corner-all">
     <strong>Code in JSP:</strong>
     <pre>
-    &lt;sj:accordion 
-    	id=&quot;accordionmouseover&quot; 
-    	list=&quot;accordion&quot; 
-    	active=&quot;false&quot; 
-    	openOnMouseover=&quot;true&quot; 
-    	collapsible=&quot;true&quot;
-    /&gt;
+    &lt;sj:accordion id=&quot;accordionlist&quot; list=&quot;accordion&quot;/&gt;
     </pre>
     <strong>Code in Action:</strong>
     <pre>
