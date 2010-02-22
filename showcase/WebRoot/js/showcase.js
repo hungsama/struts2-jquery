@@ -160,7 +160,7 @@ $(document).ready( function() {
 	        $('#infopanel').html('<strong>Completed request with Status '+event.originalEvent.status+ '.</strong><br/>Status: '+event.originalEvent.request.status);
 	    });
 
-	    /*
+    /*
 	 * Remove Error Labels when Validation Forms are successfully
 	 */
 	$.subscribe('removeErrors', function(event,data) {
@@ -168,7 +168,18 @@ $(document).ready( function() {
 		$('#formerrors').html('');
 	});
 
-	/*
+    /*
+	 * Topic for Remote Link with JSON Result.
+	 */
+    $.subscribe('handleJsonResult', function(event,data) {
+        $('#result').html("<ul id='languagesList'></ul>");
+        var list = $('#languagesList');
+		$.each(event.originalEvent.data, function(index, value) { 
+			list.append('<li>'+value+'</li>\n');
+		});
+    });
+
+    /*
 	 * Menu Highlight
 	 */
 	$('div.ui-widget-header > ul > li').click( function() {

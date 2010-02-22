@@ -15,15 +15,6 @@
 </div>
 <div id="col3">
   <div id="col3_content" class="clearfix">
-    <script type="text/javascript">
-    $.subscribe('success', function(event,data) {
-        $('#result').html("<ul id='languagesList'></ul>");
-        var list = $('#languagesList');
-		$.each(event.originalEvent.data, function(index, value) { 
-			list.append('<li>'+value+'</li>\n');
-		});
-    });
-    </script>        
 	<h2>Remote Link with JSON Result</h2>
 	<p>
 	    A Remote Link that handle an JSON Result with an onSuccessTopic.
@@ -35,7 +26,7 @@
 	<sj:a id="ajaxjsonlink" 
 		href="%{jsonurl}" 
 		dataType="json"
-		onSuccessTopics="success"
+		onSuccessTopics="handleJsonResult"
 		indicator="indicator" 
 		button="true" 
 		buttonIcon="ui-icon-gear"
@@ -46,7 +37,7 @@
 	<div class="code ui-widget-content ui-corner-all">
 	  <strong>JavaScript:</strong>
 	  <pre>
-    $.subscribe('success', function(event,data) {
+    $.subscribe('handleJsonResult', function(event,data) {
         $('#result').html(&quot;&lt;ul id='languagesList'&gt;&lt;/ul&gt;&quot;);
         var list = $('#languagesList');
 		$.each(event.originalEvent.data, function(index, value) { 
