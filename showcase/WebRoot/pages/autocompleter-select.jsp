@@ -13,7 +13,7 @@
   <div id="col3_content" class="clearfix">
     <h2>Autocompleter</h2>
     <p>
-        A simple Autocompleter that handle a String Array from Action.
+        A Autocompleter that handle a List from Action as Select Box.
     </p>
     <strong>Result Div :</strong>
 	<div id="formResult" class="result ui-widget-content ui-corner-all">Submit form bellow.</div>
@@ -23,7 +23,14 @@
             <legend>Form with Autocompleter</legend>
 	        <div class="type-select">
 	            <label for="echo">Echo: </label>
-    			<sj:autocompleter id="customers" name="echo" list="%{customers}" listValue="name" listKey="id" selectBox="true"/>
+    			<sj:autocompleter 
+    				id="customers" 
+    				name="echo" 
+    				list="%{customers}" 
+    				listValue="name" 
+    				listKey="id" 
+    				selectBox="true"
+    			/>
 	        </div>
 	        <div>
 	            <sj:submit 

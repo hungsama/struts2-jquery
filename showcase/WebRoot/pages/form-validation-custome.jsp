@@ -52,6 +52,7 @@
 		    		button="true" 
 		    		validate="true" 
 		    		validateFunction="customeValidation"
+		    		onBeforeTopics="removeErrors"
 		    		onSuccessTopics="removeErrors"
 		    		value="Submit" 
 		    		indicator="indicator"
@@ -69,6 +70,9 @@
       <sj:tab id="tab2" target="javascript" label="Required JavaScript"/>
       <div id="jsp">
 	  <pre>
+	&lt;div id=&quot;result&quot; class=&quot;result ui-widget-content ui-corner-all&quot;&gt;Submit form bellow.&lt;/div&gt;
+    
+    &lt;ul id=&quot;formerrors&quot; class=&quot;errorMessage&quot;&gt;&lt;/ul&gt;
     &lt;s:form id=&quot;formValidateCustom&quot; action=&quot;login&quot; theme=&quot;simple&quot; cssClass=&quot;yform&quot;&gt;
         &lt;fieldset&gt;
             &lt;legend&gt;AJAX Form with Validation&lt;/legend&gt;
@@ -92,13 +96,15 @@
 		    		button=&quot;true&quot; 
 		    		validate=&quot;true&quot; 
 		    		validateFunction=&quot;customeValidation&quot;
-		    		effect=&quot;pulsate&quot; 
+		    		onBeforeTopics=&quot;removeErrors&quot;
+		    		onSuccessTopics=&quot;removeErrors&quot;
 		    		value=&quot;Submit&quot; 
 		    		indicator=&quot;indicator&quot;
 		    	/&gt;
 	        &lt;/div&gt;
         &lt;/fieldset&gt;
     &lt;/s:form&gt;
+    &lt;img id=&quot;indicator&quot; src=&quot;images/indicator.gif&quot; alt=&quot;Loading...&quot; style=&quot;display:none&quot;/&gt;    
 	  </pre>
 	  </div>
       <div id="java">
@@ -106,8 +112,11 @@
 @ParentPackage(value = &quot;showcase&quot;)
 @InterceptorRef(&quot;jsonValidationWorkflowStack&quot;)
 @Validations(requiredStrings = {
-    @RequiredStringValidator(fieldName = &quot;loginuser&quot;, type = ValidatorType.FIELD, message = &quot;Login User is required&quot;),
-	@RequiredStringValidator(fieldName = &quot;loginpassword&quot;, type = ValidatorType.FIELD, message = &quot;Password is required&quot;)
+    @RequiredStringValidator(fieldName = &quot;loginuser&quot;, type = ValidatorType.FIELD, message = &quot;Login User is required&quot;), 
+    @RequiredStringValidator(fieldName = &quot;loginpassword&quot;, type = ValidatorType.FIELD, message = &quot;Password is required&quot;)
+}, expressions = {
+  @ExpressionValidator(expression = &quot;loginpassword.trim().equals('test') == true&quot;, message = &quot;Password must be test.&quot;),
+
 })
 public class Login extends ActionSupport {
 
@@ -158,9 +167,27 @@ public class Login extends ActionSupport {
 	  </div>
       <div id="javascript">
 	  <pre>
+
+$(document).ready( function() {
+	$.subscribe('removeErrors', function(event,data) {
+		$('.errorLabel').html('').removeClass('errorLabel');
+		$('#formerrors').html('');
+	});
+});	
+
 function customeValidation(form, errors) {
-	$('.errorLabel').html('').removeClass('errorLabel');
 	
+	//List for errors
+	var list = $('#formerrors');
+	
+	//Handle non field errors 
+	if (errors.errors) {
+		$.each(errors.errors, function(index, value) { 
+			list.append('<li>'+value+'</li>\n');
+		});
+	}
+	
+	//Handle field errors 
 	if (errors.fieldErrors) {
 		$.each(errors.fieldErrors, function(index, value) { 
 			var elem = $('#'+index+'Error');

@@ -29,9 +29,6 @@
 	<div id="result" class="result ui-widget-content ui-corner-all">Submit form bellow.</div>
     
     <s:form id="formValidate" action="login" theme="xhtml">
-    <s:actionerror />
-    <s:actionmessage/>
-    <s:fielderror/>
      	<s:textfield 
      		id="loginuser" 
      		name="loginuser" 
@@ -41,7 +38,7 @@
      	<s:textfield 
      		id="loginpassword" 
      		name="loginpassword" 
-     		label="Password" 
+     		label="Password (test)" 
      		required="true"
      	/>
     	<sj:submit 
@@ -72,7 +69,7 @@
      	&lt;s:textfield 
      		id=&quot;loginpassword&quot; 
      		name=&quot;loginpassword&quot; 
-     		label=&quot;Password&quot; 
+     		label=&quot;Password (test)&quot; 
      		required=&quot;true&quot;
      	/&gt;
     	&lt;sj:submit 

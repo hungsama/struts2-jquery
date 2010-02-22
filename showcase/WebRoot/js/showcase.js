@@ -7,12 +7,6 @@ function customeValidation(form, errors) {
 	//List for errors
 	var list = $('#formerrors');
 	
-	//Remove previous field errors 
-	$('.errorLabel').html('').removeClass('errorLabel');
-	
-	//Remove previous errors 
-	list.html('');
-
 	//Handle non field errors 
 	if (errors.errors) {
 		$.each(errors.errors, function(index, value) { 
