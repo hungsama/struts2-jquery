@@ -48,7 +48,34 @@
   <div class="code ui-widget-content ui-corner-all">
     <strong>Code in JSP:</strong>
     <pre>
-&lt;sj:autocompleter id=&quot;languages&quot; list=&quot;%{languages}&quot;/&gt;
+    &lt;strong&gt;Result Div :&lt;/strong&gt;
+	&lt;div id=&quot;formResult&quot; class=&quot;result ui-widget-content ui-corner-all&quot;&gt;Submit form bellow.&lt;/div&gt;
+    
+    &lt;s:form id=&quot;form&quot; action=&quot;echo&quot; theme=&quot;simple&quot; cssClass=&quot;yform&quot;&gt;
+        &lt;fieldset&gt;
+            &lt;legend&gt;Form with Autocompleter&lt;/legend&gt;
+	        &lt;div class=&quot;type-select&quot;&gt;
+	            &lt;label for=&quot;echo&quot;&gt;Echo: &lt;/label&gt;
+    			&lt;sj:autocompleter 
+    				id=&quot;customers&quot; 
+    				name=&quot;echo&quot; 
+    				list=&quot;%{customers}&quot; 
+    				listValue=&quot;name&quot; 
+    				listKey=&quot;id&quot; 
+    				selectBox=&quot;true&quot;
+    			/&gt;
+	        &lt;/div&gt;
+	        &lt;div&gt;
+	            &lt;sj:submit 
+	            	targets=&quot;formResult&quot; 
+	            	value=&quot;AJAX Submit&quot; 
+	            	indicator=&quot;indicator&quot;
+	            	button=&quot;true&quot;
+	            	/&gt;
+   				&lt;img id=&quot;indicator&quot; src=&quot;images/indicator.gif&quot; alt=&quot;Loading...&quot; style=&quot;display:none&quot;/&gt;    
+	        &lt;/div&gt;
+        &lt;/fieldset&gt;
+    &lt;/s:form&gt;
     </pre>
   </div>
   <!-- IE Column Clearing -->

@@ -15,25 +15,58 @@
     <p>
         A Autocompleter that handle a JSON Result.
     </p>
-	<s:url id="remoteurl" action="jsonlanguages"/> 
-    <sj:autocompleter 
-    	id="languages" 
-    	href="%{remoteurl}" 
-    	delay="50" 
-    	loadMinimumCount="2"
-    />
+    <strong>Result Div :</strong>
+	<div id="result" class="result ui-widget-content ui-corner-all">Submit form bellow.</div>
+    
+    <s:form id="formAutocompleteJson" action="echo" theme="simple">
+		<s:url id="remoteurl" action="jsonlanguages"/> 
+	    <sj:autocompleter 
+	    	id="languages" 
+	    	name="echo"
+	    	href="%{remoteurl}" 
+	    	delay="50" 
+	    	loadMinimumCount="2"
+	    />
+		<br/>
+    	<sj:submit
+    		id="submitFormAutocompleteJson" 
+    		targets="result" 
+    		button="true" 
+    		validate="true" 
+    		value="Submit" 
+    		indicator="indicator"
+    		/>
+    </s:form>
+    <img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>    
+
   </div>
   
   <div class="code ui-widget-content ui-corner-all">
     <strong>Code in JSP:</strong>
     <pre>
-	&lt;s:url id=&quot;remoteurl&quot; action=&quot;jsonlanguages&quot;/&gt; 
-    &lt;sj:autocompleter 
-    	id=&quot;languages&quot; 
-    	href=&quot;%{remoteurl}&quot; 
-    	delay=&quot;50&quot; 
-    	loadMinimumCount=&quot;2&quot;
-    /&gt;
+    &lt;strong&gt;Result Div :&lt;/strong&gt;
+	&lt;div id=&quot;result&quot; class=&quot;result ui-widget-content ui-corner-all&quot;&gt;Submit form bellow.&lt;/div&gt;
+    
+    &lt;s:form id=&quot;formAutocompleteJson&quot; action=&quot;echo&quot; theme=&quot;simple&quot;&gt;
+		&lt;s:url id=&quot;remoteurl&quot; action=&quot;jsonlanguages&quot;/&gt; 
+	    &lt;sj:autocompleter 
+	    	id=&quot;languages&quot; 
+	    	name=&quot;echo&quot;
+	    	href=&quot;%{remoteurl}&quot; 
+	    	delay=&quot;50&quot; 
+	    	loadMinimumCount=&quot;2&quot;
+	    /&gt;
+		&lt;br/&gt;
+    	&lt;sj:submit
+    		id=&quot;submitFormAutocompleteJson&quot; 
+    		targets=&quot;result&quot; 
+    		button=&quot;true&quot; 
+    		validate=&quot;true&quot; 
+    		value=&quot;Submit&quot; 
+    		indicator=&quot;indicator&quot;
+    		/&gt;
+    &lt;/s:form&gt;
+    &lt;img id=&quot;indicator&quot; src=&quot;images/indicator.gif&quot; alt=&quot;Loading...&quot; style=&quot;display:none&quot;/&gt;    
     </pre>
   </div>
   <!-- IE Column Clearing -->
