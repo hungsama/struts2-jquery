@@ -107,6 +107,8 @@ For Questions around the Plugin you can use this [http://groups.google.com/group
 
 === How can a project committer trigger a Maven repository deployment? ===
 
+==== One-Time Setup ====
+===== Configure Repository Credentials =====
 To be able to deploy a current snapshot or release build to the SVN based Maven repository, you will need to add the following lines to your local Maven settings, usually found in $HOME/.m2/settings.xml:
 {{{
 ...
@@ -124,8 +126,26 @@ To be able to deploy a current snapshot or release build to the SVN based Maven 
     </servers>
 ...
 }}}
-This is a one-time setup. Afterwards you will be able to make Maven deployments simply by the following commandline:
+===== Configure Code Signing Key =====
+The release process requires to sign the artifacts with a valid GnuPG key. The following steps assume that you have not setup a local GnuPG infrastructure yet.
+  # Get GnuPG. On Linux, your package management tool will offer it as _gpg_ or _gnupg_. See http://gnupg.org/download/index.en.html for downloadable binaries for MacOS and Windows.
+  # If you already have a GnuPG key, you can [http://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-3.html#ss3.3 import it] now and skip the next steps. This is also needed if you want to enable more machines for deployment.
+  # If you don't have a key yet, generate a public/private key pair: {{{gpg --gen-key}}}. Be sure to chose a safe password and to backup the key pair afterwards (see {{{--export}}} and {{{--export-secret-keys}}} [http://gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands here])
+  # If you haven't already, upload your public key to [http://pgp.mit.edu]. The ASCII version needed for uploading can be generated with the command line {{{gpg --export --armor <ID>}}}
+
+==== Deployment Process ===
+The deployment is triggered with the following command:
 {{{
-mvn deploy
+mvn -Drelease
+}}}
+This will activate the release profile, including the code signing procedure and executing the the _deploy_ goal. During the deployment process you will be asked to provide your private key password which will be needed for signing the artifacts.
+
+If you have more than one key in your private GnuPG key ring, you will also have to provide the id which you want to use for signing:
+{{{
+mvn -Drelease -Dgpg.keyname=<your key ID>
+}}}
+If you want to invoke custom goals, this can easily be done:
+{{{
+mvn -Drelease clean deploy
 }}}
 * Please note that this will not work unless you have commit rights to the struts2-jquery project on Google Code *
