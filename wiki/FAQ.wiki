@@ -148,4 +148,9 @@ If you want to invoke custom goals, this can easily be done:
 {{{
 mvn -Drelease clean deploy
 }}}
-* Please note that this will not work unless you have commit rights to the struts2-jquery project on Google Code *
+
+If the release is a SNAPSHOT version, you are done at this point.
+
+If it is an official release, you need to review the artifacts now staged at [http://oss.sonatype.org/index.html Sonatype OSS Nexus] and promote them to the central Maven repository as described in the [http://nexus.sonatype.org/oss-repository-hosting.html#6 "Promoting staged Artifacts"] section of the Sonatype OSS documentation.
+
+* Please note that this will not work unless you have sufficient credentials at Sonatype OSS Nexus *
