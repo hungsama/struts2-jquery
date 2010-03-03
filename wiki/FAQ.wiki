@@ -34,7 +34,35 @@
 
 === How can I use the Plugin from Maven? ===
 
-Currently the plugin is not found in the central Maven repository, since the request for addition is still pending. Meanwhile you can add the project's staging or snapshot repository to your project's pom.xml:
+Since version 1.8.3 the plugin is found in the central Maven repository. Just add to your dependencies section:
+{{{
+<dependencies>
+    ...
+    <dependency>
+        <groupId>com.jgeppert.struts2.jquery</groupId>
+        <artifactId>struts2-jquery-plugin</artifactId>
+        <version>1.8.3</version>
+    </dependency>
+    ...
+</dependencies>
+}}}
+To access SNAPSHOT builds, you need to declare the snapshot repository lookup in your pom.xml:
+{{{
+...
+<repositories>
+    ...
+    <repository>
+        <id>sonatype.oss.snapshots</id>
+        <name>Sonatype OSS Snapshot Repository</name>
+        <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+        <releases>false</releases>
+        <snapshots>true</snapshots>
+    </repository>
+</repositories>
+...
+}}}
+
+Previous versions are not found in the central Maven repository. To access them, you have to declare the project's internal staging or snapshot repository to your project's pom.xml:
 {{{
 ...
 <repositories>
@@ -46,17 +74,8 @@ Currently the plugin is not found in the central Maven repository, since the req
     </repository>
 </repositories>
 ...
-<dependencies>
-    ...
-    <dependency>
-        <groupId>com.jgeppert.struts2.jquery</groupId>
-        <artifactId>struts2-jquery-plugin</artifactId>
-        <version>1.8.1</version>
-    </dependency>
-    ...
-</dependencies>
 }}}
-If you want to be able to reference snapshot builds, you would extend the setup as follows:
+If you want to be able to reference historic snapshot builds, you would extend the setup as follows:
 {{{
 ...
 <repositories>
@@ -78,7 +97,7 @@ If you want to be able to reference snapshot builds, you would extend the setup 
 </repositories>
 ...
 }}}
-
+* Please note that all versions of the plugin after 1.8.3 will not be distributed to the project's internal Maven repository any more, since they are now found in the central repository *
 
 === Can I use my own Theme? ===
 
@@ -115,13 +134,13 @@ To be able to deploy a current snapshot or release build to the SVN based Maven 
     <servers>
         <server>
             <id>struts2-jquery.staging</id>
-            <username>[YOUR GOOGLECODE LOGINNAME]</username>
-            <password>[YOUR GOOGLECODE SVN PASSWORD]</password>
+            <username>[Sonatype OSS Nexus Username]</username>
+            <password>[Sonatype OSS Nexus Password]</password>
         </server>
         <server>
             <id>struts2-jquery.snapshots</id>
-            <username>[YOUR GOOGLECODE LOGINNAME]</username>
-            <password>[YOUR GOOGLECODE SVN PASSWORD]</password>
+            <username>[Sonatype OSS Nexus Username]</username>
+            <password>[Sonatype OSS Nexus Password]</password>
         </server>
     </servers>
 ...
