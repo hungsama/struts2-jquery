@@ -133,6 +133,30 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 					<td align="left" valign="top">Set the html accesskey attribute on rendered html element</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">button</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">jQuery UI Button</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">buttonIcon</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Icons to display. The primary icon is displayed on the left of the label text. Value must be a classname (String), eg. ui-icon-gear.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">buttonIconSecondary</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Icons to display. The secondary icon is displayed on the right of the label text. Value must be a classname (String), eg. ui-icon-gear.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">cssClass</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -641,8 +665,16 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Enable client AJAX validation</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">validateFunction</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Whether to execute validation on this elements of the form(s) provided in the formId attribute (valid values are 'true', 'false', and 'only'). Selecting 'only' will noly validate the form fiellds and not execute the result of this action implied by the href url</td>
+					<td align="left" valign="top">A function that handle the client validation result. eg.: myValidation(form, errors)</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">value</td>

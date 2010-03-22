@@ -149,6 +149,22 @@ public class JsonTable extends ActionSupport {
 					<td align="left" valign="top">Set the html accesskey attribute on rendered html element</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">altClass</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">ui-priority-secondary</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The class that is used for alternate rows. You can construct your own class and replace this value. This option is valid only if altRows options is set to true</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">altRows</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Set a zebra-striped grid</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">autoencode</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">true</td>
@@ -1019,14 +1035,6 @@ public class JsonTable extends ActionSupport {
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">When set to true we directly place the user data array userData at footer. The rules are as follow: If the userData array contain name which is equal to those of colModel then the value is placed in that column.If there are no such values nothing is palced. Note that if this option is used we use the current formatter options (if available) for that column.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">validate</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Whether to execute validation on this elements of the form(s) provided in the formId attribute (valid values are 'true', 'false', and 'only'). Selecting 'only' will noly validate the form fiellds and not execute the result of this action implied by the href url</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">value</td>

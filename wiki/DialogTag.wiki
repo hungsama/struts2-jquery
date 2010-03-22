@@ -333,6 +333,14 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">Define label position of form element (top/left)</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">listenTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The comma separated list 'listenTopics' is the list of topic names that is used to trigger a request.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">loadingText</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -397,6 +405,14 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">A comma delimited list of topics that published always</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">onBeforeCloseTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published befor dialog is closed.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">onBeforeTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -419,6 +435,14 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">A comma delimited list of topics that published when the element changed</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onCloseTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when dialog is closed.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onCompleteTopics</td>
@@ -458,7 +482,15 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published when the element is focused</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when dialog is focused.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onOpenTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when dialog is opened.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onSuccessTopics</td>
@@ -731,14 +763,6 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Icon path used for image that will have the tooltip</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">validate</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Whether to execute validation on this elements of the form(s) provided in the formId attribute (valid values are 'true', 'false', and 'only'). Selecting 'only' will noly validate the form fiellds and not execute the result of this action implied by the href url</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">value</td>

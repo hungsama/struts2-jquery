@@ -14,9 +14,12 @@
     * [DatePickerTag Datepicker]
     * [DialogTag Dialog]
     * [AccordionTag Accordion]
+    * [AutocompleterTag Autocompleter]
     * [ProgressbarTag Progressbar]
     * [SliderTag Slider]
     * [GridTag Grid]  
+    * [Button Button]  
+    * [Buttonset Buttonset]  
   * UI interactions
     * [Resizable Resizable] for Divs
     * [DragAndDrop Drag and Drop] for Divs
@@ -26,6 +29,9 @@
     * [TextfieldTag Textfield]
     * [TextareaTag Textarea]
     * [SelectTag Select]
+  * Tasks
+    * [Validation Form Validation]
+    * [JsonResult Work with JSON Results]
   * Links
     * [http://www.weinfreund.de/struts2-jquery-showcase/ Showcase/Examples]
     * [http://groups.google.com/group/struts2-jquery Mailinglist/Forum]

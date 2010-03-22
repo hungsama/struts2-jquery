@@ -1,6 +1,40 @@
 #summary Changelog
 #labels Featured
 
+= 2.0.0 =
+*When using Custome Themes it is recommended to create a new one. ([http://code.google.com/p/struts2-jquery/wiki/HeadTag#Custome_Themes Instructions]) or rename your current css from _ui.theme.css to jquery-ui.css_ *
+
+  * Upgrade to jQuery 1.4.2 ( Issue 91 )
+  * Upgrade to jQuery UI 1.8.0
+  * Upgrade to jqGrid 3.6.4
+  * Upgrade to jQuery Form Plugin 2.40
+  * Implement an [AutocompleterTag Autocompleter] ( Issue 10 )
+  * Implement an Radiomap as jQuery UI [Buttonset Buttonset]
+  * Implement an CheckboxList as jQuery UI [Buttonset Buttonset]
+  * Support for Form [Validation Validation] 
+  * Support for new [Button jQuery UI Button] Widget
+  * Include all offical jQuery UI Themes
+  * New Showcase Example how to handle JSON Results 
+  * New Showcase Example how to build accordion manually 
+  * New Showcase Examples for [AutocompleterTag Autocompleter] 
+  * New Showcase Examples for AJAX Client Form [Validation Validation] 
+  * Complete Issue 102: Enable Sonatype Nexus OSS repository deployment for Maven central repository sync
+  * Complete Issue 104: Move source to a Maven multi module setup
+  * Fix Issue 65: Build accordion manually  
+  * Fix Issue 80: Add Size Parameter for select tag
+  * Fix Issue 84: JavaScript Error when parent form has no id
+  * Fix Issue 86: onRowSelectTopcs only published when editurl is used  
+  * Fix Issue 88: <s:url> + formId in <sj:div> bug with first form field
+  * Fix Issue 89: <sj:submit> do not notify topics
+  * Fix Issue 90: <sj:submit> with "onBeforeTopics" without ajax submit
+  * Fix Issue 95: datepicker locale should use the struts current locale  
+  * Fix Issue 97: FormFilter Attribute on SubmitTag   
+  * Fix Issue 98: onAlwaysTopics but in sj:submit and sj:a  
+  * Fix Issue 106: "Multiple" attribute in sj:select tag   
+  * Fix Issue 107: value attribute in select tag has no effect   
+  * Fix Issue 108: how to set #sjdialog with query string dynamically   
+  * Fix Issue 112: add attributes for alternate rows in the grid tag    
+
 = 1.8.3 =
 
   * New supported Attributes for [GridTag Grid Tag] _(filterOptions, surl, defval)_

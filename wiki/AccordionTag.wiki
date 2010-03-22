@@ -232,7 +232,7 @@ You can use the Attributes paramKeys and paramValues to append parameters to eac
 				</tr>
 				<tr>
 					<td align="left" valign="top">list</td>
-					<td align="left" valign="top"><strong>true</strong></td>
+					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
@@ -279,12 +279,68 @@ You can use the Attributes paramKeys and paramValues to append parameters to eac
 					<td align="left" valign="top">Topics that are published before a load</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">onBlurTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when the element is blured</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">onChangeTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">A comma delimited list of topics that published when the element changed</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onCompleteTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when the element ajax request is completed (will override settings for a target container if provided)</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onDisableTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when the element disabled</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onEnableTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when the element is enabled</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onErrorTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when the element ajax request returns an error (will override settings for a target container if provided)</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onFocusTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when the element is focused</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onSuccessTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when the element ajax request is completed successfully  (will override settings for a target container if provided)</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onblur</td>
@@ -405,6 +461,14 @@ You can use the Attributes paramKeys and paramValues to append parameters to eac
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">Boolean</td>
 					<td align="left" valign="top">open accordion on mouse over event. Default: false</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">openTemplate</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Set template to use for opening the rendered html.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">paramKeys</td>

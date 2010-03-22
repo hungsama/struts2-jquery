@@ -43,11 +43,28 @@ The default indicator is visible at every ajax request.
 ==Base Themes==
 Built in themes from Plugin 
 
+  * black-tie
+  * blitzer
   * cupertino
-  * darkness
-  * lightness
+  * dot-luv
+  * eggplant
+  * excite-bike
+  * flick
+  * hot-sneaks
+  * humanity
+  * le-frog
+  * mint-choc
+  * overcast
+  * pepper-grinder
   * redmond
-  * smothness
+  * smoothness
+  * start
+  * sunny
+  * swanky-purse
+  * trontastic
+  * ui-darkness
+  * ui-lightness
+  * vader
  
 {{{
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -66,8 +83,8 @@ Create and Download your own Theme with [http://jqueryui.com/themeroller/ jQuery
 
   # Create a folder in your WebRoot path *template/themes/mytheme*
   # Extract downloaded theme and switch into the css folder
-  # Rename jquery-ui-1.7.2.custom.css to *ui.theme.css*
-  # Copy *ui.theme.css* and *images* folder into the *template/themes/mytheme* folder
+  # Rename jquery-ui-x.x.x.custom.css to *jquery-ui.css*
+  # Copy *jquery-ui.css* and *images* folder into the *template/themes/mytheme* folder
    
 {{{
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -158,9 +175,17 @@ Create and Download your own Theme with [http://jqueryui.com/themeroller/ jQuery
 				<tr>
 					<td align="left" valign="top">locale</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">en</td>
+					<td align="left" valign="top">en or struts.local value</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">import jQuery i18n scripts</td>
+					<td align="left" valign="top">import jQuery i18n scripts.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">useJqGridPlugin</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">If set to true it will enable jqgrids.</td>
 				</tr>
 		</table>
