@@ -1,0 +1,71 @@
+#summary Render a Checkbox List or Radio Buttons as jQuery UI Buttonset
+#labels Phase-Implementation
+
+= Introduction =
+
+This function allows you to use the jQuery UI Buttonset Widget for Checkbox Lists or Radio Buttons.
+
+= Samples =
+
+== A CheckboxList as jQuery UI Buttonset==
+{{{
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<html>
+  <head>
+    <sj:head jqueryui="true"/>
+  </head>
+  <body>
+	<div id="formResult" class="result ui-widget-content ui-corner-all">Submit form bellow.</div>
+    
+    <s:form id="form" action="echo" theme="xhtml">
+			    <sj:checkboxlist
+			    		id="checkboxbuttonset"
+			            tooltip="Choose your Friends"
+			            label="Friends"
+			            list="{'Patrick', 'Jason', 'Jay', 'Toby', 'Rene'}"
+			            name="echo"/>
+	            <sj:submit 
+	            	targets="formResult" 
+	            	value="AJAX Submit" 
+	            	indicator="indicator"
+	            	button="true"
+	            />
+    </s:form>
+
+    <img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>    
+  </body>
+</html>
+}}}
+
+==Radio Buttons as jQuery UI Buttonset ==
+
+{{{
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<html>
+  <head>
+    <sj:head jqueryui="true"/>
+  </head>
+  <body>
+	<div id="formResult" class="result ui-widget-content ui-corner-all">Submit form bellow.</div>
+    
+    <s:form id="form" action="echo" theme="simple">
+            <label for="echo">Choose your Friend: </label>
+		    <sj:radio
+		    		id="radiobuttonset"
+		            list="{'Patrick', 'Jason', 'Jay', 'Toby', 'Rene'}"
+		            name="echo"/>
+		    <br/>
+            <sj:submit 
+	           	targets="formResult" 
+	           	value="AJAX Submit" 
+	           	indicator="indicator"
+	           	button="true"
+           	/>
+    </s:form>
+
+    <img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>    
+  </body>
+</html>
+}}}
