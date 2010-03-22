@@ -7,7 +7,7 @@
   * Upgrade to jQuery 1.4.2 ( Issue 91 )
   * Upgrade to jQuery UI 1.8.0
   * Upgrade to jqGrid 3.6.4
-  * Upgrade to jQuery Form Plugin 2.40
+  * Upgrade to jQuery Form Plugin 2.43
   * Implement an [AutocompleterTag Autocompleter] ( Issue 10 )
   * Implement an Radiomap as jQuery UI [Buttonset Buttonset]
   * Implement an CheckboxList as jQuery UI [Buttonset Buttonset]
