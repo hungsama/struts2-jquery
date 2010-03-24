@@ -46,6 +46,7 @@ Built in themes from Plugin
   * black-tie
   * blitzer
   * cupertino
+  * dark-hive
   * dot-luv
   * eggplant
   * excite-bike
@@ -58,6 +59,7 @@ Built in themes from Plugin
   * pepper-grinder
   * redmond
   * smoothness
+  * south-street
   * start
   * sunny
   * swanky-purse
