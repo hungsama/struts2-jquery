@@ -1,5 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 
     <s:url id="ordersurl" action="json-orders" />
     <s:url id="orderdetailsurl" action="json-orderdetails" />
@@ -10,7 +11,7 @@
         <br/>
         &lt;sj:head <strong>useJqGridPlugin=&quot;true&quot;</strong> jqueryui=&quot;true&quot; jquerytheme=&quot;redmond&quot;/&gt;
     </p>
-    <sj:grid 
+    <sjg:grid 
     	id="orderstable" 
     	caption="Orders with Orderdetails Subgrid" 
     	dataType="json" 
@@ -27,7 +28,7 @@
     	viewrecords="true"
     	
     >
-	    <sj:grid 
+	    <sjg:grid 
 	    	id="orderssubgridtable" 
 	    	subGridUrl="%{orderdetailsurl}"
 	    	gridModel="gridModel"
@@ -35,11 +36,11 @@
 	    	footerrow="true"
 	    	userDataOnFooter="true"
 	    >
-	    	<sj:gridColumn name="productname" title="Product" width="300"/>
-	    	<sj:gridColumn name="quantityordered" title="Quantity" formatter="integer" align="center"/>
-	    	<sj:gridColumn name="priceeach" title="Price" formatter="currency" align="right"/>
-	    </sj:grid>
-    	<sj:gridColumn name="ordernumber" 
+	    	<sjg:gridColumn name="productname" title="Product" width="300"/>
+	    	<sjg:gridColumn name="quantityordered" title="Quantity" formatter="integer" align="center"/>
+	    	<sjg:gridColumn name="priceeach" title="Price" formatter="currency" align="right"/>
+	    </sjg:grid>
+    	<sjg:gridColumn name="ordernumber" 
     		index="ordernumber" 
     		key="true" 
     		title="Order" 
@@ -48,28 +49,28 @@
     		search="true" 
     		searchoptions="{sopt:['eq','ne','lt','gt']}"
     	/>
-    	<sj:gridColumn 
+    	<sjg:gridColumn 
     		name="orderdate" 
     		index="orderdate" 
     		title="Order Date"
     		formatter="date" 
     		sortable="true" 
     	/>
-    	<sj:gridColumn 
+    	<sjg:gridColumn 
     		name="requireddate" 
     		index="requireddate" 
     		title="Required Date"
     		formatter="date" 
     		sortable="true" 
     	/>
-    	<sj:gridColumn 
+    	<sjg:gridColumn 
     		name="shippeddate" 
     		index="shippeddate" 
     		title="Shipped Date"
     		formatter="date" 
     		sortable="true" 
     	/>
-    	<sj:gridColumn 
+    	<sjg:gridColumn 
     		name="contactlastname" 
     		index="contactlastname" 
     		title="Last Name" 
@@ -78,7 +79,7 @@
     		search="true"
     		searchoptions="{sopt:['eq','ne','bw','cn']}"
     		/>
-    	<sj:gridColumn 
+    	<sjg:gridColumn 
     		name="status" 
     		index="status" 
     		title="Status" 
@@ -86,18 +87,18 @@
     		search="true"
     		searchoptions="{sopt:['eq','ne']}"
     		/>
-    	<sj:gridColumn 
+    	<sjg:gridColumn 
     		name="comments" 
     		index="comments" 
     		title="Comments" 
     		search="true"
     		searchoptions="{sopt:['eq','ne','bw','cn']}"
     		/>
-    	<sj:gridColumn 
+    	<sjg:gridColumn 
     		name="customer.customernumber" 
     		index="customer" 
     		title="Customer" 
     		formatter="integer"
     		sortable="true"
     		/>
-    </sj:grid>
+    </sjg:grid>

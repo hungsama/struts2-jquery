@@ -1,5 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 
 
     <s:url id="remoteurl" action="json-table" />
@@ -43,7 +44,7 @@
 		</ol>
 		</sj:dialog>
     </p>
-    <sj:grid 
+    <sjg:grid 
     	id="customerstable" 
     	caption="Customers (Editable/Multiselect)" 
     	dataType="json" 
@@ -64,7 +65,7 @@
     	multiselect="true"
     	viewrecords="true"
     >
-    	<sj:gridColumn name="customernumber" 
+    	<sjg:gridColumn name="customernumber" 
     		index="customernumber" 
     		key="true" 
     		title="ID" 
@@ -74,7 +75,7 @@
     		search="true" 
     		searchoptions="{sopt:['eq','ne','lt','gt']}"
     	/>
-    	<sj:gridColumn 
+    	<sjg:gridColumn 
     		name="customername" 
     		index="customername" 
     		title="Company" 
@@ -83,7 +84,7 @@
     		editable="true" 
     		edittype="text" 
     	/>
-    	<sj:gridColumn 
+    	<sjg:gridColumn 
     		name="contactlastname" 
     		index="contactlastname" 
     		title="Last Name" 
@@ -93,7 +94,7 @@
     		edittype="text" 
     		editrules="{ edithidden : true } "
     		/>
-    	<sj:gridColumn 
+    	<sjg:gridColumn 
     		name="contactfirstname" 
     		index="contactfirstname" 
     		title="First Name" 
@@ -103,7 +104,7 @@
     		edittype="text" 
     		editrules="{ edithidden : true } "
     		/>
-    	<sj:gridColumn 
+    	<sjg:gridColumn 
     		name="addressLine1" 
     		index="addressLine1" 
     		title="Adress" 
@@ -112,7 +113,7 @@
     		search="true"
     		searchoptions="{sopt:['eq','ne','bw','cn']}"
     		/>
-    	<sj:gridColumn 
+    	<sjg:gridColumn 
     		name="country" 
     		index="country" 
     		title="Country" 
@@ -124,7 +125,7 @@
     		editoptions="{ dataUrl : '%{selectcountrysurl}' }"
     		formoptions="{label:'Select a Country'}"
     		/>
-    	<sj:gridColumn 
+    	<sjg:gridColumn 
     		name="city" 
     		index="city" 
     		title="City" 
@@ -133,7 +134,7 @@
     		searchoptions="{sopt:['eq','ne','bw','cn']}"
     		editable="true" 
     		edittype="text"/>
-    	<sj:gridColumn 	
+    	<sjg:gridColumn 	
     		name="creditlimit" 
     		index="creditlimit" 
     		title="Credit Limit" 
@@ -150,7 +151,7 @@
     		search="true"
     		searchoptions="{sopt:['eq','ne','lt','gt']}"
     		/>
-    	<sj:gridColumn 
+    	<sjg:gridColumn 
     		name="salesemployee.employeenumber" 
     		index="employeenumber" 
     		title="Employee" 
@@ -165,4 +166,4 @@
     		editoptions="{ dataUrl : '%{selectemployeesurl}' }"
     		formoptions="{label:'Select a Employee'}"
     		/>
-    </sj:grid>
+    </sjg:grid>
