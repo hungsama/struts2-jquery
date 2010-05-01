@@ -1,6 +1,38 @@
 #summary Changelog
 #labels Featured
 
+= 2.1.0 =
+*When using Custome Themes it is recommended to create a new one. ([http://code.google.com/p/struts2-jquery/wiki/HeadTag#Custome_Themes Instructions]) or rename your current css from _ui.theme.css to jquery-ui.css_ *
+
+*The grid plugin is not longer a part of the struts2-jquery-plugin. This now available in a seperate struts2-jquery-grid-plugin*
+
+  * Upgrade to jQuery UI 1.8.1
+  * Head Tag attribute jqueryui is now true by default
+  * various new examples in the showcase
+  * The grid showcase is now a maven modul and part of the release cycle
+  * Solve Issue 77: Grid Sample not working properly in IE
+  * Solve Issue 94: customBasepath doesn't affect the .js path
+  * Solve Issue 113: Load needed JavaScript and CSS resources on demand
+  * Solve Issue 114: Support for new replaceTarget Option in form plugin
+  * Solve Issue 115: Grid with locale code ca(catalan) doesn't work. jQuery and grid difers at the name of the catalan locale(ca-cat)
+  * Solve Issue 116: pepper-grinder theme
+  * Solve Issue 123: Implement an debug mode 
+  * Solve Issue 124: Make it possible to easy extend this plugin for custome extensions
+  * Solve Issue 125: Dialog cannot set position with array of String or Pixel
+  * Solve Issue 126: drag and drop grid rows
+  * Solve Issue 127: onChangeTopics not working for textarea and textfield.
+  * Solve Issue 128: onChangeTopics with <sj:checkboxlist>
+  * Solve Issue 130: Add Showcase Example how to extend the plugin with custome functions
+  * Solve Issue 131: Add a Richtext Editor Widget to the plugin
+  * Solve Issue 132: Scrolling does not work properly
+  * Solve Issue 134: Move Grid Feature in seperate struts2-jquery-grid-plugin
+  * Solve Issue 135: Enable Maven Support for Grid Showcase
+  * Solve Issue 138: Upgrade to jQuery UI 1.8.1
+  * Solve Issue 139: attribute parentTheme does not work well with css_xhtml theme
+  * Solve Issue 141: Override the param names
+  * Solve Issue 146: <sj:dialog> makes multiple AJAX calls
+  * Solve Issue 148: Sortable grid option not working
+
 = 2.0.0 =
 *When using Custome Themes it is recommended to create a new one. ([http://code.google.com/p/struts2-jquery/wiki/HeadTag#Custome_Themes Instructions]) or rename your current css from _ui.theme.css to jquery-ui.css_ *
 
