@@ -63,13 +63,13 @@ Specify an Edit Url in your JSP
 And enable Edit by setting following attributes in your JSP
 
 {{{
- <sj:grid ... editurl="%{editurl}" ...>
+ <sjg:grid ... editurl="%{editurl}" ...>
 }}}
 
 then define which Column should be editable
 
 {{{
-<sj:gridColumn ...
+<sjg:gridColumn ...
   editable="true" 
   edittype="<type>" 
   editoptions="{<options>}"
@@ -81,7 +81,7 @@ See [http://www.trirand.com/jqgridwiki/doku.php?id=wiki:common_rules jqGrid Wiki
 
 == Example for an Edit Options ==
 {{{
-<sj:gridColumn 
+<sjg:gridColumn 
 name="country" 
 index="country" 
 title="Country" 
@@ -92,7 +92,7 @@ editoptions="{value:'France:France;USA:USA;Australia:Australia;Norway:Norway;Pol
 
 == Example for an Edit Rules==
 {{{
-    	<sj:gridColumn 	name="creditLimit" 
+    	<sjg:gridColumn 	name="creditLimit" 
     					index="creditLimit" 
     					title="Credit Limit" 
     					editable="true" 
@@ -110,7 +110,7 @@ editoptions="{value:'France:France;USA:USA;Australia:Australia;Norway:Norway;Pol
 For Inline Editing set sj:grid attribute editinline to true.
 
 {{{
-    <sj:grid ...
+    <sjg:grid ...
     	editurl="%{editurl}"
     	editinline="true"
 
@@ -173,7 +173,7 @@ public class EditCellEntry extends ActionSupport {
 
 {{{
     <s:url id="editcellurl" action="edit-cell-entry"/> 
-    <sj:grid 
+    <sjg:grid 
         ...
     	cellEdit="true"
     	cellurl="%{editcellurl}"
@@ -184,7 +184,7 @@ public class EditCellEntry extends ActionSupport {
 == Set Columns editable ==
 
 {{{
-    	<sj:gridColumn 	name="creditLimit" 
+    	<sjg:gridColumn 	name="creditLimit" 
     					index="creditLimit" 
     					title="Credit Limit" 
     					editable="true" 
