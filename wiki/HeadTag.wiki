@@ -124,7 +124,7 @@ Create and Download your own Theme with [http://jqueryui.com/themeroller/ jQuery
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">BETA!!! If set to true it will enable history and bookmarking for AJAX content and jQuery UI Tabs.</td>
+					<td align="left" valign="top">If set to true it will enable history and bookmarking for AJAX content and jQuery UI Tabs.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">compressed</td>
@@ -132,7 +132,7 @@ Create and Download your own Theme with [http://jqueryui.com/themeroller/ jQuery
 					<td align="left" valign="top">true</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">use compressed version of jquery.js</td>
+					<td align="left" valign="top">use compressed version of jquery and jquery-ui</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">customBasepath</td>
@@ -141,6 +141,14 @@ Create and Download your own Theme with [http://jqueryui.com/themeroller/ jQuery
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">base path for custom jQuery designs</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">debug</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">enable debug logging</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">defaultIndicator</td>
@@ -161,10 +169,18 @@ Create and Download your own Theme with [http://jqueryui.com/themeroller/ jQuery
 				<tr>
 					<td align="left" valign="top">jqueryui</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">true</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">Boolean</td>
 					<td align="left" valign="top">enable jQuery UI Scripts</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">loadAtOnce</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">do not use the on demand load for jquery ui resources</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">loadFromGoogle</td>
@@ -183,11 +199,11 @@ Create and Download your own Theme with [http://jqueryui.com/themeroller/ jQuery
 					<td align="left" valign="top">import jQuery i18n scripts.</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">useJqGridPlugin</td>
+					<td align="left" valign="top">scriptPath</td>
 					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">#your context root#/struts/</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">If set to true it will enable jqgrids.</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">path to the JavaScript ressources</td>
 				</tr>
 		</table>
