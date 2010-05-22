@@ -20,6 +20,7 @@
     * [GridTag Grid]  
     * [Button Button]  
     * [Buttonset Buttonset]  
+    * [RichtextEditor Richtext Editor]
   * UI interactions
     * [Resizable Resizable] for Divs
     * [DragAndDrop Drag and Drop] for Divs

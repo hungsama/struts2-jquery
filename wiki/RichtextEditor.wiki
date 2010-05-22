@@ -1,130 +1,87 @@
-#summary The Autocompleter widget renders a HTML input or select box with.
+#summary The Richtext Editor Widget.
 
 = Introduction =
 
-This tag generates an Autocompleter that can load content via JSON or handle a List.
+The Richtext Editor is based on [http://ckeditor.com/ CKEditor]. 
 
-For custom themes for the Autocompleter take look at the [HeadTag Head Tag]. 
+To use this Feature you need to copy the struts2-jquery-richtext-plugin.jar into your WEB-INF/lib path
+or add it to your maven dependencies.
+
+{{{
+<dependencies>
+    ...
+    <dependency>
+        <groupId>com.jgeppert.struts2.jquery</groupId>
+        <artifactId>struts2-jquery-plugin</artifactId>
+        <version>X.X.X</version>
+    </dependency>
+    <dependency>
+        <groupId>com.jgeppert.struts2.jquery</groupId>
+        <artifactId>struts2-jquery-richtext-plugin</artifactId>
+        <version>X.X.X</version>
+    </dependency>
+    ...
+</dependencies>
+}}}
+
 
 = Samples =
 
-== Action for Autocompleter ==
+== A simple Richtext Editor with default values ==
 
-This Action can return Programming Languages as String Array or as JSON Result.
-Also it returns a List of Customers for the Autocompleter Select Box Example.
- 
 {{{
-@ParentPackage(value = "showcase")
-public class Autocompleter extends ActionSupport
-{
-
-	private static final long	serialVersionUID	= -3066791113091431706L;
-	private static String[]		staticLanguages		= {
-			"Actionscript (Flash)", "ABAP Objects", "Ada", "Aleph", "AppleScript", "Beta", "BlitzMax", "Boo", "C++", "C#", "Cecil", "Clarion", "Cobol ISO 2002", "CoDeSys", "CFML (ColdFusion Markup Language)", "Common Lisp Object System (CLOS)", "Component Pascal", "CorbaScript",
-			"D", "Delphi", "Eiffel", "Fpii", "Fortran - ab Fortran 2003", "Gambas", "IDL", "IDLscript", "incr Tcl", "Java", "JavaScript / ECMAScript", "Lexico", "Lingo", "Modula-3", "Modelica", "NewtonScript", "Oberon", "Objective-C", "Objective CAML", "Object Pascal", "Perl",
-			"PHP", "PowerBuilder", "Progress OpenEdge", "Python", "Ruby", "R", "Sather", "Scala", "Seed7", "Self", "Simula", "Smalltalk", "SuperCollider", "Superx++", "STOOOP", "Visual Basic", "Visual Basic .NET (VB.NET)", "Visual Basic Script", "Visual Objects", "XBase",
-			"XOTcl", "Zonnon"
-													};
-
-	private String				term;
-	private String[]			languages			= Autocompleter.staticLanguages;
-
-	@Actions( {
-			@Action(value = "/autocompleter-select", results = {
-				@Result(location = "autocompleter-select.jsp", name = "success")
-			}), @Action(value = "/autocompleter", results = {
-				@Result(location = "autocompleter.jsp", name = "success")
-			}), @Action(value = "/jsonlanguages", results = {
-				@Result(type = "json", name = "success", params = {
-						"root", "languages"
-				})
-			})
-	})
-	public String execute() throws Exception {
-		if (term != null && term.length() > 1)
-		{
-			ArrayList<String> tmp = new ArrayList<String>();
-			for (int i = 0; i < staticLanguages.length; i++)
-			{
-				if (StringUtils.contains(staticLanguages[i].toLowerCase(), term.toLowerCase()))
-				{
-					tmp.add(staticLanguages[i]);
-				}
-			}
-			languages = tmp.toArray(new String[tmp.size()]);
-		}
-		return SUCCESS;
-	}
-
-	public String[] getLanguages() {
-		return languages;
-	}
-
-	public void setTerm(String term) {
-		this.term = term;
-	}
-
-	public List<Customer> getCustomers() {
-		return CustomerDAO.buildList();
-	}
+<%@ taglib prefix="sjr" uri="/struts-jquery-richtext-tags"%>
+				<sjr:ckeditor 
+					id="richtextEditor" 
+					name="echo" 
+					rows="10" 
+					cols="80" 
+					width="800"
+					value="Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+				/>
 }}}}
 
 
-==Autocompleter handle a String Array==
+==Richtext Editor with custome config file to define a custome toolbar and french local==
 {{{
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-<html>
-  <head>
-    <sj:head jqueryui="true"/>
-  </head>
-  <body>
-   <sj:autocompleter id="languages" list="%{languages}"/>
-  </body>
-</html>
+<%@ taglib prefix="sjr" uri="/struts-jquery-richtext-tags"%>
+		<sjr:ckeditor 
+			label="Your Text"
+			href="%{remoteurl}" 
+			id="richtextCustomeEditor" 
+			name="echo" 
+			rows="10" 
+			cols="80" 
+			loadingText="Loading content of textarea ..."
+			width="600"
+			toolbar="MyToolbar"
+			skin="v2"
+			editorLocal="fr"
+			customConfig="%{contextPath}/js/ckeditor.config.js"
 }}}
 
+The custom config file defines the toolbar *MyToolbar* 
 ==Autocompleter that handle a JSON Result==
 {{{
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-<html>
-  <head>
-    <sj:head jqueryui="true"/>
-  </head>
-  <body>
-	<s:url id="remoteurl" action="jsonlanguages"/> 
-    <sj:autocompleter 
-    	id="languages" 
-    	href="%{remoteurl}" 
-    	delay="50" 
-    	loadMinimumCount="2"
-    />
-  </body>
-</html>
-}}}
+CKEDITOR.editorConfig = function( config )
+{
+  config.toolbar = 'MyToolbar';
 
-==Autocompleter as Select Box==
-{{{
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-<html>
-  <head>
-    <sj:head jqueryui="true"/>
-  </head>
-  <body>
-    			<sj:autocompleter 
-    				id="customers" 
-    				name="echo" 
-    				list="%{customers}" 
-    				listValue="name" 
-    				listKey="id" 
-    				selectBox="true"
-    			/>
-  </body>
-</html>
-}}}
+  config.toolbar_MyToolbar =
+  [
+      ['NewPage','Preview'],
+      ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Scayt'],
+      ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+      ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+      '/',
+      ['Styles','Format'],
+      ['Bold','Italic','Strike'],
+      ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+      ['Link','Unlink','Anchor']
+  ];
 
+};
+}}}
 
 = Attributes =
 
@@ -152,6 +109,14 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Bind the start of load or effect on element. e.g. button or link</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">cols</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Integer</td>
+					<td align="left" valign="top">HTML cols attribute</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">cssClass</td>
@@ -186,20 +151,20 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">The css style definitions for element to use</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">customConfig</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">path to custom config file</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">dataType</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Type of the result. e.g. html, xml, text, json, ...</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">delay</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">300</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Integer</td>
-					<td align="left" valign="top">Delay before making the search</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">disabled</td>
@@ -522,6 +487,14 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">Specifies which mode to use for testing whether a draggable is over a droppable. Possible values: fit, intersect, pointer, touch. </td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">editorLocal</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">en</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">the editor local</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">effect</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">none</td>
@@ -576,6 +549,14 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Comma delimited list of form ids for which to serialize all fields during submission when this element is clicked (if multiple forms have overlapping element names, it is indeterminate which will be used)</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">height</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Integer</td>
+					<td align="left" valign="top">height attribute</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">href</td>
@@ -642,44 +623,12 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">Define label position of form element (top/left)</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">list</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">List of values for autocomplete</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">listKey</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Property of list objects to get field value from</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">listValue</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Property of list objects to get field content from</td>
-				</tr>
-				<tr>
 					<td align="left" valign="top">listenTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">The comma separated list 'listenTopics' is the list of topic names that is used to trigger a request.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">loadMinimumCount</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">1</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Integer</td>
-					<td align="left" valign="top">Minimum number of characters that will force the content to be loaded</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">loadingText</td>
@@ -746,6 +695,14 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">A comma delimited list of topics that published when the element disabled</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">onEditorReadyTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Topics that are published when editor instance is ready</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">onEnableTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -767,23 +724,7 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published before focus is moved to an item</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">onSearchTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published before a request is started, after loadMinimumCount and delay are met.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">onSelectTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published when item is selected</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when the element is focused</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onSuccessTopics</td>
@@ -920,6 +861,14 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">The parent theme. Default: value of parent form tag or simple if no parent form tag is available</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">readonly</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Whether the textarea is readonly</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">reloadTopics</td>
@@ -1098,12 +1047,12 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">This event javascript function is triggered at the end of a resize operation.</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">selectBox</td>
+					<td align="left" valign="top">rows</td>
 					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Use an Select Box as Autocompleter</td>
+					<td align="left" valign="top">Integer</td>
+					<td align="left" valign="top">HTML rows attribute</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">selectable</td>
@@ -1208,6 +1157,14 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Possible values: 'touch', 'fit'. Default: 'touch'</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">skin</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">the richtext skin. e.g kama, office2003, v2</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">sortable</td>
@@ -1554,6 +1511,14 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">Set the html title attribute on rendered html element</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">toolbar</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Toolbar Configuration. e.g. Basic or Full</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">tooltip</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -1600,5 +1565,21 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Preset the value of input element.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">width</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Integer</td>
+					<td align="left" valign="top">width attribute</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">wrap</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">HTML wrap attribute</td>
 				</tr>
 		</table>
