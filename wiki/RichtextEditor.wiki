@@ -1,4 +1,5 @@
 #summary The Richtext Editor Widget.
+#labels Phase-Implementation
 
 = Introduction =
 
@@ -60,8 +61,10 @@ or add it to your maven dependencies.
 			customConfig="%{contextPath}/js/ckeditor.config.js"
 }}}
 
+==Custom Config File==
+
 The custom config file defines the toolbar *MyToolbar* 
-==Autocompleter that handle a JSON Result==
+
 {{{
 CKEDITOR.editorConfig = function( config )
 {
