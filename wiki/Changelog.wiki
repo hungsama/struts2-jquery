@@ -1,6 +1,21 @@
 #summary Changelog
 #labels Featured
 
+= 2.2.0 =
+
+  * Upgrade to jQuery UI 1.8.2
+  * Solve Issue 155:  	 Default Loading Text
+  * Solve Issue 156:  	 onSelectAll topics
+  * Solve Issue 179:  	 Nested tab didn't work
+  * Solve Issue 184:  	 loadingText doesn't appear to have any effect with jqgrid plugin
+  * Solve Issue 185:  	 attributes hidegrid, hoverrows and shrinkToFit in grid tag can not be set to false
+  * Solve Issue 186:  	 how to submit a form while loading grid?
+  * Solve Issue 188:  	 Some locales does not work, particularly "fr"
+  * Solve Issue 190:  	 Add Head Tag attribute 'compatibility' for an jQuery 1.3 compatibility mode
+  * Solve Issue 191:  	 deferred loading of dynamic elements 
+  * Solve Issue 192:  	 Default Error Text
+  * Solve Issue 193:  	 Using base tag with sj:a causes page to reload
+
 = 2.1.1 =
 
   * Upgrade to jqGrid 3.6.5
