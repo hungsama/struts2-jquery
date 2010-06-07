@@ -18,6 +18,8 @@
     * [ProgressbarTag Progressbar]
     * [SliderTag Slider]
     * [GridTag Grid]  
+      * [SearchGrid Search a Grid]  
+      * [EditGrid Edit a Grid]  
     * [Button Button]  
     * [Buttonset Buttonset]  
     * [RichtextEditor Richtext Editor]
