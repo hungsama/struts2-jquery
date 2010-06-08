@@ -126,6 +126,14 @@ Create and Download your own Theme with [http://jqueryui.com/themeroller/ jQuery
 					<td align="left" valign="top">Boolean</td>
 					<td align="left" valign="top">If set to true it will enable history and bookmarking for AJAX content and jQuery UI Tabs.</td>
 				</tr>
+                                 <tr>
+					<td align="left" valign="top">compatibility</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Enable Compatibility for older jQuery Versions. e.g. 1.3</td>
+				</tr>
 				<tr>
 					<td align="left" valign="top">compressed</td>
 					<td align="left" valign="top">false</td>
@@ -151,12 +159,28 @@ Create and Download your own Theme with [http://jqueryui.com/themeroller/ jQuery
 					<td align="left" valign="top">enable debug logging</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">defaultErrorText</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The default error text for all AJAX actions</td>
+				</tr>
+<tr>
 					<td align="left" valign="top">defaultIndicator</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">The default indicator for all AJAX actions</td>
+				</tr>
+<tr>
+					<td align="left" valign="top">defaultLoadingText</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The default loading text for all AJAX actions</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">jquerytheme</td>
