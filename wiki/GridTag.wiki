@@ -1,6 +1,8 @@
 #summary A tag that renders a Grid.
 #labels Phase-Implementation
 
+<wiki:toc max_depth="3" />
+
 = Introduction =
 
 The Grid Tag is provided by the [http://www.trirand.com/blog/ jQuery Grid Plugin].
@@ -27,8 +29,9 @@ Enable JSON support in your Struts2 Webapplication.
     </package>
 }}}
 
-==Configuration==
-Create a Struts2 Action that return a JSON result.
+==Create a JSON Action==
+
+Create a Struts2 Action that return a valid JSON result.
 
 {{{
 @ParentPackage(value = "showcase")
@@ -129,6 +132,36 @@ public class JsonTable extends ActionSupport {
     	<sjg:gridColumn name="city" index="city" title="City" sortable="false"/>
     	<sjg:gridColumn name="creditLimit" index="creditLimit" title="Credit Limit" formatter="currency" sortable="false"/>
     </sjg:grid>
+}}}
+
+= Topics=
+
+|| *Topic* || *Grid Event* || *Parameter* ||
+|| onSelectRowTopics || onSelectRow || event.originalEvent.id, event.originalEvent.status, event.originalEvent.grid ||
+|| onSelectAllTopics || onSelectAll || event.originalEvent.ids, event.originalEvent.status, event.originalEvent.grid ||
+|| onBeforeTopics || loadBeforeSend || event.originalEvent.xhr ||
+|| onPagingTopics || onPaging  || event.originalEvent.pgButton ||
+|| onCellSelectTopics || onCellSelect || event.originalEvent.rowid, event.originalEvent.iCol, event.originalEvent.cellcontent, event.originalEvent.e ||
+|| onGridCompleteTopics || gridComplete ||  ||
+|| onFocusTopics || beforeSelectRow || event.originalEvent.rowid, event.originalEvent.e ||
+|| onCompleteTopics|| loadComplete || event.originalEvent.request, event.originalEvent.status ||
+|| onErrorTopics || loadError || event.originalEvent.request, event.originalEvent.status, event.originalEvent.error ||
+
+== Example ==
+
+{{{
+<script type="text/javascript">
+$.subscribe('rowselect', function(event, data) {
+	alert('Selected Row : ' + event.originalEvent.id);
+});
+</script>
+
+<sjg:grid 
+	...
+	onSelectRowTopics="rowselect"
+	...
+>
+
 }}}
 
 = Attributes =
