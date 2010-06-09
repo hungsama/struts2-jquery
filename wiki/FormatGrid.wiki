@@ -61,7 +61,7 @@ This Example is taken form [http://www.weinfreund.de/struts2-jquery-grid-showcas
 >
 }}}
 
-== Create two JavaScript Function ==
+== Create two JavaScript Functions ==
 
   # Create an URL to Struts2 Action
   # Create a Function that formats your Column
