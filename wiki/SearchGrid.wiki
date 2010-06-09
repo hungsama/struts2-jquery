@@ -127,4 +127,6 @@ You can Enable the Multi Search in your *navigatorSearchOptions* Attribute.
 >
 }}}
 
-After this, you receive a JSON Object in your Action. How to handle this can you read in this short [http://www.jgeppert.com/2010/06/how-to-parse-a-json-object-when-using-multisearch-for-jqgrid-with-java/ tutorial].
+http://www.jgeppert.com/struts2-jquery/jqgrid_multiple_search.jpg
+
+After sumbiting the search you receive a JSON Object in your Action. How to handle this can you read in this short [http://www.jgeppert.com/2010/06/how-to-parse-a-json-object-when-using-multisearch-for-jqgrid-with-java/ tutorial].
