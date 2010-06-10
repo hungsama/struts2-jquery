@@ -1,6 +1,8 @@
 #summary The TabbedPanel widget is primarily an AJAX component, where each tab can either be local content or remote content.
 #labels Phase-Implementation
 
+<wiki:toc max_depth="3" />
+
 = Introduction =
 
 This tag generates an TabbedPanel that loads content into the Tabs using an AJAX call.
@@ -50,6 +52,17 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
   </body>
 </html>
 }}}
+
+= Topics =
+
+|| *Topic* || *Event* || *Parameter* ||
+|| onBeforeTopics || show || event.originalEvent.event, event.originalEvent.ui ||
+|| onChangeTopics || select || event.originalEvent.event, event.originalEvent.ui ||
+|| onCompleteTopics || load || event.originalEvent.event, event.originalEvent.ui ||
+|| onEnableTopics || enable || event.originalEvent.event, event.originalEvent.ui ||
+|| onDisableTopics || disable || event.originalEvent.event, event.originalEvent.ui ||
+|| onAddTopics || add || event.originalEvent.event, event.originalEvent.ui ||
+|| onRemoveTopics || remove || event.originalEvent.event, event.originalEvent.ui ||
 
 = Attributes =
 		<table width="100%">
