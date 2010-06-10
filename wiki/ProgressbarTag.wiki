@@ -38,6 +38,12 @@ Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.actio
     <sj:a href="#" onClickTopics="myclicktopic" cssClass="buttonlink ui-state-default ui-corner-all"><span class="ui-icon ui-icon-refresh"></span>change value</sj:a>
 }}}
 
+= Topics=
+
+|| *Topic* || *Event* || *Parameter* ||
+|| onChangeTopics || change|| event.originalEvent.event, event.originalEvent.ui ||
+
+
 = Attributes =
 
 		<table width="100%">
