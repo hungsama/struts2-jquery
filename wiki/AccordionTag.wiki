@@ -1,6 +1,8 @@
 #summary Renders a accordion from a given list or map.
 #labels Phase-Implementation
 
+<wiki:toc max_depth="3" />
+
 = Introduction =
 
 This Tag renders a accordion from a given list or an map
@@ -28,7 +30,7 @@ public class Test {
         public Map<String, String> getMylist() {
                 return mylist;
         }
-}}}}
+}}}
 
 ==Render Accordion==
 {{{
@@ -58,6 +60,12 @@ You can use the Attributes paramKeys and paramValues to append parameters to eac
     	clearStyle="true" 
     	/>
 }}}
+
+= Topics =
+
+|| *Topic* || *Event* || *Parameter* ||
+|| onBeforeTopics || changestart || event.originalEvent.event, event.originalEvent.ui ||
+|| onChangeTopics || change || event.originalEvent.event, event.originalEvent.ui ||
 
 = Attributes =
 
