@@ -1,6 +1,8 @@
 #summary The Dialog widget renders a HTML Dialog with local or remote content.
 #labels Phase-Implementation
 
+<wiki:toc max_depth="3" />
+
 = Introduction =
 
 This tag generates an Dialog that can load content into the Dialog using an AJAX call.
@@ -104,6 +106,15 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
   </body>
 </html>
 }}}
+
+= Topics =
+
+|| *Topic* || *Event* || *Parameter* ||
+|| onOpenTopics || open || event.originalEvent.event, event.originalEvent.ui ||
+|| onCloseTopics || close || event.originalEvent.event, event.originalEvent.ui ||
+|| onFocusTopics || focus || event.originalEvent.event, event.originalEvent.ui ||
+|| onBeforeCloseTopics || beforeclose || event.originalEvent.event, event.originalEvent.ui ||
+|| onChangeTopics || drag || event.originalEvent.event, event.originalEvent.ui ||
 
 = Attributes =
 
