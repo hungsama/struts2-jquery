@@ -70,7 +70,7 @@ public class Autocompleter extends ActionSupport
 	public List<Customer> getCustomers() {
 		return CustomerDAO.buildList();
 	}
-}}}}
+}}}
 
 
 ==Autocompleter handle a String Array==
@@ -128,7 +128,7 @@ public class Autocompleter extends ActionSupport
 </html>
 }}}
 
-= Topics=
+= Topics =
 
 || *Topic* || *Event* || *Parameter* ||
 || onSuccessTopics || open || event.originalEvent.event, event.originalEvent.ui ||
