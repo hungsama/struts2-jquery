@@ -1,6 +1,8 @@
 #summary A tag that creates an Datepicker.
 #labels Phase-Implementation
 
+<wiki:toc max_depth="3" />
+
 = Introduction =
 
 For custom locals use the [HeadTag Head Tag]
@@ -56,6 +58,17 @@ For custom locals use the [HeadTag Head Tag]
   </body>
 </html>
 }}}
+
+
+
+= Topics =
+
+|| *Topic* || *Event* || *Parameter* ||
+|| onBeforeTopics || beforeShow || event.originalEvent.input, event.originalEvent.inst ||
+|| onBeforeShowDayTopics || beforeShowDay || event.originalEvent.date ||
+|| onChangeMonthYearTopics || onChangeMonthYear || event.originalEvent.year, event.originalEvent.month, event.originalEvent.inst ||
+|| onChangeTopics || onSelect || event.originalEvent.dateText, event.originalEvent.inst ||
+|| onCompleteTopics || onClose || event.originalEvent.dateText, event.originalEvent.inst ||
 
 = Attributes =
 		<table width="100%">
