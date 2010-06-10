@@ -1,4 +1,7 @@
 #summary The Autocompleter widget renders a HTML input or select box with.
+#labels Phase-Implementation
+
+<wiki:toc max_depth="3" />
 
 = Introduction =
 
@@ -124,6 +127,16 @@ public class Autocompleter extends ActionSupport
   </body>
 </html>
 }}}
+
+= Topics=
+
+|| *Topic* || *Event* || *Parameter* ||
+|| onSuccessTopics || open || event.originalEvent.event, event.originalEvent.ui ||
+|| onChangeTopics || change || event.originalEvent.event, event.originalEvent.ui ||
+|| onCompleteTopics || close || event.originalEvent.event, event.originalEvent.ui ||
+|| onSearchTopics || search || event.originalEvent.event, event.originalEvent.ui ||
+|| onFocusTopics || focus || event.originalEvent.event, event.originalEvent.ui ||
+|| onSelectTopics || select || event.originalEvent.event, event.originalEvent.ui ||
 
 
 = Attributes =
