@@ -1,5 +1,7 @@
 #summary The Slider widget renders a HTML slider.
 #labels Phase-Implementation
+<wiki:toc max_depth="3" />
+
 
 = Introduction =
 
@@ -51,6 +53,14 @@ Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.actio
          <sj:submit id="slidersubmit2" targets="result" value="AJAX Submit" indicator="indicator_slider_range"/> <img id="indicator_slider_range" src="images/indicator.gif" alt="Loading..." style="display:none"/> 
     </s:form>
 }}}
+
+= Topics =
+
+|| *Topic* || *Event* || *Parameter* ||
+|| onBeforeTopics || start || event.originalEvent.event, event.originalEvent.ui ||
+|| onChangeTopics || change || event.originalEvent.event, event.originalEvent.ui ||
+|| onCompleteTopics || stop || event.originalEvent.event, event.originalEvent.ui ||
+|| onSlideTopics || slide || event.originalEvent.event, event.originalEvent.ui ||
 
 = Attributes =
 
