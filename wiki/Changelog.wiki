@@ -5,7 +5,6 @@
 
   * Upgrade to Ckeditor 3.3.1
   * Solve Issue 143: Grid in jquery Showcase 2.0.0 not editable in IE6 & IE7
-  * Solve Issue 147: Some effects does not work in IE7
   * Solve Issue 198: onFocusTopics is missing a setter
   * Solve Issue 199: Add new Item to Grid Showcase does not work
   * Solve Issue 200: remote textfield fails in IE7
