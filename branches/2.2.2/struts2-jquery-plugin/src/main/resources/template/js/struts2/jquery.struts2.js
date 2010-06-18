@@ -442,9 +442,7 @@
 				if (options.href && options.href != '#') {
 					options.targets = options.opendialog;
 					var divTopic = '_s2j_dialog_load_' + options.id;
-					if (!dialog.isSubscribed(divTopic)) {
-						dialog.subscribe(divTopic, _s2j.handler.load);
-					}
+					_s2j.subscribeTopics(dialog, divTopic, _s2j.handler.load, options);
 					dialog.publish(divTopic, options);
 				}
 
@@ -481,18 +479,6 @@
 				_s2j.subscribeTopics(tarelem, actionTopic, loadHandler, options);
 				_s2j.subscribeTopics(tarelem, effectTopic + target, _s2j.handler.effect, effect);
 
-/*
-				if (options.listentopics) {
-					$.each(options.listentopics.split(','), function(i, lt) {
-						if (tarelem.isSubscribed(lt)) {
-							tarelem.unsubscribe(lt);
-						}
-
-						tarelem.subscribe(lt, loadHandler, options);
-						tarelem.subscribe(lt, _s2j.handler.effect, effect);
-					});
-				}
-				*/
 				if (this.ajaxhistory) {
 					var params = {};
 					params.target = target;
@@ -901,6 +887,7 @@
 			if (options.href && options.href != '#') {
 				var divTopic = '_s2j_topic_load_' + options.id;
 				_s2j.subscribeTopics($elem, divTopic, _s2j.handler.load, options);
+				$elem.publish(divTopic);
 			}
 
 			_s2j.publishTopic($elem, options.onalwaystopics, data);
