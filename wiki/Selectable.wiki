@@ -1,0 +1,8 @@
+#summary add selectable functionality for Divs.
+#labels Phase-Implementation
+
+= Introduction =
+
+The Attributes selectable="true" extends the [DivTag Divs] to be selectable.
+
+Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.action Showcase] to see what this tag provides.
