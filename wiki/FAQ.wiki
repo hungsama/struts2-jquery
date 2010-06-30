@@ -51,6 +51,8 @@ The Code with Struts2 jQuery Plugin:
   * save a lot off boilerplate code
   * make your JSP better readable
   * benefit from Community feedback
+  * use best practice and widely proven code
+  * support for AJAX form validation 
 
 === Which jQuery Version is currently used? ===
 
