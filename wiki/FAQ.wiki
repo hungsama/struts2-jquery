@@ -12,6 +12,46 @@
   * The current Struts2 Dojo Plugin is deprecated.
   * jQuery is one of the most used javascript frameworks. See [http://www.google.com/trends?q=javascript+jquery%2C+javascript+dojo%2C+javascript+prototype&ctab=0&geo=all&date=all&sort=0 Google Trends]
 
+=== Why Struts2 jQuery Plugin instead of plain jQuery Programming ===
+
+Let us take a normal real World Example, a AJAX Call to an Action with Indicator and Effect.
+
+The Code without Struts2 jQuery Plugin:
+
+{{{
+<div id="result">Result Div</div>
+<s:url id="ajax" value="/ajax1.action"/>
+<a id="ajaxlink" href="javascript:void(0)">
+  Run AJAX Action
+</sj:a>
+<img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>    
+<script type="text/javascript">
+$("#ajaxlink").click(function()
+{
+ $("#indicator").show();
+ $("#result").load("<s:property value="ajax"/>", { }, function(){
+	 $("#indicator"").hide();
+	 $("#result").effect("highlight", {}, 2000);
+ });
+});
+</script>
+}}}
+
+The Code with Struts2 jQuery Plugin:
+
+{{{
+<div id="result">Result Div</div>
+<s:url id="ajax" value="/ajax1.action"/>
+<sj:a id="ajaxlink" href="%{ajax}" indicator="indicator" targets="result" effect="highlight">
+  Run AJAX Action
+</sj:a>
+<img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>    
+}}}
+
+  * save a lot off boilerplate code
+  * make your JSP better readable
+  * benefit from Community feedback
+
 === Which jQuery Version is currently used? ===
 
 || *Plugin Version* || [http://jquery.com/ jQuery] || [http://jqueryui.com/ jQuery UI] || [http://jquery.malsup.com/form/ Form Plugin] || [http://benalman.com/projects/jquery-bbq-plugin/ BBQ] (History) || [http://www.trirand.com/blog/ jqGrid] ||
