@@ -110,6 +110,38 @@ You should add three property's in your Struts2 Grid Action.
 
 With this property's you are able to build hibernate criterias or build a custom SQL String. Take a look at the Class _JsonTableAction_ in the Grid Showcase to see how you can build a hibernate criteria.
 
+= Use filterGrid for searching in the Grid =
+
+First add an empty div above the grid tag.
+{{{
+<div id="mygridfilter"></div>
+}}}
+
+Now add following script code after your grid tags.
+
+{{{
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+
+    	$("#mygridfilter").jqGrid('filterGrid','#mygridid',{
+    		autosearch : false,
+    		gridNames : true,
+    		formtype : 'vertical',
+    		autosearch : false,
+    		enableSearch : true,
+    		enableClear : true,
+    		gridModel : true,
+    		buttonclass : 'ui-state-default ui-corner-all'
+    	});
+    });
+
+    </script>
+}}}
+
+See jqGrid Wiki for more informations.
+http://www.trirand.com/jqgridwiki/doku.php?id=wiki:custom_searching
+
 = Enable Multi Search for your Grid =
 
 You can Enable the Multi Search in your *navigatorSearchOptions* Attribute. 
