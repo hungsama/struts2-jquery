@@ -1,5 +1,7 @@
 #summary Howto handle JSON Results
 
+<wiki:toc max_depth="3" />
+
 = Introduction =
 
 = Samples =

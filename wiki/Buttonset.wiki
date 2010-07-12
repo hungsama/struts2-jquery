@@ -1,6 +1,8 @@
 #summary Render a Checkbox List or Radio Buttons as jQuery UI Buttonset
 #labels Phase-Implementation
 
+<wiki:toc max_depth="3" />
+
 = Introduction =
 
 This function allows you to use the jQuery UI Buttonset Widget for Checkbox Lists or Radio Buttons.

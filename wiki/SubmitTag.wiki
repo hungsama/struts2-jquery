@@ -1,6 +1,8 @@
 #summary Renders a submit button that can submit a form asynchronously.
 #labels Phase-Implementation
 
+<wiki:toc max_depth="3" />
+
 = Introduction =
 
 A tag that renders a submit button that can submit a form asynchronously.

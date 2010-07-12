@@ -1,6 +1,8 @@
 #summary add resizeable functionality for Divs.
 #labels Phase-Implementation
 
+<wiki:toc max_depth="3" />
+
 = Introduction =
 
 The Attributes resizeable ="true" extends the [DivTag Divs], [TextareaTag Textareas], [TextfieldTag Textfields] and [SelectTag Select Boxes] to be resizeable.

@@ -1,6 +1,18 @@
 #summary Changelog
 #labels Featured
 
+= 2.3.0 =
+
+  * Upgrade to jqGrid 3.7.2
+  * Solve Issue 133: No result defined for action ... and result input
+  * Solve Issue 152: Ajax submit without target element
+  * Solve Issue 219: Richtext Editor events problem
+  * Solve Issue 221: Form Submit does not work when using loadFromGoogle
+  * Solve Issue 224: multiboxonly parameter missing
+  * Solve Issue 227: Make it posible to overwrite the request type
+  * Solve Issue 230: <sj:dialog> no closeOnEscape attribute
+  * Solve Issue 231: Support for Tinymce as Richtext Editor
+
 = 2.2.2 =
 
   * Solve Issue 214: Dialog no longer loads dynamic href content

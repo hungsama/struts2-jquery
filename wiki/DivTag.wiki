@@ -1,6 +1,8 @@
 #summary generates an HTML <div/> that loads its content using ajax call.
 #labels Phase-Implementation
 
+<wiki:toc max_depth="3" />
+
 = Introduction =
 
 This tag generates an HTML div that loads its content using an ajax call, via the jQuery framework.

@@ -1,6 +1,8 @@
 #summary Make a Grid editable
 #labels Phase-Implementation
 
+<wiki:toc max_depth="3" />
+
 = Simple Edit =
 
 Create an Edit Action like this

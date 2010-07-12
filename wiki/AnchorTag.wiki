@@ -1,6 +1,8 @@
 #summary Creates an HTML <a/> element.
 #labels Phase-Implementation
 
+<wiki:toc max_depth="3" />
+
 = Introduction =
 
 A tag that creates an HTML element, that when clicked makes an asynchronous request(XMLHttpRequest). The url attribute must be build using the <s:url/> tag.

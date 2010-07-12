@@ -1,6 +1,8 @@
 #summary The "head" tag renders required JavaScript code and necessary css styles.
 #labels Phase-Implementation
 
+<wiki:toc max_depth="3" />
+
 = Introduction =
 
 The "head" tag renders required JavaScript code to configure jQuery and is required in order to use any of the tags included in the jQuery plugin. 

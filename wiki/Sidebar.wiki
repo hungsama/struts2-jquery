@@ -24,6 +24,8 @@
     * [Button Button]  
     * [Buttonset Buttonset]  
     * [RichtextEditor Richtext Editor]
+      * [CkeditorEditor Ckeditor]  
+      * [TinymceEditor Tinymce]  
   * UI interactions
     * [Resizable Resizable] for Divs
     * [DragAndDrop Drag and Drop] for Divs

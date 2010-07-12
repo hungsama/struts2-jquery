@@ -1,6 +1,8 @@
 #summary Support for AJAX Client Validation
 #labels Phase-Implementation
 
+<wiki:toc max_depth="3" />
+
 = Introduction =
 
 Enable AJAX Client Validation for Forms.

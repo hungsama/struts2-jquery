@@ -1,5 +1,7 @@
 #summary Render a Link or a Submit Button as jQuery UI Button
 
+<wiki:toc max_depth="3" />
+
 = Introduction =
 
 This function allows you to use the jQuery UI Button Widget for Links and Submit Buttons.
