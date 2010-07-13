@@ -6,6 +6,7 @@
   * Upgrade to jqGrid 3.7.2
   * Solve Issue 133: No result defined for action ... and result input
   * Solve Issue 152: Ajax submit without target element
+  * Solve Issue 182: Unable to use AjaxTags (DisplayTag wrapper) with Struts2 jQuery Plugin
   * Solve Issue 219: Richtext Editor events problem
   * Solve Issue 221: Form Submit does not work when using loadFromGoogle
   * Solve Issue 224: multiboxonly parameter missing
