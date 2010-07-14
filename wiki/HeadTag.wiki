@@ -95,7 +95,8 @@ Create and Download your own Theme with [http://jqueryui.com/themeroller/ jQuery
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <html>
   <head>
-    <sj:head locale="de" jqueryui="true" jquerytheme="mytheme" customBasepath="template/themes"/>
+    <s:url id="context" value="/" />
+    <sj:head locale="de" jqueryui="true" jquerytheme="mytheme" customBasepath="%{context}template/themes"/>
   </head>
   <body>
   </body>
