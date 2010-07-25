@@ -1,6 +1,18 @@
 #summary Changelog
 #labels Featured
 
+= 2.3.1 =
+
+  * Solve Issue 110: Incorrect option values in select tag
+  * Solve Issue 189: Autocompleter : how to combine AJAX and selectBox type ?
+  * Solve Issue 236: Issue with formIds attribute with JQgrid
+  * Solve Issue 241: add actionerror and actionmessage templates based on jQuery UI Layout
+  * Solve Issue 243: listen topics not triggered on autocompleter tag
+  * Solve Issue 244: normal formulars was submited twice when using sj:a tag
+  * Solve Issue 249: Support for different Effect methods show/hide/toogle
+  * Solve Issue 250: Add Topics published in Effect Callback Method
+  * Solve Issue 255: freemarker error when set resizable=true for tinymce tag
+
 = 2.3.0 =
 
   * Upgrade to jqGrid 3.7.2
