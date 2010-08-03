@@ -18,6 +18,7 @@
     * [ProgressbarTag Progressbar]
     * [SliderTag Slider]
     * [GridTag Grid]
+      * [GridColumnTag Grid Column]
       * [SearchGrid Search a Grid]  
       * [EditGrid Edit a Grid]  
       * [FormatGrid Format a Grid]  
