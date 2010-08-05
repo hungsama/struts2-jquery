@@ -138,10 +138,10 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
 				<tr>
 					<td align="left" valign="top">autoOpen</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
+					<td align="left" valign="top">true</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">When autoOpen is true the dialog will open automatically when dialog is called. If false it will stay hidden until .dialog('open') is called on it. Default: true</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">When autoOpen is true the dialog will open automatically when dialog is called. If false it will stay hidden until .dialog('open') is called on it.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">buttons</td>
@@ -150,6 +150,14 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Specifies which buttons should be displayed on the dialog. The property key is the text of the button. The value is the callback function for when the button is clicked.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">closeOnEscape</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">true</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Specifies whether the dialog should close when it has focus and the user presses the esacpe (ESC) key.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">cssClass</td>
@@ -210,10 +218,10 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
 				<tr>
 					<td align="left" valign="top">draggable</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
+					<td align="left" valign="top">true</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">If set to true, the dialog will be draggable will be draggable by the titlebar. Default: true</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">If set to true, the dialog will be draggable will be draggable by the titlebar.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">effect</td>
@@ -230,6 +238,14 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Duration of effect in milliseconds. Only valid if 'effect' attribute is set</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">effectMode</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">none</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The Effect Mode. show, hide, toggle, none</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">effectOptions</td>
@@ -472,6 +488,14 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">A comma delimited list of topics that published when the element disabled</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">onEffectCompleteTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when an effect is completed </td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">onEnableTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -656,6 +680,14 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">Specifies where the dialog should be displayed. Possible values: 'center', 'left', 'right', 'top', 'bottom', or an array containing a coordinate pair (in pixel offset from top left of viewport) or the possible string values (e.g. ['right','top'] for top right corner). Default: 'center'</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">requestType</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">POST</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Type of the AJAX Request. POST, GET, PUT</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">required</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
@@ -674,10 +706,10 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
 				<tr>
 					<td align="left" valign="top">resizable</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
+					<td align="left" valign="top">true</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">If set to true, the dialog will be resizeable. Default: true</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">If set to true, the dialog will be resizeable.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">showEffect</td>

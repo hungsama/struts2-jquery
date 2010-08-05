@@ -223,6 +223,14 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 					<td align="left" valign="top">Duration of effect in milliseconds. Only valid if 'effect' attribute is set</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">effectMode</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">none</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The Effect Mode. show, hide, toggle, none</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">effectOptions</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -399,6 +407,14 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 					<td align="left" valign="top">A comma delimited list of topics that published when the element disabled</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">onEffectCompleteTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when an effect is completed </td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">onEnableTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -557,6 +573,14 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Set template to use for opening the rendered html.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">requestType</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">POST</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Type of the AJAX Request. POST, GET, PUT</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">required</td>

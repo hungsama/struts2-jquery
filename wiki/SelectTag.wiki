@@ -234,6 +234,14 @@ public class JsonSample extends ActionSupport{
 					<td align="left" valign="top">Type of the result. e.g. html, xml, text, json, ...</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">deferredLoading</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Defers the initial loading of this element.  The element will not be loaded until one of the reloadTopics is published.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">disabled</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -570,6 +578,14 @@ public class JsonSample extends ActionSupport{
 					<td align="left" valign="top">Duration of effect in milliseconds. Only valid if 'effect' attribute is set</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">effectMode</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">none</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The Effect Mode. show, hide, toggle, none</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">effectOptions</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -738,6 +754,14 @@ public class JsonSample extends ActionSupport{
 					<td align="left" valign="top">If loading content into a target, The text to be displayed during load (will be shown if any provided, will override settings for the target container)</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">multiple</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top"> Creates a multiple select. The tag will pre-select multiple values if the values are passed as an Array or a Collection(of appropriate types) via the value attribute. If one of the keys equals one of the values in the Collection or Array it wil be selected</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">name</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -792,6 +816,14 @@ public class JsonSample extends ActionSupport{
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">A comma delimited list of topics that published when the element disabled</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onEffectCompleteTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when an effect is completed </td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onEnableTopics</td>
@@ -960,6 +992,14 @@ public class JsonSample extends ActionSupport{
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">A comma delimited list of topics that will cause this element to reload</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">requestType</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">POST</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Type of the AJAX Request. POST, GET, PUT</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">required</td>
