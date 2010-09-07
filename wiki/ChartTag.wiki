@@ -8,6 +8,8 @@
 Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.action Showcase] to see what this tag provides.
 The Chart Modul is based on the [http://code.google.com/p/flot/ jquery flot] project.
 
+http://www.jgeppert.com/struts2-jquery/struts2-jquery-charts.png
+
 For each data series you must specify an [ChartDataTag Chart Data Tag].
 
 = Samples =
