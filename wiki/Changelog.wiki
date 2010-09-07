@@ -1,6 +1,32 @@
 #summary Changelog
 #labels Featured
 
+= 2.4.0 =
+
+*When using your own theme, it is recommended to create a new one. ([http://code.google.com/p/struts2-jquery/wiki/HeadTag#Custome_Themes Instructions])*
+
+  * New [ChartTag Chart] Modul
+  * New [SpinnerTag Spinner] Widget
+  * Upgrade to jQuery UI 1.8.4
+  * Upgrade ckeditor Version to version 3.4
+  * Solve Issue 147: Some effects does not work in IE7
+  * Solve Issue 242: cssStyle and cssClass don't affect UI Widget
+  * Solve Issue 258: do not use jqueryui for resizing tinymce
+  * Solve Issue 259: datepicker onBeforeTopics property cause javascript error
+  * Solve Issue 263: Multiple TinyMCE in one page
+  * Solve Issue 264: CKeditor not working with IE 6.0
+  * Solve Issue 265: In Grid (Editable/Multiselect) example Please wait... progress doesn't disappear after searching by not existed ID
+  * Solve Issue 266: Attribute prmNames is not in GridTag
+  * Solve Issue 269: use required function also for grid modules ...
+  * Solve Issue 272: add attribute 'autocomplete' for select box
+  * Solve Issue 273: Update Dependencies to Struts2 Version 2.2.1
+  * Solve Issue 280: add a possibility to force paste of plain text.
+  * Solve Issue 281: Grid RTL support
+  * Solve Issue 286: Minor Errors in Showcase
+  * Solve Issue 286: Minor Errors in Showcase
+  * Solve Issue 287: Effects not applied correctly when multiple anchors target the same element.
+  * Solve Issue 290: JasperException is thrown if loadingText attribute is added in sjg:grid tag of struts2 Jquery Grid PlugIn 2.3.1
+
 = 2.3.1 =
 
   * Solve Issue 110: Incorrect option values in select tag
@@ -53,7 +79,7 @@
   * Solve Issue 186: how to submit a form while loading grid?
   * Solve Issue 188: Some locales does not work, particularly "fr"
   * Solve Issue 190: Add Head Tag attribute 'compatibility' for an jQuery 1.3 compatibility mode
-  * Solve Issue 191: deferred loading of dynamic elements 
+  * Solve Issue 191: deferred loading of dynamic elements
   * Solve Issue 192: Default Error Text
   * Solve Issue 193: Using base tag with sj:a causes page to reload
 
@@ -82,7 +108,7 @@
   * Solve Issue 114: Support for new replaceTarget Option in form plugin
   * Solve Issue 115: Grid with locale code ca(catalan) doesn't work. jQuery and grid difers at the name of the catalan locale(ca-cat)
   * Solve Issue 116: pepper-grinder theme
-  * Solve Issue 123: Implement an debug mode 
+  * Solve Issue 123: Implement an debug mode
   * Solve Issue 124: Make it possible to easy extend this plugin for custome extensions
   * Solve Issue 125: Dialog cannot set position with array of String or Pixel
   * Solve Issue 126: drag and drop grid rows
@@ -109,29 +135,29 @@
   * Implement an [AutocompleterTag Autocompleter] ( Issue 10 )
   * Implement an Radiomap as jQuery UI [Buttonset Buttonset]
   * Implement an CheckboxList as jQuery UI [Buttonset Buttonset]
-  * Support for Form [Validation Validation] 
+  * Support for Form [Validation Validation]
   * Support for new [Button jQuery UI Button] Widget
   * Include all offical jQuery UI Themes
-  * New Showcase Example how to handle JSON Results 
-  * New Showcase Example how to build accordion manually 
-  * New Showcase Examples for [AutocompleterTag Autocompleter] 
-  * New Showcase Examples for AJAX Client Form [Validation Validation] 
+  * New Showcase Example how to handle JSON Results
+  * New Showcase Example how to build accordion manually
+  * New Showcase Examples for [AutocompleterTag Autocompleter]
+  * New Showcase Examples for AJAX Client Form [Validation Validation]
   * Complete Issue 102: Enable Sonatype Nexus OSS repository deployment for Maven central repository sync
   * Complete Issue 104: Move source to a Maven multi module setup
-  * Fix Issue 65: Build accordion manually  
+  * Fix Issue 65: Build accordion manually
   * Fix Issue 80: Add Size Parameter for select tag
   * Fix Issue 84: JavaScript Error when parent form has no id
-  * Fix Issue 86: onRowSelectTopcs only published when editurl is used  
+  * Fix Issue 86: onRowSelectTopcs only published when editurl is used
   * Fix Issue 88: <s:url> + formId in <sj:div> bug with first form field
   * Fix Issue 89: <sj:submit> do not notify topics
   * Fix Issue 90: <sj:submit> with "onBeforeTopics" without ajax submit
-  * Fix Issue 95: datepicker locale should use the struts current locale  
-  * Fix Issue 97: FormFilter Attribute on SubmitTag   
-  * Fix Issue 98: onAlwaysTopics but in sj:submit and sj:a  
-  * Fix Issue 106: "Multiple" attribute in sj:select tag   
-  * Fix Issue 107: value attribute in select tag has no effect   
-  * Fix Issue 108: how to set #sjdialog with query string dynamically   
-  * Fix Issue 112: add attributes for alternate rows in the grid tag    
+  * Fix Issue 95: datepicker locale should use the struts current locale
+  * Fix Issue 97: FormFilter Attribute on SubmitTag
+  * Fix Issue 98: onAlwaysTopics but in sj:submit and sj:a
+  * Fix Issue 106: "Multiple" attribute in sj:select tag
+  * Fix Issue 107: value attribute in select tag has no effect
+  * Fix Issue 108: how to set #sjdialog with query string dynamically
+  * Fix Issue 112: add attributes for alternate rows in the grid tag
 
 = 1.8.3 =
 
