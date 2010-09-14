@@ -12,6 +12,25 @@ http://www.jgeppert.com/struts2-jquery/struts2-jquery-charts.png
 
 For each data series you must specify an [ChartDataTag Chart Data Tag].
 
+To use this Features you need to copy the struts2-jquery-chart-plugin.jar into your WEB-INF/lib path or add it to your maven dependencies.
+
+{{{
+<dependencies>
+    ...
+    <dependency>
+        <groupId>com.jgeppert.struts2.jquery</groupId>
+        <artifactId>struts2-jquery-plugin</artifactId>
+        <version>X.X.X</version>
+    </dependency>
+    <dependency>
+        <groupId>com.jgeppert.struts2.jquery</groupId>
+        <artifactId>struts2-jquery-chart-plugin</artifactId>
+        <version>X.X.X</version>
+    </dependency>
+    ...
+</dependencies>
+}}}
+
 = Samples =
 
 ==Source for the Java Action used in follwing Examples==
