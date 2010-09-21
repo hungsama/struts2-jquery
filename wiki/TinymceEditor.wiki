@@ -5,7 +5,7 @@
 
 = Introduction =
 
-The Richtext Editor is based on [http://tinymce.moxiecode.com Tinymce]. 
+The Richtext Editor is based on [http://tinymce.moxiecode.com Tinymce].
 
 To use this Feature you need to copy the struts2-jquery-richtext-plugin.jar into your WEB-INF/lib path
 or add it to your maven dependencies.
@@ -34,11 +34,11 @@ or add it to your maven dependencies.
 
 {{{
 <%@ taglib prefix="sjr" uri="/struts-jquery-richtext-tags"%>
-		<sjr:tinymce 
-			id="richtextTinymceEditor" 
-			name="echo" 
-			rows="10" 
-			cols="80" 
+		<sjr:tinymce
+			id="richtextTinymceEditor"
+			name="echo"
+			rows="10"
+			cols="80"
 			width="800"
 			editorTheme="simple"
 			value="Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
@@ -50,13 +50,13 @@ or add it to your maven dependencies.
 {{{
 <%@ taglib prefix="sjr" uri="/struts-jquery-richtext-tags"%>
 		<s:url id="remoteurl" action="ajax1"/>
-		<sjr:tinymce 
-			id="richtextTinymceAdvancedEditor" 
-			name="echo" 
-			rows="10" 
-			cols="80" 
+		<sjr:tinymce
+			id="richtextTinymceAdvancedEditor"
+			name="echo"
+			rows="10"
+			cols="80"
 			width="800"
-			href="%{remoteurl}" 
+			href="%{remoteurl}"
 			editorLocal="de"
 			editorTheme="advanced"
 			editorSkin="o2k7"
@@ -218,6 +218,14 @@ or add it to your maven dependencies.
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Constrains dragging to within the bounds of the specified element or region. Possible string values: parent, document, window, [x1, y1, x2, y2].</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">draggableCursor</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The css cursor during the drag operation.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">draggableDelay</td>
@@ -524,6 +532,14 @@ or add it to your maven dependencies.
 					<td align="left" valign="top">Duration of effect in milliseconds. Only valid if 'effect' attribute is set</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">effectMode</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">none</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The Effect Mode. show, hide, toggle, none</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">effectOptions</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -716,6 +732,14 @@ or add it to your maven dependencies.
 					<td align="left" valign="top">A comma delimited list of topics that published when the element disabled</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">onEffectCompleteTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when an effect is completed </td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">onEnableTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -884,6 +908,14 @@ or add it to your maven dependencies.
 					<td align="left" valign="top">The parent theme. Default: value of parent form tag or simple if no parent form tag is available</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">pastePlainText</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Always paste as plaintext.‎</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">plugins</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -906,6 +938,22 @@ or add it to your maven dependencies.
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">A comma delimited list of topics that will cause this element to reload</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">removeLinebreaks</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">true</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">This option controls whether line break characters should be removed from output HTML.‎</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">removeRedundantBrs</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">true</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">This option is enabled by default and will control the output of trailing BR elements at the end of block elements.‎</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">requestType</td>
