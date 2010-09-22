@@ -5,6 +5,7 @@
 
   * Upgrade to jQuery UI 1.8.5
   * Upgrade tinymce Version to version 3.3.9
+  * Upgrade hibernate plugin version to 2.2.1 in grid showcase
   * Solve Issue 291: datepicker disables days before minDate incorrectly when client date is different than server
   * Solve Issue 292: Navigator in editable grid doesn't show up in IE 6,7,8 in 2.4.0
   * Solve Issue 294: Spinner show '-Infinity' in IE7
