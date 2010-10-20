@@ -16,7 +16,7 @@ For custom locals use the [HeadTag Head Tag]
   * [SearchGrid Search Grid]
   * [SubGrid Grid with Subgrid]
 
-== Diagramm ==
+== Diagram ==
 
 http://www.jgeppert.com/struts2-jquery/struts2_jquery_grid.png
 
