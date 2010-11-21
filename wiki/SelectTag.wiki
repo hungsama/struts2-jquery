@@ -17,7 +17,7 @@ This Plugin is distributed with Struts2 since 2.1.8 .
 
 {{{
 public class JsonSample extends ActionSupport{
-    
+
     private List<String> languageList;
     private List<ListValue> languageObjList;
     private Map<String, String> languageMap;
@@ -26,21 +26,21 @@ public class JsonSample extends ActionSupport{
 
     @Actions({
     	@Action(
-    	value="/jsonsample", 
+    	value="/jsonsample",
     	results={
     	@Result(name="success",type="json")
-    	}) 
+    	})
     })
     public String execute() {
-        
+
       languageList = new ArrayList<String>();
       languageObjList = new ArrayList<ListValue>();
       languageMap = new HashMap<String, String>();
-         
+
       languageList.add("Java");
       languageList.add("PHP");
       languageList.add("C#");
-       
+
       languageMap.put("J", "Java");
       languageMap.put("P", "PHP");
       languageMap.put("C", "C#");
@@ -75,51 +75,51 @@ public class JsonSample extends ActionSupport{
     public String getJSON(){
     	return execute();
     }
-    ... Getters for the Lists   
+    ... Getters for the Lists
 }
 }}}
 
 ==Receive Entrys from a simple String List==
 
 {{{
-<s:url id="remoteurl" action="jsonsample"/> 
-<sj:select 
-	href="%{remoteurl}" 
-	id="echo" 
-	name="echo" 
+<s:url id="remoteurl" action="jsonsample"/>
+<sj:select
+	href="%{remoteurl}"
+	id="echo"
+	name="echo"
 	list="languageList"
-	emptyOption="true" 
-	headerKey="-1" 
+	emptyOption="true"
+	headerKey="-1"
 	headerValue="Please Select a Language"/>
 }}}
 
 ==Receive Entrys from a Object List==
 
 {{{
-<s:url id="remoteurl" action="jsonsample"/> 
-<sj:select 
-	href="%{remoteurl}" 
-	id="echo3" 
-	name="echo" 
-	list="languageObjList" 
-	listKey="myKey" 
+<s:url id="remoteurl" action="jsonsample"/>
+<sj:select
+	href="%{remoteurl}"
+	id="echo3"
+	name="echo"
+	list="languageObjList"
+	listKey="myKey"
 	listValue="myValue"
-	emptyOption="true" 
-	headerKey="-1" 
+	emptyOption="true"
+	headerKey="-1"
 	headerValue="Please Select a Language"/>
 }}}
 
 ==Receive Entrys from a Map==
 
 {{{
-<s:url id="remoteurl" action="jsonsample"/> 
-<sj:select 
-	href="%{remoteurl}" 
-	id="echo2" 
-	name="echo" 
+<s:url id="remoteurl" action="jsonsample"/>
+<sj:select
+	href="%{remoteurl}"
+	id="echo2"
+	name="echo"
 	list="languageMap"
-	emptyOption="true" 
-	headerKey="-1" 
+	emptyOption="true"
+	headerKey="-1"
 	headerValue="Please Select a Language"/>
 }}}
 
@@ -131,35 +131,35 @@ public class JsonSample extends ActionSupport{
         <legend>AJAX Form</legend>
         <div class="type-text">
             <label for="language">Language: </label>
-			<s:url id="remoteurl" action="jsonsample"/> 
-			<sj:select 
-				href="%{remoteurl}" 
-				id="language" 
-				onChangeTopics="reloadsecondlist" 
-				name="language" 
-				list="languageObjList" 
-				listKey="myKey" 
-				listValue="myValue" 
-				emptyOption="true" 
-				headerKey="-1" 
+			<s:url id="remoteurl" action="jsonsample"/>
+			<sj:select
+				href="%{remoteurl}"
+				id="language"
+				onChangeTopics="reloadsecondlist"
+				name="language"
+				list="languageObjList"
+				listKey="myKey"
+				listValue="myValue"
+				emptyOption="true"
+				headerKey="-1"
 				headerValue="Please Select a Language"/>
         </div>
         <div class="type-text">
             <label for="echo">Framework: </label>
-			<sj:select 
-				href="%{remoteurl}" 
-				id="selectWithReloadTopic" 
-				formIds="formSelectReload" 
-				reloadTopics="reloadsecondlist" 
-				name="echo" list="reloadList" 
-				emptyOption="true" 
-				headerKey="-1" 
+			<sj:select
+				href="%{remoteurl}"
+				id="selectWithReloadTopic"
+				formIds="formSelectReload"
+				reloadTopics="reloadsecondlist"
+				name="echo" list="reloadList"
+				emptyOption="true"
+				headerKey="-1"
 				headerValue="Please Select a Framework"/>
         </div>
         <div class="type-button">
-			<sj:submit 
-				targets="result" 
-				value="AJAX Submit" 
+			<sj:submit
+				targets="result"
+				value="AJAX Submit"
 				indicator="indicator"/>
 			<img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>
         </div>
@@ -184,6 +184,14 @@ public class JsonSample extends ActionSupport{
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Set the html accesskey attribute on rendered html element</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">autocomplete</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">use autocomplete for this select box</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">bindOn</td>
@@ -296,6 +304,14 @@ public class JsonSample extends ActionSupport{
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Constrains dragging to within the bounds of the specified element or region. Possible string values: parent, document, window, [x1, y1, x2, y2].</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">draggableCursor</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The css cursor during the drag operation.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">draggableDelay</td>
@@ -746,6 +762,14 @@ public class JsonSample extends ActionSupport{
 					<td align="left" valign="top">The comma separated list 'listenTopics' is the list of topic names that is used to trigger a request.</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">loadMinimumCount</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">1</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Integer</td>
+					<td align="left" valign="top">Minimum number of characters that will force the content to be loaded, only valid when autocomplet is true</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">loadingText</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -1168,6 +1192,14 @@ public class JsonSample extends ActionSupport{
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">This event javascript function is triggered at the end of a resize operation.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">selectBoxIcon</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">display the select box icon, only valid when autocomplete is true</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">selectable</td>

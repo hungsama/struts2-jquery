@@ -62,7 +62,7 @@ public class JsonTable extends ActionSupport {
   // The Search String
   private String              searchString;
 
-  // he Search Operation ['eq','ne','lt','le','gt','ge','bw','bn','in','ni','ew','en','cn','nc'] 
+  // he Search Operation ['eq','ne','lt','le','gt','ge','bw','bn','in','ni','ew','en','cn','nc']
   private String              searchOper;
 
   // Your Total Pages
@@ -87,9 +87,9 @@ public class JsonTable extends ActionSupport {
     records = CustumerDAO.count()
 
     //Your logic to search and select the required data.
-    gridModel = CustumerDAO.find(from, to); 
+    gridModel = CustumerDAO.find(from, to);
 
-    //calculate the total pages for the query 
+    //calculate the total pages for the query
     total =(int) Math.ceil((double)records / (double)rows);
 
     return SUCCESS;
@@ -118,13 +118,13 @@ public class JsonTable extends ActionSupport {
 }}}
   * Add Grid and [GridColumnTag GridColumns] to your Page
 {{{
-    <s:url id="remoteurl" action="jsontable"/> 
-    <sjg:grid 
-    	id="gridtable" 
-    	caption="Customer Examples" 
-    	dataType="json" 
-    	href="%{remoteurl}" 
-    	pager="true" 
+    <s:url id="remoteurl" action="jsontable"/>
+    <sjg:grid
+    	id="gridtable"
+    	caption="Customer Examples"
+    	dataType="json"
+    	href="%{remoteurl}"
+    	pager="true"
     	gridModel="gridModel"
     	rowList="10,15,20"
     	rowNum="15"
@@ -150,6 +150,12 @@ public class JsonTable extends ActionSupport {
 || onFocusTopics || beforeSelectRow || event.originalEvent.rowid, event.originalEvent.e ||
 || onCompleteTopics|| loadComplete || event.originalEvent.request, event.originalEvent.status ||
 || onErrorTopics || loadError || event.originalEvent.request, event.originalEvent.status, event.originalEvent.error ||
+|| onEditInlineAfterSaveTopics ||  || event.originalEvent.rowid,event.originalEvent.response  ||
+|| onEditInlineBeforeTopics ||  ||  ||
+|| onEditInlineErrorTopics ||  || event.originalEvent.rowid,event.originalEvent.response  ||
+|| onEditInlineSuccessTopics ||  || event.originalEvent.response ||
+|| onCellEditErrorTopics || errorCell || event.originalEvent.response, event.originalEvent.status ||
+|| onCellEditSuccessTopics || afterSaveCell || event.originalEvent.rowid, event.originalEvent.cellname, event.originalEvent.value, event.originalEvent.iRow, event.originalEvent.iCol ||
 
 == Example ==
 
@@ -160,7 +166,7 @@ $.subscribe('rowselect', function(event, data) {
 });
 </script>
 
-<sjg:grid 
+<sjg:grid
 	...
 	onSelectRowTopics="rowselect"
 	...
@@ -283,6 +289,14 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">Type of the result. e.g. html, xml, text, json, ...</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">direction</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">ltr</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Determines the language direction in grid. The default is 'ltr' (Left To Right language). When set to 'rtl' (Right To Left) the grid automatically do the needed.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">disabled</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -337,6 +351,14 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Constrains dragging to within the bounds of the specified element or region. Possible string values: parent, document, window, [x1, y1, x2, y2].</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">draggableCursor</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The css cursor during the drag operation.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">draggableDelay</td>
@@ -707,6 +729,86 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">Name of you grid model. Must be a Collection</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">groupCollapse</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Defines if the initially the grid should show or hide the detailed rows of the group.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">groupColumnShow</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Show/Hide the column on which we group. The value here should be a boolean true/false for the group level. If the grouping is enabled we set this value to true. e.g. [true]</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">groupDataSorted</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">If this parameter is set to true we send a additional parameter to the server in order to tell him to sort the data. This way all the sorting is done at server leaving the grid only to display the grouped data. If this parameter is false additionally before to display the data we make our own sorting in order to support grouping. This of course slow down the speed on relative big data. This parameter is not valid is the datatype is local.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">groupField</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Defines the name from  colModel  on which we group. The first value is the first lavel, the second values is the second level and etc. Currently only one level is supported. e.g. ['name']</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">groupMinusIcon</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">ui-icon-circlesmall-minus</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Set the icon from jQuery UI Theme Roller that will be used if the grouped row is expanded</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">groupOrder</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Defines the initial sort order of the group level. Can be asc for ascending or desc for descending order. If the grouping is enabled the default value is asc. e.g. ['asc']</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">groupPlusIcon</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">ui-icon-circlesmall-plus</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Set the icon from jQuery UI Theme Roller that will be used if the grouped row is collapsed</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">groupShowSummaryOnHide</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Show or hide the summary (footer) row when we collapse the group.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">groupSummary</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Enable or disable the summary (footer) row of the current group level. If grouping is set the default value for the group is false. e.g. [true]</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">groupText</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Defines the grouping header text for the group level that will be displayed in the grid. By default if defined the value if {0} which means that the group value name will be displayed. It is possible to specify another value {1} which meant the the total cont of this group will be displayed too. It is possible to set here any valid html content. e.g. ['<b>{0} - {1} Item(s)</b>'] </td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">height</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -979,6 +1081,22 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">A comma delimited list of topics that published when the element is blured</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">onCellEditErrorTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published is called immediately if there is a server error.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onCellEditSuccessTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published is called immediately after the cell has been successfully saved.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">onCellSelectTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -1009,6 +1127,38 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">A comma delimited list of topics that published when the element disabled</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onEditInlineAfterSaveTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published is called immediately after the data is saved to the server</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onEditInlineBeforeTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published after successfully accessing the row for editing, prior to allowing user access to the input fields.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onEditInlineErrorTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published is called immediately after the data is saved to the server</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onEditInlineSuccessTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published is called immediately after the request is successful.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onEffectCompleteTopics</td>
@@ -1227,12 +1377,44 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">Defines that we want to use a pager bar to navigate through the records. This must be a true or false.</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">pagerButtons</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">true</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Determines if the Pager buttons should be shown if pager is available. Also valid only if pager is set correctly. The buttons are placed in the pager bar.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">pagerInput</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">true</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">DDetermines if the input box, where the user can change the number of requested page, should be available. The input box appear in the pager bar.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">pagerPosition</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">center</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Determines the position of the pager in the grid. By default the pager element when created is divided in 3 parts. Can be left, center, right</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">prmNames</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">{page:"page",rows:"rows", sort: "sidx",order: "sord", search:"_search", nd:"nd", id:"id",oper:"oper",editoper:"edit",addoper:"add",deloper:"del"}</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Customizes names of the fields sent to the server on a Post. When some parameter is set to null they will be not sended to the server.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">recordpos</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">right</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Determines the position of the record information in the pager. Can be left, center, right</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">reloadTopics</td>
@@ -1433,6 +1615,14 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Sets how many records we want to view in the grid. This parameter is passed to the url for use by the server routine retrieving the data. Note that if you set this parameter to 10 (i.e. retrieve 10 records) and your server return 15 then only 10 records will be loaded. Set this parameter to -1 (unlimited) to disable this checking. Default: 20</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">rowTotal</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">null</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Integer</td>
+					<td align="left" valign="top">When set this parameter can instruct the server to load the total number of rows needed to work on. Note that rowNum determines the total records displayed in the grid, while rowTotal the total rows on which we operate. When this parameter is set we send a additional parameter to server named totalrows. You can check for this parameter and if it is available you can replace the rows parameter with this one. Mostly this parameter can be combined wit loadonce parameter set to true.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">rownumbers</td>
@@ -1914,5 +2104,4 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">If this option is not set, the width of the grid is a sum of the widths of the columns defined in the colModel (in pixels). If this option is set, the initial width of each column is set according to the value of shrinkToFit option.</td>
 				</tr>
-
 		</table>

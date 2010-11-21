@@ -7,7 +7,7 @@
 
 This tag generates an Autocompleter that can load content via JSON or handle a List.
 
-For custom themes for the Autocompleter take look at the [HeadTag Head Tag]. 
+For custom themes for the Autocompleter take look at the [HeadTag Head Tag].
 
 = Samples =
 
@@ -15,7 +15,7 @@ For custom themes for the Autocompleter take look at the [HeadTag Head Tag].
 
 This Action can return Programming Languages as String Array or as JSON Result.
 Also it returns a List of Customers for the Autocompleter Select Box Example.
- 
+
 {{{
 @ParentPackage(value = "showcase")
 public class Autocompleter extends ActionSupport
@@ -96,11 +96,11 @@ public class Autocompleter extends ActionSupport
     <sj:head jqueryui="true"/>
   </head>
   <body>
-	<s:url id="remoteurl" action="jsonlanguages"/> 
-    <sj:autocompleter 
-    	id="languages" 
-    	href="%{remoteurl}" 
-    	delay="50" 
+	<s:url id="remoteurl" action="jsonlanguages"/>
+    <sj:autocompleter
+    	id="languages"
+    	href="%{remoteurl}"
+    	delay="50"
     	loadMinimumCount="2"
     />
   </body>
@@ -116,12 +116,12 @@ public class Autocompleter extends ActionSupport
     <sj:head jqueryui="true"/>
   </head>
   <body>
-    			<sj:autocompleter 
-    				id="customers" 
-    				name="echo" 
-    				list="%{customers}" 
-    				listValue="name" 
-    				listKey="id" 
+    			<sj:autocompleter
+    				id="customers"
+    				name="echo"
+    				list="%{customers}"
+    				listValue="name"
+    				listKey="id"
     				selectBox="true"
     			/>
   </body>
@@ -207,6 +207,14 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">Type of the result. e.g. html, xml, text, json, ...</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">deferredLoading</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Defers the initial loading of this element.  The element will not be loaded until one of the reloadTopics is published.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">delay</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">300</td>
@@ -269,6 +277,14 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Constrains dragging to within the bounds of the specified element or region. Possible string values: parent, document, window, [x1, y1, x2, y2].</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">draggableCursor</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The css cursor during the drag operation.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">draggableDelay</td>
@@ -551,6 +567,14 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">Duration of effect in milliseconds. Only valid if 'effect' attribute is set</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">effectMode</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">none</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The Effect Mode. show, hide, toggle, none</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">effectOptions</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -775,6 +799,14 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">A comma delimited list of topics that published when the element disabled</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">onEffectCompleteTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when an effect is completed </td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">onEnableTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -967,6 +999,14 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">A comma delimited list of topics that will cause this element to reload</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">requestType</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">POST</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Type of the AJAX Request. POST, GET, PUT</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">required</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
@@ -1141,6 +1181,14 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">Boolean</td>
 					<td align="left" valign="top">Use an Select Box as Autocompleter</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">selectBoxIcon</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">display the select box icon</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">selectable</td>

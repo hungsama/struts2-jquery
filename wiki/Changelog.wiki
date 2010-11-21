@@ -1,6 +1,32 @@
 #summary Changelog
 #labels Featured
 
+= 2.5.0 =
+
+  * Upgrade to jQuery 1.4.3
+  * Upgrade to jQuery UI 1.8.6
+  * Upgrade tinymce version to 3.3.9.2
+  * Upgrade Ckeditor version to 3.4.2
+  * Solve Issue 302: display autocompleter as combobox
+  * Solve Issue 307: spinner bug on chrome
+  * Solve Issue 310: allow dynamic checkboxLists/radiobuttons without jQuery UI buttonset
+  * Solve Issue 311: rowTotal field is missing in jquery grid
+  * Solve Issue 312: Support for Pie Charts
+  * Solve Issue 314: support for closable tabs
+  * Solve Issue 315: grouping support for the grid plugin
+  * Solve Issue 320: 2 Bugs found with grids that have inline edit
+  * Solve Issue 322: Problem with Slider min/max/step
+  * Solve Issue 324: support for sortable tabs
+  * Solve Issue 327: No search button, view button ... if editurl empty
+  * Solve Issue 332: Create new version for this plugin with jqgrid 3.8
+  * Solve Issue 334: AJAX requests are sent twice when ajaxhistory is true
+  * Solve Issue 336: showcase-2.4.1 correct JSP code into <pre></pre>
+  * Solve Issue 344: Using altclass attribute on grid fails
+  * Solve Issue 345: How to display server side User Defined Exception in Grid Component while Adding/Editing any record in Grid Pop up window
+  * Solve Issue 350: Wrong words with Datepicker in pt and pt-BR Locale
+  * Solve Issue 351: allow submit of non ajax forms with listentopics
+  * Solve Issue 356: support for POST requests in grid
+
 = 2.4.1 =
 
   * Upgrade to jQuery UI 1.8.5

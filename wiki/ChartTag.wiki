@@ -337,6 +337,46 @@ A Chart that loads Data with JSON AJAX request. The Data is reloadable and the D
     <sj:a onClickTopics="reloadList" button="true" buttonIcon="ui-icon-refresh">Reload List</sj:a>
 }}}
 
+
+== Pie Chart ==
+
+http://www.jgeppert.com/struts2-jquery/struts2-jquery-charts-pie.png
+
+{{{
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="sjc" uri="/struts-jquery-chart-tags"%>
+
+    <sjc:chart
+    	id="chartPie"
+    	cssStyle="width: 600px; height: 400px;"
+    	pie="true"
+    	pieLabel="true"
+    >
+    	<sjc:chartData
+    		id="pieSerie1"
+    		label="Serie 1"
+    		data="10"
+    	/>
+    	<sjc:chartData
+    		id="pieSerie2"
+    		label="Serie 2"
+    		data="3"
+    	/>
+    	<sjc:chartData
+    		id="pieSerie3"
+    		label="Serie 3"
+    		data="17"
+    	/>
+    	<sjc:chartData
+    		id="pieSerie4"
+    		label="Serie 4"
+    		data="37"
+    	/>
+    </sjc:chart>
+}}}
+
+
 = Topics =
 
 || *Topic* || *Event* || *Parameter* ||
@@ -369,6 +409,38 @@ A Chart that loads Data with JSON AJAX request. The Data is reloadable and the D
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Bind the start of load or effect on element. e.g. button or link</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">crosshair</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">showing a crosshair, thin lines, when the mouse hovers over the plot</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">crosshairColor</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">crosshair color</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">crosshairLineWidth</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Number</td>
+					<td align="left" valign="top">crosshair line width</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">crosshairMode</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">crosshair mode, 'x', 'y' or 'xy'</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">cssClass</td>
@@ -1153,6 +1225,70 @@ A Chart that loads Data with JSON AJAX request. The Data is reloadable and the D
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Set template to use for opening the rendered html.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">pie</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Display the Chart as a Pie</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">pieInnerRadius</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">0-1 for percentage of fullsize or a specified pixel length, for creating a donut effect</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">pieLabel</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Display Pie Labels</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">pieLabelBackgroundColor</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">any hexidecimal color value</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">pieLabelBackgroundOpacity</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">0-1</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">pieLabelFormatter</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">a user-defined function that modifies the text/style of the label text. eg. name of a function like this function(label, series){ return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">'+label+'<br/>'+Math.round(series.percent)+'%</div>'; }</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">pieLabelRadius</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">auto</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">0-1 for percentage of fullsize, or a specified pixel length</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">pieRadius</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">auto</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">0-1 for percentage of fullsize, or a specified pixel length</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">reloadTopics</td>

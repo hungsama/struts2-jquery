@@ -11,6 +11,7 @@
     * [SubmitTag Form Submit]
   * UI widgets
     * [TabbedPanelTag Tabbed Panel]
+      * [TabTag Tab]
     * [DatePickerTag Datepicker]
     * [DialogTag Dialog]
     * [AccordionTag Accordion]
@@ -19,6 +20,7 @@
     * [SliderTag Slider]
     * [SpinnerTag Spinner]
     * [ChartTag Chart]
+      * [ChartDataTag Chart Data]
     * [GridTag Grid]
       * [GridColumnTag Grid Column]
       * [SearchGrid Search a Grid]
