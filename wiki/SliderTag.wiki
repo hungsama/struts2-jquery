@@ -19,7 +19,7 @@ Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.actio
 ==Slider in a Form==
 {{{
 	<div id="result">Submit form bellow.</div>
-    
+
     <s:form id="form" action="echo" theme="simple" cssClass="yform">
         <fieldset>
             <legend>AJAX Form</legend>
@@ -28,7 +28,7 @@ Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.actio
 	            <sj:slider id="echo" name="echo" value="40" displayValueElement="displayvaluespan" min="20" max="200" animate="true" step="5" cssStyle="margin: 10px;"/>
 	        </div>
 	        <div class="type-button">
-	            <sj:submit targets="result" value="AJAX Submit" indicator="indicator_slider_form"/> <img id="indicator_slider_form" src="images/indicator.gif" alt="Loading..." style="display:none"/> 
+	            <sj:submit targets="result" value="AJAX Submit" indicator="indicator_slider_form"/> <img id="indicator_slider_form" src="images/indicator.gif" alt="Loading..." style="display:none"/>
 	        </div>
         </fieldset>
     </s:form>
@@ -40,17 +40,37 @@ Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.actio
     $.subscribe('sliderStop', function(event,data) {
         alert('Slider stop with value : '+event.originalEvent.ui.value);
     });
-    </script>     
-    
+    </script>
+
 	<div id="result">Submit form bellow.</div>
-    
+
     <s:form id="form1" action="echo" theme="xhtml" cssStyle="width: 400px; margin: 10px;">
          <sj:slider id="echo1" name="echo" label="Echo" value="70" onCompleteTopics="sliderStop" range="min" min="20" max="200" step="5" cssStyle="width: 300px; margin: 10px;"/>
-         <sj:submit id="slidersubmit1" targets="result" value="AJAX Submit" indicator="indicator_slider_range"/> <img id="indicator_slider_range" src="images/indicator.gif" alt="Loading..." style="display:none"/> 
+         <sj:submit id="slidersubmit1" targets="result" value="AJAX Submit" indicator="indicator_slider_range"/> <img id="indicator_slider_range" src="images/indicator.gif" alt="Loading..." style="display:none"/>
     </s:form>
     <s:form id="form2" action="echo" theme="xhtml" cssStyle="width: 400px; margin: 10px;">
          <sj:slider id="echo2" name="echo" label="Echo" value="120" orientation="vertical" onCompleteTopics="sliderStop" range="max" min="20" max="200" step="5" cssStyle="height: 200px; margin: 10px;"/>
-         <sj:submit id="slidersubmit2" targets="result" value="AJAX Submit" indicator="indicator_slider_range"/> <img id="indicator_slider_range" src="images/indicator.gif" alt="Loading..." style="display:none"/> 
+         <sj:submit id="slidersubmit2" targets="result" value="AJAX Submit" indicator="indicator_slider_range"/> <img id="indicator_slider_range" src="images/indicator.gif" alt="Loading..." style="display:none"/>
+    </s:form>
+}}}
+
+==Sliders with Range and Events==
+{{{
+    <script type="text/javascript">
+	$.subscribe('sliderRangeStop', function(event, data) {
+		alert('Slider stoped with values : ' + event.originalEvent.ui.values[0] + ' - ' + event.originalEvent.ui.values[1]);
+	});
+    </script>
+
+	<div id="result">Submit form bellow.</div>
+
+    <s:form id="form3" action="echo" theme="xhtml" cssStyle="width: 400px; margin: 10px;">
+         <sj:slider id="echo3" name="echo" label="Echo" value="[15,55]" onCompleteTopics="sliderRangeStop" step="5" cssStyle="margin: 10px;"/>
+         <sj:submit id="slidersubmit3" targets="result" value="AJAX Submit" button="true" indicator="indicator_slider_range3"/> <img id="indicator_slider_range3" src="images/indicator.gif" alt="Loading..." style="display:none"/>
+    </s:form>
+    <s:form id="form4" action="echo" theme="xhtml" cssStyle="width: 400px; margin: 10px;">
+         <sj:slider id="echo4" name="echo" label="Echo" value="{3, 7}" min="1" max="10" onCompleteTopics="sliderRangeStop" cssStyle="margin: 10px;"/>
+         <sj:submit id="slidersubmit4" targets="result" value="AJAX Submit" button="true" indicator="indicator_slider_range4"/> <img id="indicator_slider_range4" src="images/indicator.gif" alt="Loading..." style="display:none"/>
     </s:form>
 }}}
 
