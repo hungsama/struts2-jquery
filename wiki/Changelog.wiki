@@ -1,7 +1,7 @@
 #summary Changelog
 #labels Featured
 
-= 2.5.2 =
+= 2.5.1 =
 
 *When using your own theme, it is recommended to create a new one. ([http://code.google.com/p/struts2-jquery/wiki/HeadTag#Custome_Themes Instructions])*
 
