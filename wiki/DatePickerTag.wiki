@@ -209,6 +209,14 @@ For custom locals use the [HeadTag Head Tag]
 					<td align="left" valign="top">HTML id attribute</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">inline</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Display the Datepicker inline. Default: false</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">javascriptTooltip</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>

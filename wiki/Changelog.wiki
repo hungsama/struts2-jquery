@@ -1,6 +1,21 @@
 #summary Changelog
 #labels Featured
 
+= 2.5.2 =
+
+  * Upgrade to jQuery UI 1.8.9
+  * Solve Issue 360: Submit not working when ajaxhistory="true"
+  * Solve Issue 400: sjg:grid onBeforeTopics does not work in 2.5
+  * Solve Issue 411: adding extra buttons to the navigator
+  * Solve Issue 412: submit with multiple forms invoke the execute multiple times
+  * Solve Issue 413: local attribute does not have an effect when using loadAtOnce
+  * Solve Issue 414: Forms submitted twice
+  * Solve Issue 415: Editable grid not working
+  * Solve Issue 417: sjg:grid draggable="false" does not work
+  * Solve Issue 419: add an option to display a datepicker as inline element
+  * Solve Issue 421: add possibility to cancel closing of dialog inside of and onBeforeCloseTopic
+  * Solve Issue 422: add destroyTopic attribute to dialog tag
+
 = 2.5.1 =
 
 *When using your own theme, it is recommended to create a new one. ([http://code.google.com/p/struts2-jquery/wiki/HeadTag#Custome_Themes Instructions])*

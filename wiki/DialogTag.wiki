@@ -208,6 +208,14 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">Type of the result. e.g. html, xml, text, json, ...</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">destroyTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics to destroy the dialog.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">dialogClass</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>

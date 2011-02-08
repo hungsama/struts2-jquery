@@ -1033,6 +1033,14 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">Edit Options for Navigator. e.g. {height:280,reloadAfterSubmit:false},</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">navigatorExtraButtons</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Add extra buttons to Navigator. e.g.: { seperator: { title : 'seperator'  }, hidebutton : { title : 'Show Hide', icon: 'ui-icon-gear', topic: showHideGrid} }</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">navigatorRefresh</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">true</td>
@@ -1678,7 +1686,7 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Enable a elements to be sortable</td>
+					<td align="left" valign="top">Enable sortable columns</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">sortableAppendTo</td>
@@ -1927,6 +1935,14 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">Boolean</td>
 					<td align="left" valign="top">If set to true, the item will be reverted to its new DOM position with a smooth animation. Default: false</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">sortableRows</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Enable sortable rows</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">sortableScroll</td>
