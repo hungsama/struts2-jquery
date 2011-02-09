@@ -1,6 +1,10 @@
 #summary Changelog
 #labels Featured
 
+= 2.5.3 =
+
+  * Solve Issue 432: datepicker local is loaded when using loadAtOnce="false"
+
 = 2.5.2 =
 
   * Upgrade to jQuery UI 1.8.9
@@ -24,7 +28,7 @@
   * Upgrade to jQuery UI 1.8.8
   * Solve Issue 359: Version 2.5.0 not aligned grid in IE 8.0
   * Solve Issue 365: Ajax form validation support with following form submission for the entire page
-  * Solve Issue 366:  Grids with Horizontal Scroll Issue in IE 
+  * Solve Issue 366:  Grids with Horizontal Scroll Issue in IE
   * Solve Issue 370: Grid with locale code es(spanish) doesn't work.
   * Solve Issue 371: upload bug when using indicator attribute
   * Solve Issue 373: Support for autowidth and gridview attributes in Grid Tag
