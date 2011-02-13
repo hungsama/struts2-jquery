@@ -83,9 +83,10 @@
         <module>struts2-jquery-grid-plugin</module>
         <module>struts2-jquery-richtext-plugin</module>
         <module>struts2-jquery-chart-plugin</module>
+        <module>struts2-jquery-tree-plugin</module>
+        <module>struts2-jquery-mobile-plugin</module>
         <module>struts2-jquery-showcase</module>
         <module>struts2-jquery-grid-showcase</module>
-        <module>struts2-jquery-mobile-plugin</module>
     </modules>
 
     <build>
