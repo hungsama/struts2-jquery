@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!--
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -18,11 +16,25 @@
  * specific language governing permissions and limitations
  * under the License.
  */
--->
-<!DOCTYPE struts PUBLIC
-    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
-    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
-    
-<struts>
-    <bean type="org.apache.struts2.views.TagLibrary" name="sjm" class="com.jgeppert.struts2.jquery.mobile.views.JqueryMobileTagLibrary" />
-</struts>
+
+package com.jgeppert.struts2.jquery.mobile.showcase;
+
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.ParentPackage;
+import org.apache.struts2.convention.annotation.Result;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+@ParentPackage(value = "showcase")
+public class Ajax4 extends ActionSupport {
+
+  private static final long serialVersionUID = -3405146826130407758L;
+
+  @Action(value = "/ajax4", results = {
+    @Result(location = "ajax4.jsp", name = "success")
+  })
+  public String execute() throws Exception
+  {
+    return SUCCESS;
+  }
+}

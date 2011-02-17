@@ -18,16 +18,23 @@
  * under the License.
  */
 -->
-<#assign javaMobileScriptBasePath="${base}/struts/">
+<#if parameters.scriptPath?if_exists != "">
+  <#assign javaMobileScriptBasePath="${parameters.scriptPath?string}">
+<#else>
+  <#assign javaMobileScriptBasePath="${base}/struts/">
+</#if>
 <#if parameters.compressed?default(true)>
+  <#assign jqueryFile="jquery-1.5.js">
   <#assign jqueryMobileFile="jquery.mobile-1.0a3.js">
   <#assign jqueryMobileCss="jquery.mobile-1.0a3.css">
   <#assign jqueryMobileStrutsFile="jquery.mobile.struts2.min.js">
 <#else>
+  <#assign jqueryFile="jquery-1.5.min.js">
   <#assign jqueryMobileFile="jquery.mobile-1.0a3.min.js">
   <#assign jqueryMobileCss="jquery.mobile-1.0a3.min.css">
   <#assign jqueryMobileStrutsFile="jquery.mobile.struts2.min.js">
 </#if>
+	<script type="text/javascript" src="${javaMobileScriptBasePath}js/base/${jqueryFile}"></script>
 	<script type="text/javascript" src="${javaMobileScriptBasePath}js/plugins/${jqueryMobileFile}"></script>
 	<script type="text/javascript" src="${javaMobileScriptBasePath}js/struts2/${jqueryMobileStrutsFile}"></script>
     <link id="jquery_mobile_theme_link" rel="stylesheet" href="${javaMobileScriptBasePath}js/plugins/${jqueryMobileCss}" type="text/css"/>
