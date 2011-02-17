@@ -181,6 +181,13 @@ It also means community support is important to make it a really solid and long-
 
 Any help and feedback is welcome, either on the [http://code.google.com/p/struts2-jquery/issues/list issue site], or on the [http://groups.google.com/group/struts2-jquery user group].
 
+=== I like to overwrite a default JavaScript Handler ===
+
+Following link explains you how to extend or replace the existing Implementation.
+
+[http://www.jgeppert.com/2011/02/how-to-overwrite-functions-in-struts2-jquery-plugin/]
+
+
 === Does a User Group exist? ===
 
 For Questions around the Plugin you can use this [http://groups.google.com/group/struts2-jquery User Group]
