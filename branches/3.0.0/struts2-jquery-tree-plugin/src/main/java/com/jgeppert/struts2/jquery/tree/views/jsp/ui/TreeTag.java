@@ -43,6 +43,8 @@ public class TreeTag extends AbstractContainerTag {
 	protected String animation;
 	protected String initiallyOpen;
 	protected String rtl;
+	protected String href;
+	protected String onClickTopics;
 
 	public Component getBean(ValueStack stack, HttpServletRequest req,
 			HttpServletResponse res) {
@@ -58,6 +60,8 @@ public class TreeTag extends AbstractContainerTag {
 		tree.setHtmlTitles(htmlTitles);
 		tree.setInitiallyOpen(initiallyOpen);
 		tree.setRtl(rtl);
+		tree.setHref(href);
+		tree.setOnClickTopics(onClickTopics);
 	}
 
 	public void setJstreetheme(String jstreetheme) {
@@ -78,6 +82,14 @@ public class TreeTag extends AbstractContainerTag {
 
 	public void setRtl(String rtl) {
 		this.rtl = rtl;
+	}
+
+	public void setHref(String href) {
+		this.href = href;
+	}
+
+	public void setOnClickTopics(String onClickTopics) {
+		this.onClickTopics = onClickTopics;
 	}
 
 }

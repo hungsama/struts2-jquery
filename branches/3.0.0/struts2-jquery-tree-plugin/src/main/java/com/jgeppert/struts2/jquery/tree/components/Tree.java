@@ -55,6 +55,8 @@ public class Tree extends AbstractContainer {
 	protected String animation;
 	protected String initiallyOpen;
 	protected String rtl;
+	protected String href;
+	protected String onClickTopics;
 
 	public Tree(ValueStack stack, HttpServletRequest request,
 			HttpServletResponse response) {
@@ -74,11 +76,21 @@ public class Tree extends AbstractContainer {
 
 		addParameter("jqueryaction", JQUERYACTION);
 
-		if (this.jstreetheme != null) addParameter("jstreetheme", findString(this.jstreetheme));
-	    if (this.animation != null) addParameter("animation", findValue(animation, Number.class));
-	    if (this.htmlTitles != null) addParameter("htmlTitles", findValue(this.htmlTitles, Boolean.class));
-		if (this.initiallyOpen != null) addParameter("initiallyOpen", findString(this.initiallyOpen));
-	    if (this.rtl != null) addParameter("rtl", findValue(this.rtl, Boolean.class));
+		if (this.jstreetheme != null)
+			addParameter("jstreetheme", findString(this.jstreetheme));
+		if (this.animation != null)
+			addParameter("animation", findValue(animation, Number.class));
+		if (this.htmlTitles != null)
+			addParameter("htmlTitles",
+					findValue(this.htmlTitles, Boolean.class));
+		if (this.initiallyOpen != null)
+			addParameter("initiallyOpen", findString(this.initiallyOpen));
+		if (this.rtl != null)
+			addParameter("rtl", findValue(this.rtl, Boolean.class));
+		if (href != null)
+			addParameter("href", findString(href));
+		if (onClickTopics != null)
+			addParameter("onClickTopics", findString(onClickTopics));
 
 		if ((this.id == null || this.id.length() == 0)) {
 			// resolves Math.abs(Integer.MIN_VALUE) issue reported by FindBugs
@@ -107,12 +119,12 @@ public class Tree extends AbstractContainer {
 		this.jstreetheme = jstreetheme;
 	}
 
-	  @StrutsTagAttribute(description = "Defines whether titles can contain HTML code.", type = "Boolean", defaultValue = "false")
+	@StrutsTagAttribute(description = "Defines whether titles can contain HTML code.", type = "Boolean", defaultValue = "false")
 	public void setHtmlTitles(String htmlTitles) {
 		this.htmlTitles = htmlTitles;
 	}
 
-	  @StrutsTagAttribute(description = "Defines the duration of open/close animations. 0 means no animation.", type = "Number", defaultValue="500")
+	@StrutsTagAttribute(description = "Defines the duration of open/close animations. 0 means no animation.", type = "Number", defaultValue = "500")
 	public void setAnimation(String animation) {
 		this.animation = animation;
 	}
@@ -122,9 +134,18 @@ public class Tree extends AbstractContainer {
 		this.initiallyOpen = initiallyOpen;
 	}
 
-	  @StrutsTagAttribute(description = "Defines whether the tree is in right-to-left mode (also make sure you are using a RTL theme - for example the included default-rtl).", type = "Boolean", defaultValue = "false")
+	@StrutsTagAttribute(description = "Defines whether the tree is in right-to-left mode (also make sure you are using a RTL theme - for example the included default-rtl).", type = "Boolean", defaultValue = "false")
 	public void setRtl(String rtl) {
 		this.rtl = rtl;
 	}
 
+	@StrutsTagAttribute(description = "Url used to load the list of children nodes for an specific node, whose id will be passed as a parameter named 'nodeId' (empty for root)")
+	public void setHref(String href) {
+		this.href = href;
+	}
+
+	@StrutsTagAttribute(description = "A comma delimited list of topics that published when the tree item is clicked", type = "String")
+	public void setOnClickTopics(String onClickTopics) {
+		this.onClickTopics = onClickTopics;
+	}
 }

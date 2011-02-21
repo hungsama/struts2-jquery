@@ -41,6 +41,12 @@ jQuery(document).ready(function () {
 	<#if parameters.rtl??>
 	options_${escapedOptionId?html}.rtl = ${parameters.rtl?string};
 	</#if>
+	<#if parameters.href?if_exists != ""> 
+	options_${escapedOptionId?html}.url = "${parameters.href?string}";
+	</#if>
+  	<#if parameters.onClickTopics?exists>
+	options_${escapedOptionId?html}.onclick = "${parameters.onClickTopics?html}";
+  	</#if>
 
   <#include "/${parameters.templateDir}/jquery/base.ftl" />
 

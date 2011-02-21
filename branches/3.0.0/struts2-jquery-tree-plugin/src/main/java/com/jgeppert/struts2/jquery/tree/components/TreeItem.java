@@ -46,73 +46,75 @@ import com.opensymphony.xwork2.util.logging.LoggerFactory;
 @StrutsTag(name = "treeItem", tldTagClass = "com.jgeppert.struts2.jquery.tree.views.jsp.ui.TreeItemTag", description = "Item for the Tree Element", allowDynamicAttributes = true)
 public class TreeItem extends AbstractContainer {
 
-  public static final String            TEMPLATE       = "tree-item";
-  public static final String            TEMPLATE_CLOSE = "tree-item-close";
-  public static final String            COMPONENT_NAME = TreeItem.class.getName();
-  protected final static Logger         LOG            = LoggerFactory.getLogger(TreeItem.class);
-  private final static transient Random RANDOM         = new Random();
+	public static final String TEMPLATE = "tree-item";
+	public static final String TEMPLATE_CLOSE = "tree-item-close";
+	public static final String COMPONENT_NAME = TreeItem.class.getName();
+	protected final static Logger LOG = LoggerFactory.getLogger(TreeItem.class);
+	private final static transient Random RANDOM = new Random();
 
-  protected String           title;
+	protected String title;
+	protected String href;
 
-  public TreeItem(ValueStack stack, HttpServletRequest request, HttpServletResponse response) {
-    super(stack, request, response);
-  }
+	public TreeItem(ValueStack stack, HttpServletRequest request,
+			HttpServletResponse response) {
+		super(stack, request, response);
+	}
 
-  public String getDefaultOpenTemplate()
-  {
-    return TEMPLATE;
-  }
+	public String getDefaultOpenTemplate() {
+		return TEMPLATE;
+	}
 
-  protected String getDefaultTemplate()
-  {
-    return TEMPLATE_CLOSE;
-  }
+	protected String getDefaultTemplate() {
+		return TEMPLATE_CLOSE;
+	}
 
-  public void evaluateExtraParams()
-  {
-    super.evaluateExtraParams();
+	public void evaluateExtraParams() {
+		super.evaluateExtraParams();
 
-    if (title != null) addParameter("title", findString(title));
+		if (title != null)
+			addParameter("title", findString(title));
+		if (href != null)
+			addParameter("href", findString(href));
 
-    if ((this.id == null || this.id.length() == 0))
-    {
-      // resolves Math.abs(Integer.MIN_VALUE) issue reported by FindBugs
-      // http://findbugs.sourceforge.net/bugDescriptions.html#RV_ABSOLUTE_VALUE_OF_RANDOM_INT
-      int nextInt = RANDOM.nextInt();
-      nextInt = nextInt == Integer.MIN_VALUE ? Integer.MAX_VALUE : Math.abs(nextInt);
-      this.id = "treeitem" + String.valueOf(nextInt);
-      addParameter("id", this.id);
-    }
+		if ((this.id == null || this.id.length() == 0)) {
+			// resolves Math.abs(Integer.MIN_VALUE) issue reported by FindBugs
+			// http://findbugs.sourceforge.net/bugDescriptions.html#RV_ABSOLUTE_VALUE_OF_RANDOM_INT
+			int nextInt = RANDOM.nextInt();
+			nextInt = nextInt == Integer.MIN_VALUE ? Integer.MAX_VALUE : Math
+					.abs(nextInt);
+			this.id = "treeitem" + String.valueOf(nextInt);
+			addParameter("id", this.id);
+		}
 
-    Tree tree = (Tree) findAncestor(Tree.class);
-    if (tree != null)
-    {
-      addParameter("tree", tree.getId());
-    }
-    
-    TreeItem parentTreeItem = (TreeItem) findAncestor(TreeItem.class);
-    if (parentTreeItem != null)
-    {
-      addParameter("parentTreeItem", parentTreeItem.getId());
-    }
-  }
+		Tree tree = (Tree) findAncestor(Tree.class);
+		if (tree != null) {
+			addParameter("tree", tree.getId());
+		}
 
-  @Override
-  @StrutsTagSkipInheritance
-  public void setTheme(String theme)
-  {
-    super.setTheme(theme);
-  }
+		TreeItem parentTreeItem = (TreeItem) findAncestor(TreeItem.class);
+		if (parentTreeItem != null) {
+			addParameter("parentTreeItem", parentTreeItem.getId());
+		}
+	}
 
-  @Override
-  public String getTheme()
-  {
-    return "jquery";
-  }
-  
-  @StrutsTagAttribute(description = "Title for the Tree Item", required=true)
-  public void setTitle(String title)
-  {
-    this.title = title;
-  }
+	@Override
+	@StrutsTagSkipInheritance
+	public void setTheme(String theme) {
+		super.setTheme(theme);
+	}
+
+	@Override
+	public String getTheme() {
+		return "jquery";
+	}
+
+	@StrutsTagAttribute(description = "Title for the Tree Item", required = true)
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	@StrutsTagAttribute(name = "href", description = "The url to be use when this element is clicked", type = "String", defaultValue = "")
+	public void setHref(String href) {
+		this.href = href;
+	}
 }

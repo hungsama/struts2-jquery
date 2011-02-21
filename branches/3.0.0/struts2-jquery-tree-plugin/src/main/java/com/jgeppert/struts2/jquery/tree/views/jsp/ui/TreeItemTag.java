@@ -38,6 +38,7 @@ public class TreeItemTag extends AbstractClosingTag {
 
 	private static final long serialVersionUID = -7469262429043821390L;
 	protected String title;
+	protected String href;
 
 	public Component getBean(ValueStack stack, HttpServletRequest req,
 			HttpServletResponse res) {
@@ -49,10 +50,15 @@ public class TreeItemTag extends AbstractClosingTag {
 
 		TreeItem treeItem = (TreeItem) component;
 		treeItem.setTitle(title);
+		treeItem.setHref(href);
 	}
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public void setHref(String href) {
+		this.href = href;
 	}
 
 }
