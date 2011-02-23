@@ -26,6 +26,7 @@ import org.apache.struts2.components.Component;
 import org.apache.struts2.views.jsp.ui.AbstractClosingTag;
 
 import com.jgeppert.struts2.jquery.tree.components.TreeItem;
+import com.jgeppert.struts2.jquery.views.jsp.ui.AbstractRemoteTag;
 import com.opensymphony.xwork2.util.ValueStack;
 
 /**
@@ -34,11 +35,10 @@ import com.opensymphony.xwork2.util.ValueStack;
  * 
  */
 
-public class TreeItemTag extends AbstractClosingTag {
+public class TreeItemTag extends AbstractRemoteTag {
 
 	private static final long serialVersionUID = -7469262429043821390L;
 	protected String title;
-	protected String href;
 
 	public Component getBean(ValueStack stack, HttpServletRequest req,
 			HttpServletResponse res) {
@@ -50,15 +50,10 @@ public class TreeItemTag extends AbstractClosingTag {
 
 		TreeItem treeItem = (TreeItem) component;
 		treeItem.setTitle(title);
-		treeItem.setHref(href);
 	}
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public void setHref(String href) {
-		this.href = href;
 	}
 
 }

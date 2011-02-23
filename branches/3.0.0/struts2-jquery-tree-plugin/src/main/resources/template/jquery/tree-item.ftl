@@ -32,10 +32,10 @@
 <#include "/${parameters.templateDir}/simple/common-attributes.ftl" />
 <#include "/${parameters.templateDir}/simple/dynamic-attributes.ftl" />
 		>
-	<#if parameters.href?if_exists != ""> 
+	<#if !parameters.targets?exists && parameters.href?if_exists != ""> 
 			<a href="${parameters.href?string}">
 	<#else>
-			<a href="#">
+			<a href="javascript:void(0">
 	</#if>
 <#if parameters.title?if_exists != "">
 			${parameters.title?html}

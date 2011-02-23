@@ -63,6 +63,10 @@
 		    }
 
 			$elem.jstree(o);
+		},
+		treeitem : function($elem, o) {
+			var self = this;
+			self.anchor($elem, o);
 		}
 	};
 

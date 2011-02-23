@@ -23,8 +23,6 @@
 <#assign escapedOptionId="${parameters.id?string?replace('.', '_')}">
 <script type='text/javascript'>
 jQuery(document).ready(function () { 
-	jQuery.struts2_jquery.require("js/struts2/jquery.tree.struts2"+jQuery.struts2_jquery.minSuffix+".js");
-	
 	var options_${escapedOptionId?html} = {};
 	<#if parameters.jstreetheme?if_exists != ""> 
 	options_${escapedOptionId?html}.treetheme = "${parameters.jstreetheme?html}";

@@ -20,3 +20,23 @@
 -->
 			</ul>
 		</li>
+<#if parameters.targets?if_exists != ""> 
+  <#assign escapedOptionId="${parameters.id?string?replace('.', '_')}">
+<script type='text/javascript'>
+jQuery(document).ready(function () { 
+	var options_${escapedOptionId?html} = {};
+	<#if parameters.openDialog?if_exists != ""> 
+	options_${escapedOptionId?html}.opendialog = "${parameters.openDialog?html}";
+	</#if>
+  <#include "/${parameters.templateDir}/jquery/base.ftl" />
+  <#include "/${parameters.templateDir}/jquery/interactive.ftl" />
+  <#include "/${parameters.templateDir}/jquery/topics.ftl" />
+  <#include "/${parameters.templateDir}/jquery/action.ftl" />
+  <#include "/${parameters.templateDir}/jquery/validation.ftl" />
+
+<#assign escapedId="${parameters.id?string?replace('.', '\\\\\\\\.')} a">
+<#assign escapedOptionId="${parameters.id?string?replace('.', '_')}">
+	jQuery.struts2_jquery_tree.bind(jQuery('#${escapedId?html}'),options_${escapedOptionId?html});
+ });  
+</script>
+</#if>
