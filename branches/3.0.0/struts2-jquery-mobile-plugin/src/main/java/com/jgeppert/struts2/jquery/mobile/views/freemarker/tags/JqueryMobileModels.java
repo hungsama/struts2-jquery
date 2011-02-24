@@ -30,26 +30,97 @@ import com.opensymphony.xwork2.util.ValueStack;
  * 
  */
 public class JqueryMobileModels {
-  protected HeadModel        head;
+	protected HeadModel head;
+	protected CheckboxListModel checkboxList;
+	protected CheckboxModel checkbox;
+	protected DivModel div;
+	protected AnchorModel anchor;
+	protected PasswordModel password;
+	protected TextareaModel textarea;
+	protected TextfieldModel textfield;
+	protected SearchfieldModel searchfield;
 
-  private ValueStack          stack;
-  private HttpServletRequest  req;
-  private HttpServletResponse res;
+	private ValueStack stack;
+	private HttpServletRequest req;
+	private HttpServletResponse res;
 
-  public JqueryMobileModels(ValueStack stack, HttpServletRequest req, HttpServletResponse res) {
-    this.stack = stack;
-    this.req = req;
-    this.res = res;
-  }
+	public JqueryMobileModels(ValueStack stack, HttpServletRequest req,
+			HttpServletResponse res) {
+		this.stack = stack;
+		this.req = req;
+		this.res = res;
+	}
 
-  public HeadModel getHead()
-  {
-    if (head == null)
-    {
-      head = new HeadModel(stack, req, res);
-    }
+	public HeadModel getHead() {
+		if (head == null) {
+			head = new HeadModel(stack, req, res);
+		}
 
-    return head;
-  }
+		return head;
+	}
+
+	public DivModel getDiv() {
+		if (div == null) {
+			div = new DivModel(stack, req, res);
+		}
+
+		return div;
+	}
+
+	public AnchorModel getAnchor() {
+		if (anchor == null) {
+			anchor = new AnchorModel(stack, req, res);
+		}
+
+		return anchor;
+	}
+
+	public CheckboxListModel getCheckboxList() {
+		if (checkboxList == null) {
+			checkboxList = new CheckboxListModel(stack, req, res);
+		}
+
+		return checkboxList;
+	}
+
+	public CheckboxModel getCheckbox() {
+		if (checkbox == null) {
+			checkbox = new CheckboxModel(stack, req, res);
+		}
+
+		return checkbox;
+	}
+
+	public PasswordModel getPassword() {
+		if (password == null) {
+			password = new PasswordModel(stack, req, res);
+		}
+
+		return password;
+	}
+
+	public TextareaModel getTextarea() {
+		if (textarea == null) {
+			textarea = new TextareaModel(stack, req, res);
+		}
+
+		return textarea;
+	}
+
+	public TextfieldModel getTextfield() {
+		if (textfield == null) {
+			textfield = new TextfieldModel(stack, req, res);
+		}
+
+		return textfield;
+	}
+
+	public SearchfieldModel getSearchfield() {
+		if (searchfield == null) {
+			searchfield = new SearchfieldModel(stack, req, res);
+		}
+
+		return searchfield;
+	}
 
 }

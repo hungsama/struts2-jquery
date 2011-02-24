@@ -8,32 +8,13 @@
     	<sjm:head />
 	</head>
 	<body>
-		<div data-role="page" id="start">
-			<div data-role="header">
-				<h1>Struts2 jQuery Mobile Plugin Showcase</h1>
-			</div> 
-			<div data-role="content">
-				<p>All Examples Links here.</p>
-				<p><a href="#page2">Page 2</a></p>	
-			</div> 
-			<div data-role="footer">
-				<h4>Footer</h4>
-			</div> 
-		</div>
-		<div data-role="page" id="page2">
-
-			<div data-role="header">
-				<a data-rel="back">Back</a>
-				<h1>Page 2 for Examples</h1>
-			</div>
-
-			<div data-role="content">	
-				<p><a href="#start">Back to Start</a></p>	
-			</div>
-
-			<div data-role="footer">
-				<h4>Footer</h4>
-			</div>
-		</div>
+		<jsp:include page="inc.start.jsp" />
+		<jsp:include page="inc.textfield.jsp" />
+		<jsp:include page="inc.password.jsp" />
+		<jsp:include page="inc.textarea.jsp" />
+		<jsp:include page="inc.searchfield.jsp" />
+		<jsp:include page="inc.checkbox.jsp" />
+		<jsp:include page="inc.checkboxlist.jsp" />
+		<jsp:include page="inc.radio.jsp" />
 	</body>
 </html>

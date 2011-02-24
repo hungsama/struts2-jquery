@@ -19,6 +19,8 @@
 
 package com.jgeppert.struts2.jquery.mobile.components;
 
+import java.util.Random;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,7 +33,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 /**
  * <!-- START SNIPPET: javadoc -->
  * <p>
- * Render a Head Element
+ * This tag generates an HTML div for the jQuery mobile framework.
  * </p>
  * <!-- END SNIPPET: javadoc -->
  * 
@@ -39,41 +41,71 @@ import com.opensymphony.xwork2.util.ValueStack;
  * Examples
  * </p>
  * <!-- START SNIPPET: example1 -->
+ * <p>
+ * A Div with role <strong>page</strong>
+ * </p>
  * 
  * <pre>
- * <sjm:head />
+ * &lt;sjm:div role=&quot;page&quot; id=&quot;page1&quot;&gt;
+ * &lt;/sjm:div&gt;
  * 
  * </pre>
  * 
  * <!-- END SNIPPET: example1 -->
  * 
+ * <!-- START SNIPPET: example2 -->
+ * <p>
+ * A Div with role <strong>header</strong>
+ * </p>
+ * 
+ * <pre>
+ * &lt;sjm:div role=&quot;header&quot;&gt;
+ * &lt;/sjm:div&gt;
+ * </pre>
+ * 
+ * <!-- END SNIPPET: example2 -->
  * 
  * @author <a href="http://www.jgeppert.com">Johannes Geppert</a>
  * 
  */
-@StrutsTag(name = "head", tldTagClass = "com.jgeppert.struts2.jquery.mobile.views.jsp.ui.HeadTag", description = "add necessary scripts and styles to the head area", allowDynamicAttributes = true)
-public class Head extends org.apache.struts2.components.Head {
+@StrutsTag(name = "div", tldTagClass = "com.jgeppert.struts2.jquery.mobile.views.jsp.ui.DivTag", description = "Render HTML div element", allowDynamicAttributes = true)
+public class Div extends org.apache.struts2.components.Div {
 
-	public static final String TEMPLATE = "head";
-	public static final String COMPONENT_NAME = Head.class.getName();
+	public static final String TEMPLATE = "div";
+	public static final String TEMPLATE_CLOSE = "div-close";
+	public static final String COMPONENT_NAME = Div.class.getName();
+	private static final transient Random RANDOM = new Random();
 
-	protected String compressed;
+	protected String role;
 
-	public Head(ValueStack stack, HttpServletRequest request,
+	public Div(ValueStack stack, HttpServletRequest request,
 			HttpServletResponse response) {
 		super(stack, request, response);
 	}
 
-	protected String getDefaultTemplate() {
+	public String getDefaultOpenTemplate() {
 		return TEMPLATE;
+	}
+
+	protected String getDefaultTemplate() {
+		return TEMPLATE_CLOSE;
 	}
 
 	public void evaluateExtraParams() {
 		super.evaluateExtraParams();
 
-		if (this.compressed != null)
-			addParameter("compressed",
-					findValue(this.compressed, Boolean.class));
+		if (role != null)
+			addParameter("role", findString(role));
+
+		if ((this.id == null || this.id.length() == 0)) {
+			// resolves Math.abs(Integer.MIN_VALUE) issue reported by FindBugs
+			// http://findbugs.sourceforge.net/bugDescriptions.html#RV_ABSOLUTE_VALUE_OF_RANDOM_INT
+			int nextInt = RANDOM.nextInt();
+			nextInt = nextInt == Integer.MIN_VALUE ? Integer.MAX_VALUE : Math
+					.abs(nextInt);
+			this.id = "div_" + String.valueOf(nextInt);
+			addParameter("id", this.id);
+		}
 	}
 
 	@Override
@@ -87,8 +119,8 @@ public class Head extends org.apache.struts2.components.Head {
 		return "mobile";
 	}
 
-	@StrutsTagAttribute(description = "use compressed version of jquery mobile resources", defaultValue = "true", type = "Boolean")
-	public void setCompressed(String compressed) {
-		this.compressed = compressed;
+	@StrutsTagAttribute(description = "div role. e.g.: page, header, content, footer")
+	public void setRole(String role) {
+		this.role = role;
 	}
 }

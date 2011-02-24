@@ -31,35 +31,40 @@ import com.opensymphony.xwork2.util.ValueStack;
 /**
  * <!-- START SNIPPET: javadoc -->
  * <p>
- * Render a Head Element
+ * A tag that creates an Radiobutton Group from a given List.
  * </p>
  * <!-- END SNIPPET: javadoc -->
- * 
  * <p>
  * Examples
  * </p>
+ * 
  * <!-- START SNIPPET: example1 -->
  * 
  * <pre>
- * <sjm:head />
+ * &lt;sjm:radio
+ * 	id=&quot;radio1&quot;
+ * 	name=&quot;radio1&quot;
+ * 	label=&quot;Friends&quot;
+ * 	list=&quot;{'Patrick', 'Jason', 'Jay', 'Toby', 'Rene'}&quot;
+ * /&gt;
  * 
  * </pre>
  * 
  * <!-- END SNIPPET: example1 -->
  * 
- * 
  * @author <a href="http://www.jgeppert.com">Johannes Geppert</a>
  * 
  */
-@StrutsTag(name = "head", tldTagClass = "com.jgeppert.struts2.jquery.mobile.views.jsp.ui.HeadTag", description = "add necessary scripts and styles to the head area", allowDynamicAttributes = true)
-public class Head extends org.apache.struts2.components.Head {
 
-	public static final String TEMPLATE = "head";
-	public static final String COMPONENT_NAME = Head.class.getName();
+@StrutsTag(name = "radio", tldTagClass = "com.jgeppert.struts2.jquery.mobile.views.jsp.ui.RadioTag", description = "Renders a radio button group", allowDynamicAttributes = true)
+public class Radio extends org.apache.struts2.components.CheckboxList {
 
-	protected String compressed;
+	public static final String TEMPLATE = "radio";
+	public static final String COMPONENT_NAME = Radio.class.getName();
 
-	public Head(ValueStack stack, HttpServletRequest request,
+	protected String horizontal;
+
+	public Radio(ValueStack stack, HttpServletRequest request,
 			HttpServletResponse response) {
 		super(stack, request, response);
 	}
@@ -71,9 +76,9 @@ public class Head extends org.apache.struts2.components.Head {
 	public void evaluateExtraParams() {
 		super.evaluateExtraParams();
 
-		if (this.compressed != null)
-			addParameter("compressed",
-					findValue(this.compressed, Boolean.class));
+		if (this.horizontal != null)
+			addParameter("horizontal",
+					findValue(this.horizontal, Boolean.class));
 	}
 
 	@Override
@@ -87,8 +92,9 @@ public class Head extends org.apache.struts2.components.Head {
 		return "mobile";
 	}
 
-	@StrutsTagAttribute(description = "use compressed version of jquery mobile resources", defaultValue = "true", type = "Boolean")
-	public void setCompressed(String compressed) {
-		this.compressed = compressed;
+	@StrutsTagAttribute(description = "make a horizontal button set", defaultValue = "false", type = "Boolean")
+	public void setHorizontal(String horizontal) {
+		this.horizontal = horizontal;
 	}
+
 }
