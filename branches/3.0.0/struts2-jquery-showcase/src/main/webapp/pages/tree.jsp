@@ -42,9 +42,22 @@
 	    		<sjt:treeItem title="Blogs">
 		    		<sjt:treeItem title="Struts2 jQuery News" href="http://www.jgeppert.com/category/java/struts2-jquery/"/>
     			</sjt:treeItem>
+	    		<sjt:treeItem title="AJAX Links">
+					<s:url id="ajax1" value="/ajax1.action"/>
+		    		<sjt:treeItem title="Ajax 1" href="%{ajax1}" targets="result"/>
+					<s:url id="ajax2" value="/ajax2.action"/>
+		    		<sjt:treeItem title="Ajax 2" href="%{ajax2}" targets="result" effect="highlight" effectDuration="2500"/>
+					<s:url id="ajax3" value="/ajax3.action"/>
+		    		<sjt:treeItem title="Ajax 3" href="%{ajax3}" targets="result" onBeforeTopics="beforeLink" onCompleteTopics="completeLink"/>
+					<s:url id="ajax4" value="/ajax4.action"/>
+		    		<sjt:treeItem title="Ajax 4" href="%{ajax4}" targets="result" effect="bounce" effectDuration="1000"/>
+    			</sjt:treeItem>
     		</sjt:treeItem>
     	</sjt:tree>
   </div>
+  
+  <strong>Result Div :</strong>
+  <div id="result" class="result ui-widget-content ui-corner-all">Click on the AJAX Links above.</div>
   
   <div class="code ui-widget-content ui-corner-all">
     <strong>Code:</strong>
@@ -63,8 +76,22 @@
 	    		&lt;sjt:treeItem title=&quot;Blogs&quot;&gt;
 		    		&lt;sjt:treeItem title=&quot;Struts2 jQuery News&quot; href=&quot;http://www.jgeppert.com/category/java/struts2-jquery/&quot;/&gt;
     			&lt;/sjt:treeItem&gt;
+	    		&lt;sjt:treeItem title=&quot;AJAX Links&quot;&gt;
+					&lt;s:url id=&quot;ajax1&quot; value=&quot;/ajax1.action&quot;/&gt;
+		    		&lt;sjt:treeItem title=&quot;Ajax 1&quot; href=&quot;%{ajax1}&quot; targets=&quot;result&quot;/&gt;
+					&lt;s:url id=&quot;ajax2&quot; value=&quot;/ajax2.action&quot;/&gt;
+		    		&lt;sjt:treeItem title=&quot;Ajax 2&quot; href=&quot;%{ajax2}&quot; targets=&quot;result&quot; effect=&quot;highlight&quot; effectDuration=&quot;2500&quot;/&gt;
+					&lt;s:url id=&quot;ajax3&quot; value=&quot;/ajax3.action&quot;/&gt;
+		    		&lt;sjt:treeItem title=&quot;Ajax 3&quot; href=&quot;%{ajax3}&quot; targets=&quot;result&quot; onBeforeTopics=&quot;beforeLink&quot; onCompleteTopics=&quot;completeLink&quot;/&gt;
+					&lt;s:url id=&quot;ajax4&quot; value=&quot;/ajax4.action&quot;/&gt;
+		    		&lt;sjt:treeItem title=&quot;Ajax 4&quot; href=&quot;%{ajax4}&quot; targets=&quot;result&quot; effect=&quot;bounce&quot; effectDuration=&quot;1000&quot;/&gt;
+    			&lt;/sjt:treeItem&gt;
     		&lt;/sjt:treeItem&gt;
     	&lt;/sjt:tree&gt;
+  &lt;/div&gt;
+  
+  &lt;strong&gt;Result Div :&lt;/strong&gt;
+  &lt;div id=&quot;result&quot; class=&quot;result ui-widget-content ui-corner-all&quot;&gt;Click on the AJAX Links above.&lt;/div&gt;
     </pre>
   </div>
   <!-- IE Column Clearing -->
