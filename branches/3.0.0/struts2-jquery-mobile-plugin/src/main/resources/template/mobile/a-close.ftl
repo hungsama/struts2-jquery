@@ -20,35 +20,20 @@
  * under the License.
  */
 -->
-<a<#rt/>
-<#if parameters.id?if_exists != "">
- id="${parameters.id?html}"<#rt/>
-</#if>
-<#if parameters.href?if_exists != "">
- href="${parameters.href}"<#rt/>
-</#if>
-<#if parameters.tabindex??>
- tabindex="${parameters.tabindex?html}"<#rt/>
-</#if>
-<#if parameters.cssClass??>
- class="${parameters.cssClass?html}"<#rt/>
-</#if>
-<#if parameters.cssStyle??>
- style="${parameters.cssStyle?html}"<#rt/>
-</#if>
-<#if parameters.title??>
- title="${parameters.title?html}"<#rt/>
-</#if>
-<#if parameters.button?default(false)>
- data-role="button"<#rt/>
-</#if>
-<#if parameters.buttonIcon??>
- data-icon="${parameters.buttonIcon?html}"<#rt/>
-</#if>
-<#if parameters.buttonIconPosition??>
- data-iconpos="${parameters.buttonIconPosition?html}"<#rt/>
-</#if>
-<#include "/${parameters.templateDir}/simple/scripting-events.ftl" />
-<#include "/${parameters.templateDir}/simple/common-attributes.ftl" />
-<#include "/${parameters.templateDir}/simple/dynamic-attributes.ftl" />
->${parameters.body}</a>
+  <#assign escapedOptionId="${parameters.id?string?replace('.', '_')}">
+</a>
+<script type='text/javascript'>
+jQuery(document).ready(function () { 
+	var options_${escapedOptionId?html} = {};
+	<#if parameters.openDialog?if_exists != ""> 
+	options_${escapedOptionId?html}.opendialog = "${parameters.openDialog?html}";
+	</#if>
+  <#include "/${parameters.templateDir}/jquery/base.ftl" />
+  <#include "/${parameters.templateDir}/jquery/interactive.ftl" />
+  <#include "/${parameters.templateDir}/jquery/topics.ftl" />
+  <#include "/${parameters.templateDir}/jquery/action.ftl" />
+  <#include "/${parameters.templateDir}/jquery/validation.ftl" />
+
+  <#include "/${parameters.templateDir}/jquery/jquery-bind.ftl" />
+ });  
+</script>

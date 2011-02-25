@@ -52,12 +52,13 @@ import com.opensymphony.xwork2.util.ValueStack;
  * 
  */
 @StrutsTag(name = "head", tldTagClass = "com.jgeppert.struts2.jquery.mobile.views.jsp.ui.HeadTag", description = "add necessary scripts and styles to the head area", allowDynamicAttributes = true)
-public class Head extends org.apache.struts2.components.Head {
+public class Head extends com.jgeppert.struts2.jquery.components.Head {
 
 	public static final String TEMPLATE = "head";
 	public static final String COMPONENT_NAME = Head.class.getName();
 
 	protected String compressed;
+	protected String jqueryui;
 
 	public Head(ValueStack stack, HttpServletRequest request,
 			HttpServletResponse response) {
@@ -74,6 +75,10 @@ public class Head extends org.apache.struts2.components.Head {
 		if (this.compressed != null)
 			addParameter("compressed",
 					findValue(this.compressed, Boolean.class));
+		if (this.jqueryui != null)
+			addParameter("jqueryui", findValue(this.jqueryui, Boolean.class));
+		else
+			addParameter("jqueryui", new Boolean(false));
 	}
 
 	@Override
@@ -85,6 +90,11 @@ public class Head extends org.apache.struts2.components.Head {
 	@Override
 	public String getTheme() {
 		return "mobile";
+	}
+
+	@StrutsTagAttribute(description = "enable jQuery UI Scripts", defaultValue = "false", type = "Boolean")
+	public void setJqueryui(String jqueryui) {
+		this.jqueryui = jqueryui;
 	}
 
 	@StrutsTagAttribute(description = "use compressed version of jquery mobile resources", defaultValue = "true", type = "Boolean")

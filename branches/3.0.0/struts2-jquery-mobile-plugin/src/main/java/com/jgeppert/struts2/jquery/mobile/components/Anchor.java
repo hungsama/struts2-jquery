@@ -64,7 +64,7 @@ import com.opensymphony.xwork2.util.ValueStack;
  * 
  */
 @StrutsTag(name = "a", tldTagClass = "com.jgeppert.struts2.jquery.mobile.views.jsp.ui.AnchorTag", description = "Renders an HTML anchor element.", allowDynamicAttributes = true)
-public class Anchor extends org.apache.struts2.components.Anchor {
+public class Anchor extends com.jgeppert.struts2.jquery.components.Anchor {
 	public static final String TEMPLATE = "a";
 	public static final String TEMPLATE_CLOSE = "a-close";
 	public static final String COMPONENT_NAME = Anchor.class.getName();

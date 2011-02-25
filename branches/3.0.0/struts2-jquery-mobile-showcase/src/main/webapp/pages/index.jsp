@@ -5,16 +5,9 @@
 <html>
 	<head>
     	<title>Struts2 jQuery Mobile Plugin Showcase</title>
-    	<sjm:head />
+    	<sjm:head jqueryui="false"/>
 	</head>
 	<body>
 		<jsp:include page="inc.start.jsp" />
-		<jsp:include page="inc.textfield.jsp" />
-		<jsp:include page="inc.password.jsp" />
-		<jsp:include page="inc.textarea.jsp" />
-		<jsp:include page="inc.searchfield.jsp" />
-		<jsp:include page="inc.checkbox.jsp" />
-		<jsp:include page="inc.checkboxlist.jsp" />
-		<jsp:include page="inc.radio.jsp" />
 	</body>
 </html>

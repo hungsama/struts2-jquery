@@ -31,7 +31,8 @@ import com.opensymphony.xwork2.util.ValueStack;
  * @see Anchor
  * @author <a href="http://www.jgeppert.com">Johannes Geppert</a>
  */
-public class AnchorTag extends org.apache.struts2.views.jsp.ui.AnchorTag {
+public class AnchorTag extends
+		com.jgeppert.struts2.jquery.views.jsp.ui.AnchorTag {
 
 	private static final long serialVersionUID = -4249231836512621297L;
 
