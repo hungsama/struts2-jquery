@@ -34,6 +34,8 @@ public class JqueryMobileModels {
 	protected CheckboxListModel checkboxList;
 	protected CheckboxModel checkbox;
 	protected DivModel div;
+	protected ListModel list;
+	protected ListItemModel listItem;
 	protected AnchorModel anchor;
 	protected PasswordModel password;
 	protected TextareaModel textarea;
@@ -121,6 +123,22 @@ public class JqueryMobileModels {
 		}
 
 		return searchfield;
+	}
+
+	public ListModel getList() {
+		if (list == null) {
+			list = new ListModel(stack, req, res);
+		}
+
+		return list;
+	}
+
+	public ListItemModel getListItem() {
+		if (listItem == null) {
+			listItem = new ListItemModel(stack, req, res);
+		}
+
+		return listItem;
 	}
 
 }

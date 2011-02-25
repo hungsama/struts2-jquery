@@ -18,20 +18,14 @@
  * under the License.
  */
 -->
-  <#assign escapedOptionId="${parameters.id?string?replace('.', '_')}">
-</a>
-<script type='text/javascript'>
-jQuery(document).ready(function () { 
-	var options_${escapedOptionId?html} = {};
-	<#if parameters.openDialog?if_exists != ""> 
-	options_${escapedOptionId?html}.opendialog = "${parameters.openDialog?html}";
-	</#if>
-  <#include "/${parameters.templateDir}/jquery/base.ftl" />
-  <#include "/${parameters.templateDir}/jquery/interactive.ftl" />
-  <#include "/${parameters.templateDir}/jquery/topics.ftl" />
-  <#include "/${parameters.templateDir}/jquery/action.ftl" />
-  <#include "/${parameters.templateDir}/jquery/validation.ftl" />
-
-  <#include "/${parameters.templateDir}/jquery/jquery-bind.ftl" />
- });  
-</script>
+<ul <#rt/>
+<#if parameters.id??>id="${parameters.id?html}" </#if><#rt/>
+<#if parameters.cssClass??>class="${parameters.cssClass?html}" </#if><#rt/>
+<#if parameters.cssStyle??>style="${parameters.cssStyle?html}" </#if><#rt/>
+<#if parameters.role??>data-role="${parameters.role?html}" </#if><#rt/>
+<#if parameters.filter?default(false)>data-filter="true" </#if><#rt/>
+<#if parameters.inset?default(false)>data-inset="true" </#if><#rt/>
+<#include "/${parameters.templateDir}/simple/scripting-events.ftl" />
+<#include "/${parameters.templateDir}/simple/common-attributes.ftl" />
+<#include "/${parameters.templateDir}/simple/dynamic-attributes.ftl" />
+>

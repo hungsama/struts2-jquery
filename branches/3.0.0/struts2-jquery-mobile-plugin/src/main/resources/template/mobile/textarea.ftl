@@ -1,7 +1,5 @@
 <#--
 /*
- * $Id: textarea.ftl 720258 2008-11-24 19:05:16Z musachy $
- *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information

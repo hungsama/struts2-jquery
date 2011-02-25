@@ -34,6 +34,8 @@ import com.jgeppert.struts2.jquery.mobile.views.velocity.components.CheckboxDire
 import com.jgeppert.struts2.jquery.mobile.views.velocity.components.CheckboxListDirective;
 import com.jgeppert.struts2.jquery.mobile.views.velocity.components.DivDirective;
 import com.jgeppert.struts2.jquery.mobile.views.velocity.components.HeadDirective;
+import com.jgeppert.struts2.jquery.mobile.views.velocity.components.ListDirective;
+import com.jgeppert.struts2.jquery.mobile.views.velocity.components.ListItemDirective;
 import com.jgeppert.struts2.jquery.mobile.views.velocity.components.PasswordDirective;
 import com.jgeppert.struts2.jquery.mobile.views.velocity.components.SearchfieldDirective;
 import com.jgeppert.struts2.jquery.mobile.views.velocity.components.TextareaDirective;
@@ -56,7 +58,8 @@ public class JqueryMobileTagLibrary implements TagLibrary {
 	public List<Class> getVelocityDirectiveClasses() {
 		Class[] directives = new Class[] { HeadDirective.class,
 				CheckboxListDirective.class, CheckboxDirective.class,
-				Radio.class, DivDirective.class, AnchorDirective.class,
+				Radio.class, DivDirective.class, ListDirective.class,
+				ListItemDirective.class, AnchorDirective.class,
 				TextareaDirective.class, TextfieldDirective.class,
 				SearchfieldDirective.class, PasswordDirective.class };
 		return Arrays.asList(directives);
