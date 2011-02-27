@@ -21,6 +21,22 @@
 			            required="true"
 			        />
 				</form>	
+	    		<sjm:div role="collapsible" data-collapsed="true">
+	    			<h3>Example Code</h3>
+					<pre>
+&lt;sjm:checkbox
+      id=&quot;checkbox&quot;
+      name=&quot;checkbox&quot;
+      label=&quot;I Agree&quot;
+/&gt;
+&lt;sjm:checkbox
+      id=&quot;checkbox&quot;
+      name=&quot;checkbox&quot;
+      label=&quot;I love it&quot;
+      required=&quot;true&quot;
+/&gt;
+					</pre>
+	    		</sjm:div>
 			</sjm:div>
 
 			<jsp:include page="inc.footer.jsp" />

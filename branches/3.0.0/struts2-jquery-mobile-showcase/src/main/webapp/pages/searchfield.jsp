@@ -15,6 +15,16 @@
 			            label="Search"
 			        />
 				</form>	
+	    		<sjm:div role="collapsible" data-collapsed="true">
+	    			<h3>Example Code</h3>
+					<pre>
+&lt;sjm:searchfield
+  id=&quot;searchfield&quot;
+  name=&quot;searchfield&quot;
+  label=&quot;Search&quot;
+/&gt;
+					</pre>
+	    		</sjm:div>
 			</sjm:div>
 
 			<jsp:include page="inc.footer.jsp" />

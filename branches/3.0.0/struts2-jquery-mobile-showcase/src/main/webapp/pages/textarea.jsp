@@ -15,6 +15,16 @@
 			            label="Feedback"
 			        />
 				</form>	
+	    		<sjm:div role="collapsible" data-collapsed="true">
+	    			<h3>Example Code</h3>
+					<pre>
+&lt;sjm:textarea
+  id=&quot;textarea&quot;
+  name=&quot;textarea&quot;
+  label=&quot;Feedback&quot;
+/&gt;
+					</pre>
+	    		</sjm:div>
 			</sjm:div>
 
 			<jsp:include page="inc.footer.jsp" />

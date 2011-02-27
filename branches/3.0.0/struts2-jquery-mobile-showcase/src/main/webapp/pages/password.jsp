@@ -15,6 +15,16 @@
 			            label="Enter Your Password"
 			        />
 				</form>	
+	    		<sjm:div role="collapsible" data-collapsed="true">
+	    			<h3>Example Code</h3>
+					<pre>
+&lt;sjm:password
+  id=&quot;password&quot;
+  name=&quot;password&quot;
+  label=&quot;Enter Your Password&quot;
+/&gt;
+					</pre>
+	    		</sjm:div>
 			</sjm:div>
 
 			<jsp:include page="inc.footer.jsp" />

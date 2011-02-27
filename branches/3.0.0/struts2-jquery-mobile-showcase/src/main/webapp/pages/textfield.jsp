@@ -15,6 +15,16 @@
 			            label="Enter Your Name"
 			        />
 				</form>	
+	    		<sjm:div role="collapsible" data-collapsed="true">
+	    			<h3>Example Code</h3>
+					<pre>
+&lt;sjm:textfield
+  id=&quot;textfield&quot;
+  name=&quot;textfield&quot;
+  label=&quot;Enter Your Name&quot;
+/&gt;
+					</pre>
+	    		</sjm:div>
 			</sjm:div>
 
 			<jsp:include page="inc.footer.jsp" />
