@@ -26,6 +26,11 @@
 					<sjm:listItem id="checkboxlist_link" href="%{url_checkboxlist}">Checkbox List</sjm:listItem>
 					<s:url id="url_radio" action="radio"/>
 					<sjm:listItem id="radio_link" href="%{url_radio}">Radio Buttons</sjm:listItem>
+					<sjm:listItem divider="true">List View</sjm:listItem>
+					<s:url id="url_listview" action="list-view"/>
+					<sjm:listItem id="listview_link" href="%{url_listview}">List View</sjm:listItem>
+					<s:url id="url_listviewcounter" action="list-view-counter"/>
+					<sjm:listItem id="listviewcounter_link" href="%{url_listviewcounter}">List View with Counter</sjm:listItem>
 				</sjm:list>
 			</sjm:div>
 			

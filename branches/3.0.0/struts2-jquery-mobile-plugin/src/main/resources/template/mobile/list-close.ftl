@@ -18,4 +18,51 @@
  * under the License.
  */
 -->
+<@s.iterator value="parameters.list" status="rowstatus">
+        <#if parameters.listKey??>
+            <#if stack.findValue(parameters.listKey)??>
+              <#assign itemKey = stack.findValue(parameters.listKey)/>
+              <#assign itemKeyStr = itemKey.toString()/>
+            <#else>
+              <#assign itemKey = ''/>
+              <#assign itemKeyStr = ''/>
+            </#if>
+        <#else>
+            <#assign itemKey = stack.findValue('top')/>
+            <#assign itemKeyStr = itemKey.toString()/>
+        </#if>
+        <#if parameters.listValue??>
+            <#if stack.findString(parameters.listValue)??>
+              <#assign itemValue = stack.findString(parameters.listValue)/>
+            <#else>
+              <#assign itemValue = ''/>
+            </#if>
+        <#else>
+            <#assign itemValue = stack.findString('top')/>
+        </#if>
+        <#if parameters.listCounter??>
+            <#if stack.findString(parameters.listCounter)??>
+              <#assign itemCounter = stack.findString(parameters.listCounter)/>
+            <#else>
+              <#assign itemCounter = ''/>
+            </#if>
+        <#else>
+            <#assign itemCounter = ''/>
+        </#if>
+    <li id="${parameters.id?html}_li_<@s.property value="%{#rowstatus.count}" />">
+        <a<#rt/>
+    <#if parameters.listHref?if_exists != "">
+     href="${parameters.listHref}?${parameters.listParam?default("id")}=${itemKey?html}"<#rt/>
+    <#else>
+     href="#"<#rt/>
+    </#if>
+    >
+                ${itemValue?html}
+    <#if itemCounter?if_exists != "">
+          <span class="ui-li-count">${itemCounter?html}</span>
+    </#if>
+        </a>
+	</li>
+	<#lt/>
+</@s.iterator>
 </ul>

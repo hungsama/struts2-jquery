@@ -24,6 +24,7 @@ import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jgeppert.struts2.jquery.components.AbstractFormListElement;
 import org.apache.struts2.views.annotations.StrutsTag;
 import org.apache.struts2.views.annotations.StrutsTagAttribute;
 import org.apache.struts2.views.annotations.StrutsTagSkipInheritance;
@@ -80,7 +81,7 @@ import com.opensymphony.xwork2.util.ValueStack;
  * 
  */
 @StrutsTag(name = "list", tldTagClass = "com.jgeppert.struts2.jquery.mobile.views.jsp.ui.ListTag", description = "Render List element", allowDynamicAttributes = true)
-public class List extends org.apache.struts2.components.Div {
+public class List extends AbstractFormListElement {
 
 	public static final String TEMPLATE = "list";
 	public static final String TEMPLATE_CLOSE = "list-close";
@@ -89,6 +90,10 @@ public class List extends org.apache.struts2.components.Div {
 
 	protected String inset;
 	protected String filter;
+    protected String listParam;
+    protected String listHref;
+    protected String listCounter;
+
 
 	public List(ValueStack stack, HttpServletRequest request,
 			HttpServletResponse response) {
@@ -112,6 +117,13 @@ public class List extends org.apache.struts2.components.Div {
 			addParameter("inset", findValue(this.inset, Boolean.class));
 		if (this.filter != null)
 			addParameter("filter", findValue(this.filter, Boolean.class));
+        if (listParam != null)
+            addParameter("listParam", findString(listParam));
+        if (listHref != null)
+            addParameter("listHref", findString(listHref));
+        if (listCounter != null)
+            addParameter("listCounter", findString(listCounter));
+
 
 		if ((this.id == null || this.id.length() == 0)) {
 			// resolves Math.abs(Integer.MIN_VALUE) issue reported by FindBugs
@@ -144,4 +156,21 @@ public class List extends org.apache.struts2.components.Div {
 	public void setFilter(String filter) {
 		this.filter = filter;
 	}
+
+    @StrutsTagAttribute(description = "parameter for listHref if listHref is set", defaultValue = "id")
+    public void setListParam(String listParam) {
+        this.listParam = listParam;
+    }
+
+    @StrutsTagAttribute(description = "href value for each list value.")
+    public void setListHref(String listHref) {
+        this.listHref = listHref;
+    }
+
+    @StrutsTagAttribute(description = "counter value of list item")
+    public void setListCounter(String listCounter) {
+        this.listCounter = listCounter;
+    }
+
+
 }
