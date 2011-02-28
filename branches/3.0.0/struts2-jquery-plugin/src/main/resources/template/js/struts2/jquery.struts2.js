@@ -1016,13 +1016,13 @@
 
 		if (o.hide) {
 			if (!self.loadAtOnce) {
-				self.require( [ "js/base/jquery.effects.core" + self.minSuffix + ".js", "js/base/jquery.effects." + o.hide + "" + self.minSuffix + ".js" ]);
+				self.require( [ "js/base/jquery.effects.core" + self.minSuffix + ".js", "js/base/jquery.effects." + o.hide + self.minSuffix + ".js" ]);
 			}
 			params.hide = o.hide;
 		}
 		if (o.show) {
 			if (!self.loadAtOnce) {
-				self.require( [ "js/base/jquery.effects.core" + self.minSuffix + ".js", "js/base/jquery.effects." + o.show + "" + self.minSuffix + ".js" ]);
+				self.require( [ "js/base/jquery.effects.core" + self.minSuffix + ".js", "js/base/jquery.effects." + o.show + self.minSuffix + ".js" ]);
 			}
 			params.show = o.show;
 		}
@@ -1131,9 +1131,32 @@
 		if (o.onbef) {
 			para.show = self.pubTops($elem, o.onalw, o.onbef);
 		}
-		if (o.oncha) {
-			para.select = self.pubTops($elem, o.onalw, o.oncha);
-		}
+		para.select = function(event, ui) {
+			var data = {};
+			data.event = event;
+			data.ui = ui;
+
+			var form = $elem.data("tab"+ui.index)
+			if(form){
+				var links = $(self.escId(o.id)+" > ul").find("li a"); 
+				var u = $.data(links[ui.index], 'href.tabs')				
+				var q = $(self.escId(form)).formSerialize();
+				if (u.indexOf("?") === -1) {
+					u = u + '?';
+				}
+				else {
+					u = u + '&';
+				}
+				u = u + q;
+
+				$elem.tabs('url', ui.index, u);
+			}
+			
+			if(o.oncha) {
+				self.publishTopic($elem, o.oncha, data);
+				self.publishTopic($elem, o.onalw, data);
+			}
+		};
 		if (o.onenabletopics) {
 			para.enable = self.pubTops($elem, o.onalw, o.onenabletopics);
 		}
@@ -1166,7 +1189,9 @@
 				if (tab.cssclass) {
 					tabStr += "class='" + tab.cssclass + "' ";
 				}
+
 				tabStr += "><a href='" + tab.href + "' ";
+
 				if (tab.label) {
 					tabStr += "title='" + tab.label + "' ";
 				}
@@ -1180,6 +1205,10 @@
 					closable = true;
 				}
 				tabStr += "</li>";
+				if (tab.formIds) {
+					$elem.data("tab"+l, tab.formIds)
+				}
+
 			}
 			$(self.escId(o.id) + ' > ul').html(tabStr);
 		}
@@ -2098,7 +2127,7 @@
 			}
 
 			if (!_s2j.loadAtOnce) {
-				_s2j.require( [ "js/base/jquery.effects.core" + _s2j.minSuffix + ".js", "js/base/jquery.effects." + o.effect + "" + _s2j.minSuffix + ".js" ]);
+				_s2j.require( [ "js/base/jquery.effects.core" + _s2j.minSuffix + ".js", "js/base/jquery.effects." + o.effect + _s2j.minSuffix + ".js" ]);
 			}
 			_s2j.log('effect ' + o.effect + ' for ' + o.targets);
 			if(!o.effectmode || o.effectmode === 'none' ) {
