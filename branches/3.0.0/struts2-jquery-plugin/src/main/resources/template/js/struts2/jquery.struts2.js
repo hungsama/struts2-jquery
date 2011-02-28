@@ -829,7 +829,7 @@
 
 		if (o.onclick) {
 			$.each(o.onclick.split(','), function(i, topic) {
-				$elem.publishOnEvent('click', topic);
+				$elem.publishOnEvent('click', topic, o);
 			});
 		}
 
@@ -1780,7 +1780,27 @@
 	 * handler to open a dialog
 	 */
 	$.subscribeHandler($.struts2_jquery.handler.open_dialog, function(event, data) {
-		$(this).dialog('open');
+		var _s2j = $.struts2_jquery;
+		var o = {};
+		if (event.data) {
+			$.extend(o, event.data);
+		}
+		if (data) {
+			if (data.href) {
+				o.href = data.href;
+			}
+			if (data.hrefparameter) {
+				o.hrefparameter = data.hrefparameter;
+			}
+		}
+        if (o.href && o.href !== '#') {
+            o.targets = o.id;
+            var divTopic = '_s2j_dialog_load_' + o.id;
+            _s2j.subscribeTopics($(this), divTopic, _s2j.handler.load, o);
+            $(this).publish(divTopic, o);
+        }
+
+        $(this).dialog('open');
 	});
 
 	/**
