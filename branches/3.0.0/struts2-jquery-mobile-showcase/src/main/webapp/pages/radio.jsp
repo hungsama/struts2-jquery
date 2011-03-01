@@ -1,6 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sjm" uri="/struts-jquery-mobile-tags"%>
-		<sjm:div role="page" id="radio">
+		<sjm:div role="page" id="radiopage">
 			<sjm:div role="header">
 				<sjm:a button="true" buttonIcon="arrow-l" data-rel="back">Back</sjm:a>
 				<h1>Examples for Radio Tag</h1>

@@ -41,6 +41,7 @@ public class JqueryMobileModels {
 	protected TextareaModel textarea;
 	protected TextfieldModel textfield;
 	protected SearchfieldModel searchfield;
+	protected SelectModel select;
 
 	private ValueStack stack;
 	private HttpServletRequest req;
@@ -139,6 +140,14 @@ public class JqueryMobileModels {
 		}
 
 		return listItem;
+	}
+
+	public SelectModel getSelect() {
+		if (select == null) {
+			select = new SelectModel(stack, req, res);
+		}
+
+		return select;
 	}
 
 }

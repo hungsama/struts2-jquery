@@ -38,6 +38,7 @@ import com.jgeppert.struts2.jquery.mobile.views.velocity.components.ListDirectiv
 import com.jgeppert.struts2.jquery.mobile.views.velocity.components.ListItemDirective;
 import com.jgeppert.struts2.jquery.mobile.views.velocity.components.PasswordDirective;
 import com.jgeppert.struts2.jquery.mobile.views.velocity.components.SearchfieldDirective;
+import com.jgeppert.struts2.jquery.mobile.views.velocity.components.SelectDirective;
 import com.jgeppert.struts2.jquery.mobile.views.velocity.components.TextareaDirective;
 import com.jgeppert.struts2.jquery.mobile.views.velocity.components.TextfieldDirective;
 import com.opensymphony.xwork2.util.ValueStack;
@@ -61,7 +62,8 @@ public class JqueryMobileTagLibrary implements TagLibrary {
 				Radio.class, DivDirective.class, ListDirective.class,
 				ListItemDirective.class, AnchorDirective.class,
 				TextareaDirective.class, TextfieldDirective.class,
-				SearchfieldDirective.class, PasswordDirective.class };
+				SearchfieldDirective.class, PasswordDirective.class,
+				SelectDirective.class };
 		return Arrays.asList(directives);
 	}
 

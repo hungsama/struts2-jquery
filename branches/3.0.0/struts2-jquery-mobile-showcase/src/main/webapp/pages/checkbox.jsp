@@ -1,6 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sjm" uri="/struts-jquery-mobile-tags"%>
-		<sjm:div role="page" id="checkbox">
+		<sjm:div role="page" id="checkboxpage">
 			<sjm:div role="header">
 				<sjm:a button="true" buttonIcon="arrow-l" data-rel="back">Back</sjm:a>
 				<h1>Examples for Checkbox Tag</h1>
@@ -10,12 +10,12 @@
 			<sjm:div role="content">
 				<form>
 					<sjm:checkbox
-			    		id="checkbox"
+			    		id="checkbox1"
 			    		name="checkbox"
 			            label="I Agree"
 			        />
 					<sjm:checkbox
-			    		id="checkbox"
+			    		id="checkbox2"
 			    		name="checkbox"
 			            label="I love it"
 			            required="true"
