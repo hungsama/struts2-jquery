@@ -5,7 +5,7 @@
  *
  * Requires use of jquery.struts2.js
  *
- * Copyright (c) 2010 Johannes Geppert http://www.jgeppert.com
+ * Copyright (c) 2011 Johannes Geppert http://www.jgeppert.com
  *
  * Dual licensed under the MIT and GPL licenses:
  *   http://www.opensource.org/licenses/mit-license.php
@@ -25,7 +25,7 @@
 
 		debugPrefix : '[struts2_jquery_grid] ',
 		lastselectedrow : '',
-		gridTopics : function($elem, o, params) {
+		parseGridParams : function($elem, o, params) {
 			var self = this;
 			if (o.onselectrowtopics || (o.editurl && o.editinline === true)) {
 				params.onSelectRow = function(id, status) {
@@ -232,51 +232,6 @@
 				self.require("js/plugins/jquery.searchFilter.js");
 			}
 			
-			return params;
-		},
-		grid : function($elem, o) {
-			var self = this;
-			self.log('grid for : ' + o.id);
-			self.require("i18n/grid.locale-" + self.gridLocal + ".js",
-					function() {
-						$.jgrid.no_legacy_api = true;
-						$.jgrid.useJSON = true;
-					});
-			self.require("js/plugins/jquery.jqGrid.js");
-			self.requireCss("themes/ui.jqgrid.css");
-			if(o.sortable || o.sortableRows) {
-				if (!self.loadAtOnce) {
-					self.require( [ "js/base/jquery.ui.widget" + self.minSuffix + ".js", "js/base/jquery.ui.mouse" + self.minSuffix + ".js", "js/base/jquery.ui.sortable" + self.minSuffix + ".js" ]);
-				}
-			}
-			var params = {};
-			$.extend(params, o);
-
-			if (o.url && o.formids) {
-				var data = '';
-				if (o.formids) {
-					if (!self.loadAtOnce) {
-						self.require("js/plugins/jquery.form" + self.minSuffix + ".js");
-					}
-					$.each(o.formids.split(','), function(i, fid) {
-						var query = $(self.escId(fid)).formSerialize();
-						if (data !== '') {
-							data = data + '&' + query;
-						} else {
-							data = query;
-						}
-					});
-				}
-				if (o.url.lastIndexOf('?') > 0) {
-					params.url = o.url + '&amp;' + data;
-				} else {
-					params.url = o.url + '?' + data;
-				}
-			}
-
-			params = self.gridTopics($elem, o, params);
-			
-
 			if (o.subgrid) {
 				self.require("js/plugins/grid.subgrid.js");
 				params.subGrid = true;
@@ -303,7 +258,7 @@
 						so.url = so.url + "?id=" + row_id;
 					}
 					subgrid = $(self.escId(subgridtableid));
-					so = self.gridTopics(subgrid, so, so);
+					so = self.parseGridParams(subgrid, so, so);
 
 					subgrid.jqGrid(so);
 					if (so.navigator) {
@@ -332,6 +287,53 @@
 			} else {
 				params.gridview = true;
 			}
+			
+			if (o.url && o.formids) {
+				var data = '';
+				if (o.formids) {
+					if (!self.loadAtOnce) {
+						self.require("js/plugins/jquery.form" + self.minSuffix + ".js");
+					}
+					$.each(o.formids.split(','), function(i, fid) {
+						var query = $(self.escId(fid)).formSerialize();
+						if (data !== '') {
+							data = data + '&' + query;
+						} else {
+							data = query;
+						}
+					});
+				}
+				if (o.url.lastIndexOf('?') > 0) {
+					params.url = o.url + '&amp;' + data;
+				} else {
+					params.url = o.url + '?' + data;
+				}
+			}
+			
+			return params;
+		},
+		grid : function($elem, o) {
+			var self = this;
+			self.log('grid for : ' + o.id);
+			self.require("i18n/grid.locale-" + self.gridLocal + ".js",
+					function() {
+						$.jgrid.no_legacy_api = true;
+						$.jgrid.useJSON = true;
+					});
+			self.require("js/plugins/jquery.jqGrid.js");
+			self.requireCss("themes/ui.jqgrid.css");
+			if(o.sortable || o.sortableRows) {
+				if (!self.loadAtOnce) {
+					self.require( [ "js/base/jquery.ui.widget" + self.minSuffix + ".js", "js/base/jquery.ui.mouse" + self.minSuffix + ".js", "js/base/jquery.ui.sortable" + self.minSuffix + ".js" ]);
+				}
+			}
+			var params = {};
+			$.extend(params, o);
+
+
+			params = self.parseGridParams($elem, o, params);
+			
+
 
 			$elem.jqGrid(params);
 
