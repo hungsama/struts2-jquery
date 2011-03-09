@@ -8,7 +8,7 @@
  * Tested with jQuery 1.4.4 and jQuery UI 1.8
  *
  * Copyright (c) 2008 Eric Chijioke (obinna a-t g mail dot c o m)
- * Copyright (c) 2010 Johannes Geppert http://www.jgeppert.com
+ * Copyright (c) 2011 Johannes Geppert http://www.jgeppert.com
  *
  * Dual licensed under the MIT and GPL licenses:
  *   http://www.opensource.org/licenses/mit-license.php
@@ -931,6 +931,7 @@
 				$elem.publishOnEvent('click', topic);
 			});
 		}
+		/*
 		$elem.click( function() {
 			var form = $(self.escId(o.formids));
 			var submitForm = true;
@@ -943,6 +944,7 @@
 			}
 			return false;
 		});
+		*/
 		$elem.removeAttr('name');
 	},
 
@@ -966,6 +968,10 @@
 					self.history($elem, topic, target);
 				}
 			});
+			$elem.click( function() {
+				$elem.publish(topic);
+				return false;
+			});
 		}
 		else {
 			// Submit Forms without AJAX
@@ -977,15 +983,24 @@
 				}
 
 				if(submitForm) {
-					$(self.escId(o.formids)).submit();
+					form.submit();
 				}
 				return false;
 			});
 			if(o.listentopics) {
 				var params = {};
 				params.formids = o.formids;
+				params.validate = o.validate;
 				$elem.subscribe(o.listentopics, function(event) {
-					$(self.escId(event.data.formids)).submit();
+					var form = $(self.escId(event.data.formids));
+					var submitForm = true;
+					if (event.data.validate) {
+						submitForm = self.validateForm(form, o);
+					}
+
+					if(submitForm) {
+						form.submit();
+					}
 				}, params);
 			}
 		}
