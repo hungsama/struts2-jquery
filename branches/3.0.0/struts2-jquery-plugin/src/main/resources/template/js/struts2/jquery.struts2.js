@@ -197,11 +197,10 @@
 				StrutsUtils.clearValidationErrors(form[0]);
 
 				// get errors from response
-				var text = request.responseText;
-				var errorsObject = StrutsUtils.getValidationErrors(text);
+				var errorsObject = StrutsUtils.getValidationErrors(request.responseText);
 
 				// show errors, if any
-				if (errorsObject.fieldErrors) {
+				if (errorsObject.fieldErrors || errorsObject.errors) {
 					StrutsUtils.showValidationErrors(form[0], errorsObject);
 					submit = false;
 				}
