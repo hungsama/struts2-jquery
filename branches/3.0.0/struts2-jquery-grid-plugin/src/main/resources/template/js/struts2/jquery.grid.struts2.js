@@ -25,6 +25,51 @@
 
 		debugPrefix : '[struts2_jquery_grid] ',
 		lastselectedrow : '',
+		navigatorButtons : function($elem, buttons, pager) {
+			var self = this;
+			$.each(buttons, function(name, options) {
+				if(options.title) {
+					if(options.title === "seperator"){
+						$elem.jqGrid('navSeparatorAdd', pager);
+					}
+					else if (options.topic || options.onclick){
+						var bopts = {};
+						if(options.title) {
+							bopts.title = options.title;
+						}
+						if(options.position) {
+							bopts.position = options.position;
+						}
+						if(options.caption) {
+							bopts.caption = options.caption;
+						}
+						else {
+							bopts.caption = '';
+						}
+						if(options.icon) {
+							bopts.buttonicon = options.icon;
+						}
+						else{
+							bopts.buttonicon = "ui-icon-gear";
+						}
+						
+						if(options.topic) {
+							bopts.onClickButton = function() { 
+								var params = {};
+								params.grid = $elem;
+	
+								self.publishTopic($elem, options.topic, params);
+							};
+						}
+						else if (options.onclick) {
+							bopts.onClickButton = options.onclick;
+						}
+						
+						$elem.jqGrid('navButtonAdd', pager, bopts); 
+					}
+				}
+			});
+		},
 		parseGridParams : function($elem, o, params) {
 			var self = this;
 			if (o.onselectrowtopics || (o.editurl && o.editinline === true)) {
@@ -172,15 +217,116 @@
 				};
 			}
 	
-			if (o.ongridcompletetopics) {
-				params.gridComplete = function() {
+			params.gridComplete = function() {
+				if (o.resizable) {
+					if (!self.loadAtOnce) {
+						self.require( [ "js/base/jquery.ui.widget" + self.minSuffix + ".js", "js/base/jquery.ui.mouse" + self.minSuffix + ".js", "js/base/jquery.ui.resizable" + self.minSuffix + ".js" ]);
+					}
+					var ros = o.resizableoptions;
+					var ro = window[ros];
+					if (!ro) {
+						ro = eval("( " + ros + " )");
+					} else {
+						ro = {};
+					}
+					ro.start = self.pubTops($elem, o.onalw,	o.resizableonstarttopics);
+					ro.stop = self.pubTops($elem, o.onalw, o.resizableonstoptopics);
+					ro.resize = self.pubTops($elem, o.onalw, o.resizableonresizetopics);
+					$elem.jqGrid('gridResize', ro);
+				}
+
+				if (o.draggable && o.droppable) {
+					self.log('drag and drop for grid : ' + o.id);
+					if (!self.loadAtOnce) {
+						self.require( [ "js/base/jquery.ui.widget" + self.minSuffix + ".js", "js/base/jquery.ui.mouse" + self.minSuffix + ".js", "js/base/jquery.ui.draggable" + self.minSuffix + ".js", "js/base/jquery.ui.droppable" + self.minSuffix + ".js" ]);
+					}
+					var daos = o.draggableoptions;
+					var dao = window[daos];
+					if (!dao) {
+						dao = eval("( " + daos + " )");
+					} else {
+						dao = {};
+					}
+					dao.drap = self.pubTops($elem, o.onalw, o.draggableondragtopics);
+
+					var doos = o.droppableoptions;
+					var doo = window[doos];
+					if (!doo) {
+						doo = eval("( " + doos + " )");
+					} else {
+						doo = {};
+					}
+					doo.activate = self.pubTops($elem, o.onalw, o.droppableonactivatetopics);
+					doo.deactivate = self.pubTops($elem, o.onalw, o.droppableondeactivatetopics);
+					doo.start = self.pubTops($elem, o.onalw, o.droppableonstarttopics);
+					doo.stop = self.pubTops($elem, o.onalw, o.droppableonstoptopics);
+
+					var ddo = {};
+					ddo.drag_opts = dao;
+					ddo.drop_opts = doo;
+					ddo.connectWith = o.connectWith;
+					ddo.onstart = self.pubTops($elem, o.onalw, o.draggableonstarttopics);
+					ddo.onstop = self.pubTops($elem, o.onalw, o.draggableonstoptopics);
+					ddo.ondrop = self.pubTops($elem, o.onalw, o.droppableondroptopics);
+					$elem.jqGrid('gridDnD', ddo);
+				}
+
+				
+				if (o.sortableRows) {
+					self.log('sortable rows for : ' + o.id);
+					
+					var soos = o.sortableoptions;
+					var soo = window[soos];
+					if (!soo) {
+						soo = eval("( " + soos + " )");
+					} else {
+						soo = {};
+					}
+					soo.beforeStop = self.pubTops($elem, o.onalw, o.sortableonbeforestoptopics);
+					soo.stop = self.pubTops($elem, o.onalw, o.sortableonstoptopics);
+					soo.start = self.pubTops($elem, o.onalw, o.sortableonstarttopics);
+					soo.sort = self.pubTops($elem, o.onalw, o.sortableonsorttopics);
+					soo.activate = self.pubTops($elem, o.onalw, o.sortableonactivatetopics);
+					soo.deactivate = self.pubTops($elem, o.onalw, o.sortableondeactivatetopics);
+					soo.over = self.pubTops($elem, o.onalw, o.sortableonovertopics);
+					soo.out = self.pubTops($elem, o.onalw, o.sortableonouttopics);
+					soo.remove = self.pubTops($elem, o.onalw, o.sortableonremovetopics);
+					soo.receive = self.pubTops($elem, o.onalw, o.sortableonreceivetopics);
+					soo.change = self.pubTops($elem, o.onalw, o.sortableonchangetopics);
+					soo.update = self.pubTops($elem, o.onalw, o.sortableonupdatetopics);
+					$elem.jqGrid('sortableRows', soo);
+				}
+
+				if (o.navigator) {
+					var navparams = {};
+					navparams.add = o.navigatoradd;
+					navparams.del = o.navigatordel;
+					navparams.edit = o.navigatoredit;
+					navparams.refresh = o.navigatorrefresh;
+					navparams.search = o.navigatorsearch;
+					navparams.view = o.navigatorview;
+					$elem.jqGrid('navGrid', self.escId(o.pager), navparams,
+							o.navigatoreditoptions, o.navigatoraddoptions,
+							o.navigatordeleteoptions, o.navigatorsearchoptions,
+							o.navigatorviewoptions);
+					
+					if(o.navigatorextrabuttons) {
+						self.navigatorButtons($elem, o.navigatorextrabuttons, self.escId(o.pager));
+					}
+				}
+				if (o.filter) {
+					var fpara = {};
+					if (o.filteroptions) {
+						fpara = o.filteroptions;
+					}
+					$elem.jqGrid('filterToolbar', fpara);
+				}
 	
-					var orginal = {};
-	
-					self.publishTopic($elem, o.onalwaystopics, orginal);
-					self.publishTopic($elem, o.ongridcompletetopics, orginal);
-				};
-			}
+				if (o.ongridcompletetopics) {
+					self.publishTopic($elem, o.onalwaystopics, {});
+					self.publishTopic($elem, o.ongridcompletetopics, {});
+				}
+			};
 	
 			if (o.onfocustopics) {
 				params.beforeSelectRow = function(rowid, e) {
@@ -261,28 +407,6 @@
 					so = self.parseGridParams(subgrid, so, so);
 
 					subgrid.jqGrid(so);
-					if (so.navigator) {
-						var navparams = {};
-						navparams.add = so.navigatoradd;
-						navparams.del = so.navigatordel;
-						navparams.edit = so.navigatoredit;
-						navparams.refresh = so.navigatorrefresh;
-						navparams.search = so.navigatorsearch;
-						navparams.view = so.navigatorview;
-						subgrid.jqGrid('navGrid', self.escId(subgrid_id + "_pager"), navparams,
-								so.navigatoreditoptions,
-								so.navigatoraddoptions,
-								so.navigatordeleteoptions,
-								so.navigatorsearchoptions,
-								so.navigatorviewoptions);
-					}
-					if (so.filter) {
-						var fpara = {};
-						if (so.filteroptions) {
-							fpara = so.filteroptions;
-						}
-						subgrid.jqGrid('filterToolbar', fpara);
-					}
 				};
 			} else {
 				params.gridview = true;
@@ -330,157 +454,9 @@
 			var params = {};
 			$.extend(params, o);
 
-
 			params = self.parseGridParams($elem, o, params);
-			
-
 
 			$elem.jqGrid(params);
-
-			if (o.resizable) {
-				if (!self.loadAtOnce) {
-					self.require( [ "js/base/jquery.ui.widget" + self.minSuffix + ".js", "js/base/jquery.ui.mouse" + self.minSuffix + ".js", "js/base/jquery.ui.resizable" + self.minSuffix + ".js" ]);
-				}
-				var ros = o.resizableoptions;
-				var ro = window[ros];
-				if (!ro) {
-					ro = eval("( " + ros + " )");
-				} else {
-					ro = {};
-				}
-				ro.start = self.pubTops($elem, o.onalw,	o.resizableonstarttopics);
-				ro.stop = self.pubTops($elem, o.onalw, o.resizableonstoptopics);
-				ro.resize = self.pubTops($elem, o.onalw, o.resizableonresizetopics);
-				$elem.jqGrid('gridResize', ro);
-			}
-
-			if (o.draggable && o.droppable) {
-				self.log('drag and drop for grid : ' + o.id);
-				if (!self.loadAtOnce) {
-					self.require( [ "js/base/jquery.ui.widget" + self.minSuffix + ".js", "js/base/jquery.ui.mouse" + self.minSuffix + ".js", "js/base/jquery.ui.draggable" + self.minSuffix + ".js", "js/base/jquery.ui.droppable" + self.minSuffix + ".js" ]);
-				}
-				var daos = o.draggableoptions;
-				var dao = window[daos];
-				if (!dao) {
-					dao = eval("( " + daos + " )");
-				} else {
-					dao = {};
-				}
-				dao.drap = self.pubTops($elem, o.onalw, o.draggableondragtopics);
-
-				var doos = o.droppableoptions;
-				var doo = window[doos];
-				if (!doo) {
-					doo = eval("( " + doos + " )");
-				} else {
-					doo = {};
-				}
-				doo.activate = self.pubTops($elem, o.onalw, o.droppableonactivatetopics);
-				doo.deactivate = self.pubTops($elem, o.onalw, o.droppableondeactivatetopics);
-				doo.start = self.pubTops($elem, o.onalw, o.droppableonstarttopics);
-				doo.stop = self.pubTops($elem, o.onalw, o.droppableonstoptopics);
-
-				var ddo = {};
-				ddo.drag_opts = dao;
-				ddo.drop_opts = doo;
-				ddo.connectWith = o.connectWith;
-				ddo.onstart = self.pubTops($elem, o.onalw, o.draggableonstarttopics);
-				ddo.onstop = self.pubTops($elem, o.onalw, o.draggableonstoptopics);
-				ddo.ondrop = self.pubTops($elem, o.onalw, o.droppableondroptopics);
-				$elem.jqGrid('gridDnD', ddo);
-			}
-
-			
-			if (o.sortableRows) {
-				self.log('sortable rows for : ' + o.id);
-				
-				var soos = o.sortableoptions;
-				var soo = window[soos];
-				if (!soo) {
-					soo = eval("( " + soos + " )");
-				} else {
-					soo = {};
-				}
-				soo.beforeStop = self.pubTops($elem, o.onalw, o.sortableonbeforestoptopics);
-				soo.stop = self.pubTops($elem, o.onalw, o.sortableonstoptopics);
-				soo.start = self.pubTops($elem, o.onalw, o.sortableonstarttopics);
-				soo.sort = self.pubTops($elem, o.onalw, o.sortableonsorttopics);
-				soo.activate = self.pubTops($elem, o.onalw, o.sortableonactivatetopics);
-				soo.deactivate = self.pubTops($elem, o.onalw, o.sortableondeactivatetopics);
-				soo.over = self.pubTops($elem, o.onalw, o.sortableonovertopics);
-				soo.out = self.pubTops($elem, o.onalw, o.sortableonouttopics);
-				soo.remove = self.pubTops($elem, o.onalw, o.sortableonremovetopics);
-				soo.receive = self.pubTops($elem, o.onalw, o.sortableonreceivetopics);
-				soo.change = self.pubTops($elem, o.onalw, o.sortableonchangetopics);
-				soo.update = self.pubTops($elem, o.onalw, o.sortableonupdatetopics);
-				$elem.jqGrid('sortableRows', soo);
-			}
-
-			if (o.navigator) {
-				var navparams = {};
-				navparams.add = o.navigatoradd;
-				navparams.del = o.navigatordel;
-				navparams.edit = o.navigatoredit;
-				navparams.refresh = o.navigatorrefresh;
-				navparams.search = o.navigatorsearch;
-				navparams.view = o.navigatorview;
-				$elem.jqGrid('navGrid', self.escId(o.pager), navparams,
-						o.navigatoreditoptions, o.navigatoraddoptions,
-						o.navigatordeleteoptions, o.navigatorsearchoptions,
-						o.navigatorviewoptions);
-				
-				if(o.navigatorextrabuttons) {
-					$.each(o.navigatorextrabuttons, function(name, options) {
-						if(options.title) {
-							if(options.title === "seperator"){
-								$elem.jqGrid('navSeparatorAdd', self.escId(o.pager));
-							}
-							else if (options.topic || options.onclick){
-								var bopts = {};
-								if(options.title) {
-									bopts.title = options.title;
-								}
-								if(options.position) {
-									bopts.position = options.position;
-								}
-								if(options.caption) {
-									bopts.caption = options.caption;
-								}
-								else {
-									bopts.caption = '';
-								}
-								if(options.icon) {
-									bopts.buttonicon = options.icon;
-								}
-								else{
-									bopts.buttonicon = "ui-icon-gear";
-								}
-								
-								if(options.topic) {
-									bopts.onClickButton = function() { 
-										var params = {};
-										params.grid = $elem;
-	
-										self.publishTopic($elem, options.topic, params);
-									};
-								}
-								else if (options.onclick) {
-									bopts.onClickButton = options.onclick;
-								}
-								
-								$elem.jqGrid('navButtonAdd', self.escId(o.pager), bopts); 
-							}
-						}
-					});
-				}
-			}
-			if (o.filter) {
-				var fpara = {};
-				if (o.filteroptions) {
-					fpara = o.filteroptions;
-				}
-				$elem.jqGrid('filterToolbar', fpara);
-			}
 		}
 	};
 
