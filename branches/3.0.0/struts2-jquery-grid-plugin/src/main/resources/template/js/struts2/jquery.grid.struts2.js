@@ -218,110 +218,113 @@
 			}
 	
 			params.gridComplete = function() {
-				if (o.resizable) {
-					if (!self.loadAtOnce) {
-						self.require( [ "js/base/jquery.ui.widget" + self.minSuffix + ".js", "js/base/jquery.ui.mouse" + self.minSuffix + ".js", "js/base/jquery.ui.resizable" + self.minSuffix + ".js" ]);
-					}
-					var ros = o.resizableoptions;
-					var ro = window[ros];
-					if (!ro) {
-						ro = eval("( " + ros + " )");
-					} else {
-						ro = {};
-					}
-					ro.start = self.pubTops($elem, o.onalw,	o.resizableonstarttopics);
-					ro.stop = self.pubTops($elem, o.onalw, o.resizableonstoptopics);
-					ro.resize = self.pubTops($elem, o.onalw, o.resizableonresizetopics);
-					$elem.jqGrid('gridResize', ro);
-				}
 
-				if (o.draggable && o.droppable) {
-					self.log('drag and drop for grid : ' + o.id);
-					if (!self.loadAtOnce) {
-						self.require( [ "js/base/jquery.ui.widget" + self.minSuffix + ".js", "js/base/jquery.ui.mouse" + self.minSuffix + ".js", "js/base/jquery.ui.draggable" + self.minSuffix + ".js", "js/base/jquery.ui.droppable" + self.minSuffix + ".js" ]);
-					}
-					var daos = o.draggableoptions;
-					var dao = window[daos];
-					if (!dao) {
-						dao = eval("( " + daos + " )");
-					} else {
-						dao = {};
-					}
-					dao.drap = self.pubTops($elem, o.onalw, o.draggableondragtopics);
-
-					var doos = o.droppableoptions;
-					var doo = window[doos];
-					if (!doo) {
-						doo = eval("( " + doos + " )");
-					} else {
-						doo = {};
-					}
-					doo.activate = self.pubTops($elem, o.onalw, o.droppableonactivatetopics);
-					doo.deactivate = self.pubTops($elem, o.onalw, o.droppableondeactivatetopics);
-					doo.start = self.pubTops($elem, o.onalw, o.droppableonstarttopics);
-					doo.stop = self.pubTops($elem, o.onalw, o.droppableonstoptopics);
-
-					var ddo = {};
-					ddo.drag_opts = dao;
-					ddo.drop_opts = doo;
-					ddo.connectWith = o.connectWith;
-					ddo.onstart = self.pubTops($elem, o.onalw, o.draggableonstarttopics);
-					ddo.onstop = self.pubTops($elem, o.onalw, o.draggableonstoptopics);
-					ddo.ondrop = self.pubTops($elem, o.onalw, o.droppableondroptopics);
-					$elem.jqGrid('gridDnD', ddo);
-				}
-
-				
-				if (o.sortableRows) {
-					self.log('sortable rows for : ' + o.id);
-					
-					var soos = o.sortableoptions;
-					var soo = window[soos];
-					if (!soo) {
-						soo = eval("( " + soos + " )");
-					} else {
-						soo = {};
-					}
-					soo.beforeStop = self.pubTops($elem, o.onalw, o.sortableonbeforestoptopics);
-					soo.stop = self.pubTops($elem, o.onalw, o.sortableonstoptopics);
-					soo.start = self.pubTops($elem, o.onalw, o.sortableonstarttopics);
-					soo.sort = self.pubTops($elem, o.onalw, o.sortableonsorttopics);
-					soo.activate = self.pubTops($elem, o.onalw, o.sortableonactivatetopics);
-					soo.deactivate = self.pubTops($elem, o.onalw, o.sortableondeactivatetopics);
-					soo.over = self.pubTops($elem, o.onalw, o.sortableonovertopics);
-					soo.out = self.pubTops($elem, o.onalw, o.sortableonouttopics);
-					soo.remove = self.pubTops($elem, o.onalw, o.sortableonremovetopics);
-					soo.receive = self.pubTops($elem, o.onalw, o.sortableonreceivetopics);
-					soo.change = self.pubTops($elem, o.onalw, o.sortableonchangetopics);
-					soo.update = self.pubTops($elem, o.onalw, o.sortableonupdatetopics);
-					$elem.jqGrid('sortableRows', soo);
-				}
-
-				if (o.navigator) {
-					var navparams = {};
-					navparams.add = o.navigatoradd;
-					navparams.del = o.navigatordel;
-					navparams.edit = o.navigatoredit;
-					navparams.refresh = o.navigatorrefresh;
-					navparams.search = o.navigatorsearch;
-					navparams.view = o.navigatorview;
-					$elem.jqGrid('navGrid', self.escId(o.pager), navparams,
-							o.navigatoreditoptions, o.navigatoraddoptions,
-							o.navigatordeleteoptions, o.navigatorsearchoptions,
-							o.navigatorviewoptions);
-					
-					if(o.navigatorextrabuttons) {
-						self.navigatorButtons($elem, o.navigatorextrabuttons, self.escId(o.pager));
-					}
-				}
-				if (o.filter) {
-					var fpara = {};
-					if (o.filteroptions) {
-						fpara = o.filteroptions;
-					}
-					$elem.jqGrid('filterToolbar', fpara);
-				}
+				if(!$elem.data('_s2jg_init')) {
+					$elem.data('_s2jg_init', true);
+					if (o.draggable && o.droppable) {
+						self.log('drag and drop for grid : ' + o.id);
+						if (!self.loadAtOnce) {
+							self.require( [ "js/base/jquery.ui.widget" + self.minSuffix + ".js", "js/base/jquery.ui.mouse" + self.minSuffix + ".js", "js/base/jquery.ui.draggable" + self.minSuffix + ".js", "js/base/jquery.ui.droppable" + self.minSuffix + ".js" ]);
+						}
+						var daos = o.draggableoptions;
+						var dao = window[daos];
+						if (!dao) {
+							dao = eval("( " + daos + " )");
+						} else {
+							dao = {};
+						}
+						dao.drap = self.pubTops($elem, o.onalw, o.draggableondragtopics);
 	
+						var doos = o.droppableoptions;
+						var doo = window[doos];
+						if (!doo) {
+							doo = eval("( " + doos + " )");
+						} else {
+							doo = {};
+						}
+						doo.activate = self.pubTops($elem, o.onalw, o.droppableonactivatetopics);
+						doo.deactivate = self.pubTops($elem, o.onalw, o.droppableondeactivatetopics);
+						doo.start = self.pubTops($elem, o.onalw, o.droppableonstarttopics);
+						doo.stop = self.pubTops($elem, o.onalw, o.droppableonstoptopics);
+	
+						var ddo = {};
+						ddo.drag_opts = dao;
+						ddo.drop_opts = doo;
+						ddo.connectWith = o.connectWith;
+						ddo.onstart = self.pubTops($elem, o.onalw, o.draggableonstarttopics);
+						ddo.onstop = self.pubTops($elem, o.onalw, o.draggableonstoptopics);
+						ddo.ondrop = self.pubTops($elem, o.onalw, o.droppableondroptopics);
+						$elem.jqGrid('gridDnD', ddo);
+					}
+	
+					
+					if (o.sortableRows) {
+						self.log('sortable rows for : ' + o.id);
+						
+						var soos = o.sortableoptions;
+						var soo = window[soos];
+						if (!soo) {
+							soo = eval("( " + soos + " )");
+						} else {
+							soo = {};
+						}
+						soo.beforeStop = self.pubTops($elem, o.onalw, o.sortableonbeforestoptopics);
+						soo.stop = self.pubTops($elem, o.onalw, o.sortableonstoptopics);
+						soo.start = self.pubTops($elem, o.onalw, o.sortableonstarttopics);
+						soo.sort = self.pubTops($elem, o.onalw, o.sortableonsorttopics);
+						soo.activate = self.pubTops($elem, o.onalw, o.sortableonactivatetopics);
+						soo.deactivate = self.pubTops($elem, o.onalw, o.sortableondeactivatetopics);
+						soo.over = self.pubTops($elem, o.onalw, o.sortableonovertopics);
+						soo.out = self.pubTops($elem, o.onalw, o.sortableonouttopics);
+						soo.remove = self.pubTops($elem, o.onalw, o.sortableonremovetopics);
+						soo.receive = self.pubTops($elem, o.onalw, o.sortableonreceivetopics);
+						soo.change = self.pubTops($elem, o.onalw, o.sortableonchangetopics);
+						soo.update = self.pubTops($elem, o.onalw, o.sortableonupdatetopics);
+						$elem.jqGrid('sortableRows', soo);
+					}
+	
+					if (o.navigator) {
+						var navparams = {};
+						navparams.add = o.navigatoradd;
+						navparams.del = o.navigatordel;
+						navparams.edit = o.navigatoredit;
+						navparams.refresh = o.navigatorrefresh;
+						navparams.search = o.navigatorsearch;
+						navparams.view = o.navigatorview;
+						$elem.jqGrid('navGrid', self.escId(o.pager), navparams,
+								o.navigatoreditoptions, o.navigatoraddoptions,
+								o.navigatordeleteoptions, o.navigatorsearchoptions,
+								o.navigatorviewoptions);
+						
+						if(o.navigatorextrabuttons) {
+							self.navigatorButtons($elem, o.navigatorextrabuttons, self.escId(o.pager));
+						}
+					}
+					if (o.filter) {
+						var fpara = {};
+						if (o.filteroptions) {
+							fpara = o.filteroptions;
+						}
+						$elem.jqGrid('filterToolbar', fpara);
+					}
+					
+					if (o.resizable) {
+						if (!self.loadAtOnce) {
+							self.require( [ "js/base/jquery.ui.widget" + self.minSuffix + ".js", "js/base/jquery.ui.mouse" + self.minSuffix + ".js", "js/base/jquery.ui.resizable" + self.minSuffix + ".js" ]);
+						}
+						var ros = o.resizableoptions;
+						var ro = window[ros];
+						if (!ro) {
+							ro = eval("( " + ros + " )");
+						} else {
+							ro = {};
+						}
+						ro.start = self.pubTops($elem, o.onalw,	o.resizableonstarttopics);
+						ro.stop = self.pubTops($elem, o.onalw, o.resizableonstoptopics);
+						ro.resize = self.pubTops($elem, o.onalw, o.resizableonresizetopics);
+						$elem.jqGrid('gridResize', ro);
+					}
+				}
 				if (o.ongridcompletetopics) {
 					self.publishTopic($elem, o.onalwaystopics, {});
 					self.publishTopic($elem, o.ongridcompletetopics, {});
@@ -454,6 +457,8 @@
 			var params = {};
 			$.extend(params, o);
 
+			$elem.data('_s2jg_init', false);
+			
 			params = self.parseGridParams($elem, o, params);
 
 			$elem.jqGrid(params);
