@@ -42,6 +42,8 @@ public class JqueryMobileModels {
 	protected TextfieldModel textfield;
 	protected SearchfieldModel searchfield;
 	protected SelectModel select;
+    protected SliderModel slider;
+
 
 	private ValueStack stack;
 	private HttpServletRequest req;
@@ -149,5 +151,13 @@ public class JqueryMobileModels {
 
 		return select;
 	}
+
+    public SliderModel getSlider() {
+        if (slider == null) {
+            slider = new SliderModel(stack, req, res);
+        }
+
+        return slider;
+    }
 
 }

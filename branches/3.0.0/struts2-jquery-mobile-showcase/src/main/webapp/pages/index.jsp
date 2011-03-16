@@ -37,6 +37,8 @@
 					<sjm:listItem id="radio_link" href="%{url_radio}">Radio Buttons</sjm:listItem>
 					<s:url id="url_select" action="select"/>
 					<sjm:listItem id="select_link" href="%{url_select}">Select</sjm:listItem>
+                    <s:url id="url_slider" action="slider"/>
+                    <sjm:listItem id="slider_link" href="%{url_slider}">Slider</sjm:listItem>
 
 					<sjm:listItem divider="true">List View</sjm:listItem>
 					<s:url id="url_listview" action="list-view"/>
