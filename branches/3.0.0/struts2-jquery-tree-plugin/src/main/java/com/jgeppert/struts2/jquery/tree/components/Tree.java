@@ -57,6 +57,12 @@ public class Tree extends AbstractContainer {
 	protected String rtl;
 	protected String href;
 	protected String onClickTopics;
+	protected String rootNode;
+	protected String childCollectionProperty;
+	protected String nodeTitleProperty;
+	protected String nodeIdProperty;
+	protected String nodeHref;
+	protected String nodeHrefParamName;
 
 	public Tree(ValueStack stack, HttpServletRequest request,
 			HttpServletResponse response) {
@@ -91,6 +97,19 @@ public class Tree extends AbstractContainer {
 			addParameter("href", findString(href));
 		if (onClickTopics != null)
 			addParameter("onClickTopics", findString(onClickTopics));
+		if (rootNode != null)
+			addParameter("rootNode", findValue(rootNode));
+		if (childCollectionProperty != null)
+			addParameter("childCollectionProperty",
+					findString(childCollectionProperty));
+		if (nodeTitleProperty != null)
+			addParameter("nodeTitleProperty", findString(nodeTitleProperty));
+		if (nodeIdProperty != null)
+			addParameter("nodeIdProperty", findString(nodeIdProperty));
+		if (nodeHref != null)
+			addParameter("nodeHref", findString(nodeHref));
+		if (nodeHrefParamName != null)
+			addParameter("nodeHrefParamName", findString(nodeHrefParamName));
 
 		if ((this.id == null || this.id.length() == 0)) {
 			// resolves Math.abs(Integer.MIN_VALUE) issue reported by FindBugs
@@ -147,5 +166,51 @@ public class Tree extends AbstractContainer {
 	@StrutsTagAttribute(description = "A comma delimited list of topics that published when the tree item is clicked", type = "String")
 	public void setOnClickTopics(String onClickTopics) {
 		this.onClickTopics = onClickTopics;
+	}
+	
+    @StrutsTagAttribute(description="The rootNode property.")
+    public void setRootNode(String rootNode) {
+        this.rootNode = rootNode;
+    }
+    
+    public String getRootNode() {
+        return rootNode;
+    }
+
+    @StrutsTagAttribute(description="The childCollectionProperty property.")
+    public void setChildCollectionProperty(String childCollectionProperty) {
+        this.childCollectionProperty = childCollectionProperty;
+    }
+
+    public String getChildCollectionProperty() {
+        return childCollectionProperty;
+    }
+
+    @StrutsTagAttribute(description="The nodeTitleProperty property.")
+    public void setNodeTitleProperty(String nodeTitleProperty) {
+        this.nodeTitleProperty = nodeTitleProperty;
+    }
+
+    public String getNodeTitleProperty() {
+        return nodeTitleProperty;
+    }
+
+    @StrutsTagAttribute(description="The nodeIdProperty property.")
+    public void setNodeIdProperty(String nodeIdProperty) {
+        this.nodeIdProperty = nodeIdProperty;
+    }
+
+    public String getNodeIdProperty() {
+        return nodeIdProperty;
+    }
+
+    @StrutsTagAttribute(description="The href property for node.")
+	public void setNodeHref(String nodeHref) {
+		this.nodeHref = nodeHref;
+	}
+
+    @StrutsTagAttribute(description="The href parameter name for node link.", defaultValue="id")
+	public void setNodeHrefParamName(String nodeHrefParamName) {
+		this.nodeHrefParamName = nodeHrefParamName;
 	}
 }

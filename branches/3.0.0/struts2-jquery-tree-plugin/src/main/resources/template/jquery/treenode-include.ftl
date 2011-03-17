@@ -18,16 +18,18 @@
  * under the License.
  */
 -->
-<script type='text/javascript'>
-jQuery(document).ready(function () { 
-	jQuery.struts2_jquery.require("js/struts2/jquery.tree.struts2"+jQuery.struts2_jquery.minSuffix+".js");
- });
-</script>
-<#include "/${parameters.templateDir}/simple/div.ftl" />
-	<ul>
-    <#if parameters.rootNode?exists>
-    ${stack.push(parameters.rootNode)}
+		<li id="${stack.findValue(parameters.nodeIdProperty)}">
+    <#if parameters.nodeHref?exists>
+			<a href="${parameters.nodeHref}?${parameters.nodeHrefParamName?default('id')}=${stack.findValue(parameters.nodeIdProperty)}">
+    <#else>
+			<a href="javascript:void(0">
+    </#if>				${stack.findValue(parameters.nodeTitleProperty)}
+			</a>
+			<ul>
+<#list stack.findValue(parameters.childCollectionProperty.toString())! as child>
+    ${stack.push(child)}
     <#include "/${parameters.templateDir}/jquery/treenode-include.ftl" />
-    <#assign oldNode = stack.pop()/> <#-- pop the node off of the stack, but don't show it -->
-    </#if>
-	
+    <#assign oldNode = stack.pop() /> <#-- pop the node off of the stack, but don't show it -->
+</#list>
+			</ul>
+		</li>

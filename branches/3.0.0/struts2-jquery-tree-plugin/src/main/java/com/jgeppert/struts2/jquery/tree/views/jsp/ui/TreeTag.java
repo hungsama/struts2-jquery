@@ -45,6 +45,12 @@ public class TreeTag extends AbstractContainerTag {
 	protected String rtl;
 	protected String href;
 	protected String onClickTopics;
+	protected String rootNode;
+	protected String childCollectionProperty;
+	protected String nodeTitleProperty;
+	protected String nodeIdProperty;
+	protected String nodeHref;
+	protected String nodeHrefParamName;
 
 	public Component getBean(ValueStack stack, HttpServletRequest req,
 			HttpServletResponse res) {
@@ -62,6 +68,12 @@ public class TreeTag extends AbstractContainerTag {
 		tree.setRtl(rtl);
 		tree.setHref(href);
 		tree.setOnClickTopics(onClickTopics);
+		tree.setRootNode(rootNode);
+		tree.setChildCollectionProperty(childCollectionProperty);
+		tree.setNodeIdProperty(nodeIdProperty);
+		tree.setNodeTitleProperty(nodeTitleProperty);
+		tree.setNodeHref(nodeHref);
+		tree.setNodeHrefParamName(nodeHrefParamName);
 	}
 
 	public void setJstreetheme(String jstreetheme) {
@@ -90,6 +102,30 @@ public class TreeTag extends AbstractContainerTag {
 
 	public void setOnClickTopics(String onClickTopics) {
 		this.onClickTopics = onClickTopics;
+	}
+
+	public void setRootNode(String rootNode) {
+		this.rootNode = rootNode;
+	}
+
+	public void setChildCollectionProperty(String childCollectionProperty) {
+		this.childCollectionProperty = childCollectionProperty;
+	}
+
+	public void setNodeTitleProperty(String nodeTitleProperty) {
+		this.nodeTitleProperty = nodeTitleProperty;
+	}
+
+	public void setNodeIdProperty(String nodeIdProperty) {
+		this.nodeIdProperty = nodeIdProperty;
+	}
+
+	public void setNodeHref(String nodeHref) {
+		this.nodeHref = nodeHref;
+	}
+
+	public void setNodeHrefParamName(String nodeHrefParamName) {
+		this.nodeHrefParamName = nodeHrefParamName;
 	}
 
 }

@@ -24,11 +24,11 @@
 </div>
 <div id="col3">
   <div id="col3_content" class="clearfix">
-    <h2>Tree</h2>
+    <h2>Static Tree</h2>
     <p class="text">
-        A simple Tree Component.
+        A simple static Tree Component.
     </p>
-    	<sjt:tree id="tree" jstreetheme="default">
+    	<sjt:tree id="treeStatic" jstreetheme="default">
     		<sjt:treeItem title="Struts2">
 	    		<sjt:treeItem title="General">
 		    		<sjt:treeItem title="Struts2" href="http://struts.apache.org/2.x/index.html"/>
@@ -54,10 +54,27 @@
     			</sjt:treeItem>
     		</sjt:treeItem>
     	</sjt:tree>
-  </div>
   
   <strong>Result Div :</strong>
   <div id="result" class="result ui-widget-content ui-corner-all">Click on the AJAX Links above.</div>
+
+    <h2>Dynamic Tree</h2>
+    <p class="text">
+        A Tree Component rendered on the server.
+    </p>
+
+		<s:url id="echo" value="/echo.action"/>
+    	<sjt:tree 
+    		id="treeDynamic" 
+    		jstreetheme="default"
+    		rootNode="nodes"
+    		childCollectionProperty="children"
+    		nodeTitleProperty="title"
+    		nodeIdProperty="id"
+    		nodeHref="%{echo}"
+    		nodeHrefParamName="echo"
+    	/>
+  </div>
   
   <div class="code ui-widget-content ui-corner-all">
     <strong>Code:</strong>
