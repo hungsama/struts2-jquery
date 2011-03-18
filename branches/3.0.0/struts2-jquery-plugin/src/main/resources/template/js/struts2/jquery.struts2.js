@@ -1741,6 +1741,9 @@
 			if (o.buttonIconSecondary) {
 				params.icons.secondary = o.buttonIconSecondary;
 			}
+			if (o.disabled) {
+				params.disabled = o.disabled;
+			}
 			$elem.button(params);
 		}
 	},
