@@ -88,6 +88,38 @@ CKEDITOR.editorConfig = function( config )
 };
 }}}
 
+==Enable File Upload Support==
+
+Set upload="true" in your ckEditor instance:
+
+{{{
+<sjr:ckeditor 
+	id="richtextEditor" 
+	name="echo" 
+	rows="10" 
+	cols="80" 
+	width="800"
+	uploads="true"
+	value="My Text!"
+/>
+}}}
+
+Configure Uploads in your struts.xml :
+
+{{{
+<constant name="struts.ckeditor.allowUploads" value="true" /> <!-- default is false -->
+<constant name="struts.ckeditor.allowedFileExtensions" value="jpg,jpeg,png" />
+<constant name="sstruts.ckeditor.uploadFolder" value="/imageUploads" />
+}}}
+
+Customize Error Messages :
+
+{{{
+struts.ckeditor.error.notallowed=Uploads are not allowed!
+struts.ckeditor.error.invalid.extension=Invalid File Extension!
+struts.ckeditor.error.general=Error occurred!
+}}}
+
 = Attributes =
 
 		<table width="100%">
@@ -234,6 +266,14 @@ CKEDITOR.editorConfig = function( config )
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Constrains dragging to within the bounds of the specified element or region. Possible string values: parent, document, window, [x1, y1, x2, y2].</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">draggableCursor</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The css cursor during the drag operation.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">draggableDelay</td>
@@ -524,6 +564,14 @@ CKEDITOR.editorConfig = function( config )
 					<td align="left" valign="top">Duration of effect in milliseconds. Only valid if 'effect' attribute is set</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">effectMode</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">none</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The Effect Mode. show, hide, toggle, none</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">effectOptions</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -714,6 +762,14 @@ CKEDITOR.editorConfig = function( config )
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Topics that are published when editor instance is ready</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onEffectCompleteTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when an effect is completed </td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onEnableTopics</td>
@@ -1578,6 +1634,22 @@ CKEDITOR.editorConfig = function( config )
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Icon path used for image that will have the tooltip</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">uploadHref</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Use a custom Upload URL</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">uploads</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Enable Uploads for this Editor Instance.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">value</td>

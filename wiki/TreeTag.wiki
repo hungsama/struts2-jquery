@@ -1,181 +1,152 @@
-#summary A tag that renders a Grid.
+#summary The Tree Tag.
 #labels Phase-Implementation
 
 <wiki:toc max_depth="3" />
 
 = Introduction =
 
-The Grid Tag is provided by the [http://www.trirand.com/blog/ jQuery Grid Plugin].
+The Tree Tag is based on [http://www.jstree.com/ jsTree]. 
 
-For custom locals use the [HeadTag Head Tag]
+To use this Feature you need to copy the struts2-jquery-tree-plugin.jar into your WEB-INF/lib path
+or add it to your maven dependencies.
+
+{{{
+<dependencies>
+    ...
+    <dependency>
+        <groupId>com.jgeppert.struts2.jquery</groupId>
+        <artifactId>struts2-jquery-plugin</artifactId>
+        <version>X.X.X</version>
+    </dependency>
+    <dependency>
+        <groupId>com.jgeppert.struts2.jquery</groupId>
+        <artifactId>struts2-jquery-tree-plugin</artifactId>
+        <version>X.X.X</version>
+    </dependency>
+    ...
+</dependencies>
+}}}
+
 
 = Samples =
 
-  * [EditGrid Make a Grid editable]
-  * [FormatGrid Format Grid Columns]
-  * [SearchGrid Search Grid]
-  * [SubGrid Grid with Subgrid]
-  * [NavigatorButtons Add Navigator Buttons]
-
-== Diagram ==
-
-http://www.jgeppert.com/struts2-jquery/struts2_jquery_grid.png
-
-==Configuration==
-
-Enable JSON support in your Struts2 Webapplication.
-
-  * Use the json plugin that is distributed by struts2 since version 2.1.8
-  * Copy struts2-json-plugin-2.x.x.jar in your WEB-INF/lib path.
-  * Enable json results for your package in struts2.xml config file.
+== A simple static Tree Component ==
 
 {{{
-    <package name="showcase" extends="struts-default,json-default" namespace="/">
-    </package>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="sjt" uri="/struts-jquery-tree-tags"%>
+    	<sjt:tree id="treeStatic" jstreetheme="default">
+    		<sjt:treeItem title="Struts2">
+	    		<sjt:treeItem title="General">
+		    		<sjt:treeItem title="Struts2" href="http://struts.apache.org/2.x/index.html"/>
+		    		<sjt:treeItem title="Struts2 @ Facebook" href="http://www.facebook.com/pages/Struts2-Users/103890046351798"/>
+    			</sjt:treeItem>
+	    		<sjt:treeItem title="Plugins">
+		    		<sjt:treeItem title="Struts2 Plugins" href="https://cwiki.apache.org/S2PLUGINS/home.html"/>
+		    		<sjt:treeItem title="Struts2 jQuery Plugin" href="http://code.google.com/p/struts2-jquery/"/>
+		    		<sjt:treeItem title="Struts2 Full Hibernate Plugin" href="http://code.google.com/p/full-hibernate-plugin-for-struts2/"/>
+    			</sjt:treeItem>
+	    		<sjt:treeItem title="Blogs">
+		    		<sjt:treeItem title="Struts2 jQuery News" href="http://www.jgeppert.com/category/java/struts2-jquery/"/>
+    			</sjt:treeItem>
+	    		<sjt:treeItem title="AJAX Links">
+					<s:url id="ajax1" value="/ajax1.action"/>
+		    		<sjt:treeItem title="Ajax 1" href="%{ajax1}" targets="resultDiv"/>
+					<s:url id="ajax2" value="/ajax2.action"/>
+		    		<sjt:treeItem title="Ajax 2" href="%{ajax2}" targets="resultDiv" effect="highlight" effectDuration="2500"/>
+					<s:url id="ajax3" value="/ajax3.action"/>
+		    		<sjt:treeItem title="Ajax 3" href="%{ajax3}" targets="resultDiv" onBeforeTopics="beforeLink" onCompleteTopics="completeLink"/>
+					<s:url id="ajax4" value="/ajax4.action"/>
+		    		<sjt:treeItem title="Ajax 4" href="%{ajax4}" targets="resultDiv" effect="bounce" effectDuration="1000"/>
+    			</sjt:treeItem>
+    		</sjt:treeItem>
+    	</sjt:tree>
 }}}
 
-==Create a JSON Action==
 
-Create a Struts2 Action that return a valid JSON result.
+==A Tree Component rendered on the server with AJAX Links==
+{{{
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="sjt" uri="/struts-jquery-tree-tags"%>
+		<s:url id="echo" value="/echo.action"/>
+    	<sjt:tree 
+    		id="treeDynamicAjax" 
+    		jstreetheme="default"
+    		rootNode="nodes"
+    		childCollectionProperty="children"
+    		nodeTitleProperty="title"
+    		nodeIdProperty="id"
+    		nodeHref="%{echo}"
+    		nodeHrefParamName="echo"
+    		nodeTargets="resultDiv"
+    	/>
+}}}
 
+==A Tree Component with a JSON Data Source.==
+
+=== JSP Code ===
+{{{
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="sjt" uri="/struts-jquery-tree-tags"%>
+    	<s:url id="treeDataUrl" action="json-tree-data"/>
+    	<sjt:tree 
+    		id="jsonTree" 
+    		href="%{treeDataUrl}"
+    		onClickTopics="treeClicked" 
+    	/>
+}}}
+
+=== Java Action Code ===
 {{{
 @ParentPackage(value = "showcase")
-public class JsonTable extends ActionSupport {
+public class JsonTreeData extends ActionSupport {
 
-  //Your result List
-  private List<Customer>      gridModel;
+	private static final long serialVersionUID = -2886756982077980790L;
+	private List<TreeNode> nodes = new ArrayList<TreeNode>();
+	private String id = "";
 
-  //get how many rows we want to have into the grid - rowNum attribute in the grid
-  private Integer             rows             = 0;
+	@Actions( { @Action(value = "/json-tree-data", results = { @Result(name = "success", type = "json", params = {
+			"root", "nodes" }) }) })
+	public String execute() {
 
-  //Get the requested page. By default grid sets this to 1.
-  private Integer             page             = 0;
+		TreeNode nodeA = new TreeNode();
+		nodeA.setId("A" + id);
+		nodeA.setTitle("Node A" + id);
+		nodeA.setState(TreeNode.NODE_STATE_CLOSED);
 
-  // sorting order - asc or desc
-  private String              sord;
+		TreeNode nodeB = new TreeNode();
+		nodeB.setId("B" + id);
+		nodeB.setState(TreeNode.NODE_STATE_CLOSED);
+		nodeB.setTitle("Node B" + id);
 
-  // get index row - i.e. user click to sort.
-  private String              sidx;
+		TreeNode nodeC = new TreeNode();
+		nodeC.setId("C" + id);
+		nodeC.setState(TreeNode.NODE_STATE_CLOSED);
+		nodeC.setTitle("Node C" + id);
 
-  // Search Field
-  private String              searchField;
+		nodes.add(nodeA);
+		nodes.add(nodeB);
+		nodes.add(nodeC);
 
-  // The Search String
-  private String              searchString;
+		return SUCCESS;
+	}
 
-  // he Search Operation ['eq','ne','lt','le','gt','ge','bw','bn','in','ni','ew','en','cn','nc']
-  private String              searchOper;
+	public String getJSON() {
+		return execute();
+	}
 
-  // Your Total Pages
-  private Integer             total            = 0;
+	public List<TreeNode> getNodes() {
+		return nodes;
+	}
 
-  // All Record
-  private Integer             records          = 0;
-
-  @Actions( {
-    @Action(value = "/jsontable", results = {
-      @Result(name = "success", type = "json")
-    })
-  })
-  public String execute()
-  {
-
-    int to = (rows * page);
-    int from = to - rows;
-
-
-    //Count Rows (select count(*) from custumer)
-    records = CustumerDAO.count()
-
-    //Your logic to search and select the required data.
-    gridModel = CustumerDAO.find(from, to);
-
-    //calculate the total pages for the query
-    total =(int) Math.ceil((double)records / (double)rows);
-
-    return SUCCESS;
-  }
-
-  public String getJSON()
-  {
-    return execute();
-  }
-
-  //Getters and Setters for Attributes
+	public void setId(String id) {
+		this.id = id;
+	}
 }
 }}}
 
-==Using Tags to render the Grid==
-
-  * Add Struts2 jQuery Plugin Tag lib to your JSP
-{{{
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-<%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
-}}}
-  * Enable jQuery Grid Plugin in your Head Tag
-{{{
-<sj:head jqueryui="true" jquerytheme="redmond" />
-}}}
-  * Add Grid and [GridColumnTag GridColumns] to your Page
-{{{
-    <s:url id="remoteurl" action="jsontable"/>
-    <sjg:grid
-    	id="gridtable"
-    	caption="Customer Examples"
-    	dataType="json"
-    	href="%{remoteurl}"
-    	pager="true"
-    	gridModel="gridModel"
-    	rowList="10,15,20"
-    	rowNum="15"
-    	rownumbers="true"
-    >
-    	<sjg:gridColumn name="id" index="id" title="ID" formatter="integer" sortable="false"/>
-    	<sjg:gridColumn name="name" index="name" title="Name" sortable="true"/>
-    	<sjg:gridColumn name="country" index="country" title="Country" sortable="false"/>
-    	<sjg:gridColumn name="city" index="city" title="City" sortable="false"/>
-    	<sjg:gridColumn name="creditLimit" index="creditLimit" title="Credit Limit" formatter="currency" sortable="false"/>
-    </sjg:grid>
-}}}
-
-= Topics=
-
-|| *Topic* || *Grid Event* || *Parameter* ||
-|| onSelectRowTopics || onSelectRow || event.originalEvent.id, event.originalEvent.status, event.originalEvent.grid ||
-|| onSelectAllTopics || onSelectAll || event.originalEvent.ids, event.originalEvent.status, event.originalEvent.grid ||
-|| onBeforeTopics || loadBeforeSend || event.originalEvent.xhr ||
-|| onPagingTopics || onPaging  || event.originalEvent.pgButton ||
-|| onCellSelectTopics || onCellSelect || event.originalEvent.rowid, event.originalEvent.iCol, event.originalEvent.cellcontent, event.originalEvent.e ||
-|| onGridCompleteTopics || gridComplete ||  ||
-|| onFocusTopics || beforeSelectRow || event.originalEvent.rowid, event.originalEvent.e ||
-|| onCompleteTopics|| loadComplete || event.originalEvent.request, event.originalEvent.status ||
-|| onErrorTopics || loadError || event.originalEvent.request, event.originalEvent.status, event.originalEvent.error ||
-|| onEditInlineAfterSaveTopics ||  || event.originalEvent.rowid,event.originalEvent.response  ||
-|| onEditInlineBeforeTopics ||  ||  ||
-|| onEditInlineErrorTopics ||  || event.originalEvent.rowid,event.originalEvent.response  ||
-|| onEditInlineSuccessTopics ||  || event.originalEvent.response ||
-|| onCellEditErrorTopics || errorCell || event.originalEvent.response, event.originalEvent.status ||
-|| onCellEditSuccessTopics || afterSaveCell || event.originalEvent.rowid, event.originalEvent.cellname, event.originalEvent.value, event.originalEvent.iRow, event.originalEvent.iCol ||
-
-== Example ==
-
-{{{
-<script type="text/javascript">
-$.subscribe('rowselect', function(event, data) {
-	alert('Selected Row : ' + event.originalEvent.id);
-});
-</script>
-
-<sjg:grid
-	...
-	onSelectRowTopics="rowselect"
-	...
->
-
-}}}
-
 = Attributes =
+
 		<table width="100%">
 			<tr>
 				<th align="left" valign="top"><h4>Name</h4></th>
@@ -194,68 +165,28 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">Set the html accesskey attribute on rendered html element</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">altClass</td>
+					<td align="left" valign="top">animation</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">ui-priority-secondary</td>
+					<td align="left" valign="top">500</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">The class that is used for alternate rows. You can construct your own class and replace this value. This option is valid only if altRows options is set to true</td>
+					<td align="left" valign="top">Number</td>
+					<td align="left" valign="top">Defines the duration of open/close animations. 0 means no animation.</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">altRows</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Set a zebra-striped grid</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">autoencode</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">true</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">When set to true encodes (html encode) the incoming (from server) and posted data (from editing modules). By example < will be converted to &lt;</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">autowidth</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">When set to true, the grid width is recalculated automatically to the width of the parent element. This is done only initially when the grid is created.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">caption</td>
+					<td align="left" valign="top">bindOn</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Defines the Caption layer for the grid. This caption appear above the Header layer. If the string is empty the caption does not appear.</td>
+					<td align="left" valign="top">Bind the start of load or effect on element. e.g. button or link</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">cellEdit</td>
+					<td align="left" valign="top">childCollectionProperty</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Enables (disables) cell editing. See Cell Editing for more details</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">cellurl</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">the url where the cell is to be saved.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">connectWith</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">empty string</td>
+					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Determines the target grid(s) to which the row should be dropped. The option is a string. In case of more than one grid the ids should be delemited with comma - i.e #grid1, #grid2 </td>
+					<td align="left" valign="top">The childCollectionProperty property.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">cssClass</td>
@@ -298,12 +229,12 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">Type of the result. e.g. html, xml, text, json, ...</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">direction</td>
+					<td align="left" valign="top">deferredLoading</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">ltr</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Determines the language direction in grid. The default is 'ltr' (Left To Right language). When set to 'rtl' (Right To Left) the grid automatically do the needed.</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Defers the initial loading of this element.  The element will not be loaded until one of the reloadTopics is published.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">disabled</td>
@@ -634,22 +565,6 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">Specifies which mode to use for testing whether a draggable is over a droppable. Possible values: fit, intersect, pointer, touch. </td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">editinline</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Enable editing inline. Default: false</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">editurl</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Defines the url for inline and form editing.</td>
-				</tr>
-				<tr>
 					<td align="left" valign="top">effect</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">none</td>
@@ -698,28 +613,12 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">The text to be displayed on load error. If 'errorElement' is provided, this will display the error in the elemtn (if existing), if not, it will display the error as the contents of this container</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">filter</td>
+					<td align="left" valign="top">events</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">This method construct searching creating input elements just below the header elements of the grid.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">filterOptions</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
+					<td align="left" valign="top">click</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Options for Filter Settings as JavaScript Object. e.g. { autosearch : false, formtype : vertical }</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">footerrow</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">If set to true this will place a footer table with one row below the gird records and above the pager.</td>
+					<td align="left" valign="top">Start load or effect on specified event. Possible values are click, dblclick, mouseover, mouseenter, mouseleave. Default: click</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">formIds</td>
@@ -730,140 +629,20 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">Comma delimited list of form ids for which to serialize all fields during submission when this element is clicked (if multiple forms have overlapping element names, it is indeterminate which will be used)</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">gridModel</td>
-					<td align="left" valign="top"><strong>true</strong></td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Name of you grid model. Must be a Collection</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">gridview</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Insert the entry row at once with a jQuery append. The result is impressive - about 3-5 times faster. If set to true we can not use treeGrid, subGrid, or afterInsertRow event.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">groupCollapse</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Defines if the initially the grid should show or hide the detailed rows of the group.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">groupColumnShow</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Show/Hide the column on which we group. The value here should be a boolean true/false for the group level. If the grouping is enabled we set this value to true. e.g. [true]</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">groupDataSorted</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">If this parameter is set to true we send a additional parameter to the server in order to tell him to sort the data. This way all the sorting is done at server leaving the grid only to display the grouped data. If this parameter is false additionally before to display the data we make our own sorting in order to support grouping. This of course slow down the speed on relative big data. This parameter is not valid is the datatype is local.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">groupField</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Defines the name from  colModel  on which we group. The first value is the first lavel, the second values is the second level and etc. Currently only one level is supported. e.g. ['name']</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">groupMinusIcon</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">ui-icon-circlesmall-minus</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the icon from jQuery UI Theme Roller that will be used if the grouped row is expanded</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">groupOrder</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Defines the initial sort order of the group level. Can be asc for ascending or desc for descending order. If the grouping is enabled the default value is asc. e.g. ['asc']</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">groupPlusIcon</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">ui-icon-circlesmall-plus</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the icon from jQuery UI Theme Roller that will be used if the grouped row is collapsed</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">groupShowSummaryOnHide</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Show or hide the summary (footer) row when we collapse the group.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">groupSummary</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Enable or disable the summary (footer) row of the current group level. If grouping is set the default value for the group is false. e.g. [true]</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">groupText</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Defines the grouping header text for the group level that will be displayed in the grid. By default if defined the value if {0} which means that the group value name will be displayed. It is possible to specify another value {1} which meant the the total cont of this group will be displayed too. It is possible to set here any valid html content. e.g. ['<b>{0} - {1} Item(s)</b>'] </td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">height</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">The height of the grid. Can be set as number e.g. 400. Default: auto</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">hiddengrid</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">If set to true the grid initially is hidden. The data is not loaded (no request is sent) and only the caption layer is shown. When the show/hide button is clicked the first time to show grid, the request is sent to the server, the data is loaded, and grid is shown. From this point we have a regular grid.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">hidegrid</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Enables or disables the show/hide grid button, which appears on the right side of the Caption layer. Takes effect only if the caption property is not an empty string.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">hoverrows</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">When set to false the mouse hovering is disabled in the grid data rows.</td>
-				</tr>
-				<tr>
 					<td align="left" valign="top">href</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">The url to be use when this element is clicked</td>
+					<td align="left" valign="top">Url used to load the list of children nodes for an specific node, whose id will be passed as a parameter named 'nodeId' (empty for root)</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">htmlTitles</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Defines whether titles can contain HTML code.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">id</td>
@@ -882,12 +661,28 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">If loading content into a target, Id of element that will be displayed during loading and hidden afterwards (will override settings for the target container)</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">initiallyOpen</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">[]</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Defines which nodes are to be automatically opened when the tree finishes loading - a list of IDs is expected. eg.: ['id1', 'id2']</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">javascriptTooltip</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">Boolean</td>
 					<td align="left" valign="top">Use JavaScript to generate tooltips</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">jstreetheme</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">theme from jquery ui</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">jstree theme. default, default-rtl, classic or apple</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">key</td>
@@ -938,38 +733,6 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">If loading content into a target, The text to be displayed during load (will be shown if any provided, will override settings for the target container)</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">loadonce</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">If this flag is set to true, the grid loads the data from the server only once. After the first request all further manipulations are done on the client side. The functions of the pager (if present) are disabled.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">multiboxonly</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">This option works only when multiselect = true. When multiselect is set to true, clicking anywhere on a row selects that row; when multiboxonly is also set to true, the multiselection is done only when the checkbox is clicked (Yahoo style). Clicking in any other row (suppose the checkbox is not clicked) deselects all rows and the current row is selected.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">multiselect</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">If this flag is set to true a multi selection of rows is enabled. A new column at left side is added.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">multiselectWidth</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">etermines the width of the multiselect column if multiselect is set to true.</td>
-				</tr>
-				<tr>
 					<td align="left" valign="top">name</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -978,108 +741,44 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">The name to set for element</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">navigator</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Navigator is a method that can add predefined actions like editing, adding, deleting, and searching. This must be a true or false.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">navigatorAdd</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">true</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Enables or disables the add action in the navigator. When the button is clicked a editGridRow with parameter new method is executed</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">navigatorAddOptions</td>
+					<td align="left" valign="top">nodeHref</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Add Options for Navigator. e.g. {height:280,reloadAfterSubmit:false},</td>
+					<td align="left" valign="top">The href property for node.</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">navigatorDelete</td>
+					<td align="left" valign="top">nodeHrefParamName</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">true</td>
+					<td align="left" valign="top">id</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Enables or disables the delete action in the navigator. When the button is clicked a delGridRow method is executed.</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The href parameter name for node link.</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">navigatorDeleteOptions</td>
+					<td align="left" valign="top">nodeIdProperty</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Delete Options for Navigator. e.g. {height:280,reloadAfterSubmit:false},</td>
+					<td align="left" valign="top">The nodeIdProperty property.</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">navigatorEdit</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">true</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Enables or disables the edit action in the navigator. When the button is clicked a editGridRow method is executed with parameter the - current selected row</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">navigatorEditOptions</td>
+					<td align="left" valign="top">nodeTargets</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Edit Options for Navigator. e.g. {height:280,reloadAfterSubmit:false},</td>
+					<td align="left" valign="top">AJAX targets for node items.</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">navigatorExtraButtons</td>
+					<td align="left" valign="top">nodeTitleProperty</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Add extra buttons to Navigator. e.g.: { seperator: { title : 'seperator'  }, hidebutton : { title : 'Show Hide', icon: 'ui-icon-gear', topic: showHideGrid} }</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">navigatorRefresh</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">true</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Enables or disables the refresh button in the pager. When the button is clicked a trigger(reloadGrid) is executed and the search parameters are cleared</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">navigatorSearch</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">true</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Enables or disables the search button in the pager.When the button is clicked a searchGrid method is executed</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">navigatorSearchOptions</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Search Options for Navigator. e.g. {height:280,reloadAfterSubmit:false},</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">navigatorView</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Enables or disables the view button in the pager. When the button is clicked a viewGridRow method is executed</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">navigatorViewOptions</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">View Options for Navigator. e.g. {sopt:['cn','bw','eq','ne','lt','gt','ew']},</td>
+					<td align="left" valign="top">The nodeTitleProperty property.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onAlwaysTopics</td>
@@ -1106,30 +805,6 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">A comma delimited list of topics that published when the element is blured</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">onCellEditErrorTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published is called immediately if there is a server error.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">onCellEditSuccessTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published is called immediately after the cell has been successfully saved.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">onCellSelectTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published when we click on particular cell in the grid. Parameters: rowid is the id of the row, iCol is the index of the cell, cellcontent is the content of the cell, e is the event object element where we click.</td>
-				</tr>
-				<tr>
 					<td align="left" valign="top">onChangeTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -1138,12 +813,20 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">A comma delimited list of topics that published when the element changed</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">onClickTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when the tree item is clicked</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">onCompleteTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published when the element ajax request is completed (will override settings for a target container if provided)</td>
+					<td align="left" valign="top">Topics that are published before after load is completed</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onDisableTopics</td>
@@ -1152,38 +835,6 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">A comma delimited list of topics that published when the element disabled</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">onEditInlineAfterSaveTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published is called immediately after the data is saved to the server</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">onEditInlineBeforeTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published after successfully accessing the row for editing, prior to allowing user access to the input fields.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">onEditInlineErrorTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published is called immediately after the data is saved to the server</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">onEditInlineSuccessTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published is called immediately after the request is successful.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onEffectCompleteTopics</td>
@@ -1207,7 +858,7 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published when the element ajax request returns an error (will override settings for a target container if provided)</td>
+					<td align="left" valign="top">Topics that are published on a load error</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onFocusTopics</td>
@@ -1218,52 +869,12 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">A comma delimited list of topics that published when the element is focused</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">onGridCompleteTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published after all the data is loaded into the grid and all other processes are complete.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">onPagingTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published after click on page button and before populating the data. Parameter: pgButton</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">onSelectAllTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published when multiselect option is true and you click on the header checkbox.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">onSelectRowTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published when a row is selected</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">onSortColTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published immediately after sortable column was clicked and before sorting the data. Parameters: index is the index name from colModel, iCol is the index of column, sortorder is the new sorting order - can be 'asc' or 'desc'</td>
-				</tr>
-				<tr>
 					<td align="left" valign="top">onSuccessTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published when the element ajax request is completed successfully  (will override settings for a target container if provided)</td>
+					<td align="left" valign="top">Topics that are published after a succesful load</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onblur</td>
@@ -1386,68 +997,12 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">Set template to use for opening the rendered html.</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">page</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">1</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the initial number of page when we make the request.This parameter is passed to the url for use by the server routine retrieving the data</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">pager</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Defines that we want to use a pager bar to navigate through the records. This must be a true or false.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">pagerButtons</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">true</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Determines if the Pager buttons should be shown if pager is available. Also valid only if pager is set correctly. The buttons are placed in the pager bar.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">pagerInput</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">true</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">DDetermines if the input box, where the user can change the number of requested page, should be available. The input box appear in the pager bar.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">pagerPosition</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">center</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Determines the position of the pager in the grid. By default the pager element when created is divided in 3 parts. Can be left, center, right</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">prmNames</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">{page:"page",rows:"rows", sort: "sidx",order: "sord", search:"_search", nd:"nd", id:"id",oper:"oper",editoper:"edit",addoper:"add",deloper:"del"}</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Customizes names of the fields sent to the server on a Post. When some parameter is set to null they will be not sended to the server.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">recordpos</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">right</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Determines the position of the record information in the pager. Can be left, center, right</td>
-				</tr>
-				<tr>
 					<td align="left" valign="top">reloadTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that will cause this grid to reload</td>
+					<td align="left" valign="top">A comma delimited list of topics that will cause this element to reload</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">requestType</td>
@@ -1626,60 +1181,124 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">This event javascript function is triggered at the end of a resize operation.</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">rowList</td>
+					<td align="left" valign="top">rootNode</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">An array to construct a select box element in the pager in which we can change the number of the visible rows. e.g. 10,15,20</td>
+					<td align="left" valign="top">The rootNode property.</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">rowNum</td>
+					<td align="left" valign="top">rtl</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Defines whether the tree is in right-to-left mode (also make sure you are using a RTL theme - for example the included default-rtl).</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">selectable</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Enable a element to be selectable. Draw a box with your cursor to select items. Hold down the Ctrl key to make multiple non-adjacent selections.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">selectableAutoRefresh</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Sets how many records we want to view in the grid. This parameter is passed to the url for use by the server routine retrieving the data. Note that if you set this parameter to 10 (i.e. retrieve 10 records) and your server return 15 then only 10 records will be loaded. Set this parameter to -1 (unlimited) to disable this checking. Default: 20</td>
+					<td align="left" valign="top">This determines whether to refresh (recalculate) the position and size of each selectee at the beginning of each select operation. If you have many many items, you may want to set this to false and call the refresh method manually. Default: true</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">rowTotal</td>
+					<td align="left" valign="top">selectableCancel</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">null</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Integer</td>
-					<td align="left" valign="top">When set this parameter can instruct the server to load the total number of rows needed to work on. Note that rowNum determines the total records displayed in the grid, while rowTotal the total rows on which we operate. When this parameter is set we send a additional parameter to server named totalrows. You can check for this parameter and if it is available you can replace the rows parameter with this one. Mostly this parameter can be combined wit loadonce parameter set to true.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">rownumbers</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">If this option is set to true, a new column at left of the grid is added. The purpose of this column is to count the number of available rows, beginning from 1. In this case colModel is extended automatically with new element with name - 'rn'. Also, be careful not to use the name 'rn' in gridModel</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">scroll</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Creates dynamic scrolling grids. When enabled, the pager elements are disabled and we can use the vertical scrollbar to load data. When set to true the grid will always hold all the items from the start through to the latest point ever visited.</td>
+					<td align="left" valign="top">Prevents selecting if you start on elements matching the selector. Default: ':input,option'</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">scrollrows</td>
+					<td align="left" valign="top">selectableDelay</td>
 					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">When enabled, selecting a row with setSelection scrolls the grid so that the selected row is visible.</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Time in milliseconds to define when the selecting should start. It helps preventing unwanted selections when clicking on an element.</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">shrinkToFit</td>
+					<td align="left" valign="top">selectableDistance</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">true</td>
+					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">This option describes the type of calculation of the initial width of each column against with the width of the grid. If the value is true and the value in width option is set then: Every column width is scaled according to the defined option width.</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Tolerance, in pixels, for when selecting should start. If specified, selecting will not start until after mouse is dragged beyond distance.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">selectableFilter</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The matching child elements will be made selectees (able to be selected). Default: '*'</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">selectableOnSelectedTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">This event is triggered at the end of the select operation, on each element added to the selection.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">selectableOnSelectingTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">This event is triggered during the select operation, on each element added to the selection.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">selectableOnStartTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">This event is triggered at the beginning of the select operation.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">selectableOnStopTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">This event is triggered at the end of the select operation.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">selectableOnUnselectedTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">This event is triggered at the end of the select operation, on each element removed from the selection.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">selectableOnUnselectingTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">This event is triggered during the select operation, on each element removed from the selection.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">selectableTolerance</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Possible values: 'touch', 'fit'. Default: 'touch'</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">sortable</td>
@@ -1687,7 +1306,7 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Enable sortable columns</td>
+					<td align="left" valign="top">Enable a elements to be sortable</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">sortableAppendTo</td>
@@ -1938,14 +1557,6 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">If set to true, the item will be reverted to its new DOM position with a smooth animation. Default: false</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">sortableRows</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Enable sortable rows</td>
-				</tr>
-				<tr>
 					<td align="left" valign="top">sortableScroll</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -1984,38 +1595,6 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Z-index for element/helper while being sorted. Default: 1000</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">sortname</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">The initial sorting name. This parameter is added to the url. If set and the index (name) match the name from colModel then to this column by default is added a image sorting icon, according to the parameter sortorder (below).</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">sortorder</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">The initial sorting order.This parameter is added to the url - see prnNames. Two possible values - asc or desc. Default asc</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">subGridUrl</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">This option has effect only if subGrid option is set to true. This option points to the file from which we get the data for the subgrid. jqGrid adds the id of the row to this url as parameter.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">subGridWidth</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Determines the width of the subGrid column if subgrid is enabled.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">tabindex</td>
@@ -2106,35 +1685,11 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">Icon path used for image that will have the tooltip</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">userDataOnFooter</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">When set to true we directly place the user data array userData at footer. The rules are as follow: If the userData array contain name which is equal to those of colModel then the value is placed in that column.If there are no such values nothing is palced. Note that if this option is used we use the current formatter options (if available) for that column.</td>
-				</tr>
-				<tr>
 					<td align="left" valign="top">value</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Preset the value of input element.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">viewrecords</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Defines whether we want to display the number of total records from the query in the pager bar.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">width</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">If this option is not set, the width of the grid is a sum of the widths of the columns defined in the colModel (in pixels). If this option is set, the initial width of each column is set according to the value of shrinkToFit option.</td>
 				</tr>
 		</table>

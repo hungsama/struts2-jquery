@@ -1,6 +1,37 @@
 #summary Changelog
 #labels Featured
 
+= 3.0.0 =
+
+*When using your own theme, it is recommended to create a new one. ([http://code.google.com/p/struts2-jquery/wiki/HeadTag#Custome_Themes Instructions])*
+
+  * Upgrade to jQuery 1.5.2
+  * Upgrade to jQuery UI 1.8.12
+  * Upgrade to jQgrid 4.0.0
+  * Upgrade to tinyMce 3.4.2
+  * Upgrade to ckEditor 3.5.3
+  * Upgrade to flot 0.7
+  * Solve Issue 362: 	RichText editors events not called
+  * Solve Issue 379: 	add Tree, TreeTable component.
+  * Solve Issue 392: 	Form Submit with targets doesn't work properly in IE
+  * Solve Issue 430: 	Grid - Sortable column with complex object
+  * Solve Issue 443: 	Topics are not published in Subgrids
+  * Solve Issue 444: 	Add a new Module to support jQuery Mobile
+  * Solve Issue 445: 	Tabbedpanel not submiting form data
+  * Solve Issue 454: 	sj:checkboxlist dont accepts array or collection as default value
+  * Solve Issue 456: 	openTopics on sj:dialog not load content
+  * Solve Issue 463: 	Nested Subgrid
+  * Solve Issue 469: 	sj:submit's onBeforeTopics broken in 2.5.x
+  * Solve Issue 470: 	<sj:a button="true" disable attribute dont work
+  * Solve Issue 476: 	sj:autocompleter json, aborting old request on new one
+  * Solve Issue 483: 	'$.ui.keyCode' is null or not an object Error
+  * Solve Issue 490: 	Whole page refresh after enter on text field for submit form in IE
+  * Solve Issue 491: 	Add File Upload for CKeditor
+  * Solve Issue 493: 	Showcase application 2.5.3 is throwing exception on Tomcat 7
+  * Solve Issue 496: 	Grid problem with italian localization under IE
+  * Solve Issue 501: 	Submit Form with enctype="multipart/form-data" doesn't works :-(
+  * Solve Issue 506: 	Reflecting changes without clearing browser cache
+
 = 2.5.3 =
 
   * Solve Issue 432: datepicker local is loaded when using loadAtOnce="false"

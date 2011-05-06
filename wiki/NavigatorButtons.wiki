@@ -1,0 +1,30 @@
+#summary Add extra Navigator Buttons
+#labels Phase-Implementation
+
+<wiki:toc max_depth="3" />
+
+= Introduction =
+
+Add additional Buttons to the Grid Navigator.
+
+= Sample =
+{{{
+    <sjg:grid ...
+    	id="gridWithButtons"
+    	navigator="true"
+    	navigatorExtraButtons="{
+    		seperator: { 
+    			title : 'seperator'  
+    		}, 
+    		hide : { 
+	    		title : 'Show/Hide', 
+	    		icon: 'ui-icon-wrench', 
+	    		topic: 'showcolumns'
+    		},
+    		alert : { 
+	    		title : 'Alert', 
+	    		onclick: function(){ alert('Grid Button clicked!') }
+    		}
+    	}"
+    >
+}}}
