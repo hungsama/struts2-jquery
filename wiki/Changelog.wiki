@@ -1,6 +1,21 @@
 #summary Changelog
 #labels Featured
 
+= 3.0.2 =
+
+  * Upgrade to jQuery UI 1.8.13
+  * Solve Issue 276: 	autocompler topics are not publihed when using a select box
+  * Solve Issue 352: 	sj:select ajax call gets called twice when inside sj:dialog
+  * Solve Issue 435: 	listenTopic Is Not working with sj:submit
+  * Solve Issue 440: 	DialogTag / dialogClass not work
+  * Solve Issue 466: 	formIds autocompleter not work
+  * Solve Issue 503: 	Default Value doesn't work with js:radio
+  * Solve Issue 515: 	xaxisTimeformat and yaxisTimeformat are not taken into Account account in Chart.java
+  * Solve Issue 516: 	Add searchtype Attribute to Grid Column
+  * Solve Issue 525: 	parentTheme for Datepicker has no effect for custom themes
+  * Solve Issue 526: 	Add a possibility to open all Nodes after initialization.
+  * Solve Issue 529: 	Slider does not work when value is 0
+
 = 3.0.1 =
 
   * Solve Issue 512: 	Grid Search is Broken
