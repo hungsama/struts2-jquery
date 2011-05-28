@@ -1,4 +1,4 @@
-#Setting up the development environment and work space for Struts 2 JQuery Project.
+Setting up the development environment and work space for Struts 2 JQuery Project.
 
 = Introduction =
 
