@@ -1,13 +1,18 @@
-Setting up the development environment and work space for Struts 2 JQuery Project.
+#summary Setting up the development environment and work space for Struts2 jQuery Project.
+#labels Phase-Implementation
+
+<wiki:toc max_depth="3" />
+
+Setting up the development environment and work space for Struts 2 jQuery Project.
 
 = Introduction =
 
-Setting up the development environment and work space for Struts 2 JQuery Project.
+Setting up the development environment and work space for Struts 2 jQuery Project.
 
 
 = Details =
 
-Setting up work space Struts 2 JQuery
+Setting up work space Struts 2 jQuery
 
 Download eclipse-jee-helios-SR2-win32-x86_64.zip note this is for a 64bit system if you use a 32bit OS please download the appropriate file.
 
