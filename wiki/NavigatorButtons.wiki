@@ -23,6 +23,7 @@ Add additional Buttons to the Grid Navigator.
     		},
     		alert : { 
 	    		title : 'Alert', 
+	    		caption : 'Show Alert!', 
 	    		onclick: function(){ alert('Grid Button clicked!') }
     		}
     	}"
