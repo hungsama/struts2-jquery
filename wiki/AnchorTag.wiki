@@ -118,14 +118,14 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 
 = Attributes =
 		<table width="100%">
-				<tr>
-					<th align="left" valign="top"><h4>Name</h4></th>
-					<th align="left" valign="top"><h4>Required</h4></th>
-					<th align="left" valign="top"><h4>Default</h4></th>
-					<th align="left" valign="top"><h4>Evaluated</h4></th>
-					<th align="left" valign="top"><h4>Type</h4></th>
-					<th align="left" valign="top"><h4>Description</h4></th>
-				</tr>
+			<tr>
+				<th align="left" valign="top"><h4>Name</h4></th>
+				<th align="left" valign="top"><h4>Required</h4></th>
+				<th align="left" valign="top"><h4>Default</h4></th>
+				<th align="left" valign="top"><h4>Evaluated</h4></th>
+				<th align="left" valign="top"><h4>Type</h4></th>
+				<th align="left" valign="top"><h4>Description</h4></th>
+			</tr>
 				<tr>
 					<td align="left" valign="top">accesskey</td>
 					<td align="left" valign="top">false</td>
@@ -157,6 +157,14 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Icons to display. The secondary icon is displayed on the right of the label text. Value must be a classname (String), eg. ui-icon-gear.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">buttonText</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">true</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Whether to show any text - when set to false (display no text), icons (see icons option) must be enabled, otherwise it'll be ignored.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">cssClass</td>

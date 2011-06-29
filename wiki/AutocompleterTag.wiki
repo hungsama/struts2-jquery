@@ -695,6 +695,14 @@ public class Autocompleter extends ActionSupport
 					<td align="left" valign="top"> Property of list objects to get field value from</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">listLabel</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">a seperate label element.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">listValue</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>

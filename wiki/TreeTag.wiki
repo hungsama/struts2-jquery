@@ -82,6 +82,7 @@ or add it to your maven dependencies.
     	/>
 }}}
 
+
 ==A Tree Component with a JSON Data Source.==
 
 === JSP Code ===
@@ -187,6 +188,14 @@ public class JsonTreeData extends ActionSupport {
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">The childCollectionProperty property.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">contextmenu</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Expects an JavaScript object or a function, which should return an JavaScript object. e.g. {items: { 'delete' : { 'label': 'Delete Node', 'action':  function (obj) { this.delete(obj); } } } }</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">cssClass</td>
@@ -781,6 +790,14 @@ public class JsonTreeData extends ActionSupport {
 					<td align="left" valign="top">The nodeTitleProperty property.</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">nodeTypeProperty</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The type property for node. This needs a valid types definition.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">onAlwaysTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -987,6 +1004,22 @@ public class JsonTreeData extends ActionSupport {
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Set the html onselect attribute on rendered html element</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">openAllOnLoad</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Open all Nodes on load.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">openAllOnRefresh</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Open all Nodes on refresh.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">openTemplate</td>
@@ -1683,6 +1716,14 @@ public class JsonTreeData extends ActionSupport {
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Icon path used for image that will have the tooltip</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">types</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The types enables node types - each node can have a type, and you can define rules on how that type should behave - maximum children count, maximum depth, valid children types, selectable or not, etc.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">value</td>
