@@ -1,6 +1,28 @@
 #summary Changelog
 #labels Featured
 
+= 3.1.1 =
+
+  * Upgrade to jQuery Mobile Beta 2
+  * Upgrade to jQgrid 4.1.2
+  * Solve Issue 567: 	Adding parent row id in editdata of subgrid
+  * Solve Issue 577: 	struts2-jquery-grid-showcase-3.1.0 DB error
+  * Solve Issue 585: 	TreeTag problems with IE 7.0
+  * Solve Issue 586: 	Autocomplete does not update hidden field when initialized with a value
+  * Solve Issue 587: 	Autocomplete field does not always submit entered value
+  * Solve Issue 588: 	JavaScript error in sj:autocompleter with selectBoxIcon="true" atrribute
+  * Solve Issue 590: 	Grid, charset problem
+  * Solve Issue 591: 	Drag and Drop example in the Showcase is broken
+  * Solve Issue 594: 	Tabbedpanel broken under specific conditions
+  * Solve Issue 595: 	ChartTag does not fire click events identical in IE as it does in Firefox
+  * Solve Issue 600: 	TreeTag tree-item.ftl bug
+  * Solve Issue 603: 	Patch for /trunk/struts2-jquery-tree-plugin/src/main/resources/template/js/struts2/jquery.tree.struts2-3.1.0.js
+  * Solve Issue 604: 	Topics droppableOnOutTopics and droppableOnOverTopics are not published
+  * Solve Issue 606: 	Ajax validation for AutoCompleter result in JavaScript popup error
+  * Solve Issue 613: 	Patch for /trunk/struts2-jquery-plugin/src/main/resources/template/js/struts2/jquery.struts2-3.1.0.js
+  * Solve Issue 624: 	The viewsortcols attribute for the Grid Tag is missing
+
+
 = 3.1.0 =
 
 *When using your own theme, it is recommended to create a new one. ([http://code.google.com/p/struts2-jquery/wiki/HeadTag#Custome_Themes Instructions])*
