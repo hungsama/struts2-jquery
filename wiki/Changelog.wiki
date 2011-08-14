@@ -7,6 +7,7 @@
   * Upgrade to jQgrid 4.1.2
   * Solve Issue 567: 	Adding parent row id in editdata of subgrid
   * Solve Issue 577: 	struts2-jquery-grid-showcase-3.1.0 DB error
+  * Solve Issue 582: 	plugin 3.1.0 autocompleter ognl exception
   * Solve Issue 585: 	TreeTag problems with IE 7.0
   * Solve Issue 586: 	Autocomplete does not update hidden field when initialized with a value
   * Solve Issue 587: 	Autocomplete field does not always submit entered value
