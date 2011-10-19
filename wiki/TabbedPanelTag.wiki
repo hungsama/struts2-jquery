@@ -21,7 +21,7 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <html>
   <head>
-    <sj:head jqueryui="true"/>
+    <sj:head />
   </head>
   <body>
     <sj:tabbedpanel id="mytabs" animate="true" collapsible="true" useSelectedTabCookie="true">
@@ -42,7 +42,7 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <html>
   <head>
-    <sj:head jqueryui="true"/>
+    <sj:head />
   </head>
   <body>
     <s:url id="remoteurl1" action="myremoteactionone"/>
@@ -51,7 +51,7 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
     <sj:tabbedpanel id="mytabs2" selectedTab="1">
       <sj:tab id="tab1" href="%{remoteurl1}" label="Tab One"/>
       <sj:tab id="tab2" href="%{remoteurl2}" label="Tab Two"/>
-      <sj:tab id="tab3" href="%{remoteurl3}" label="Tab Three"/&>
+      <sj:tab id="tab3" href="%{remoteurl3}" label="Tab Three"/>
     </sj:tabbedpanel>
   </body>
 </html>
