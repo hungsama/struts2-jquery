@@ -1,6 +1,39 @@
 #summary Changelog
 #labels Featured
 
+= 3.2.0 =
+
+  * Upgrade to jQuery 1.6.4
+  * Upgrade to jQuery UI 1.8.16
+  * Upgrade to jQuery Mobile RC 2
+  * Upgrade to jQgrid 4.2.0
+  * Upgrade to ckEditor 3.6.2
+  * Solve Issue 549: 	sj:datepicker displayFormat not working for pt-BR locale
+  * Solve Issue 565: 	action call two times in sj:dialog 
+  * Solve Issue 618: 	Missing id param of custom navigator buttons of jqgrid
+  * Solve Issue 622: 	jquery datepicker not working properly
+  * Solve Issue 629: 	add toppager attribute when defining grid
+  * Solve Issue 632: 	OnClickGroup event not available in Struts2-jquery 3.1.1
+  * Solve Issue 640: 	Adding parent row id in editdata of subgrid for the delete options too
+  * Solve Issue 641: 	Support for readonly List in jquery-mobile Plugin
+  * Solve Issue 642: 	struts2-jquery-mobile: List Tag applying a Number Format to listKey Value if the Type is a Number
+  * Solve Issue 645: 	datepicker issue with month of january
+  * Solve Issue 652: 	sj:dialog's onCompleteTopics get publish twice when using $.publish to open a remote dialog
+  * Solve Issue 656: 	sj:dialog openTopics made duplicate remote request if "href" attribute is set
+  * Solve Issue 657: 	<sjt:treeItem href="http://struts.apache.org/2.x/index.html"/> hyperlink does not work
+  * Solve Issue 658: 	Bug in listitem-close.ftl in your struts-jquery-mobile-plugin v3.1.1
+  * Solve Issue 663: 	Compressed parameter in head.ftl can't load min js and css
+  * Solve Issue 676: 	Adding jsonmap param in gridColumn
+  * Solve Issue 677: 	Option for autofocus should be available for autocompleter widget
+  * Solve Issue 679: 	DatePicker with Timepicker Addon - selected date not visible/selected in datepicker
+  * Solve Issue 682: 	Datepicker exclude Today
+  * Solve Issue 683: 	Support onClickTopics for accordionItem Tag
+  * Solve Issue 688: 	sorttype property on colModel not exposed by the gridColumn tag
+  * Solve Issue 690: 	datepicker and default displayFormat (using locale)
+  * Solve Issue 691: 	sj:tree tag can't parse those topic attributes defined in AbstractTopicsBean.java
+  * Solve Issue 692: 	Timepicker 24 Hour issue
+  * Solve Issue 695: 	Autocompleter with parentTheme != xhtm/css/simple and a static list is rendered as a Textbox
+  
 = 3.1.1 =
 
   * Upgrade to jQuery Mobile Beta 2

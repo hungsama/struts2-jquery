@@ -1138,12 +1138,28 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">A comma delimited list of topics that published when the element changed</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">onClickGroupTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when a group is clicked.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">onCompleteTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">A comma delimited list of topics that published when the element ajax request is completed (will override settings for a target container if provided)</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onDblClickRowTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published row was double clicked.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onDisableTopics</td>
@@ -1232,6 +1248,14 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">A comma delimited list of topics that published after click on page button and before populating the data. Parameter: pgButton</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onRightClickRowTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published after row was right clicked. Note - this event does not work in Opera browsers, since Opera does not support oncontextmenu event</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onSelectAllTopics</td>
@@ -2112,6 +2136,14 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Icon path used for image that will have the tooltip</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">toppager</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">When enabled this option place a pager element at top of the grid below the caption (if available).</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">userDataOnFooter</td>
