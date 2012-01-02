@@ -1,6 +1,17 @@
 #summary Changelog
 #labels Featured
 
+= 3.2.1 =
+
+  * Upgrade to jQuery Mobile 1.0 Final
+  * Solve Issue 617: 	"event.originalEvent.options.submit = false;" doesn't stop submit when using sj:submit with a href
+  * Solve Issue 711: 	onOpenTopics not being called with sj:dialog
+  * Solve Issue 715: 	jQuery Mobile 1.0 FINAL
+  * Solve Issue 721: 	select tag with autocomplete not load two js library
+  * Solve Issue 727: 	dataTheme parameter in your sjm:a tag doesn't work
+  * Solve Issue 729: 	nodeHref property does not seem to work with JSON Tree
+  * Solve Issue 737: 	Progressbar implementation problem
+  
 = 3.2.0 =
 
   * Upgrade to jQuery 1.6.4

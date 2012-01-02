@@ -57,6 +57,7 @@ The Code with Struts2 jQuery Plugin:
 === Which jQuery Version is currently used? ===
 
 || *Plugin Version* || [http://jquery.com/ jQuery] || [http://jqueryui.com/ jQuery UI] || [http://jquery.malsup.com/form/ Form Plugin] || [http://benalman.com/projects/jquery-bbq-plugin/ BBQ] (History) || [http://www.trirand.com/blog/ jqGrid] ||
+|| *3.2.1* || 1.6.4 || 1.8.16 || 2.86 || 1.2.1 || 4.2.0 ||
 || *3.2.0* || 1.6.4 || 1.8.16 || 2.86 || 1.2.1 || 4.2.0 ||
 || *3.1.1* || 1.5.2 || 1.8.14 || 2.82 || 1.2.1 || 4.1.2 ||
 || *3.1.0* || 1.5.2 || 1.8.14 || 2.82 || 1.2.1 || 4.1.1 ||
@@ -99,27 +100,27 @@ Since version 1.8.3 the plugin is found in the central Maven repository. Just ad
     <dependency>
         <groupId>com.jgeppert.struts2.jquery</groupId>
         <artifactId>struts2-jquery-plugin</artifactId>
-        <version>3.2.0</version>
+        <version>3.2.1</version>
     </dependency>
     <dependency>
         <groupId>com.jgeppert.struts2.jquery</groupId>
         <artifactId>struts2-jquery-grid-plugin</artifactId>
-        <version>3.2.0</version>
+        <version>3.2.1</version>
     </dependency>
     <dependency>
         <groupId>com.jgeppert.struts2.jquery</groupId>
         <artifactId>struts2-jquery-richtext-plugin</artifactId>
-        <version>3.2.0</version>
+        <version>3.2.1</version>
     </dependency>
     <dependency>
         <groupId>com.jgeppert.struts2.jquery</groupId>
         <artifactId>struts2-jquery-tree-plugin</artifactId>
-        <version>3.2.0</version>
+        <version>3.2.1</version>
     </dependency>
     <dependency>
         <groupId>com.jgeppert.struts2.jquery</groupId>
         <artifactId>struts2-jquery-mobile-plugin</artifactId>
-        <version>3.2.0</version>
+        <version>3.2.1</version>
     </dependency>
     ...
 </dependencies>
