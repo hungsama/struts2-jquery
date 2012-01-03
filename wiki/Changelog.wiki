@@ -5,6 +5,7 @@
 
   * Upgrade to jQuery Mobile 1.0 Final
   * Solve Issue 617: 	"event.originalEvent.options.submit = false;" doesn't stop submit when using sj:submit with a href
+  * Solve Issue 675:  Timepicker not working in french  
   * Solve Issue 711: 	onOpenTopics not being called with sj:dialog
   * Solve Issue 715: 	jQuery Mobile 1.0 FINAL
   * Solve Issue 721: 	select tag with autocomplete not load two js library
