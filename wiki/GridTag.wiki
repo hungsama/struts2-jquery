@@ -1042,6 +1042,14 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">Add extra buttons to Navigator. e.g.: { seperator: { title : 'seperator'  }, hidebutton : { title : 'Show Hide', icon: 'ui-icon-gear', topic: showHideGrid} }</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">navigatorInlineEditButtons</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">true</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Show buttons for edit and add rows in case of editinline is true.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">navigatorRefresh</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">true</td>
@@ -1080,6 +1088,14 @@ $.subscribe('rowselect', function(event, data) {
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">View Options for Navigator. e.g. {sopt:['cn','bw','eq','ne','lt','gt','ew']},</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onAfterValidationTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published after the Ajax validation. event.originalEvent.formvalidate to see if validation passed/failed.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onAlwaysTopics</td>

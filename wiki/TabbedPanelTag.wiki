@@ -223,6 +223,14 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">A comma delimited list of topics that published when a tab is added</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">onAfterValidationTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published after the Ajax validation. event.originalEvent.formvalidate to see if validation passed/failed.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">onAlwaysTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -293,6 +301,14 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">A comma delimited list of topics that published when the element is focused</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onLoadTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published after the content of a remote tab has been loaded.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onRemoveTopics</td>
