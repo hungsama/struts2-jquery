@@ -23,7 +23,7 @@ The Code without Struts2 jQuery Plugin:
 <s:url id="ajax" value="/ajax1.action"/>
 <a id="ajaxlink" href="javascript:void(0)">
   Run AJAX Action
-</sj:a>
+</a>
 <img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>
 <script type="text/javascript">
 $("#ajaxlink").click(function()
