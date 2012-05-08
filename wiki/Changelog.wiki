@@ -1,7 +1,7 @@
 #summary Changelog
 #labels Featured
 
-= 3.3.0 =
+= 3.3.1 =
 
   * Upgrade to jQuery 1.7.2
   * Upgrade to jQuery UI 1.8.20
