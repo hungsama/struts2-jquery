@@ -508,6 +508,14 @@ or add it to your maven dependencies.
 					<td align="left" valign="top">This option enables you to specify what skin you want to use with your theme. A skin is basically a CSS file that gets loaded from the skins directory inside the theme. The advanced theme that TinyMCE comes with has two skins these are called default and o2k7.</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">editorSkinVariant</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">This option enables you to specify what skin variant you want to use with your theme. e.g. you can use editorSkin=o2k7 and editorSkinVariant=silver or editorSkinVariant=black</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">editorTheme</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">advanced</td>
@@ -682,6 +690,14 @@ or add it to your maven dependencies.
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">The name to set for element</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onAfterValidationTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published after the Ajax validation. event.originalEvent.formvalidate to see if validation passed/failed.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onAlwaysTopics</td>
