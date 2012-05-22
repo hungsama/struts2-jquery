@@ -7,6 +7,18 @@
 
 Enable AJAX Client Validation for Forms.
 
+= Prerequisite =
+
+The *jsonValidationWorkflowStack* is a part of the struts2-json-plugin. Include the struts2-json-plugin.jar into your classpath.
+
+{{{
+<dependency>
+	<groupId>org.apache.struts</groupId>
+	<artifactId>struts2-json-plugin</artifactId>
+	<version>${struts2.version}</version>
+</dependency>
+}}}
+
 = Samples =
 
 == Sample Action with Struts2 Validation Annotions ==
