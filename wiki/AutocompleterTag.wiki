@@ -96,7 +96,7 @@ public class Autocompleter extends ActionSupport
     <sj:head jqueryui="true"/>
   </head>
   <body>
-	<s:url id="remoteurl" action="jsonlanguages"/>
+	<s:url var="remoteurl" action="jsonlanguages"/>
     <sj:autocompleter
     	id="languages"
     	href="%{remoteurl}"
