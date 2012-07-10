@@ -59,7 +59,7 @@ public class EditGridEntry extends ActionSupport {
 
 Specify an Edit Url in your JSP
 {{{
-<s:url id="editurl" action="edit-grid-entry"/>
+<s:url var="editurl" action="edit-grid-entry"/>
 }}}
 
 And enable Edit by setting following attributes in your JSP
@@ -174,7 +174,7 @@ public class EditCellEntry extends ActionSupport {
 == Enable Cell Edit in Grid ==
 
 {{{
-    <s:url id="editcellurl" action="edit-cell-entry"/> 
+    <s:url var="editcellurl" action="edit-cell-entry"/> 
     <sjg:grid 
         ...
     	cellEdit="true"

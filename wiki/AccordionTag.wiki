@@ -47,7 +47,7 @@ Open the Accordion on mouse over.
 You can use the Attributes paramKeys and paramValues to append parameters to each URL.
 
 {{{
-    <s:url id="urlecho" action="echo"/>
+    <s:url var="urlecho" action="echo"/>
     <sj:accordion 
     	list="accordion" 
     	listKey="title" 

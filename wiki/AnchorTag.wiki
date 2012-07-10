@@ -19,7 +19,7 @@ A tag that creates an HTML element, that when clicked makes an asynchronous requ
   </head>
   <body>
     <div id="div1">Div 1</div>
-    <s:url id="ajaxTest" value="/AjaxTest.action"/>
+    <s:url var="ajaxTest" value="/AjaxTest.action"/>
 
     <sj:a id="link1" href="%{ajaxTest}" targets="div1">
       Update Content
@@ -51,7 +51,7 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
   <body>
     <div id="div1">Div 1</div>
     <div id="div2">Div 2</div>
-    <s:url id="ajaxTest" value="/AjaxTest.action"/>
+    <s:url var="ajaxTest" value="/AjaxTest.action"/>
 
     <sj:a id="link1" href="%{ajaxTest}" targets="div1, div2"  effect="highlight" effectOptions="{ color : '#222222' }" effectDuration="3000">
       Update Content
@@ -100,7 +100,7 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
   </head>
   <body>
     <div id="result">Result Div</div>
- 	<s:url id="ajax" value="/ajax1.action"/>
+ 	<s:url var="ajax" value="/ajax1.action"/>
 	
 	<sj:a id="ajaxlink" href="%{ajax}" indicator="indicator" targets="result" onClickTopics="before" onCompleteTopics="complete" effect="pulsate" cssClass="buttonlink ui-state-default ui-corner-all"><span class="ui-icon ui-icon-refresh"></span>
 	  Run AJAX Action
@@ -165,6 +165,14 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">Boolean</td>
 					<td align="left" valign="top">Whether to show any text - when set to false (display no text), icons (see icons option) must be enabled, otherwise it'll be ignored.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">clearForm</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Clear all form fields after successful submit when using formIds. Default: false</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">cssClass</td>
@@ -287,6 +295,14 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 					<td align="left" valign="top">HTML id attribute</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">iframe</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Boolean flag indicating whether the form should always target the server response to an iframe when using formIds. This is useful in conjuction with file uploads. Default: false</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">indicator</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -357,6 +373,14 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">The name to set for element</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onAfterValidationTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published after the Ajax validation. event.originalEvent.formvalidate to see if validation passed/failed.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onAlwaysTopics</td>
@@ -575,12 +599,28 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 					<td align="left" valign="top">id of dialog that will be opened when clicked.</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">openDialogTitle</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Set the title of a dialog opened by openDialog or openDialogTopics</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">openTemplate</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Set template to use for opening the rendered html.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">replaceTarget</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Set to true if the target should be replaced or false if only the target contents should be replaced when using formIds.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">requestType</td>
@@ -605,6 +645,14 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Define required position of required form element (left|right)</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">resetForm</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Reset the form after successful submi twhen using formIds. Default: false</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">tabindex</td>

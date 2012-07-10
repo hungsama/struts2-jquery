@@ -119,7 +119,7 @@ public class JsonTable extends ActionSupport {
 }}}
   * Add Grid and [GridColumnTag GridColumns] to your Page
 {{{
-    <s:url id="remoteurl" action="jsontable"/>
+    <s:url var="remoteurl" action="jsontable"/>
     <sjg:grid
     	id="gridtable"
     	caption="Customer Examples"

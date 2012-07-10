@@ -31,7 +31,7 @@ $(document).ready( function() {
   </head>
   <body>
 	<div id="result">Click on the link bellow.</div>
-	<s:url id="jsonurl" action="jsonlanguages"/> 
+	<s:url var="jsonurl" action="jsonlanguages"/> 
 	
 	<sj:a id="ajaxjsonlink" 
 		href="%{jsonurl}" 

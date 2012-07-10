@@ -309,7 +309,7 @@ A Chart that loads Data with JSON AJAX request. The Data is reloadable and the D
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="sjc" uri="/struts-jquery-chart-tags"%>
 
-	<s:url id="chartDataUrl" action="json-chart-data"/>
+	<s:url var="chartDataUrl" action="json-chart-data"/>
     <sjc:chart
     	id="chartAjax"
     	legendLabelBoxBorderColor="#990033"

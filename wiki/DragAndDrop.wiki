@@ -28,7 +28,7 @@ $.subscribe('ondrop', function(event,data) {
 		<p></p>
 	</sj:div>
 
-	<s:url id="urlecho" action="echo"><s:param name="echo">I'm a remote div, drag me!</s:param></s:url>
+	<s:url var="urlecho" action="echo"><s:param name="echo">I'm a remote div, drag me!</s:param></s:url>
 	<sj:div href="%{urlecho}" id="draggableremote"  draggable="true" indicator="indicator" cssClass="accept ui-widget-content ui-corner-all" cssStyle="width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0;" >
 		<img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>
 	</sj:div>

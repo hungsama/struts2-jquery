@@ -19,7 +19,7 @@ This tag generates an Text Input Field that loads its content using an ajax call
   </head>
   <body>
 	<s:form>
-		<s:url id="urlsimpleecho" action="simpleecho"><s:param name="echo">remote content for textfield!</s:param></s:url>
+		<s:url var="urlsimpleecho" action="simpleecho"><s:param name="echo">remote content for textfield!</s:param></s:url>
 		<sj:textfield href="%{urlsimpleecho}" id="echo" name="echo" loadingText="Loading content of textfield ..."/>
 	</s:form>	
   </body>
@@ -48,7 +48,7 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
   </head>
   <body>
 	<s:form>
-		<s:url id="urlsimpleecho" action="simpleecho"><s:param name="echo">remote content for textfield!</s:param></s:url>
+		<s:url var="urlsimpleecho" action="simpleecho"><s:param name="echo">remote content for textfield!</s:param></s:url>
 		<sj:textfield href="%{urlsimpleecho}" effect="pulsate" effectDuration="1500" id="echo" name="echo" loadingText="Loading content of textfield ..."/>
 	</s:form>	
   </body>
@@ -66,7 +66,7 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
   </head>
   <body>
 	<s:form>
-		<s:url id="urlsimpleecho" action="simpleecho"><s:param name="echo">remote content for textfield!</s:param></s:url>
+		<s:url var="urlsimpleecho" action="simpleecho"><s:param name="echo">remote content for textfield!</s:param></s:url>
 		<sj:textfield href="%{urlsimpleecho}" resizable="true" resizableGhost="true" resizableHelper="ui-state-highlight" resizableMaxHeight="30" id="echo" name="echo" loadingText="Loading content of textfield ..."/>
 	</s:form>	
   </body>

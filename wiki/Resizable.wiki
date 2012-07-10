@@ -14,7 +14,7 @@ Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.actio
 == Sample 1 ==
 A Remote Div that load AJAX content and is resizeable. 
 {{{
-    <s:url id="ajax" value="/ajax3.action"/>
+    <s:url var="ajax" value="/ajax3.action"/>
     <sj:div href="%{ajax}" indicator="indicator" resizable="true" resizableAnimate="true" resizableGhost="true" resizableHelper="ui-state-highlight" resizableAspectRatio="true" cssStyle="width: 250px; height: 180px;" cssClass="ui-widget-content ui-corner-all">
         <img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>
     </sj:div>

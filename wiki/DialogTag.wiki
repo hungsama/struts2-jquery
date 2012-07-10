@@ -36,7 +36,7 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
     <sj:head jqueryui="true"/>
   </head>
   <body>
-    <s:url id="remoteurl" action="myremoteaction"/>
+    <s:url var="remoteurl" action="myremoteaction"/>
     <sj:dialog id="mydialog2" href="%{remoteurl}" title="Remote Dialog"/>
   </body>
 </html>
@@ -51,7 +51,7 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
     <sj:head jqueryui="true"/>
   </head>
   <body>
-    <s:url id="remoteurl" action="myremoteaction"/>
+    <s:url var="remoteurl" action="myremoteaction"/>
     <sj:dialog id="mydialog3" href="%{remoteurl}" title="Remote Dialog open on Click" autoOpen="false"/>
    <sj:a openDialog="mydialog3">Open Dialog</sj:a>
   </body>
@@ -67,7 +67,7 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
     <sj:head jqueryui="true"/>
   </head>
   <body>
-    <s:url id="remoteurl" action="myremoteaction"/>
+    <s:url var="remoteurl" action="myremoteaction"/>
     <sj:dialog id="mydialog4" href="%{remoteurl}" title="Modal Remote Dialog with Effects" modal="true" showEffect="slide" hideEffect="explode"/>
   </body>
 </html>

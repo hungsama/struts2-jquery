@@ -19,7 +19,7 @@ This tag generates an HTML div that loads its content using an ajax call, via th
   </head>
   <body>
     <div id="div1">Div 1</div>
-    <s:url id="ajaxTest" value="/AjaxTest.action"/>
+    <s:url var="ajaxTest" value="/AjaxTest.action"/>
     <sj:div href="%{ajaxTest}">Initial Content</sj:div>
   </body>
 </html>
@@ -46,7 +46,7 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
     <sj:head jqueryui="true"/>
   </head>
   <body>
-    <s:url id="ajaxTest" value="/AjaxTest.action"/>
+    <s:url var="ajaxTest" value="/AjaxTest.action"/>
     <sj:div href="%{ajaxTest}" indicator="indicator" effect="pulsate" effectDuration="1500">
 	    <img id="indicator" src="images/indicator.gif" style="display:none"/>
     </sj:div>
@@ -78,7 +78,7 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
     </script>        
   </head>
   <body>
-    <s:url id="ajax" value="/echo.action"><s:param name="echo" value="%{'We love jQuery'}"/></s:url>
+    <s:url var="ajax" value="/echo.action"><s:param name="echo" value="%{'We love jQuery'}"/></s:url>
     <sj:div id="resultnormal" href="%{ajax}" indicator="indicator" onBeforeTopics="beforeDiv" onCompleteTopics="completeDiv" onErrorTopics="errorDiv" cssClass="result ui-widget-content ui-corner-all">
         <img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>
     </sj:div>
@@ -168,6 +168,14 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 					<td align="left" valign="top">Defers the initial loading of this element.  The element will not be loaded until one of the reloadTopics is published.</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">delay</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Number</td>
+					<td align="left" valign="top">How long to wait before fetching the content (in milliseconds). e.g. 2000</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">disabled</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -222,6 +230,14 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Constrains dragging to within the bounds of the specified element or region. Possible string values: parent, document, window, [x1, y1, x2, y2].</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">draggableCursor</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The css cursor during the drag operation.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">draggableDelay</td>
@@ -638,6 +654,14 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">The name to set for element</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onAfterValidationTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published after the Ajax validation. event.originalEvent.formvalidate to see if validation passed/failed.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onAlwaysTopics</td>
@@ -1518,6 +1542,14 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Icon path used for image that will have the tooltip</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">updateFreq</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Number</td>
+					<td align="left" valign="top">How often to reload the content (in milliseconds). e.g. 5000</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">value</td>

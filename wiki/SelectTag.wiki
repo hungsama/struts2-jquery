@@ -82,7 +82,7 @@ public class JsonSample extends ActionSupport{
 ==Receive Entrys from a simple String List==
 
 {{{
-<s:url id="remoteurl" action="jsonsample"/>
+<s:url var="remoteurl" action="jsonsample"/>
 <sj:select
 	href="%{remoteurl}"
 	id="echo"
@@ -96,7 +96,7 @@ public class JsonSample extends ActionSupport{
 ==Receive Entrys from a Object List==
 
 {{{
-<s:url id="remoteurl" action="jsonsample"/>
+<s:url var="remoteurl" action="jsonsample"/>
 <sj:select
 	href="%{remoteurl}"
 	id="echo3"
@@ -112,7 +112,7 @@ public class JsonSample extends ActionSupport{
 ==Receive Entrys from a Map==
 
 {{{
-<s:url id="remoteurl" action="jsonsample"/>
+<s:url var="remoteurl" action="jsonsample"/>
 <sj:select
 	href="%{remoteurl}"
 	id="echo2"
@@ -131,7 +131,7 @@ public class JsonSample extends ActionSupport{
         <legend>AJAX Form</legend>
         <div class="type-text">
             <label for="language">Language: </label>
-			<s:url id="remoteurl" action="jsonsample"/>
+			<s:url var="remoteurl" action="jsonsample"/>
 			<sj:select
 				href="%{remoteurl}"
 				id="language"

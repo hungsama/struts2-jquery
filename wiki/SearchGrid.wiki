@@ -70,7 +70,7 @@ create an Action that returns a Select Box with searchable values.
 
 Create a URL to your select box action and use it in your search options.
 {{{
-<s:url id="selecturl" action="select" />
+<s:url var="selecturl" action="select" />
 <sjg:gridColumn
 	...
 	search="true"

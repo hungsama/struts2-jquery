@@ -1,6 +1,21 @@
 #summary Changelog
 #labels Featured
 
+= 3.3.2 =
+
+  * Upgrade to jQuery UI 1.8.21
+  * Upgrade to jQgrid 4.4.0
+  * Solve Issue 822:	Grid (Editable) Can NOT save in Chrome
+  * Solve Issue 823:	Autocompleter valueWidget attribute has no effect
+  * Solve Issue 824:	Javascipt error occurred if using listenTopics to ajax submit a form
+  * Solve Issue 825:	Sjtree display checkoxes
+  * Solve Issue 832:	Select not works with URL params
+  * Solve Issue 846:	openDialog ignores formIds attribute
+  * Solve Issue 848:	Set dynamic the Title of a Dialog when open via openDialog or Topics
+  * Solve Issue 849:	Support clearForm, resetForm, iframe, replaceTarget also when using Form Submit via Anchor Tag
+  * Solve Issue 853:	Add updateFreq Attribute to Div Tag to reload DIV in a specific Intervall
+  * Solve Issue 854:	Add delay attribute to Div Tag to wait before fetching the content
+
 = 3.3.1 =
 
   * Upgrade to jQuery 1.7.2

@@ -49,7 +49,7 @@ or add it to your maven dependencies.
 ==Richtext Editor with AJAX content, custome toolbar, skin, plugins, buttons and german local==
 {{{
 <%@ taglib prefix="sjr" uri="/struts-jquery-richtext-tags"%>
-		<s:url id="remoteurl" action="ajax1"/>
+		<s:url var="remoteurl" action="ajax1"/>
 		<sjr:tinymce
 			id="richtextTinymceAdvancedEditor"
 			name="echo"

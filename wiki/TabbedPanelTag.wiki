@@ -45,9 +45,9 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
     <sj:head />
   </head>
   <body>
-    <s:url id="remoteurl1" action="myremoteactionone"/>
-    <s:url id="remoteurl2" action="myremoteactiontwo"/>
-    <s:url id="remoteurl3" action="myremoteactionthree"/>
+    <s:url var="remoteurl1" action="myremoteactionone"/>
+    <s:url var="remoteurl2" action="myremoteactiontwo"/>
+    <s:url var="remoteurl3" action="myremoteactionthree"/>
     <sj:tabbedpanel id="mytabs2" selectedTab="1">
       <sj:tab id="tab1" href="%{remoteurl1}" label="Tab One"/>
       <sj:tab id="tab2" href="%{remoteurl2}" label="Tab Two"/>
