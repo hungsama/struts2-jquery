@@ -1,6 +1,11 @@
 #summary Changelog
 #labels Featured
 
+= 3.3.3 =
+
+  * Upgrade to jQuery Mobile 1.1.1
+  * Solve Issue 857: 	Version 3.3.2 is not fully synchronized with in Maven Repository
+
 = 3.3.2 =
 
   * Upgrade to jQuery UI 1.8.21
