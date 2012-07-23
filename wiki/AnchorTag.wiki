@@ -5,7 +5,7 @@
 
 = Introduction =
 
-A tag that creates an HTML element, that when clicked makes an asynchronous request(XMLHttpRequest). The url attribute must be build using the <s:url/> tag.
+A tag that creates an HTML element, that when clicked makes an asynchronous request(XMLHttpRequest). The url attribute must be build using the {{{<s:url/>}}} tag.
 
 = Samples =
 
