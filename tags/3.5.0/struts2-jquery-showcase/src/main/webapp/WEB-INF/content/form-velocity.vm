@@ -1,0 +1,21 @@
+<h2>AJAX Form with Velocity</h2>
+<p class="text">
+	A velocity sample.
+</p>
+<strong>Result Div :</strong>
+<div id="formVelocityResult" class="result ui-widget-content ui-corner-all">Submit form bellow.</div>
+
+#sform("id=formvelocity"  "theme=simple" "action=echo" "cssClass=yform")
+<fieldset>
+	<legend>AJAX Form</legend>
+	<div class="type-text">
+		<label for="echo">Echo: </label>
+		#stextfield("id=echo" "name=echo" "value=Hello World!!!")
+	</div>
+	<div class="type-button">
+		#sjsubmit( "id=formvelocity_submit" "targets=formVelocityResult" "value=AJAX Submit" "formIds=formvelocity" "indicator=indicator" "button=true") #end
+	</div>
+</fieldset>
+#end
+
+<img id="indicator" src="images/indicator.gif" alt="Loading..." style="display:none"/>
