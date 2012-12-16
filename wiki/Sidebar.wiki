@@ -19,6 +19,8 @@
     * [ProgressbarTag Progressbar]
     * [SliderTag Slider]
     * [SpinnerTag Spinner]
+    * [MenuTag Menu]
+      * [MenuItemTag MenuItem]
     * [ChartTag Chart]
       * [ChartDataTag Chart Data]
     * [GridTag Grid]
@@ -50,6 +52,7 @@
     * [http://www.weinfreund.de/struts2-jquery-showcase/ Showcase/Examples]
     * [http://groups.google.com/group/struts2-jquery Mailinglist/Forum]
   * [DeveloperGuide Developer Guide]
+  * [UpgradeGuide Upgrade Guide]
 
 <wiki:gadget url="http://www.ohloh.net/p/346119/widgets/project_users.xml?style=blue" height="100" border="0"/>
 

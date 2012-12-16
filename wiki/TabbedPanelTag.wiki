@@ -24,14 +24,29 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
     <sj:head />
   </head>
   <body>
-    <sj:tabbedpanel id="mytabs" animate="true" collapsible="true" useSelectedTabCookie="true">
-      <sj:tab id="tab1" target="tone" label="Tab One"/>
-      <sj:tab id="tab2"  target="ttwo" label="Tab Two"/>
-      <sj:tab id="tab3"  target="tthree" label="Tab Three"/>
-      <div id="tone"> Test 1 </div>
-      <div id="ttwo"> Test 2 </div>
-      <div id="tthree"> Test 3 </div>
-    </sj:tabbedpanel>
+    <sj:tabbedpanel id="localtabs" cssClass="list">
+                             <sj:tab id="tab1" target="tone" label="Local Tab One"/>
+                             <sj:tab id="tab2" target="ttwo" label="Local Tab Two"/>
+                             <sj:tab id="tab3" target="tthree" label="Local Tab Three"/>
+                             <sj:tab id="tab4" target="tfour" label="Local Tab Four"/>
+                             <div id="tone">Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi
+                                 metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin
+                                 viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                             </div>
+                             <div id="ttwo">Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor
+                                 at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam.
+                                 In suscipit faucibus urna.
+                             </div>
+                             <div id="tthree">Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus pellentesque
+                                 purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed commodo,
+                                 magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+                             </div>
+                             <div id="tfour">Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                                 egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+                                 mauris vel est. Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti
+                                 sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                             </div>
+                         </sj:tabbedpanel>
   </body>
 </html>
 }}}
@@ -45,13 +60,17 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
     <sj:head />
   </head>
   <body>
-    <s:url var="remoteurl1" action="myremoteactionone"/>
-    <s:url var="remoteurl2" action="myremoteactiontwo"/>
-    <s:url var="remoteurl3" action="myremoteactionthree"/>
-    <sj:tabbedpanel id="mytabs2" selectedTab="1">
-      <sj:tab id="tab1" href="%{remoteurl1}" label="Tab One"/>
-      <sj:tab id="tab2" href="%{remoteurl2}" label="Tab Two"/>
-      <sj:tab id="tab3" href="%{remoteurl3}" label="Tab Three"/>
+    <s:url var="remoteurl1" action="ajax1"/>
+    <s:url var="remoteurl2" action="ajax2"/>
+    <s:url var="remoteurl3" action="ajax3"/>
+    <s:url var="remoteurl4" action="ajax4"/>
+    <s:url var="remoteurl5" action="echo"/>
+    <sj:tabbedpanel id="remotetabs" selectedTab="2" show="true" hide="'fade'" collapsible="true" sortable="true">
+        <sj:tab id="tab1" href="%{remoteurl1}" label="Remote Tab One"/>
+        <sj:tab id="tab2" href="%{remoteurl2}" label="Remote Tab Two"/>
+        <sj:tab id="tab3" href="%{remoteurl3}" label="Remote Tab Three" closable="true"/>
+        <sj:tab id="tab4" href="%{remoteurl4}" label="Remote Tab Four" closable="true"/>
+        <sj:tab id="tab5" formIds="echoForm" href="%{remoteurl5}" label="Echo Tab"/>
     </sj:tabbedpanel>
   </body>
 </html>
@@ -85,14 +104,6 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Set the html accesskey attribute on rendered html element</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">animate</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Enable animations for hiding and showing tab panels</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">cache</td>
@@ -159,6 +170,22 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">An array containing the position of the tabs (zero-based index) that should be disabled on initialization. e.g. [1, 2]</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">heightStyle</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">auto</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Controls the height of the accordion and each panel. Possible values 'auto': All panels will be set to the height of the tallest panel, 'content': Each panel will be only as tall as its content, 'fill': Expand to the available height based on the accordion's parent height.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">hide</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">If and how to animate the showing of the panel. Multiple types supported: Boolean, Number, Object or String (escaped with ' e.g.: 'fold' </td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">id</td>
 					<td align="left" valign="top"><strong>true</strong></td>
 					<td align="left" valign="top"></td>
@@ -215,12 +242,12 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">The name to set for element</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">onAddTopics</td>
+					<td align="left" valign="top">onActivateTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published when a tab is added</td>
+					<td align="left" valign="top">A comma delimited list of topics that published after a tab has been activated (after animation completes). If the tabs were previously collapsed.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onAfterValidationTopics</td>
@@ -237,6 +264,14 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">A comma delimited list of topics that published always</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onBeforeActivateTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published directly after a tab is activated.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onBeforeTopics</td>
@@ -309,14 +344,6 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">A comma delimited list of topics that published after the content of a remote tab has been loaded.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">onRemoveTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published when a tab is removed</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onSuccessTopics</td>
@@ -479,20 +506,20 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">Number of tab that will be selected by default. e.g. 0 for the first tab or 1 for the second tab.</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">show</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">If and how to animate the hiding of the panel. Multiple types supported: Boolean, Number, Object or String (escaped with ' e.g.: 'fold' </td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">sortable</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">Boolean</td>
 					<td align="left" valign="top">Making tabs sortable.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">spinner</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">The HTML content of this string is shown in a tab title while remote content is loading. Pass in empty string to deactivate that behavior.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">tabindex</td>

@@ -440,6 +440,14 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">The name to set for element</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">onAfterValidationTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published after the Ajax validation. event.originalEvent.formvalidate to see if validation passed/failed.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">onAlwaysTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -850,9 +858,9 @@ For custom themes for the Dialog take look at the [HeadTag Head Tag].
 				<tr>
 					<td align="left" valign="top">zindex</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
+					<td align="left" valign="top">1000</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">The starting z-index for the dialog. Default: 1000</td>
+					<td align="left" valign="top">The starting z-index for the dialog.</td>
 				</tr>
-		</table>
+			</table>

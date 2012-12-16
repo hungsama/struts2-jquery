@@ -1,6 +1,22 @@
 #summary Changelog
 #labels Featured
 
+= 3.5.0 =
+
+*Check out the [UpgradeGuide Upgrade guide].*
+
+  * Upgrade to jQuery 1.8.3
+  * Upgrade to jQuery UI 1.9.2
+  * New [MenuTag Menu Component]
+  * The Showcase was refactored/redesigned
+  * Solve Issue 377:	add Menu, Menubar component
+  * Solve Issue 621:	Spinner not working in Chrome
+  * Solve Issue 765:	Spinner Tag doesn't allow to enter 2-digit values manually
+  * Solve Issue 906:	Grid with searchoptions and defined dataUrl is broken
+  * Solve Issue 908:	struts2-jquery-tree-plugin checkbox
+  * Solve Issue 911:	Please support "title" option of colModel in Grid-Plugin
+  * Solve Issue 919:	Inline Datepicker does not update the Hidden Field
+
 = 3.4.0 =
 
   * Upgrade to jQuery 1.8.2

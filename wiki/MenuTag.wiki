@@ -1,86 +1,86 @@
-#summary The Slider widget renders a HTML slider.
+#summary The Menu widget.
 #labels Phase-Implementation
 
 <wiki:toc max_depth="3" />
 
 = Introduction =
 
-Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.action Showcase] to see what this tag provides.
+This tag generates an Menu.
 
+For custom themes for the Menu take look at the [HeadTag Head Tag].
 
 = Samples =
 
-==Simple Slider==
-{{{
-<sj:slider id="simpleslider"/>
+== Menu with Items and Submenus ==
 
+{{{
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<html>
+  <head>
+    <sj:head jqueryui="true"/>
+  </head>
+  <body>
+    <sj:menu id="menuWithItems" cssStyle="width:50%">
+        <sj:menuItem title="Struts2" href="http://struts.apache.org/2.x/index.html"/>
+        <sj:menuItem title="Struts2 jQuery News" menuIcon="ui-icon-extlink" href="http://www.jgeppert.com/category/java/struts2-jquery/"/>
+        <sj:menuItem title="Struts2 Plugins">
+            <sj:menu id="subMenuPlugins" cssStyle="width:50%">
+                <sj:menuItem title="Struts2 Plugins" href="https://cwiki.apache.org/S2PLUGINS/home.html"/>
+                <sj:menuItem title="Struts2 jQuery Plugin" href="http://code.google.com/p/struts2-jquery/"/>
+                <sj:menuItem title="Struts2 Bootstrap Plugin" href="http://code.google.com/p/struts2-jquery/"/>
+            </sj:menu>
+        </sj:menuItem>
+
+        <sj:menuItem title="Struts2 @ Social Media">
+            <sj:menu id="subMenuSocialMedia" cssStyle="width:50%">
+                <sj:menuItem title="Struts2 @ Twitter" href="https://twitter.com/TheApacheStruts"/>
+                <sj:menuItem title="Struts2 @ Google+" href="https://www.google.com/+ApacheStruts"/>
+                <sj:menuItem title="Struts2 @ Facebook" href="http://www.facebook.com/struts2"/>
+            </sj:menu>
+        </sj:menuItem>
+
+        <sj:menuItem title="AJAX">
+            <sj:menu id="subMenuAjax" cssStyle="width:50%">
+                <s:url var="ajax1" value="/ajax1.action"/>
+                <sj:menuItem title="Ajax 1" href="%{ajax1}" targets="result"/>
+                <s:url var="ajax2" value="/ajax2.action"/>
+                <sj:menuItem title="Ajax 2" href="%{ajax2}" targets="result" effect="highlight" effectDuration="2500"/>
+                <s:url var="ajax3" value="/ajax3.action"/>
+                <sj:menuItem title="Ajax 3" href="%{ajax3}" targets="result" onBeforeTopics="beforeLink"
+                             onCompleteTopics="completeLink"/>
+                <s:url var="ajax4" value="/ajax4.action"/>
+                <sj:menuItem title="Ajax 4" href="%{ajax4}" menuIcon="ui-icon-gear" targets="result" effect="bounce" effectDuration="1000"/>
+            </sj:menu>
+        </sj:menuItem>
+    </sj:menu>
+  </body>
+</html>
 }}}
 
-==Slider in a Form==
+
+==Menu generated from a List of Values==
 {{{
-	<div id="result">Submit form bellow.</div>
-
-    <s:form id="form" action="echo" theme="simple" cssClass="yform">
-        <fieldset>
-            <legend>AJAX Form</legend>
-	        <div class="type-text">
-	            <label for="echo">Echo: <span id="displayvaluespan">40</span></label>
-	            <sj:slider id="echo" name="echo" value="40" displayValueElement="displayvaluespan" min="20" max="200" animate="true" step="5" cssStyle="margin: 10px;"/>
-	        </div>
-	        <div class="type-button">
-	            <sj:submit targets="result" value="AJAX Submit" indicator="indicator_slider_form"/> <img id="indicator_slider_form" src="images/indicator.gif" alt="Loading..." style="display:none"/>
-	        </div>
-        </fieldset>
-    </s:form>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<html>
+  <head>
+    <sj:head jqueryui="true"/>
+  </head>
+  <body>
+    <s:url var="echourl" action="echo"/>
+    <sj:menu
+            id="menuStringList"
+            href="%{echourl}"
+            paramName="echo"
+            targets="result"
+            cssStyle="width:50%"
+            list="#{'Java', 'JavaScript', 'Scala', 'JRuby'}"
+            />
+    <strong>Result Div :</strong>
+  </body>
+</html>
 }}}
-
-==Sliders with min and max Range and Events==
-{{{
-    <script type="text/javascript">
-    $.subscribe('sliderStop', function(event,data) {
-        alert('Slider stop with value : '+event.originalEvent.ui.value);
-    });
-    </script>
-
-	<div id="result">Submit form bellow.</div>
-
-    <s:form id="form1" action="echo" theme="xhtml" cssStyle="width: 400px; margin: 10px;">
-         <sj:slider id="echo1" name="echo" label="Echo" value="70" onCompleteTopics="sliderStop" range="min" min="20" max="200" step="5" cssStyle="width: 300px; margin: 10px;"/>
-         <sj:submit id="slidersubmit1" targets="result" value="AJAX Submit" indicator="indicator_slider_range"/> <img id="indicator_slider_range" src="images/indicator.gif" alt="Loading..." style="display:none"/>
-    </s:form>
-    <s:form id="form2" action="echo" theme="xhtml" cssStyle="width: 400px; margin: 10px;">
-         <sj:slider id="echo2" name="echo" label="Echo" value="120" orientation="vertical" onCompleteTopics="sliderStop" range="max" min="20" max="200" step="5" cssStyle="height: 200px; margin: 10px;"/>
-         <sj:submit id="slidersubmit2" targets="result" value="AJAX Submit" indicator="indicator_slider_range"/> <img id="indicator_slider_range" src="images/indicator.gif" alt="Loading..." style="display:none"/>
-    </s:form>
-}}}
-
-==Sliders with Range and Events==
-{{{
-    <script type="text/javascript">
-	$.subscribe('sliderRangeStop', function(event, data) {
-		alert('Slider stoped with values : ' + event.originalEvent.ui.values[0] + ' - ' + event.originalEvent.ui.values[1]);
-	});
-    </script>
-
-	<div id="result">Submit form bellow.</div>
-
-    <s:form id="form3" action="echo" theme="xhtml" cssStyle="width: 400px; margin: 10px;">
-         <sj:slider id="echo3" name="echo" label="Echo" value="[15,55]" onCompleteTopics="sliderRangeStop" step="5" cssStyle="margin: 10px;"/>
-         <sj:submit id="slidersubmit3" targets="result" value="AJAX Submit" button="true" indicator="indicator_slider_range3"/> <img id="indicator_slider_range3" src="images/indicator.gif" alt="Loading..." style="display:none"/>
-    </s:form>
-    <s:form id="form4" action="echo" theme="xhtml" cssStyle="width: 400px; margin: 10px;">
-         <sj:slider id="echo4" name="echo" label="Echo" value="{3, 7}" min="1" max="10" onCompleteTopics="sliderRangeStop" cssStyle="margin: 10px;"/>
-         <sj:submit id="slidersubmit4" targets="result" value="AJAX Submit" button="true" indicator="indicator_slider_range4"/> <img id="indicator_slider_range4" src="images/indicator.gif" alt="Loading..." style="display:none"/>
-    </s:form>
-}}}
-
-= Topics =
-
-|| *Topic* || *Event* || *Parameter* ||
-|| onBeforeTopics || start || event.originalEvent.event, event.originalEvent.ui ||
-|| onChangeTopics || change || event.originalEvent.event, event.originalEvent.ui ||
-|| onCompleteTopics || stop || event.originalEvent.event, event.originalEvent.ui ||
-|| onSlideTopics || slide || event.originalEvent.event, event.originalEvent.ui ||
 
 = Attributes =
 
@@ -100,14 +100,6 @@ Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.actio
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Set the html accesskey attribute on rendered html element</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">animate</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Whether to slide handle smoothly when user click outside handle on the bar. Default: false</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">cssClass</td>
@@ -144,18 +136,18 @@ Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.actio
 				<tr>
 					<td align="left" valign="top">disabled</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the html disabled attribute on rendered html element</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Disables the menu if set to true.</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">displayValueElement</td>
+					<td align="left" valign="top">href</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Element Id to display the value.</td>
+					<td align="left" valign="top">The URL to call to obtain the content. Note: If used with ajax context, the value must be set as an url tag value.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">id</td>
@@ -206,20 +198,28 @@ Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.actio
 					<td align="left" valign="top">Define label position of form element (top/left)</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">max</td>
+					<td align="left" valign="top">list</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Integer</td>
-					<td align="left" valign="top">Initialize a slider with the max option specified. Default: 100</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Iterable source to populate from. If the list is a Map (key, value), the Map key will become the option 'value' parameter and the Map value will become the option body.</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">min</td>
+					<td align="left" valign="top">listKey</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Integer</td>
-					<td align="left" valign="top">The minimum value of the slider. Default: 0</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Property of list objects to get field value from</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">listValue</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Property of list objects to get field content from</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">name</td>
@@ -308,14 +308,6 @@ Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.actio
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">A comma delimited list of topics that published when the element is focused</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">onSlideTopics</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">A comma delimited list of topics that published when slide</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onSuccessTopics</td>
@@ -446,20 +438,12 @@ Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.actio
 					<td align="left" valign="top">Set template to use for opening the rendered html.</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">orientation</td>
+					<td align="left" valign="top">paramName</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Normally you don't need to set this option because the plugin detects the slider orientation automatically. If the orientation is not correctly detected you can set this option to 'horizontal' or 'vertical'. Default: 'auto'</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">range</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
+					<td align="left" valign="top">id</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">If set to true, the slider will detect if you have two handles and create a stylable range element between these two. Two other possible values are 'min' and 'max'. A min range goes from the slider min to one handle. A max range goes from one handle to the slider max.</td>
+					<td align="left" valign="top">Parameter name for the href url used when rendered from a collection. e.g. id,name</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">required</td>
@@ -478,20 +462,20 @@ Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.actio
 					<td align="left" valign="top">Define required position of required form element (left|right)</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">step</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Integer</td>
-					<td align="left" valign="top">Determines the size or amount of each interval or step the slider takes between min and max. The full specified value range of the slider (max - min) needs to be evenly divisible by the step. Default: 1</td>
-				</tr>
-				<tr>
 					<td align="left" valign="top">tabindex</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Set the html tabindex attribute on rendered html element</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">targets</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma separated list of ids of container elements to load with the contents from the result of this request</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">template</td>
@@ -563,6 +547,6 @@ Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.actio
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Determines the value of the slider. Default: 0</td>
+					<td align="left" valign="top">Preset the value of input element.</td>
 				</tr>
 		</table>

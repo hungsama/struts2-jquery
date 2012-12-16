@@ -95,14 +95,14 @@ For *effectOptions* please look at the [http://docs.jquery.com/UI/Effects jQuery
 
 = Attributes =
 		<table width="100%">
-				<tr>
-					<th align="left" valign="top"><h4>Name</h4></th>
-					<th align="left" valign="top"><h4>Required</h4></th>
-					<th align="left" valign="top"><h4>Default</h4></th>
-					<th align="left" valign="top"><h4>Evaluated</h4></th>
-					<th align="left" valign="top"><h4>Type</h4></th>
-					<th align="left" valign="top"><h4>Description</h4></th>
-				</tr>
+			<tr>
+				<th align="left" valign="top"><h4>Name</h4></th>
+				<th align="left" valign="top"><h4>Required</h4></th>
+				<th align="left" valign="top"><h4>Default</h4></th>
+				<th align="left" valign="top"><h4>Evaluated</h4></th>
+				<th align="left" valign="top"><h4>Type</h4></th>
+				<th align="left" valign="top"><h4>Description</h4></th>
+			</tr>
 				<tr>
 					<td align="left" valign="top">accesskey</td>
 					<td align="left" valign="top">false</td>

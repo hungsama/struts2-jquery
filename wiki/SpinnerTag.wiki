@@ -5,7 +5,7 @@
 
 = Introduction =
 
-Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.action Showcase] to see what this tag provides.
+Take a look at the [http://struts.jgeppert.com/struts2-jquery-showcase/index.action Showcase] to see what this tag provides.
 
 http://www.jgeppert.com/struts2-jquery/struts2-jquery-spinner.png
 
@@ -28,6 +28,18 @@ http://www.jgeppert.com/struts2-jquery/struts2-jquery-spinner.png
 }}}
 
 ==Spinner with currency format and mouse wheel supports==
+
+For a Country/Language specific formatting of your spinner value, you can use the [https://github.com/jquery/globalize jQuery Globalize] Project.
+
+{{{
+<script type="text/javascript" charset="UTF-8" src="<s:url value="/js/globalize.js"/>"></script>
+<script type="text/javascript" charset="UTF-8" src="<s:url value="/js/globalize.culture.it.js"/>"></script>
+<script type="text/javascript" charset="UTF-8">
+    Globalize.culture( "it" );
+</script>
+}}}
+}}}
+
 {{{
     <sj:spinner
     	name="spinner3"
@@ -36,7 +48,7 @@ http://www.jgeppert.com/struts2-jquery/struts2-jquery-spinner.png
     	max="5.00"
     	step="0.15"
     	value="2.50"
-    	suffix="$"
+    	numberFormat="C"
     	mouseWheel="true"/>
 }}}
 
@@ -102,6 +114,14 @@ http://www.jgeppert.com/struts2-jquery/struts2-jquery-spinner.png
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">The css style definitions for element to use</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">culture</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">null</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Sets the culture to use for parsing and formatting the value.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">dataType</td>
@@ -528,6 +548,14 @@ http://www.jgeppert.com/struts2-jquery/struts2-jquery-spinner.png
 					<td align="left" valign="top">HTML id attribute</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">incremental</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">true</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Controls the number of steps taken when holding down a spin button.When set to true, the stepping delta will increase when spun incessantly. When set to false, all steps are equal (as defined by the step option).</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">indicator</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -630,6 +658,22 @@ http://www.jgeppert.com/struts2-jquery/struts2-jquery-spinner.png
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">The name to set for element</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">numberFormat</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">null</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Format of numbers passed to Globalize, if available. Most common are 'n' for a decimal number and 'C' for a currency value.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onAfterValidationTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published after the Ajax validation. event.originalEvent.formvalidate to see if validation passed/failed.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onAlwaysTopics</td>
@@ -840,28 +884,20 @@ http://www.jgeppert.com/struts2-jquery/struts2-jquery-spinner.png
 					<td align="left" valign="top">Set template to use for opening the rendered html.</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">page</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">10</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Number</td>
+					<td align="left" valign="top">The number of steps to take when paging via the pageUp/pageDown methods.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">parentTheme</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">The parent theme. Default: value of parent form tag or simple if no parent form tag is available</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">point</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">.</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Decimal point character.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">prefix</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Character prefix before the number.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">readonly</td>
@@ -1158,14 +1194,6 @@ http://www.jgeppert.com/struts2-jquery/struts2-jquery-spinner.png
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Possible values: 'touch', 'fit'. Default: 'touch'</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">showOn</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">always</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Defines when the spin buttons are visible. always, focus, hover, both</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">size</td>
@@ -1478,14 +1506,6 @@ http://www.jgeppert.com/struts2-jquery/struts2-jquery-spinner.png
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">Number</td>
 					<td align="left" valign="top">size of step to take when spinning</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">suffix</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Character suffix after the number.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">tabindex</td>
