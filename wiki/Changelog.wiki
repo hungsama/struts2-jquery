@@ -1,6 +1,13 @@
 #summary Changelog
 #labels Featured
 
+= 3.5.1 =
+
+  * Upgrade to jQgrid 4.4.2
+  * Upgrade CKEditor 4.0.1
+  * Solve Issue 647: 	autocompleter does not submit values from other form elements
+  * Solve Issue 936: 	navigatorCloneToTop does not include extra buttons in top navigator bar
+
 = 3.5.0 =
 
 *Check out the [UpgradeGuide Upgrade guide].*
