@@ -3,6 +3,13 @@
 
 <wiki:toc max_depth="3" />
 
+= Struts2 jQuery 3.6.0 Upgrade Guide =
+
+== Dialog Tag ==
+
+  * Attribute zindex was removed
+  * Support for new attribute appendTo
+
 = Struts2 jQuery 3.5.0 Upgrade Guide =
 
 == Accordion Tag ==

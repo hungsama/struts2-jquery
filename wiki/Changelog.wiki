@@ -1,6 +1,25 @@
 #summary Changelog
 #labels Featured
 
+= 3.6.0 =
+
+*Check out the [UpgradeGuide Upgrade guide].*
+
+  * Upgrade to jQuery 1.10.0
+  * Upgrade to jQuery UI 1.10.3
+  * Upgrade to jQgrid 4.5.2
+  * Upgrade to jQuery Mobile 1.3.0
+  * Upgrade to CKEditor 4.1.1
+  * Solve Issue 951:	Plz support new position style of jQuery UI 1.9
+  * Solve Issue 954:	Archetypes reference to jsp-api is invalid
+  * Solve Issue 956:	Accordian rendering not synch with JQuery UI
+  * Solve Issue 964:	Freemarker error when optional id attribute is missing in <sj:tab /> tag
+  * Solve Issue 967:	Tag "required" changed to "requiredLabel" in struts2 2.3.12
+  * Solve Issue 982:	Upgrade jqGrid to 4.5.2
+  * Solve Issue 975:	Please remove '.min'(min suffix) in file jquery.grid.struts2.js#541
+  * Solve Issue 974:	Show-Hide columns not working
+  * Solve Issue 987:	The Showcase Remote Tabs onCompleteTopics Example is broken
+
 = 3.5.1 =
 
   * Upgrade to jQgrid 4.4.2
