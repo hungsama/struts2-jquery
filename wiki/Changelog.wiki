@@ -13,7 +13,7 @@
   * Solve Issue 951:	Plz support new position style of jQuery UI 1.9
   * Solve Issue 954:	Archetypes reference to jsp-api is invalid
   * Solve Issue 956:	Accordian rendering not synch with JQuery UI
-  * Solve Issue 964:	Freemarker error when optional id attribute is missing in <sj:tab /> tag
+  * Solve Issue 964:	Freemarker error when optional id attribute is missing in sj:tab tag
   * Solve Issue 967:	Tag "required" changed to "requiredLabel" in struts2 2.3.12
   * Solve Issue 982:	Upgrade jqGrid to 4.5.2
   * Solve Issue 975:	Please remove '.min'(min suffix) in file jquery.grid.struts2.js#541
