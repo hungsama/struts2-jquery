@@ -170,6 +170,14 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">An array containing the position of the tabs (zero-based index) that should be disabled on initialization. e.g. [1, 2]</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">errorPosition</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Define error position of form element (top|bottom)</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">heightStyle</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">auto</td>
@@ -482,7 +490,7 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">Set template to use for opening the rendered html.</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">required</td>
+					<td align="left" valign="top">requiredLabel</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
@@ -490,7 +498,7 @@ For Custom themes for the TabbedPanel take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">If set to true, the rendered element will indicate that input is required</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">requiredposition</td>
+					<td align="left" valign="top">requiredPosition</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>

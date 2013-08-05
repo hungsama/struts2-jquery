@@ -93,6 +93,12 @@ You can use the Attributes paramKeys and paramValues to append parameters to eac
 
 		<table width="100%">
 			<tr>
+				<td colspan="6"><h4>Dynamic Attributes Allowed:</h4> false</td>
+			</tr>
+			<tr>
+				<td colspan="6">&nbsp;</td>
+			</tr>
+			<tr>
 				<th align="left" valign="top"><h4>Name</h4></th>
 				<th align="left" valign="top"><h4>Required</h4></th>
 				<th align="left" valign="top"><h4>Default</h4></th>
@@ -171,6 +177,14 @@ You can use the Attributes paramKeys and paramValues to append parameters to eac
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Set the html disabled attribute on rendered html element</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">errorPosition</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Define error position of form element (top|bottom)</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">header</td>
@@ -323,6 +337,14 @@ You can use the Attributes paramKeys and paramValues to append parameters to eac
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">A comma delimited list of topics that published when the element ajax request is completed (will override settings for a target container if provided)</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onCreateTopics</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A comma delimited list of topics that published when the accordion is created</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onDisableTopics</td>
@@ -498,7 +520,7 @@ You can use the Attributes paramKeys and paramValues to append parameters to eac
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Comma seperated List of parameter names for the href url. e.g. queryParam1,queryParam2</td>
+					<td align="left" valign="top">Comma delimited List of parameter names for the href url. e.g. queryParam1,queryParam2</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">paramValues</td>
@@ -506,10 +528,10 @@ You can use the Attributes paramKeys and paramValues to append parameters to eac
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Comma seperated List of List Keys for parameter values. e.g. queryValue1,queryValue2</td>
+					<td align="left" valign="top">Comma delimited List of List Keys for parameter values. e.g. queryValue1,queryValue2</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">required</td>
+					<td align="left" valign="top">requiredLabel</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
@@ -517,7 +539,7 @@ You can use the Attributes paramKeys and paramValues to append parameters to eac
 					<td align="left" valign="top">If set to true, the rendered element will indicate that input is required</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">requiredposition</td>
+					<td align="left" valign="top">requiredPosition</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>

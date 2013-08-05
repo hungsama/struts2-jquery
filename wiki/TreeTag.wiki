@@ -310,6 +310,14 @@ public class JsonTreeData extends ActionSupport {
 					<td align="left" valign="top">A comma delimited list of topics to show checkboxes.</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">checkboxTwoState</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">If set to true checkboxes will be two-state only, meaning that you will be able to select parent and children independently and there will be no undetermined state.</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">checkboxUncheckAllTopics</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -748,6 +756,14 @@ public class JsonTreeData extends ActionSupport {
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">This should provide the id of the element into which the error text will be placed when an error ocurrs loading the container. If 'errorTest' is provided, that  wil be used, otherwise the ajax error message text wil be used.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">errorPosition</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Define error position of form element (top|bottom)</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">errorText</td>
@@ -1190,7 +1206,7 @@ public class JsonTreeData extends ActionSupport {
 					<td align="left" valign="top">Type of the AJAX Request. POST, GET, PUT</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">required</td>
+					<td align="left" valign="top">requiredLabel</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
@@ -1198,7 +1214,7 @@ public class JsonTreeData extends ActionSupport {
 					<td align="left" valign="top">If set to true, the rendered element will indicate that input is required</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">requiredposition</td>
+					<td align="left" valign="top">requiredPosition</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
@@ -1476,6 +1492,22 @@ public class JsonTreeData extends ActionSupport {
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Possible values: 'touch', 'fit'. Default: 'touch'</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">showThemeDots</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">true</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Whether to show the connecting dots or not.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">showThemeIcons</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">true</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">Boolean</td>
+					<td align="left" valign="top">Whether to show the node icons or not.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">sortable</td>

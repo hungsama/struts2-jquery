@@ -57,6 +57,7 @@ The Code with Struts2 jQuery Plugin:
 === Which jQuery Version is currently used? ===
 
 || *Plugin Version* || [http://jquery.com/ jQuery] || [http://jqueryui.com/ jQuery UI] || [http://jquery.malsup.com/form/ Form Plugin] || [http://benalman.com/projects/jquery-bbq-plugin/ BBQ] (History) || [http://www.trirand.com/blog/ jqGrid] ||
+|| *3.6.1* || 1.10.2 || 1.10.3 || 3.38 || 1.2.1 || 4.5.2 ||
 || *3.6.0* || 1.10.0 || 1.10.3 || 3.35 || 1.2.1 || 4.5.2 ||
 || *3.5.1* || 1.8.3 || 1.9.2 || 3.25 || 1.2.1 || 4.4.2 ||
 || *3.5.0* || 1.8.3 || 1.9.2 || 3.23 || 1.2.1 || 4.4.1 ||

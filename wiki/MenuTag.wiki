@@ -142,6 +142,14 @@ For custom themes for the Menu take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">Disables the menu if set to true.</td>
 				</tr>
 				<tr>
+					<td align="left" valign="top">errorPosition</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Define error position of form element (top|bottom)</td>
+				</tr>
+				<tr>
 					<td align="left" valign="top">href</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -446,7 +454,7 @@ For custom themes for the Menu take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">Parameter name for the href url used when rendered from a collection. e.g. id,name</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">required</td>
+					<td align="left" valign="top">requiredLabel</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">false</td>
@@ -454,7 +462,7 @@ For custom themes for the Menu take look at the [HeadTag Head Tag].
 					<td align="left" valign="top">If set to true, the rendered element will indicate that input is required</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">requiredposition</td>
+					<td align="left" valign="top">requiredPosition</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
