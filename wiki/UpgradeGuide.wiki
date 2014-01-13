@@ -3,6 +3,11 @@
 
 <wiki:toc max_depth="3" />
 
+= Struts2 jQuery 3.7.0 Upgrade Guide =
+
+In Struts 2.3.16 the interface org.apache.struts2.views.TagLibrary was removed and replaced by two interfaces org.apache.struts2.views.TagLibraryDirectiveProvider and org.apache.struts2.views.TagLibraryModelProvider.
+This means that *Struts2 jQuery Plugin version 3.7.0 and higher is not compatible to any Struts release before 2.3.16*.
+
 = Struts2 jQuery 3.6.0 Upgrade Guide =
 
 == Dialog Tag ==

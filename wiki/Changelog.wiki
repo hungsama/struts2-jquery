@@ -1,6 +1,20 @@
 #summary Changelog
 #labels Featured
 
+= 3.7.0 =
+
+*Check out the [UpgradeGuide Upgrade guide].*
+
+  * Upgrade to Struts 2.3.16 (see [UpgradeGuide Upgrade guide])
+  * Upgrade to jQgrid 4.5.4
+  * Upgrade to jQuery Mobile 1.4.0
+  * Solve Issue 991:	Accordion with Number-Values causes Script-Error
+  * Solve Issue 1030:	Dialog with buttons: typeof is undefined - error in showcase
+  * Solve Issue 1032:	Can't select value for a select box with autocomplete and json
+  * Solve Issue 1062:	Struts2.3.16 + Struts2-jQuery plugin 3.6.1 don't work.
+  * Solve Issue 1067:	jQuery deprecated the select method in v.1.9 in v.1.10 they completely removed it.
+
+
 = 3.6.1 =
 
   * Upgrade to jQuery 1.10.2
