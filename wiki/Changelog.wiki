@@ -1,6 +1,21 @@
 #summary Changelog
 #labels Featured
 
+= 3.7.1 =
+
+  * Upgrade to Struts 2.3.16.3
+  * Upgrade to jQuery 1.10.4
+  * Upgrade to jQuery UI 1.10.3
+  * Upgrade to jQgrid 4.6.0
+  * Upgrade to jQuery Mobile 1.4.2
+  * Solve Issue 1068:	Closable tab does not work
+  * Solve Issue 1079:	targets attribute not working on submit tag in IE8
+  * Solve Issue 1082:	<sj:a> use "href" attribute,<s:form> don't submit.
+  * Solve Issue 1089:	Showcase example not working in IE8
+  * Solve Issue 1090:	cssClass not being applied to grid tag
+  * Solve Issue 1093:	Need to update jquery.form.js to version 3.50 to resolve old IE issue whit Ajax submit.
+  * Solve Issue 1099:	onclick of edit button in the navigator without selecting any rows- disables the page.
+
 = 3.7.0 =
 
 *Check out the [UpgradeGuide Upgrade guide].*
