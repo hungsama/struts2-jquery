@@ -12,7 +12,7 @@ _Google has dropped the download support on project hosting. So this and newer v
   * Upgrade to jQuery Mobile 1.4.2
   * Solve Issue 1068:	Closable tab does not work
   * Solve Issue 1079:	targets attribute not working on submit tag in IE8
-  * Solve Issue 1082:	<sj:a> use "href" attribute,<s:form> don't submit.
+  * Solve Issue 1082:	sj:a use "href" attribute, s:form don't submit.
   * Solve Issue 1089:	Showcase example not working in IE8
   * Solve Issue 1090:	cssClass not being applied to grid tag
   * Solve Issue 1093:	Need to update jquery.form.js to version 3.50 to resolve old IE issue whit Ajax submit.
