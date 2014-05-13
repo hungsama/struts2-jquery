@@ -3,6 +3,8 @@
 
 = 3.7.1 =
 
+_Google has dropped the download support on project hosting. So this and newer versions are only available in the [https://oss.sonatype.org/content/groups/staging/com/jgeppert/struts2/jquery/ maven repositories].
+
   * Upgrade to Struts 2.3.16.3
   * Upgrade to jQuery 1.10.4
   * Upgrade to jQuery UI 1.10.3
