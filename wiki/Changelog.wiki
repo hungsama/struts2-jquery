@@ -6,8 +6,8 @@
 _Google has dropped the download support on project hosting. So this and newer versions are only available in the [https://oss.sonatype.org/content/groups/staging/com/jgeppert/struts2/jquery/ maven repositories].
 
   * Upgrade to Struts 2.3.16.3
-  * Upgrade to jQuery 1.10.4
-  * Upgrade to jQuery UI 1.10.3
+  * Upgrade to jQuery 1.11.0
+  * Upgrade to jQuery UI 1.10.4
   * Upgrade to jQgrid 4.6.0
   * Upgrade to jQuery Mobile 1.4.2
   * Solve Issue 1068:	Closable tab does not work
