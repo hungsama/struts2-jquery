@@ -47,7 +47,7 @@ The following Example shows how to format a date. The JSON Result give us a date
 
 = Custom Formatter =
 
-This Example is taken form [http://www.weinfreund.de/struts2-jquery-grid-showcase/index.action Grid Showcase]. This Steps describe how to open an custom dialog form Grid Column.
+This Example is taken form [http://struts.jgeppert.com/struts2-jquery-grid-showcase/index.action Grid Showcase]. This Steps describe how to open an custom dialog form Grid Column.
 
 == Create a jQuery UI Dialog ==
 
