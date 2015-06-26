@@ -7,7 +7,7 @@
 
 The Attributes resizeable ="true" extends the [DivTag Divs], [TextareaTag Textareas], [TextfieldTag Textfields] and [SelectTag Select Boxes] to be resizeable.
 
-Take a look at the [http://www.weinfreund.de/struts2-jquery-showcase/index.action Showcase] to see what this tag provides.
+Take a look at the [http://struts.jgeppert.com/struts2-jquery-showcase/index.action Showcase] to see what this tag provides.
 
 = Samples =
 
