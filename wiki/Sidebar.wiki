@@ -49,7 +49,7 @@
     * [Validation Form Validation]
     * [JsonResult Work with JSON Results]
   * Links
-    * [http://www.weinfreund.de/struts2-jquery-showcase/ Showcase/Examples]
+    * [http://struts.jgeppert.com/struts2-jquery-showcase/index.action Showcase/Examples]
     * [http://groups.google.com/group/struts2-jquery Mailinglist/Forum]
   * [DeveloperGuide Developer Guide]
   * [UpgradeGuide Upgrade Guide]
